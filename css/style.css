@@ -1,0 +1,55 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#padre {
+  width: 100%;
+  height: 100vh;          /* 100% de la altura visible del navegador */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;       /* Evita barras de desplazamiento si la imagen se sale */
+  position: relative;
+}
+
+#imagenFondo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* Hace que la imagen se adapte al div sin deformarse */
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;            /* Envía la imagen al fondo (opcional, si agregas más contenido encima) */
+}
+
+nav {
+  background-color: #222;      /* Color de fondo */
+  padding: 15px 0;
+  position: fixed;             /* Se mantiene arriba al hacer scroll */
+  top: 0;
+  width: 100%;
+  z-index: 1000;               /* Siempre por encima del contenido */
+}
+
+nav ul {
+  list-style: none;            /* Quita los puntos de lista */
+  margin: 0;
+  padding: 0;
+  display: flex;               /* Los elementos se alinean en fila */
+  justify-content: center;     /* Centra el menú */
+  gap: 40px;                   /* Espacio entre opciones */
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00bcd4;              /* Color al pasar el mouse */
+}
