@@ -1,3 +1,21 @@
+
+@font-face {
+  font-family: "Lminecraft_titulo"; /* Dale un nombre a tu fuente */
+  src: url("../letras/mac_s_minecraft/mac\'s\ Extended\ Minecraft.ttf") format("truetype"); /* Especifica la ruta y el formato */
+  font-weight: normal; /* Opcional: define el peso */
+  font-style: normal;  /* Opcional: define el estilo */
+}
+
+
+@font-face {
+  font-family: "Lminecraft_texto"; /* Dale un nombre a tu fuente */
+  src: url("../letras/mac_s_minecraft/mac\'s\ Extended\ Minecraft.ttf") format("truetype"); /* Especifica la ruta y el formato */
+  font-weight: normal; /* Opcional: define el peso */
+  font-style: normal;  /* Opcional: define el estilo */
+  
+}
+
+
 /* ==========================================================
    CONFIGURACIÓN GLOBAL
    ========================================================== */
@@ -23,11 +41,10 @@ html, body {
 
   /* Fondo */
   background-image: url('../imagenes/fondo.png');
-  background-size: contain;          /* Muestra la imagen completa sin recorte */
   background-repeat: no-repeat;
   background-position: center top;
   background-attachment: fixed;      /* La imagen permanece fija al hacer scroll */
-  /* background-color: #000; */      /* Activa si quieres relleno negro lateral */
+   background-color: #000;       /* Activa si quieres relleno negro lateral */
 }
 
 /* ==========================================================
@@ -84,11 +101,12 @@ nav a:hover {
 
 #titulo_principal {
   text-align: center;
-  margin-top: 180px;
   color: #fff;
   max-width: 800px;
   padding: 20px;
   opacity: 0;
+  font-family: 'Lminecraft_titulo', sans-serif;
+
 
     /* Fondo opaco */
   background-color: rgba(5, 20, 22, 0.5); /* negro semitransparente */
@@ -116,6 +134,13 @@ nav a:hover {
   opacity: 0.9;
 }
 
+.logo {
+
+  width: 60%;
+  margin: auto;
+
+ }
+
 /* --- Animación de entrada suave para el título --- */
 @keyframes fadeZoomIn {
   from {
@@ -127,6 +152,8 @@ nav a:hover {
     transform: scale(1);
   }
 }
+
+
 
 /* ==========================================================
    TIMELINE (LÍNEA DE TIEMPO)
@@ -141,6 +168,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   gap: 80px;
+
 }
 
 /* Línea vertical central */
@@ -165,6 +193,8 @@ nav a:hover {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-family: 'Lminecraft_texto', sans-serif;
+  font-size: 15px;
 }
 
 /* --- Bloques izquierdos --- */
