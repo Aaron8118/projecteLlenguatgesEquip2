@@ -20,11 +20,14 @@
    CONFIGURACIÓN GLOBAL
    ========================================================== */
 
-html, body {
+html, body, a {
   height: 100%;
   margin: 0;
   padding: 0;
+  cursor: url('../imagenes/cursor.cur'), auto;
+
 }
+
 
 /* ==========================================================
    CONTENEDOR PRINCIPAL
@@ -46,6 +49,38 @@ html, body {
   background-attachment: fixed;      /* La imagen permanece fija al hacer scroll */
    background-color: #000;       /* Activa si quieres relleno negro lateral */
 }
+
+#lista {
+
+display: flex;
+float: left;
+font-family: 'Lminecraft_texto', sans-serif;
+justify-content: center;
+align-items: center;
+margin-left: 33%;
+margin-top: 15px;
+gap: 25px;
+
+
+}
+
+ #cabeza_arriba {
+
+  width: 3%;
+  float: left;
+  margin-left: 10px;
+  
+
+ }
+
+  #cabeza_arriba2 {
+
+  width: 3%;
+  float: right;
+  margin-right: 10px;
+
+ }
+
 
 /* ==========================================================
    IMAGEN DE FONDO (OPCIONAL)
@@ -92,7 +127,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #00bcd4;                    /* Efecto hover */
+  color: #0db50d;                    /* Efecto hover */
 }
 
 /* ==========================================================
@@ -137,9 +172,11 @@ nav a:hover {
 .logo {
 
   width: 60%;
-  margin: auto;
+  margin: 30px auto;
 
  }
+
+
 
 /* --- Animación de entrada suave para el título --- */
 @keyframes fadeZoomIn {
