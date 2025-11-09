@@ -33,7 +33,7 @@ html, body, a {
    CONTENEDOR PRINCIPAL
    ========================================================== */
 
-#padre {
+#wrapper {
   width: 100%;
   min-height: 100vh;                 /* Permite crecer según el contenido */
   display: flex;
@@ -48,6 +48,11 @@ html, body, a {
   background-position: center top;
   background-attachment: fixed;      /* La imagen permanece fija al hacer scroll */
    background-color: #000;       /* Activa si quieres relleno negro lateral */
+}
+
+#nav-principal {
+    background-color: #333;
+    padding: 10px 20px;
 }
 
 #lista {
@@ -141,7 +146,7 @@ nav a:hover {
   padding: 20px;
   opacity: 0;
   font-family: 'Lminecraft_titulo', sans-serif;
-
+  margin-left: 23%;
 
     /* Fondo opaco */
   background-color: rgba(5, 20, 22, 0.5); /* negro semitransparente */
