@@ -24,8 +24,10 @@ html, body, a {
   height: 100%;
   margin: 0;
   padding: 0;
-  cursor: url('../imagenes/cursor.cur'), auto;
+}
 
+* {
+  cursor: url('../imagenes/cursor.cur'), auto;
 }
 
 
