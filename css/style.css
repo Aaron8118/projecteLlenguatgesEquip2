@@ -1,7 +1,7 @@
 
 @font-face {
   font-family: "Lminecraft_titulo"; /* Dale un nombre a tu fuente */
-  src: url("../letras/mac_s_minecraft/mac\'s\ Extended\ Minecraft.ttf") format("truetype"); /* Especifica la ruta y el formato */
+  src: url("../font/mac_s_minecraft/mac\'s\ Extended\ Minecraft.ttf") format("truetype"); /* Especifica la ruta y el formato */
   font-weight: normal; /* Opcional: define el peso */
   font-style: normal;  /* Opcional: define el estilo */
 }
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "Lminecraft_texto"; /* Dale un nombre a tu fuente */
-  src: url("../letras/mac_s_minecraft/mac\'s\ Extended\ Minecraft.ttf") format("truetype"); /* Especifica la ruta y el formato */
+  src: url("../font/mac_s_minecraft/mac\'s\ Extended\ Minecraft.ttf") format("truetype"); /* Especifica la ruta y el formato */
   font-weight: normal; /* Opcional: define el peso */
   font-style: normal;  /* Opcional: define el estilo */
   
@@ -27,7 +27,7 @@ html, body, a {
 }
 
 * {
-  cursor: url('../imagenes/cursor.cur'), auto;
+  cursor: url('../img/cursor.cur'), auto;
 }
 
 
@@ -45,7 +45,7 @@ html, body, a {
   overflow-x: hidden;
 
   /* Fondo */
-  background-image: url('../imagenes/fondo.png');
+  background-image: url('../img/fondo.png');
   background-repeat: no-repeat;
   background-position: center top;
   background-attachment: fixed;      /* La imagen permanece fija al hacer scroll */
