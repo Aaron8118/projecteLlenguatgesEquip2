@@ -1,0 +1,194 @@
+/* Fondo */
+#wrapper {  
+  background-image: url('../img/fondo.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;      /* La imagen permanece fija al hacer scroll */
+  background-color: #000;       /* Activa si quieres relleno negro lateral */
+}
+
+/* ==========================================================
+   SECCIÓN DE TÍTULO PRINCIPAL
+   ========================================================== */
+
+#titulo_principal {
+  text-align: center;
+  color: #fff;
+  max-width: 800px;
+  padding: 20px;
+  opacity: 0;
+  font-family: 'Lminecraft', sans-serif;
+  margin-left: 23%;
+
+    /* Fondo opaco */
+  background-color: rgba(5, 20, 22, 0.5); /* negro semitransparente */
+  border-radius: 12px;
+
+  /* Animación de aparición suave */
+  animation: fadeZoomIn 1.3s ease-out forwards;
+}
+
+#titulo_principal h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+#titulo_principal h1 span {
+  color: #00bcd4;                    /* Resalta la palabra “Minecraft” */
+}
+
+#titulo_principal h4 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.logo {
+
+  width: 60%;
+  margin: 30px auto;
+
+}
+
+/* --- Animación de entrada suave para el título --- */
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================================
+   TIMELINE (LÍNEA DE TIEMPO)
+   ========================================================== */
+
+/* Contenedor principal del timeline */
+.timeLine {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  margin: 150px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+}
+
+/* Línea vertical central */
+.timeLine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Bloques del timeline */
+.evento_left, .evento_right {
+  position: relative;
+  width: 45%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-family: 'Lminecraft', sans-serif;
+  font-size: 15px;
+}
+
+/* --- Bloques izquierdos --- */
+.evento_left {
+  align-self: flex-start;
+  text-align: right;
+  animation: aparecerIzquierda 1s ease-out forwards;
+  animation-timeline: scrollLine;
+  animation-range: entry 0% cover 40%;
+}
+
+/* Punto conector (izquierda) */
+.evento_left::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -12px;
+  width: 20px;
+  height: 20px;
+  background: #00bcd4;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+/* --- Bloques derechos --- */
+.evento_right {
+  align-self: flex-end;
+  text-align: left;
+  animation: aparecerDerecha 1s ease-out forwards;
+  animation-timeline: scrollLine;
+  animation-range: entry 0% cover 40%;
+}
+
+/* Punto conector (derecha) */
+.evento_right::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -12px;
+  width: 20px;
+  height: 20px;
+  background: #00bcd4;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+/* ==========================================================
+   ANIMACIONES DEL TIMELINE
+   ========================================================== */
+
+/* --- Izquierda --- */
+@keyframes aparecerIzquierda {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Derecha --- */
+@keyframes aparecerDerecha {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Fuente de texto personalizada --- */
+@font-face {
+  font-family: "Lminecraft";
+  src: url("../font/mac_s_minecraft/mac\'s\ Extended\ Minecraft.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --- Sincronización con el scroll --- */
+@scroll-timeline scrollLine {
+  source: auto;
+  orientation: block;
+}
