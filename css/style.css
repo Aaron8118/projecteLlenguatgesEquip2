@@ -3,31 +3,20 @@
    CONFIGURACIÓN GLOBAL
    ========================================================== */
 
-html, body, a {
-  height: 100%;
+* {
   margin: 0;
   padding: 0;
-}
-
-* {
   cursor: url('../img/cursor.cur'), auto;
 }
-
 
 /* ==========================================================
    CONTENEDOR PRINCIPAL
    ========================================================== */
 
 #wrapper {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   position: relative;
-  overflow-x: hidden;
 }
-
 
 
 /* ==========================================================
@@ -35,58 +24,98 @@ html, body, a {
    ========================================================== */
 
 nav {
-  background-color: #222;
-  padding: 15px 0;
   position: fixed;
   top: 0;
-  width: 100%;
   z-index: 1000;
+  background-color: #333;
+  padding: 0 10px;
+  width: 100%;
 }
-
-nav ul {
+nav div {
+  position: relative;
+}
+nav ul{
+  display: block;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
+  font-family: 'Lminecraft', sans-serif;
+  text-align: center;
 }
-
+nav li{
+  display: inline-block;
+  width: 6%;
+  height: 70px;
+  line-height: 70px;
+}
 nav a {
+  font-weight: 600;
+  display: block;
   text-decoration: none;
   color: white;
-  font-weight: 600;
   transition: color 0.3s ease;
+  height: 70px;
+  line-height: 70px;
 }
-
 nav a:hover {
   color: #0db50d;
-}
-
-#nav-principal {
-  background-color: #333;
-  padding: 10px 20px;
-}
-
-#lista {
-display: flex;
-float: left;
-font-family: 'Lminecraft', sans-serif;
-justify-content: center;
-align-items: center;
-margin-left: 33%;
-margin-top: 15px;
-gap: 25px;
+  background-color: #222;
 }
 
 #cabeza_arriba {
   width: 3%;
-  float: left;
-  margin-left: 10px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }
-
 #cabeza_arriba2 {
   width: 3%;
-  float: right;
-  margin-right: 10px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
 }
+
+/* ==========================================================
+   Footer (HEADER)
+   ========================================================== */
+footer {
+  background-color: #333;
+  padding: 0 10px;
+  width: 100%;
+}
+footer ul {
+  display: block;
+  list-style: none;
+  font-family: 'Lminecraft', sans-serif;
+  text-align: center;
+  width: 49%;
+  display: inline-block;
+}
+footer div {
+  box-sizing: content-box;
+  margin: 5px 0;
+  padding: 5px;
+  width: 49%;
+  display: inline-block;
+}
+footer p {
+  margin: 0px;
+  font-size: smaller;
+  color: white;
+  font-family: 'Lminecraft', sans-serif;
+  font-weight: 400;
+}
+footer li {
+  display: inline;
+  height: 50px;
+  line-height: 50px;
+}
+footer a {
+  text-decoration: underline;
+  font-weight: 400;
+  font-size: small;
+  color: white;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  color: #0db50d;
+}
+

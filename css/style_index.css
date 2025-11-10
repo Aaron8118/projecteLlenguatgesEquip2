@@ -186,9 +186,3 @@
   font-weight: normal;
   font-style: normal;
 }
-
-/* --- Sincronización con el scroll --- */
-@scroll-timeline scrollLine {
-  source: auto;
-  orientation: block;
-}
