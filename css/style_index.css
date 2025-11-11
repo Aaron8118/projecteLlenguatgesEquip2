@@ -250,13 +250,19 @@ hr {
 .juegos img {
   display: inline-block;
 }
+.juegos .consolas {
+  width: 20px;
+  filter: brightness(0.4);
+  margin: 4px;
+}
+.juegos .portada {
+  width: 100%;
+}
 .juegos:hover {
     transition: 1s;
     transform: scale(1.09);
     background-color: #333;
 }
-
-
 /* --- Fuente de texto personalizada --- */
 @font-face {
   font-family: "Lminecraft";

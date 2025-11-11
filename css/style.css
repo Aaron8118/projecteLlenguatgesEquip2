@@ -86,14 +86,14 @@ footer ul {
   list-style: none;
   font-family: 'Lminecraft', sans-serif;
   text-align: center;
-  width: 49%;
+  width: 30%;
   display: inline-block;
 }
 footer div {
   box-sizing: content-box;
   margin: 5px 0;
   padding: 5px;
-  width: 49%;
+  width: 30%;
   display: inline-block;
 }
 footer p {
@@ -117,4 +117,42 @@ footer a {
 }
 footer a:hover {
   color: #0db50d;
+}
+
+.redesFotter {
+  display: inline-block;
+  padding: 10px;
+  height: 45px;
+  width: 45px;
+  background-color: white;
+  border-radius: 30%;
+  transition: background-color 400ms ease-in-out ;
+  background-image: none;
+  transform: scale(1.0);
+}
+.redesFotter[alt="youtube"] {
+  padding: 0;
+}
+.redesFotter[alt="facebook"]:hover {
+  background-color: rgb(32, 107, 178);
+  transform: scale(1.1);
+}
+.redesFotter[alt="instagram"]:hover {
+  background-color: rgb(178, 32, 134);
+  transform: scale(1.1);
+}
+.redesFotter[alt="ticktock"]:hover {
+  background-color: rgb(36, 199, 98);
+  transform: scale(1.1);
+}
+.redesFotter[alt="x"]:hover {
+  background-color: lightseagreen;
+  transform: scale(1.1);
+}
+.redesFotter[alt="youtube"]:hover {
+  background-color: rgb(182, 5, 5);
+  transform: scale(1.1);
+} 
+#redes {
+  text-align: right;
 }
