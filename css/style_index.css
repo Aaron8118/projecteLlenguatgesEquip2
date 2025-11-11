@@ -3,9 +3,11 @@
   background-image: url('../img/fondo.png');
   background-repeat: no-repeat;
   background-position: center top;
-  background-attachment: fixed;      /* La imagen permanece fija al hacer scroll */
-  background-color: #000;       /* Activa si quieres relleno negro lateral */
+  background-color: rgb(23, 22, 21);
+  scroll-behavior: smooth;      /* Activa si quieres relleno negro lateral */
 }
+
+
 
 /* ==========================================================
    SECCIÓN DE TÍTULO PRINCIPAL
@@ -18,25 +20,29 @@
   padding: 20px;
   opacity: 0;
   font-family: 'Lminecraft', sans-serif;
-  margin-left: 23%;
+  margin-left: 22%;
+  margin-top: -100px;
+
 
     /* Fondo opaco */
   background-color: rgba(5, 20, 22, 0.5); /* negro semitransparente */
   border-radius: 12px;
+  animation: fadeZoomIn 1.3s ease-out forwards;
+
 
   /* Animación de aparición suave */
   animation: fadeZoomIn 1.3s ease-out forwards;
 }
 
 #titulo_principal h1 {
-  font-size: 2.8rem;
+  font-size: 1.3rem;
   margin-bottom: 15px;
   letter-spacing: 1px;
   font-weight: 800;
 }
 
 #titulo_principal h1 span {
-  color: #00bcd4;                    /* Resalta la palabra “Minecraft” */
+  color: #0db50d;            /* Resalta la palabra “Minecraft” */
 }
 
 #titulo_principal h4 {
@@ -49,7 +55,7 @@
 .logo {
 
   width: 60%;
-  margin: 30px auto;
+  margin: 10px auto;
 
 }
 
@@ -77,8 +83,9 @@
   margin: 150px auto;
   display: flex;
   flex-direction: column;
-  gap: 80px;
-
+  gap: 24px;
+  margin-top: 40px; /* súbelo 50px */
+  margin-left: 22%;
 }
 
 /* Línea vertical central */
@@ -104,7 +111,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   font-family: 'Lminecraft', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 /* --- Bloques izquierdos --- */
@@ -186,3 +193,101 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
+.loro {
+
+  position: absolute;
+  top: 16.3%;
+  width: 60px;
+  left: 15%;
+
+}
+
+.gallina {
+
+  position: absolute;
+  top: 23.3%;
+  width: 60px;
+  left: 90%;
+
+}
+
+
+.aldeano {
+
+  position: absolute;
+  top: 23.1%;
+  width: 170px;
+  left: 10%;
+
+}
+
+.malo {
+
+  position: absolute;
+  top: 57.9%;
+  width: 230px;
+  left: 4%;
+
+}
+
+.araña {
+
+  position: absolute;
+  top: 63.7%;
+  width: 280px;
+  left: -3%;
+  transform: scaleX(-1); /* Invierte la imagen horizontalmente */
+
+}
+
+
+
+/* BOTON */
+/* ==========================================================
+   BOTÓN EXCAVAR
+   ========================================================== */
+
+html {
+  scroll-behavior: smooth; /* efecto de desplazamiento suave */
+}
+
+.contenedor-excavar {
+  display: flex;
+  margin: 50px 0px; /* separa del título y del timeline */
+  position: absolute;
+  top: 575px;
+  height: 70px;
+  text-align: center;
+
+}
+
+.boton-excavar {
+  background-image: url(../img/bloque.png); /* verde estilo Xbox */
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  align-items: center;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  font-family: 'Lminecraft', sans-serif;
+}
+
+.boton-excavar:hover {
+  background-color: #0e6a0e;
+  transform: scale(1.05);
+  color:#0db50d;
+
+}
+
+.flecha {
+  font-size: 22px;
+  transition: transform 0.2s ease;
+}
+
+
