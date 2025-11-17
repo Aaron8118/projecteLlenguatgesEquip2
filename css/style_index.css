@@ -15,11 +15,9 @@
 
 #titulo_principal {
   text-align: center;
-  color: #fff;
   max-width: 800px;
   padding: 20px;
   opacity: 0;
-  font-family: 'Lminecraft', sans-serif;
   margin-left: 22%;
   margin-top: -100px;
 
@@ -106,11 +104,9 @@
   position: relative;
   width: 45%;
   background: rgba(0, 0, 0, 0.65);
-  color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  font-family: 'Lminecraft', sans-serif;
   font-size: 14px;
 }
 
@@ -197,7 +193,6 @@ CATALOGO DE JUEGOS
   margin-top: -330px;
   text-align: center;
   font-size: 2.8rem;
-  font-family: 'Lminecraft', sans-serif;
   background-image: url(../img/tierra_encima.png);
   background-size: cover;
 }
@@ -215,7 +210,6 @@ CATALOGO DE JUEGOS
     height: 1000px;
     gap: 40px;
     background-color: #333;
-    color: white;
     background: url(../img/catalogo_fondo_fin.png), linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
     background-size: cover;
 }
@@ -237,7 +231,6 @@ hr {
   height: 455px;
   margin: 30px;
   text-align: left;
-  font-family: 'Lminecraft', sans-serif;
 }
 .juegos h3 {
   font-size: 1.1rem;
@@ -263,14 +256,6 @@ hr {
     transform: scale(1.09);
     background-color: #333;
 }
-/* --- Fuente de texto personalizada --- */
-@font-face {
-  font-family: "Lminecraft";
-  src: url("../font/mac_s_minecraft/mac\'s\ Extended\ Minecraft.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 
 .loro {
 
@@ -289,7 +274,6 @@ hr {
   left: 90%;
 
 }
-
 
 .aldeano {
 
@@ -319,8 +303,6 @@ hr {
 
 }
 
-
-
 /* BOTON */
 /* ==========================================================
    BOTÓN EXCAVAR
@@ -342,7 +324,6 @@ html {
 
 .boton-excavar {
   background-image: url(../img/bloque.png); /* verde estilo Xbox */
-  color: #fff;
   text-decoration: none;
   padding: 14px 32px;
   border-radius: 5px;
@@ -352,7 +333,6 @@ html {
   align-items: center;
   transition: background-color 0.25s ease, transform 0.2s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
-  font-family: 'Lminecraft', sans-serif;
 }
 
 .boton-excavar:hover {
