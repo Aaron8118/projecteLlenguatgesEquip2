@@ -186,6 +186,83 @@
   }
 }
 
+
+
+/*========================================================
+CATALOGO DE JUEGOS
+========================================================== */
+#tituloCatalogo {
+  width: 100%;
+  height: 400px;
+  margin-top: -330px;
+  text-align: center;
+  font-size: 2.8rem;
+  font-family: 'Lminecraft', sans-serif;
+  background-image: url(../img/tierra_encima.png);
+  background-size: cover;
+}
+#tituloCatalogo h2 {
+  padding: 170px;
+  padding-top: 360px;
+  color: rgb(0, 166, 0);
+  text-transform: uppercase;
+}
+#catalogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 1000px;
+    gap: 40px;
+    background-color: #333;
+    color: white;
+    background: url(../img/catalogo_fondo_fin.png), linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+    background-size: cover;
+}
+hr {
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+.juegos {
+  background-color: #222;
+  transition: 1s;
+  padding: 20px;
+  box-sizing: border-box;
+  border-top: 5px solid rgb(67, 67, 67);
+  border-right: 5px solid rgb(67, 67, 67);
+  border-bottom: 5px solid rgb(28, 28, 28);
+  float: left;
+  box-sizing: border-box;
+  width: 350px;
+  height: 455px;
+  margin: 30px;
+  text-align: left;
+  font-family: 'Lminecraft', sans-serif;
+}
+.juegos h3 {
+  font-size: 1.1rem;
+  margin: 5px;
+}
+.juegos p {
+  font-size: 0.8rem;
+  margin: 5px;
+}
+.juegos img {
+  display: inline-block;
+}
+.juegos .consolas {
+  width: 20px;
+  filter: brightness(0.4);
+  margin: 4px;
+}
+.juegos .portada {
+  width: 100%;
+}
+.juegos:hover {
+    transition: 1s;
+    transform: scale(1.09);
+    background-color: #333;
+}
 /* --- Fuente de texto personalizada --- */
 @font-face {
   font-family: "Lminecraft";
