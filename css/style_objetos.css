@@ -21,7 +21,7 @@ fieldset {
     box-shadow:inset -4px -4px 0 #373737,inset 4px 4px 0 #FCFCFC;
 }
 legend {
-    transform: translateY(-16px);
+    transform: translateY(-14px);
     padding: 4px;
     padding-left: 13px;
     padding-right: 13px;
@@ -44,11 +44,11 @@ legend {
     position:relative;
     width:32px;
     height:32px;
-    background:#8B8B8B;
+    background-color:#8B8B8B;
     box-shadow:inset -2px -2px 0 #FCFCFC,inset 2px 2px 0 #373737;
     margin: 1px;
     display:inline-block;
-
+    transition: all 0.2 ease;
 }
 .item {
     width: 25px;
@@ -225,4 +225,9 @@ legend {
 }
 #chorusFruit {
     background-image: url(../img/objetos/comida/Chorus_Fruit.png);
+}
+
+
+main {
+padding: 100px 0px;
 }
