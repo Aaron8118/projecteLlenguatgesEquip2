@@ -2,21 +2,24 @@
     padding: 0;
     margin: 0;
 }
+#wrapper {
+    background-image:url(../img/objetos/fondo.jpeg);
+}
 .ui {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+
 }
 fieldset {
     background-color: #c6c6c6;
     height: fit-content;
     width: fit-content;
-    padding: 20px;
-    padding-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin: 20px;
+    padding: calc(20px + (0.2*5vw));
+    padding-top: calc(10px + (0.1*5vw));
+    margin: 60px auto;
     border: 4px solid #555;
     box-shadow:inset -4px -4px 0 #373737,inset 4px 4px 0 #FCFCFC;
 }
@@ -29,6 +32,7 @@ legend {
     border: 4px solid #555;
     border-bottom: 0px;
     box-shadow:inset -4px  0px 0 #373737,inset 4px 4px 0 #FCFCFC, 0px 8px 0 #c6c6c6;
+    font-size: 1.5em;
 }
 .ui p {
     color: white;
@@ -38,12 +42,16 @@ legend {
 }
 .fila {
     margin: 0;
-    font-size: 0; 
+    font-size: 0;
+    position: relative;
 }
 .slot{
-    position:relative;
-    width:32px;
-    height:32px;
+    min-width: 32px;
+    min-height: 32px;
+    width: 5vw;
+    height: 5vw;
+    max-width: 57px;
+    max-height: 57px;
     background-color:#8B8B8B;
     box-shadow:inset -2px -2px 0 #FCFCFC,inset 2px 2px 0 #373737;
     margin: 1px;
@@ -51,183 +59,408 @@ legend {
     transition: all 0.2 ease;
 }
 .item {
-    width: 25px;
-    height: 25px;
+    min-width: 25px;
+    min-height: 25px;
+    width: 4vw;
+    height: 4vw;
+    max-width: 50px;
+    max-height: 50px;
     margin-left: 3px;
     margin-top: 3px;
     background-size: cover;
 }
 
 
-#pico {
-    background-image: url(../img/objetos/herramientas/Diamond_Pickaxe_JE3_BE3.webp);
-}
-#hacha {
-    background-image: url(../img/objetos/herramientas/Diamond_Axe_JE3_BE3.webp);
-}
-#azada {
-    background-image: url(../img/objetos/herramientas/Diamond_Hoe_JE3_BE3.webp);
-}
-#pala {
-    background-image: url(../img/objetos/herramientas/Diamond_Shovel_JE3_BE3.png);
-}
-#canapescar {
-    background-image: url(../img/objetos/herramientas/Fishing_Rod_JE2_BE2.png);
-}
-#canazanahoria {
-    background-image: url(../img/objetos/herramientas/Carrot_on_a_Stick_JE2_BE2.png);
-}
-#brujula {
-    background-image: url(../img/objetos/herramientas/Compass_JE3_BE3.gif);
-}
-#mechero {
-    background-image: url(../img/objetos/herramientas/Flint_and_Steel_JE4_BE2.webp);
-}
-#reloj {
-    background-image: url(../img/objetos/herramientas/Clock_JE3_BE3.webp);
-}
-#casco {
-    background-image: url(../img/objetos/armasArmaduras/casco.webp);
-}
-#tunica {
-    background-image: url(../img/objetos/armasArmaduras/tunica.png);
-}
-#pantalones {
-    background-image: url(../img/objetos/armasArmaduras/pantalones.png);
-}
-#botas {
-    background-image: url(../img/objetos/armasArmaduras/botas.png);
-}
-#espada {
-    background-image: url(../img/objetos/armasArmaduras/Diamond_Sword.png);
-}
-#arco {
-    background-image: url(../img/objetos/armasArmaduras/Bow.webp);
-}
-#flechas {
-    background-image: url(../img/objetos/armasArmaduras/Arrow.webp);
-}
-#escudo {
-    background-image: url(../img/objetos/armasArmaduras/Shield.png);
-    background-repeat: no-repeat;
-    background-size: 55%;
-    margin-left: 8px;
-}
-#manzana {
-    background-image: url(../img/objetos/armasArmaduras/Enchanted_Golden_Apple.webp);
-}
-#madera {
-    background-image: url(../img/objetos/bloques/Wooden_Planks.webp);
-}
-#piedra {
-    background-image: url(../img/objetos/bloques/Stone.webp);
-}
-#carbon {
-    background-image: url(../img/objetos/minerales/Coal_JE4_BE3.webp);
-}
-#cobre {
-    background-image: url(../img/objetos/minerales/Copper_Ingot_JE2_BE1.png);
-}
-#hierro {
-    background-image: url(../img/objetos/minerales/Iron_Ingot_JE3_BE2.png);
-}
-#oro {
-    background-image: url(../img/objetos/minerales/Gold_Ingot_JE4_BE2.webp);
-}
-#emeralde {
-    background-image: url(../img/objetos/minerales/Emerald_JE3_BE3.webp);
-}
-#diamante {
-    background-image: url(../img/objetos/minerales/Diamond_JE3_BE3.webp);
-}
-#netherite {
-    background-image: url(../img/objetos/minerales/Lingote_de_netherita.webp);
-}
 
-#mesacraft {
-    background-image: url(../img/objetos/bloques/Crafting_Table.webp);
-}
-#horno {
-    background-image: url(../img/objetos/bloques/Furnace.webp);
-}
-#tronco {
-    background-image: url(../img/objetos/bloques/Wood.webp);
-}
-#ladrillopiedra {
-    background-image: url(../img/objetos/bloques/Stone_Brick.webp);
-}
-#ladrillos {
-    background-image: url(../img/objetos/bloques/Brick.webp);
-}
-#cristal {
-    background-image: url(../img/objetos/bloques/Glass.webp);
-}
-#paredpiedra {
-    background-image: url(../img/objetos/bloques/Cobblestone_Wall.webp);
-}
-#boton {
-    background-image: url(../img/objetos/bloques/Button.webp);
-}
-#lever {
-    background-image: url(../img/objetos/bloques/Lever.gif);
-}
-#escalerasmadera {
-    background-image: url(../img/objetos/bloques/Lever.gif);
-}
-#puertas {
-    background-image: url(../img/objetos/bloques/Wooden_Door.webp);
-}
-#signo {
-    background-image: url(../img/objetos/bloques/Sign.webp);
-}
-#fencegate {
-    background-image: url(../img/objetos/bloques/Fence_Gate.webp);
-}
-#fence {
-    background-image: url(../img/objetos/bloques/Fence.webp);
-}
-#ladder {
-    background-image: url(../img/objetos/bloques/Ladder.webp);
-}
-#trapdoor {
-    background-image: url(../img/objetos/bloques/Trapdoor.webp);
-}
-#antorcha {
-    background-image: url(../img/objetos/bloques/Torch.webp);
-}
-#cama {
-    background-image: url(../img/objetos/bloques/Bed.webp);
-}
 
-#mushroomStew {
-    background-image: url(../img/objetos/comida/Mushroom_Stew.png);
-}
-#beetrootStew {
-    background-image: url(../img/objetos/comida/Beetroot_Soup.webp);
-}
-#rabbitStew {
-    background-image: url(../img/objetos/comida/Rabbit_Stew.png);
-}
-#pumpkinPie {
-    background-image: url(../img/objetos/comida/Pumpkin_Pie.webp);
-}
-#cookie {
-    background-image: url(../img/objetos/comida/Cookie.png);
-}
-#bread {
-    background-image: url(../img/objetos/comida/Bread.webp);
-}
-#cake {
-    background-image: url(../img/objetos/comida/Cake_1.png);
-}
-#goldenCarrot {
-    background-image: url(../img/objetos/comida/Golden_Carrot.webp);
-}
-#chorusFruit {
-    background-image: url(../img/objetos/comida/Chorus_Fruit.png);
-}
 
 
 main {
 padding: 100px 0px;
+}
+label + div {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: -140px;
+    background-color:rgba(29, 5, 53, 0.788);
+    border: #2f009e solid 2px;
+    border-radius: 5px;
+    width: 300px;
+    z-index: 12;
+    padding: 0;
+}
+label + div p {
+    color: rgb(204, 111, 228);
+    font-size: medium;
+    margin: 5px 10px;
+    padding: 0;
+}
+label + div p:first-child {
+    color: rgb(231, 124, 124);
+    font-size: medium;
+    text-decoration: underline;
+    font-style: italic;
+    margin: 7px 10px;
+    padding: 0;
+}
+label:hover + div {
+    display: block;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+/* input[type="checkbox"]:checked ~ #container .emergente{
+    opacity: 1;
+    visibility:visible;
+} */
+input[type="checkbox"]:checked ~ #container{
+    opacity: 1;
+    visibility:visible;
+}
+
+div.fila > div {
+    display: inline;
+    position: relative;
+}
+
+#espacio{
+    width: 800px;
+    height: 600px;
+    position: relative;
+}
+
+.emergente {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../img/books_and_you.png);
+    background-repeat: no-repeat;
+    background-size: 800px;
+    width: 800px;
+    height: 600px;
+    background-position:left;
+    opacity: 0;
+    transition: all 0.5s ease;
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 50px 350px 350px 50px ;
+    grid-template-rows: 100px 200px 200px 100px;
+}
+.emergente div.descripcion{
+    grid-row: 2;
+    grid-column: 2;
+}
+.emergente div.descripcion p{
+    color:#373737;
+}
+
+.emergente div.descripcion h2 {
+    color:#2f009e;
+}
+.emergente div.links{
+    grid-row: 3;
+    grid-column: 2;
+    position: relative;
+}
+.emergente div.links a{
+    color: #2f009e;
+    display: inline;
+}
+.emergente div.links a::after{
+    content: ",";
+}
+.emergente div.links a:last-child::after{
+    content: ".";
+}
+.emergente div.imgobjeto{
+    grid-row: 2;
+    grid-column: 3;
+    position: relative;
+}
+.emergente img.imgobjeto{
+    margin: auto;
+    animation: rotar 8s infinite linear;
+    max-width: 160px;
+}
+.emergente img.crafteo{
+    grid-row: 3;
+    grid-column: 3;
+    margin: auto;
+}
+.emergente div.imgobjeto label{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+}
+.emergente div.imgobjeto label img{
+    width: 50px;
+    height: 50px;
+}
+#container {
+    top: 0;
+    left: 0;
+    position: fixed;
+    visibility:hidden;
+    opacity: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #37373779;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@keyframes rotar {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(360deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+
+
+
+input#pico[type="checkbox"]:checked ~ #container #pico_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#hacha[type="checkbox"]:checked ~ #container #hacha_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#pala[type="checkbox"]:checked ~ #container #pala_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#azada[type="checkbox"]:checked ~ #container #azada_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#canyaDePescar[type="checkbox"]:checked ~ #container #canyaDePescar_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#zanaoriaEnPalo[type="checkbox"]:checked ~ #container #zanaoriaEnPalo_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#brujula[type="checkbox"]:checked ~ #container #brujula_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#mechero[type="checkbox"]:checked ~ #container #mechero_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#reloj[type="checkbox"]:checked ~ #container #reloj_desc{
+    opacity: 1;
+    visibility:visible;
+}
+
+
+input#casco[type="checkbox"]:checked ~ #container #casco_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#pechera[type="checkbox"]:checked ~ #container #pechera_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#pantalones[type="checkbox"]:checked ~ #container #pantalones_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#botas[type="checkbox"]:checked ~ #container #botas_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#espada[type="checkbox"]:checked ~ #container #espada_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#arco[type="checkbox"]:checked ~ #container #arco_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#flecha[type="checkbox"]:checked ~ #container #flecha_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#escudo[type="checkbox"]:checked ~ #container #escudo_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#manzana[type="checkbox"]:checked ~ #container #manzana_desc{
+    opacity: 1;
+    visibility:visible;
+}
+
+
+input#bloqueDeMadera[type="checkbox"]:checked ~ #container #bloqueDeMadera_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#piedra[type="checkbox"]:checked ~ #container #piedra_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#carbon[type="checkbox"]:checked ~ #container #carbon_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#cobre[type="checkbox"]:checked ~ #container #cobre_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#hierro[type="checkbox"]:checked ~ #container #hierro_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#oro[type="checkbox"]:checked ~ #container #oro_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#emeralda[type="checkbox"]:checked ~ #container #emeralda_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#diamante[type="checkbox"]:checked ~ #container #diamante_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#netherite[type="checkbox"]:checked ~ #container #netherite_desc{
+    opacity: 1;
+    visibility:visible;
+}
+
+
+
+
+input#mesaDeCrafteo[type="checkbox"]:checked ~ #container #mesaDeCrafteo_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#horno[type="checkbox"]:checked ~ #container #horno_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#madera[type="checkbox"]:checked ~ #container #madera_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#bloqueDePiedra[type="checkbox"]:checked ~ #container #bloqueDePiedra_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#ladrillo[type="checkbox"]:checked ~ #container #ladrillo_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#cristal[type="checkbox"]:checked ~ #container #cristal_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#muroDePiedra[type="checkbox"]:checked ~ #container #muroDePiedra_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#boton[type="checkbox"]:checked ~ #container #boton_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#palanca[type="checkbox"]:checked ~ #container #palanca_desc{
+    opacity: 1;
+    visibility:visible;
+}
+
+
+
+
+input#escaleras[type="checkbox"]:checked ~ #container #escaleras_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#puertaDeMadera[type="checkbox"]:checked ~ #container #puertaDeMadera_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#cartel[type="checkbox"]:checked ~ #container #cartel_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#puertaDeValla[type="checkbox"]:checked ~ #container #puertaDeValla_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#valla[type="checkbox"]:checked ~ #container #valla_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#escalerasDeMadera[type="checkbox"]:checked ~ #container #escalerasDeMadera_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#trampilla[type="checkbox"]:checked ~ #container #trampilla_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#antorcha[type="checkbox"]:checked ~ #container #antorcha_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#cama[type="checkbox"]:checked ~ #container #cama_desc{
+    opacity: 1;
+    visibility:visible;
+}
+
+
+
+
+input#sopaDeBayas[type="checkbox"]:checked ~ #container #sopaDeBayas_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#sopaDeSetas[type="checkbox"]:checked ~ #container #sopaDeSetas_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#sopaDeConejo[type="checkbox"]:checked ~ #container #sopaDeConejo_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#tartaDeCalabaza[type="checkbox"]:checked ~ #container #tartaDeCalabaza_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#tarta[type="checkbox"]:checked ~ #container #tarta_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#pan[type="checkbox"]:checked ~ #container #pan_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#galleta[type="checkbox"]:checked ~ #container #galleta_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#zanaoriaDorada[type="checkbox"]:checked ~ #container #zanaoriaDorada_desc{
+    opacity: 1;
+    visibility:visible;
+}
+input#frutaChorus[type="checkbox"]:checked ~ #container #frutaChorus_desc{
+    opacity: 1;
+    visibility:visible;
 }
