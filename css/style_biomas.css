@@ -54,7 +54,7 @@ body {
     height: 500px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    background-color: #000;
+    background:linear-gradient(black, grey);
     border-top: 20px solid rgb(28, 28, 28);
     border-right: 20px solid rgb(67, 67, 67);
     border-left: 20px solid rgb(67, 67, 67);
@@ -183,7 +183,7 @@ body {
     height: 500px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    background-color: #000;
+    background:linear-gradient(black, grey);
     border-top: 20px solid rgb(28, 28, 28);
     border-right: 20px solid rgb(67, 67, 67);
     border-left: 20px solid rgb(67, 67, 67);
@@ -221,52 +221,63 @@ body {
 /* Define el fondo para cada slide específico */
 .info2-slide1 { /* Asegúrate de que en el HTML uses esta clase */
     background-image: url(../img/nieve.gif); /* Fondo específico para slide 1 */
+    background-size: 80%;
 }
 
 .info2-slide2 {
-    background-image: url(../img/panda.gif); /* Ruta a la imagen de selva */
+    background-image: url(../img/panda.gif);
+        background-size: 80%;
+
 }
 
 .info2-slide3 {
-    background-image: url(../img/disecado.gif); /* Ruta a la imagen de desierto */
+    background-image: url(../img/disecado.gif);
+        background-size: 80%;
+
 }
 
 .info2-slide4 {
-    background-image: url(../img/oveja.gif); /* Ruta a la imagen de cálido */
+    background-image: url(../img/oveja.gif);
+        background-size: 80%;
+
 }
 
 .info2-slide5 {
-    background-image: url(../img/sepia.gif); /* Ruta a la imagen de océano */
+    background-image: url(../img/sepia.gif);
+        background-size: 90%;
+
 }
 
 .info2-slide6 {
-    background-image: url(../img/champi.png); /* Ruta a la imagen de champiñón */
+    background-image: url(../img/champi.png);
+        background-size: 80%;
+
 }
 
 .info2-slide7 {
-    background-image: url(../img/rana.gif); /* Ruta a la imagen de sabana */
+    background-image: url(../img/rana.gif);
+        background-size: 80%;
+
 }
 
 .info2-slide8 {
-    background-image: url(../img/warden.gif); /* Ruta a la imagen de oscuro */
+    background-image: url(../img/warden.gif);
+        background-size: 300px;
+
 }
 
 .info2-slide9 {
-    background-image: url(../img/blaze.gif); /* Ruta a la imagen de nether */
+    background-image: url(../img/blaze.gif);
+        background-size: 80%;
+
 }
 
 .info2-slide10 {
-    background-image: url(../img/dragon.gif); /* Ruta a la imagen de end */
+    background-image: url(../img/dragon.gif);
+        background-size: 90%;
+
 }
 
-/* Opcional: si quieres mostrar también una imagen encima del fondo */
-.info2-slides img {
-    width: 60%;
-    height: 60%;
-    object-fit: cover;
-    object-position: center;
-    image-rendering: -webkit-optimize-contrast;
-}
 
 /* ========== POSICIONES SLIDES CENTRAL ========== */
 #slide1:checked ~ .slider .slides { transform: translateX(0); }
