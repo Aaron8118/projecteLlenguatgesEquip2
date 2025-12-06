@@ -1,0 +1,212 @@
+/* PÁGINA DE MOBS */
+
+#wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+  background-image: url('../img/fondo_mobs.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-color: #000;
+  background-size: cover;
+}
+
+#titulo {
+  height: 15em;
+}
+
+#titulo_mobs {
+  position: relative;
+  width: 50%;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* MENÚ LATERAL DE MOBS */
+
+#contenedor_mobs {
+  display: flex;
+  width: 90%;
+  margin: 50px auto;
+}
+
+#menu_mobs {
+  height: 210px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background-color: #000;
+  border-top: 10px solid rgb(28, 28, 28);
+  border-right: 10px solid rgb(67, 67, 67);
+  border-left: 10px solid rgb(67, 67, 67);
+  border-bottom: 10px solid rgb(28, 28, 28);
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+}
+
+#menu_mobs h3 {
+  color: #00bcd4;
+  text-align: center;
+  font-family: 'Lminecraft_titulo', sans-serif;
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px #000;
+}
+
+#menu_mobs ul {
+  list-style: none;
+  padding: 0;
+}
+
+#menu_mobs li {
+  margin: 12px 0;
+}
+
+#menu_mobs a {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Lminecraft_texto', sans-serif;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#menu_mobs a:hover {
+  color: #0db50d;
+  transform: translateX(4px);
+}
+
+/* CONTENIDO PRINCIPAL */
+
+#titulo_principal {
+  text-align: center;
+  color: #fff;
+  max-width: 800px;
+  padding: 20px;
+  opacity: 0;
+  font-family: 'Lminecraft_titulo', sans-serif;
+  margin-left: auto;
+  margin-top: 5em;
+
+  background-color: rgba(5, 20, 22, 0.5);
+  border-radius: 12px;
+  animation: fadeZoomIn 1.3s ease-out forwards;
+}
+
+#contenido_mobs {
+  flex: 1;
+  color: #fff;
+  margin-left: 300px;
+}
+
+#contenido_mobs h2 {
+  font-family: 'Lminecraft_titulo', sans-serif;
+  font-size: 1.8rem;
+  color: #00bcd4;
+  margin: 0px 0 20px;
+  text-shadow: 0 0 5px #000;
+  border-bottom: 2px solid rgba(0,188,212,0.3);
+  padding-bottom: 5px;
+}
+
+.icono-titulo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* TARJETAS DE MOBS */
+
+#bloque_pasivos {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+#bloque_neutros {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+#bloque_hostiles {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+#bloque_jefes {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.contenedor_mobs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+}
+
+.tarjeta_mob {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background-color: #000;
+  border-top: 10px solid rgb(28, 28, 28);
+  border-right: 10px solid rgb(67, 67, 67);
+  border-left: 10px solid rgb(67, 67, 67);
+  border-bottom: 10px solid rgb(28, 28, 28);
+  text-align: center;
+  padding: 15px;
+}
+
+.tarjeta_mob:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(13,181,13,0.4);
+}
+
+.tarjeta_mob img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  margin: auto;
+}
+
+.tarjeta_mob h3 {
+  color: #00bcd4;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.tarjeta_mob p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ANIMACIONES */
+
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  #menu_mobs {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #contenido_mobs {
+    margin-left: 0;
+  }
+}
