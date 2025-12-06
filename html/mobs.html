@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Minecraft Mobs.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Asier, Andrii, Aaron, David">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre los distintos tipos de mobs del universo de Minecraft: pasivos, neutros, hostiles y jefes.">
+  <title>Minecraf Blogger - Mobs del Juego</title>
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style_mobs.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- NAVBAR -->
+      <nav id="nav-principal">
+        <div>
+          <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba">
+          <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba2">
+          <ul id="lista">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="bioma.html">Mundos</a></li>
+            <li><a href="mobs.html">Mobs</a></li>
+            <li><a href="objetos.html">Objetos</a></li>
+            <li><a href="efectos.html">Efectos</a></li>
+            <li>
+              <a href="index.html">Juegos</a>
+                <ul class="submenu">
+                  <li><a href="./juego/juego.html">Minecraft Offline</a></li>
+                  <li><a href="./juego/juego2.html">Minecraft Online</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html">Contacto</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    <!-- HEADER -->
+    <header>
+      <div id="">
+        <img src="../img/mobs/tituloMobs.png" id="titulo_mobs">
+      </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="contenedor_mobs">
+
+      <!-- MENÚ LATERAL -->
+      <aside id="menu_mobs">
+        <h3>TIPOS DE MOBS</h3>
+        <ul>
+          <li><a href="#bloque_pasivos">- Pasivos</a></li>
+          <li><a href="#bloque_neutros">- Neutros</a></li>
+          <li><a href="#bloque_hostiles">- Hostiles</a></li>
+          <li><a href="#bloque_jefes">- Jefes</a></li>
+        </ul>
+      </aside>
+
+      <!-- SECCIONES DE MOBS -->
+      <section id="contenido_mobs">
+
+        <!-- PASIVOS -->
+        <div id = "bloque_pasivos">
+        <h2>· Mobs Pasivos</h2>
+        <div class="contenedor_mobs">
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('oveja_sonido').play()" style="background:none;border:none;padding:0;">
+            <img src="../img/mobs/oveja.png" alt="Oveja">
+            </button>
+            <h3>Oveja</h3>
+            <p><strong>Proporciona</strong> lana y carne. Se puede <em>teñir</em> y criar con trigo.</p>
+            <audio id="oveja_sonido">
+              <source src="../img/sonidos_mobs/obeja.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('vaca_sonido').play()" style="background:none;border:none;padding:0;">
+            <img src="../img/mobs/vaca.png" alt="Vaca">
+            <h3>Vaca</h3>
+            <p><strong>Fuente</strong> de leche, cuero y carne. Amigable y común.</p>
+            <audio id="vaca_sonido">
+              <source src="../img/sonidos_mobs/vaca.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('gallina_sonido').play()" style="background:none;border:none;padding:0;">
+            <img src="../img/mobs/gallina.png" alt="Gallina">
+            <h3>Gallina</h3>
+            <p><em>Pone huevos</em> y suelta plumas. Críalas con semillas.</p>
+            <audio id="gallina_sonido">
+              <source src="../img/sonidos_mobs/gallina.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('cerdo_sonido').play()" style="background:none;border:none;padding:0;">
+            <img src="../img/mobs/cerdo.png" alt="Cerdo">
+            <h3>Cerdo</h3>
+            <p>Fuente de carne. Se puede montar con una <em>montura</em> y zanahoria.</p>
+            <audio id="cerdo_sonido">
+              <source src="../img/sonidos_mobs/cerdo.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('conejo_sonido').play()" style="background:none;border:none;padding:0;">
+            <img src="../img/mobs/conejo.png" alt="Conejo">
+            <h3>Conejo</h3>
+            <p>Pequeño y rápido. Su carne y cuero se usan en recetas.</p>
+            <audio id="conejo_sonido">
+              <source src="../img/sonidos_mobs/conejo.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('caballo_sonido').play()" style="background:none;border:none;padding:0;">
+            <img src="../img/mobs/caballo.png" alt="Caballo">
+            </button>
+            <h3>Caballo</h3>
+            <p>Permite montura y transporte rápido. Domesticable con manzanas doradas.</p>
+            <audio id="caballo_sonido">
+              <source src="../img/sonidos_mobs/caballo.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+           <button onclick="document.getElementById('llama_sonido').play()" style="background:none;border:none;padding:0;">
+           <img src="../img/mobs/llama.png" alt="Llama">
+            </button>
+           <h3>Llama</h3>
+            <p>Transporta cofres y escupe a quien la moleste. Doméstica y útil en caravanas.</p>
+            <audio id="llama_sonido">
+              <source src="../img/sonidos_mobs/llama.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('zorro_sonido').play()" style="background:none;border:none;padding:0;">
+            <img src="../img/mobs/zorro.png" alt="Zorro">
+            </button>
+            <h3>Zorro</h3>
+            <p>Se mueve rápido y roba objetos. Neutro pero curioso con las presas.</p>
+            <audio id="zorro_sonido">
+              <source src="../img/sonidos_mobs/zorro.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('loro_sonido').play()" style="background:none;border:none;padding:0;">
+            <img src="../img/mobs/loro.png" alt="Loro">
+            </button>
+            <h3>Loro</h3>
+            <p>Pueden imitar sonidos de mobs hostiles. Se pueden domesticar con semillas.</p>
+            <audio id="loro_sonido">
+              <source src="../img/sonidos_mobs/loro.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('gato_sonido').play()" style="background:none;border:none;padding:0;">
+            <img src="../img/mobs/gato.png" alt="Gato">
+            </button>
+            <h3>Gato</h3>
+            <p>Ahuyenta creepers y se puede domesticar. Varios tipos y colores.</p>
+            <audio id="gato_sonido">
+              <source src="../img/sonidos_mobs/gato.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+        </div>
+        </div>
+
+        <!-- NEUTROS -->
+        <div id = "bloque_neutros">  
+        <h2>· Mobs Neutros</h2>
+        <div class="contenedor_mobs">
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('lobo_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/lobo.png" alt="Lobo">
+            </button>
+            <h3>Lobo</h3>
+            <p>Puedes domesticarlos con huesos.</p>
+            <audio id="lobo_sonido">
+              <source src="../img/sonidos_mobs/lobo.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('enderman_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/enderman.png" alt="Enderman">
+            </button>
+            <h3>Enderman</h3>
+            <p>Neutro hasta que lo mires.</p>
+            <audio id="enderman_sonido">
+              <source src="../img/sonidos_mobs/enderman.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('panda_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/panda.png" alt="Panda">
+            </button>
+            <h3>Panda</h3>
+            <p>Vive en la jungla. Algunos son juguetones.</p>
+            <audio id="panda_sonido">
+              <source src="../img/sonidos_mobs/panda.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('abeja_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/abeja.png" alt="Abeja">
+            </button>
+            <h3>Abeja</h3>
+            <p>Produce miel y puede picar.</p>
+            <audio id="abeja_sonido">
+              <source src="../img/sonidos_mobs/abeja.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('llama_comerciante_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/llama_comerciante.png" alt="Llama Comerciante">
+            </button>
+            <h3>Llama de Comerciante</h3>
+            <p>Sigue al comerciante. No agresiva.</p>
+            <audio id="llama_comerciante_sonido">
+              <source src="../img/sonidos_mobs/llama.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('rana_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/rana.png" alt="Rana">
+            </button>
+            <h3>Rana</h3>
+            <p>Come pequeños slimes.</p>
+            <audio id="rana_sonido">
+              <source src="../img/sonidos_mobs/rana.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('ajolote_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/ajolote.png" alt="Ajolote">
+            </button>
+            <h3>Ajolote</h3>
+            <p>Ayuda bajo el agua.</p>
+            <audio id="ajolote_sonido">
+              <source src="../img/sonidos_mobs/ajolote.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('camello_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/camello.png" alt="Camello">
+            </button>
+            <h3>Camello</h3>
+            <p>Permite montura en el desierto.</p>
+            <audio id="camello_sonido">
+              <source src="../img/sonidos_mobs/camello.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('tortuga_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/tortuga.png" alt="Tortuga">
+            </button>
+            <h3>Tortuga</h3>
+            <p>Deposita huevos en la playa.</p>
+            <audio id="tortuga_sonido">
+              <source src="../img/sonidos_mobs/tortuga.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('arana_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/araña.png" alt="Araña">
+            </button>
+            <h3>Araña</h3>
+            <p>De día neutra, de noche hostil.</p>
+            <audio id="arana_sonido">
+              <source src="../img/sonidos_mobs/araña.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+        </div>
+        </div>
+
+        <!-- HOSTILES -->
+        <div id = "bloque_hostiles">  
+        <h2>· Mobs Hostiles</h2>
+        <div class="contenedor_mobs">
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('creeper_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/creeper.png" alt="Creeper">
+            </button>
+            <h3>Creeper</h3>
+            <p>Explota silenciosamente.</p>
+            <audio id="creeper_sonido">
+              <source src="../img/sonidos_mobs/creeper.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('zombie_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/zombie.png" alt="Zombie">
+            </button>
+            <h3>Zombie</h3>
+            <p>Aparece de noche.</p>
+            <audio id="zombie_sonido">
+              <source src="../img/sonidos_mobs/zombie.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('esqueleto_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/esqueleto.png" alt="Esqueleto">
+            </button>
+            <h3>Esqueleto</h3>
+            <p>Ataca con flechas.</p>
+            <audio id="esqueleto_sonido">
+              <source src="../img/sonidos_mobs/esqueleto.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('hoglin_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/hoglin.png" alt="Hoglin">
+            </button>
+            <h3>Hoglin</h3>
+            <p>Hostil en el Nether.</p>
+            <audio id="hoglin_sonido">
+              <source src="../img/sonidos_mobs/hoglin.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('piglin_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/piglin.png" alt="Piglin">
+            </button>
+            <h3>Piglin</h3>
+            <p>Hostil si no llevas oro.</p>
+            <audio id="piglin_sonido">
+              <source src="../img/sonidos_mobs/piglin.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('piglin_bruto_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/piglin_bruto.png" alt="Piglin Bruto">
+            </button>
+            <h3>Piglin Bruto</h3>
+            <p>Siempre hostil y muy fuerte.</p>
+            <audio id="piglin_bruto_sonido">
+              <source src="../img/sonidos_mobs/piglin.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('shulker_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/shulker.png" alt="Shulker">
+            </button>
+            <h3>Shulker</h3>
+            <p>Dispara proyectiles flotantes.</p>
+            <audio id="shulker_sonido">
+              <source src="../img/sonidos_mobs/shulker.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('vindicador_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/vindicator.png" alt="Vindicador">
+            </button>
+            <h3>Vindicador</h3>
+            <p>Hostil en incursiones.</p>
+            <audio id="vindicador_sonido">
+              <source src="../img/sonidos_mobs/vindicator.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('bruja_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/bruja.png" alt="Bruja">
+            </button>
+            <h3>Bruja</h3>
+            <p>Lanza pociones dañinas.</p>
+            <audio id="bruja_sonido">
+              <source src="../img/sonidos_mobs/bruja.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('esqueleto_errante_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/esqueleto_errante.png" alt="Esqueleto Errante">
+            </button>
+            <h3>Esqueleto Errante</h3>
+            <p>Dispara flechas de lentitud.</p>
+            <audio id="esqueleto_errante_sonido">
+              <source src="../img/sonidos_mobs/esqueleto_errante.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+        </div>
+        </div>
+
+        <!-- JEFES -->
+        <div id = "bloque_jefes">
+        <h2>· Jefes</h2>
+        <div class="contenedor_mobs">
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('enderdragon_sonido').play()" style="background:none;border:none;padding:0;">
+              <img src="../img/mobs/ender_dragon.png" alt="Ender Dragon">
+            </button>
+            <h3>Ender Dragon</h3>
+            <p>Jefe del End.</p>
+            <audio id="enderdragon_sonido">
+              <source src="../img/sonidos_mobs/ender_dragon.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('wither_sonido').play()" style="background:none;border:none;padding:0%;">
+              <img src="../img/mobs/wither.png" alt="Wither">
+            </button>
+            <h3>Wither</h3>
+            <p>Explosivo y letal.</p>
+            <audio id="wither_sonido">
+              <source src="../img/sonidos_mobs/wither.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+
+          <article class="tarjeta_mob">
+            <button onclick="document.getElementById('warden_sonido').play()" style="background:none;border:none;padding:0%;">
+              <img src="../img/mobs/warden.png" alt="Warden">
+            </button>
+            <h3>Warden</h3>
+            <p>Sensible al sonido.</p>
+            <audio id="warden_sonido">
+              <source src="../img/sonidos_mobs/warden.mp3" type="audio/mpeg">
+            </audio>
+          </article>
+        </div>
+        </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+        <footer>
+            <div id="redes">
+                <a href=""><img class="redesFotter" src="../img/redesSociales/facebook.png" alt="facebook"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/instagram.png" alt="instagram"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/ticktock.png" alt="ticktock"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/x.png" alt="x"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/youtube.png" alt="youtube"></a>
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="bioma.html">Mundos</a></li>
+                <li><a href="../index.html">Mobs</a></li>
+                <li><a href="../index.html">Crafteo</a></li>
+                <li><a href="objetos.html">Objetos</a></li>
+                <li><a href="efectos.html">Efectos</a></li>
+                <li><a href="../index.html">Contacto</a></li>
+
+            </ul>
+            <div>
+                <p>Pagina web creada por Andrii, Asier, Aaron, David y Antuan(Auxiliar).</p>
+                <p>Todos los derechos reservados.</p>
+            </div>
+        </footer>
+  </div>
+</body>
+</html>
