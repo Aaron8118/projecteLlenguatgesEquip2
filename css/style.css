@@ -192,7 +192,7 @@ footer a:hover {
   transform: scale(1.1);
 } 
 #redes {
-  text-align: right;
+  text-align: left;
 }
 #wrapper {
   min-height: 100vh;
