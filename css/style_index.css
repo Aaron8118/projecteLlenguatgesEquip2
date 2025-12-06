@@ -256,35 +256,35 @@ hr {
 
 .loro {
   position: absolute;
-  top: 16.3%;
+  top: 11%;
   width: 60px;
   left: 15%;
 }
 
 .gallina {
   position: absolute;
-  top: 23.3%;
+  top: 18%;
   width: 60px;
   left: 90%;
 }
 
 .aldeano {
   position: absolute;
-  top: 23.1%;
+  top: 15.7%;
   width: 170px;
   left: 10%;
 }
 
 .malo {
   position: absolute;
-  top: 57.9%;
+  top: 38.9%;
   width: 230px;
   left: 4%;
 }
 
 .araña {
   position: absolute;
-  top: 63.7%;
+  top: 42.7%;
   width: 280px;
   left: -3%;
   transform: scaleX(-1); /* Invierte la imagen horizontalmente */
