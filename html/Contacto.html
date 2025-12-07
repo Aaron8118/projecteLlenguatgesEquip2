@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_Contacto.css">
-
 </head>
     <body>
     <div id="wrapper">
@@ -50,7 +49,7 @@
                 <div class="contenedor">
                     <!-- Columna izquierda: Formulario -->
                     <div class="seccion-form">
-                        <form class="formulario" action="mailto:ayuda@ejemplo.com" method="POST" enctype="multipart/form-data">
+                        <form id="formulario" method="POST" enctype="multipart/form-data">
                             
                             <!-- Bloque: Información personal -->
                             <div class="bloque">
@@ -100,45 +99,114 @@
                                 </div>
                             </div>
 
-                            <!-- Bloque: Preferencias -->
+                            <!-- Bloque: Contacto directo -->
                             <div class="bloque">
-                                <label class="bloque-titulo" for="canal-email">⚙️ Preferencias</label>
+                                <label class="bloque-titulo">⚙️ Contacto directo</label><br><br>
                                 <div class="bloque-contenido">
-                                    <div class="grupo-radio">
-                                        <label>Canal preferido:</label>
-                                        <div class="opciones-radio">
-                                            <label class="radio"><input id="canal-email" type="radio" name="canal" value="email" checked /> Email</label>
-                                            <label class="radio"><input id="canal-telefono" type="radio" name="canal" value="telefono" /> Teléfono</label>
-                                            <label class="radio"><input id="canal-whatsapp" type="radio" name="canal" value="whatsapp" /> WhatsApp</label>
-                                        </div>
+                                    
+                                    <div class="grupo-input">
+                                        <a href="mailto:minecraftAAAAD.com" class="boton-enlace">
+                                            📧 Contactar por Email
+                                        </a>
                                     </div>
+
+                                    <div class="grupo-input">
+                                        <a href="tel:654567890" class="boton-enlace">
+                                            📞 Llamar al 654 567 890
+                                        </a>
+                                    </div>
+
                                     <label class="casilla">
                                         <input type="checkbox" name="newsletter" />
-                                        <span>Recibir actualizaciones</span>
+                                        <span id="recibir">Recibir actualizaciones</span>
                                     </label>
+
                                 </div>
                             </div>
 
+
                             <!-- Botones -->
                             <div class="botones">
-                                <label for="modal-bienvenida" class="boton boton-primario">✉️ Enviar</label>
+                                <button type="submit" formaction="#modal-bienvenida" class="boton boton-primario">✉️ Enviar</button>
                                 <button type="reset" class="boton boton-secundario">🗑️ Limpiar</button>
                             </div>
                         </form>
                     </div>
 
-                    <!-- Columna derecha: Info lateral -->
+                    <!-- Columna derecha: Comentarios slider -->
                     <div class="seccion-info">
-                        <!-- Info Box 1 -->
-                        <div class="info-caja">
-                            <div class="info-titulo">⚔️ Soporte rápido</div>
-                            <div class="info-contenido">
-                                <p>¿Prisa? Consulta nuestras guías:</p>
-                                <ul>
-                                    <li><a href="/faq">❓ Preguntas frecuentes</a></li>
-                                    <li><a href="#">📚 Centro de soporte</a></li>
-                                    <li><a href="#">🐦 Twitter</a></li>
-                                </ul>
+                        <!-- Slider Comentarios -->
+                        <div class="info-caja slider-comentarios">
+                            <div class="info-titulo">💬 Comentarios de la Comunidad</div>
+                            <div class="slider-contenedor">
+                                <div class="slider-track">
+                                    <!-- Comentario 1 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🏹</div>
+                                            <div>
+                                                <div class="comentario-autor">xXNightWolfXx</div>
+                                                <div class="comentario-estrellas">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers no destruyeron mi casa esta vez. Servicio épico."</div>
+                                    </div>
+                                    <!-- Comentario 2 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">💎</div>
+                                            <div>
+                                                <div class="comentario-autor">DiamondMiner99</div>
+                                                <div class="comentario-estrellas">★★★★☆</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"Encontré diamantes gracias a sus tips. Casi me matan pero valió la pena. ¡Muy recomendado!"</div>
+                                    </div>
+                                    <!-- Comentario 3 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🌾</div>
+                                            <div>
+                                                <div class="comentario-autor">FarmerJoe</div>
+                                                <div class="comentario-estrellas">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"Mis cultivos crecen más rápido que nunca. 10/10, volvería a sembrar con ustedes."</div>
+                                    </div>
+                                    <!-- Comentario 4 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🔥</div>
+                                            <div>
+                                                <div class="comentario-autor">NetherExplorer</div>
+                                                <div class="comentario-estrellas">★★★☆☆</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"Me ayudaron a sobrevivir al Nether. Perdí todo pero aprendí mucho. Ghast-friendly."</div>
+                                    </div>
+                                    <!-- Comentario 5 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🏰</div>
+                                            <div>
+                                                <div class="comentario-autor">BuilderPro</div>
+                                                <div class="comentario-estrellas">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"Construí mi castillo en 3 días. Los materiales llegaron rápido. ¡Constructores confiables!"</div>
+                                    </div>
+                                    <!-- Duplicados para loop infinito -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🏹</div>
+                                            <div>
+                                                <div class="comentario-autor">xXNightWolfXx</div>
+                                                <div class="comentario-estrellas">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers no destruyeron mi casa esta vez. Servicio épico."</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -146,10 +214,10 @@
                         <div class="info-caja">
                             <div class="info-titulo">📜 Legal</div>
                             <div class="info-contenido">
-                                <p>Lee nuestras políticas:</p>
+                                <p style="color: black;">Lee nuestras políticas:</p>
                                 <div class="enlaces">
-                                    <a href="/terms">Términos</a>
-                                    <a href="/privacy">Privacidad</a>
+                                    <a href="./EULA _ Minecraft.html">Términos</a>
+                                    <a href="https://www.microsoft.com/es-es/privacy/privacystatement">Privacidad</a>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +226,7 @@
                         <div class="info-caja">
                             <div class="info-titulo">💎 Califica la página</div>
                             <div class="info-contenido">
-                                <p>¿Cómo valorarías la experiencia?</p>
+                                <p style="color: black;">¿Cómo valorarías la experiencia?</p>
                                 <form class="valoracion" action="#" method="post" aria-label="Valorar página">
                                     <div class="estrellas" role="radiogroup" aria-label="Valoración">
                                         <input type="radio" id="r5" name="valoracion" value="5" />
@@ -178,6 +246,7 @@
                         </div>
                     </div>
                 </div>
+                
             </section>
         </main>
 
@@ -203,14 +272,14 @@
         </footer>
     </div>
     
-    <!-- Modal de bienvenida -->
-    <input type="checkbox" id="modal-bienvenida" class="modal-toggle" hidden>
-    <div class="modal-overlay">
+          <!-- Modal de bienvenida con :target -->
+    <div id="modal-bienvenida" class="modal-overlay">
         <div class="modal-contenido">
             <h2>¡Bienvenido!</h2>
             <p>Tu mensaje ha sido recibido. Gracias por contactarnos.</p>
-            <label for="modal-bienvenida" class="modal-cerrar">Cerrar</label>
+            <a href="#" class="modal-cerrar">Cerrar</a>
         </div>
     </div>
+    </div>
     </body>
-    </html>
+</html>
