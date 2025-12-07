@@ -1,0 +1,602 @@
+/* ========================================
+   ESTILOS TIPO MINECRAFT - CONTACTO
+   ======================================== */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo tipo Minecraft con textura */
+.contacto {
+  position: relative;
+  width: 100%;
+  background-image: url('../img/contactoFondo.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #1f1f1f; /* fondo oscuro gris */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.6);
+}
+
+.contacto * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay suave */
+.contacto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 0;
+  border: 0 solid transparent;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   ENCABEZADO MINECRAFT
+   ======================================== */
+
+.encabezado {
+  position: relative;
+  top: 2.5em;
+  text-align: center;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  z-index: 2;
+}
+
+.titulo {
+  background: linear-gradient(135deg, #4a4a4a 0%, #2b2b2b 100%);
+  border: 6px solid #111111;
+  padding: 1.5rem;
+  box-shadow: 
+    inset 0 2px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.6),
+    0 6px 18px rgba(0, 0, 0, 0.6);
+  font-family: 'mac_s_minecraft', Arial, sans-serif;
+}
+
+.titulo h1 {
+  margin: 0;
+  font-size: 3rem;
+  color: #f5f5f5;
+  text-shadow: 2px 2px 0 #0f0f0f, 4px 4px 0 rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.subtitulo {
+  margin: 0.5rem 0 0 0;
+  color: #dcdcdc;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL (GRID)
+   ======================================== */
+
+.contenedor {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  z-index: 2;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* ========================================
+   SECCIÓN FORMULARIO
+   ======================================== */
+
+.seccion-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Bloques Minecraft */
+.bloque {
+  background: linear-gradient(135deg, #e9e9e9 0%, #d1d1d1 60%, #bdbdbd 100%);
+  border: 4px solid #444444;
+  border-top: 4px solid #6b6b6b;
+  border-left: 4px solid #6b6b6b;
+  border-bottom: 4px solid #222222;
+  border-right: 4px solid #222222;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.bloque-titulo {
+  background: linear-gradient(135deg, #6b6b6b 0%, #4a4a4a 100%);
+  color: #f5f5f5;
+  padding: 0.8rem 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-bottom: 3px solid #222222;
+  text-shadow: 1px 1px 0 #0f0f0f;
+  font-family: 'mac_s_minecraft', Arial, sans-serif;
+}
+
+.bloque-contenido {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Grupos de entrada */
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.grupo-input label {
+  color: #222222;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+  font-family: 'mac_s_minecraft', Arial, sans-serif;
+}
+
+.grupo-input input,
+.grupo-input textarea,
+.grupo-input select {
+  padding: 0.6rem;
+  border: 2px solid #6b6b6b;
+  border-top: 2px solid #3d3d3d;
+  border-left: 2px solid #3d3d3d;
+  border-bottom: 2px solid #dcdcdc;
+  border-right: 2px solid #dcdcdc;
+  background: #f5f5f5;
+  color: #222222;
+  font-family: 'mac_s_minecraft', monospace;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.grupo-input input:focus,
+.grupo-input textarea:focus,
+.grupo-input select:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px rgba(150,150,150,0.6), 0 0 8px rgba(0,0,0,0.45);
+  background: #ffffff;
+}
+
+.grupo-input textarea {
+  resize: vertical;
+  font-family: monospace;
+}
+
+/* Radio buttons tipo Minecraft */
+.grupo-radio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.opciones-radio {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: #222222;
+  font-weight: 500;
+}
+
+.radio input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #6b6b6b;
+}
+
+/* Checkboxes */
+.casilla {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  color: #222222;
+  font-weight: 500;
+}
+
+.casilla input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #6b6b6b;
+}
+
+/* Botones */
+.botones {
+  position: relative;
+  display: grid;
+  bottom: 4em;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 7rem;
+}
+
+.boton {
+  padding: 0.8rem 1.2rem;
+  border: 4px solid #222222;
+  font-family: 'mac_s_minecraft', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.boton:active {
+  transform: translate(2px, 2px);
+  border-top: 4px solid #111111;
+  border-left: 4px solid #111111;
+  border-bottom: 4px solid #6b6b6b;
+  border-right: 4px solid #6b6b6b;
+}
+
+.boton-primario {
+  background: linear-gradient(135deg, #3a3a3a 0%, #222222 100%);
+  color: #f5f5f5;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+.boton-primario:hover {
+  background: linear-gradient(135deg, #4a4a4a 0%, #2b2b2b 100%);
+}
+
+.boton-secundario {
+  background: linear-gradient(135deg, #7a7a7a 0%, #5a5a5a 100%);
+  color: #f5f5f5;
+  text-shadow: 1px 1px 0 #000000;
+}
+
+.boton-secundario:hover {
+  background: linear-gradient(135deg, #8e8e8e 0%, #6b6b6b 100%);
+}
+
+/* ========================================
+   SECCIÓN INFO LATERAL
+   ======================================== */
+
+.seccion-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-caja {
+  background: linear-gradient(135deg, #e9e9e9 0%, #d1d1d1 50%, #bdbdbd 100%);
+  border: 4px solid #444444;
+  border-top: 4px solid #6b6b6b;
+  border-left: 4px solid #6b6b6b;
+  border-bottom: 4px solid #222222;
+  border-right: 4px solid #222222;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.info-titulo {
+  background: linear-gradient(135deg, #6b6b6b 0%, #4a4a4a 100%);
+  color: #f5f5f5;
+  padding: 0.8rem 1rem;
+  font-weight: bold;
+  border-bottom: 3px solid #222222;
+  text-shadow: 1px 1px 0 #0f0f0f;
+  font-family: 'mac_s_minecraft', Arial, sans-serif;
+}
+
+.info-contenido {
+  padding: 1rem;
+  color: #222222;
+}
+
+.info-contenido p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.info-contenido ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.info-contenido li {
+  margin: 0.4rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.info-contenido li::before {
+  content: "⬛";
+  position: absolute;
+  left: 0;
+  color: #444444;
+}
+
+.info-contenido a {
+  color: #333333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.info-contenido a:hover {
+  color: #666666;
+  text-decoration: underline;
+}
+
+.enlaces {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.enlaces a {
+  background: #444444;
+  color: #f5f5f5;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #222222;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.enlaces a:hover {
+  background: #2b2b2b;
+  color: #dcdcdc;
+}
+
+/* ========================================
+   VALORACIÓN CON ESTRELLAS (CSS ONLY)
+   ======================================== */
+.valoracion {
+  margin-top: 0.6rem;
+}
+.estrellas {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row-reverse; /* important: order inputs then labels, show left-to-right */
+}
+.estrellas input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.estrellas label {
+  font-size: 1.6rem;
+  color: #bdbdbd;
+  cursor: pointer;
+  transition: transform 0.16s ease, color 0.18s ease, text-shadow 0.18s;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.04);
+  user-select: none;
+}
+/* Hover highlights the hovered star and previous ones */
+.estrellas label:hover,
+.estrellas label:hover ~ label {
+  color: #f1c40f;
+  transform: translateY(-6%) scale(1.18);
+  text-shadow: 0 2px 6px rgba(241,196,15,0.35);
+}
+/* Checked state: color all relevant stars */
+.estrellas input:checked ~ label {
+  color: #f1c40f;
+  text-shadow: 0 2px 6px rgba(241,196,15,0.35);
+}
+/* Pop animation for the selected star */
+.estrellas input:checked + label {
+  transform: scale(1.25) translateY(-6%);
+  animation: pop 300ms cubic-bezier(.2,.8,.2,1);
+}
+@keyframes pop {
+  0% { transform: scale(0.9) translateY(0); opacity: 0.7; }
+  60% { transform: scale(1.28) translateY(-8%); opacity: 1; }
+  100% { transform: scale(1.0) translateY(-6%); opacity: 1; }
+}
+.valor-texto {
+  margin-top: 0.6rem;
+  font-weight: 600;
+  color: #222222;
+  opacity: 0.95;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* ========================================
+   NOTA AL PIE
+   ======================================== */
+
+.nota-pie {
+  text-align: center;
+  color: #fffacd;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 0 #3d2817;
+  margin-top: 1rem;
+  font-family: 'mac_s_minecraft', Arial, sans-serif;
+  z-index: 2;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS Y MÓVILES
+   ======================================== */
+
+@media (max-width: 768px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .titulo h1 {
+    font-size: 2rem;
+  }
+
+  .botones {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto {
+    padding: 1.5rem;
+    border: 5px solid #5a4a3a;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo h1 {
+    font-size: 1.5rem;
+  }
+
+  .titulo {
+    padding: 1rem;
+  }
+
+  .bloque-titulo {
+    font-size: 1rem;
+  }
+
+  .grupo-input input,
+  .grupo-input textarea,
+  .grupo-input select {
+    font-size: 0.85rem;
+  }
+
+  .boton {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .opciones-radio {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contacto {
+    padding: 1rem;
+    border: 4px solid #5a4a3a;
+  }
+}
+
+  /* ========================================
+     MODAL ESTILO MINECRAFT
+     ======================================== */
+
+  .modal-toggle {
+    display: none;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-toggle:checked ~ .modal-overlay {
+    display: flex;
+  }
+
+  .modal-contenido {
+    background-color: #3a3a3a;
+    border: 4px solid #8b7355;
+    padding: 2rem;
+    border-radius: 0;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    animation: popupAppear 0.3s ease-out;
+  }
+
+  @keyframes popupAppear {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .modal-contenido h2 {
+    color: #ffd700;
+    font-size: 1.8rem;
+    margin: 0 0 1rem 0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-contenido p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+  }
+
+  .modal-cerrar {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #8b7355;
+    color: white;
+    border: 2px solid #5a4a3a;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+
+  .modal-cerrar:hover {
+    background-color: #a0835e;
+    transform: translate(0, -2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .modal-cerrar:active {
+    transform: translate(0, 0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
