@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraf Blogger</title>
+    <meta name="author" content="Asier, Andrii, Aaron, David, Asier">
+    <meta name="description" content="Minecraft Blogger, descubre el mundo de creatividad y libertad en nuestra página.">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_Contacto.css">
+
+</head>
+    <body>
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <nav id="nav-principal">
+            <div>
+                <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba">
+                <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba2">
+                <ul id="lista">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html">Mundos</a></li>
+                    <li><a href="index.html">Mobs</a></li>
+                    <li><a href="index.html">Objetos</a></li>
+                    <li>
+                        <a href="index.html">Juegos</a>
+                        <ul class="submenu">
+                            <li><a href="./juego/juego.html">Minecraft Offline</a></li>
+                            <li><a href="./juego/juego2.html">Minecraft Online</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <section class="contacto">
+                <!-- Encabezado tipo Minecraft -->
+                <div class="encabezado">
+                    <div class="titulo">
+                        <h1>📮 CONTACTO</h1>
+                        <p class="subtitulo">¿Necesitas ayuda? ¡Cuéntanos tu problema!</p>
+                    </div>
+                </div>
+
+                <!-- Contenedor principal con grid Minecraft -->
+                <div class="contenedor">
+                    <!-- Columna izquierda: Formulario -->
+                    <div class="seccion-form">
+                        <form class="formulario" action="mailto:ayuda@ejemplo.com" method="POST" enctype="multipart/form-data">
+                            
+                            <!-- Bloque: Información personal -->
+                            <div class="bloque">
+                                <label class="bloque-titulo" for="nombre">👤 Tus datos</label>
+                                <div class="bloque-contenido">
+                                    <div class="grupo-input">
+                                        <label for="nombre">Nombre completo</label>
+                                        <input id="nombre" name="nombre" type="text" required placeholder="Steve o Alex..." autofocus />
+                                    </div>
+                                    <div class="grupo-input">
+                                        <label for="correo">Correo electrónico</label>
+                                        <input id="correo" name="correo" type="email" required placeholder="tu@correo.com" />
+                                    </div>
+                                    <div class="grupo-input">
+                                        <label for="telefono">Teléfono</label>
+                                        <input id="telefono" name="telefono" type="tel" placeholder="+34 600 000 000" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bloque: Asunto y categoría -->
+                            <div class="bloque">
+                                <label class="bloque-titulo" for="asunto">💬 Tu consulta</label>
+                                <div class="bloque-contenido">
+                                    <div class="grupo-input">
+                                        <label for="asunto">Asunto</label>
+                                        <input id="asunto" name="asunto" type="text" placeholder="Resumen de tu problema..." />
+                                    </div>
+                                    <div class="grupo-input">
+                                        <label for="categoria">Categoría</label>
+                                        <select id="categoria" name="categoria">
+                                            <option style="background-color: black;" value="">-- Selecciona --</option>
+                                            <option style="background-color: black;" value="bug">🐛 Reporte de error</option>
+                                            <option style="background-color: black;" value="sugerencia">💡 Sugerencia</option>
+                                            <option style="background-color: black;" value="soporte">🔧 Soporte técnico</option>
+                                            <option style="background-color: black;" value="otro">❓ Otro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bloque: Mensaje -->
+                            <div class="bloque">
+                                <label class="bloque-titulo" for="mensaje">📝 Mensaje</label>
+                                <div class="bloque-contenido">
+                                    <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntanos qué necesitas..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Bloque: Preferencias -->
+                            <div class="bloque">
+                                <label class="bloque-titulo" for="canal-email">⚙️ Preferencias</label>
+                                <div class="bloque-contenido">
+                                    <div class="grupo-radio">
+                                        <label>Canal preferido:</label>
+                                        <div class="opciones-radio">
+                                            <label class="radio"><input id="canal-email" type="radio" name="canal" value="email" checked /> Email</label>
+                                            <label class="radio"><input id="canal-telefono" type="radio" name="canal" value="telefono" /> Teléfono</label>
+                                            <label class="radio"><input id="canal-whatsapp" type="radio" name="canal" value="whatsapp" /> WhatsApp</label>
+                                        </div>
+                                    </div>
+                                    <label class="casilla">
+                                        <input type="checkbox" name="newsletter" />
+                                        <span>Recibir actualizaciones</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Botones -->
+                            <div class="botones">
+                                <button type="submit" class="boton boton-primario">✉️ Enviar</button>
+                                <button type="reset" class="boton boton-secundario">🗑️ Limpiar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Columna derecha: Info lateral -->
+                    <div class="seccion-info">
+                        <!-- Info Box 1 -->
+                        <div class="info-caja">
+                            <div class="info-titulo">⚔️ Soporte rápido</div>
+                            <div class="info-contenido">
+                                <p>¿Prisa? Consulta nuestras guías:</p>
+                                <ul>
+                                    <li><a href="/faq">❓ Preguntas frecuentes</a></li>
+                                    <li><a href="#">📚 Centro de soporte</a></li>
+                                    <li><a href="#">🐦 Twitter</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Info Box 2 -->
+                        <div class="info-caja">
+                            <div class="info-titulo">📜 Legal</div>
+                            <div class="info-contenido">
+                                <p>Lee nuestras políticas:</p>
+                                <div class="enlaces">
+                                    <a href="/terms">Términos</a>
+                                    <a href="/privacy">Privacidad</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Info Box 3: Valoración -->
+                        <div class="info-caja">
+                            <div class="info-titulo">💎 Califica la página</div>
+                            <div class="info-contenido">
+                                <p>¿Cómo valorarías la experiencia?</p>
+                                <form class="valoracion" action="#" method="post" aria-label="Valorar página">
+                                    <div class="estrellas" role="radiogroup" aria-label="Valoración">
+                                        <input type="radio" id="r5" name="valoracion" value="5" />
+                                        <label for="r5" title="5 estrellas">★</label>
+                                        <input type="radio" id="r4" name="valoracion" value="4" />
+                                        <label for="r4" title="4 estrellas">★</label>
+                                        <input type="radio" id="r3" name="valoracion" value="3" />
+                                        <label for="r3" title="3 estrellas">★</label>
+                                        <input type="radio" id="r2" name="valoracion" value="2" />
+                                        <label for="r2" title="2 estrellas">★</label>
+                                        <input type="radio" id="r1" name="valoracion" value="1" />
+                                        <label for="r1" title="1 estrella">★</label>
+                                    </div>
+                                </form>
+                                <p class="valor-texto" aria-hidden="true">Tu valoración ayuda a mejorar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div id="redes">
+                <a href=""><img class="redesFotter" src="../img/redesSociales/facebook.png" alt="facebook"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/instagram.png" alt="instagram"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/ticktock.png" alt="ticktock"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/x.png" alt="x"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/youtube.png" alt="youtube"></a>
+            </div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html">Mundos</a></li>
+                <li><a href="index.html">Mobs</a></li>
+                <li><a href="index.html">Crafteo</a></li>
+                <li><a href="index.html">Contacto</a></li>
+            </ul>
+            <div>
+                <p>Pagina web creada por Andrii, Asier, Aaron, David y Antuan(Auxiliar).</p>
+                <p>Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+    </body>
+    </html>
