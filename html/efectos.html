@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraf Blogger</title>
+    <meta name="author" content="Asier, Andrii, Aaron, David, Asier">
+    <meta name="description" content="Minecraft Blogger, descubre el mundo de creatividad y libertad en nuestra página.">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_efectos.css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <nav id="nav-principal">
+            <div>
+                <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba">
+                <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba2">
+                <ul id="lista">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../html/bioma.html">Mundos</a></li>
+                <li><a href="../index.html">Mobs</a></li>
+                <li><a href="../index.html">Crafteo</a></li>
+                <li><a href="../html/objetos.html">Objetos</a></li>
+                <li><a href="../html/efectos.html">Efectos</a></li>
+                    <li>
+                        <a href="../index.html">Juegos</a>
+                        <ul class="submenu">
+                            <li><a href="./juego/juego.html">Minecraft Offline</a></li>
+                            <li><a href="./juego/juego2.html">Minecraft Online</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../index.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <!-- PARTE ARRIBA(TITULO, BARRA DE VIDA, ICONO DE CURACION, AUDIO, SUBTITULO, POCIÓN) -->
+            <div id="intro">
+                <div id="partearribapocion">
+                    <div id="side"></div>
+                    <!-- TITULO -->
+                    <div id="megatitulo">
+                        <h1>Beber bajo tu propio riesgo</h1>
+                        <!-- AUDIO -->
+                        <audio controls>
+                            <source src="../sounds/beber.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                    <!-- BARRA DE SALUD (parte derecha arriba) -->
+                    <div id="barrasalud"></div>
+                </div>
+                <!-- POCIÓN Y SUBTITULO -->
+                <div id="parteabajopocion">
+                    <div id="animacionpocion"></div>
+                    <!-- SUBTITULO -->
+                    <div id="parteinfo">
+                        <p>Descubre, mezcla y domina todos los efectos de Minecraft.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- TABLAS EN COLUMNAS (TODAS) -->
+            <div id="tablasencolumnas">
+                <div id="tablaexplicacion">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="5">Explicación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5" id="inforefectos">Un efecto es una condición útil o perjudicial que afecta a una entidad. Los efectos pueden ser infligidos de varias maneras a lo largo del juego, incluyendo el consumo de pociones y algunos objetos de comida, estar en el rango de un faro y canalizador, y ser atacado por o cerca de ciertos criaturas.</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" rowspan="1" class="tableadicional">¿Pociones?</td>
+                                <td colspan="3" rowspan="1" class="tableadicional">¿La bruja?</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Las pociones son brebajes que, dependiendo de la poción, generan o no un tipo de efecto, con un tiempo limitado.</td>
+                                <td id="partebruja" colspan="3" rowspan="2"><img src="../img/mobs_andrii/Witch.png" alt="bruja"><p>Las brujas pueden soltar Pociones de Curación, Cuerpo Ignífugo, Rapidez y Apnea, pero solo cuando mueren mientras beben esa poción. </p></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Las pociones tienen un efecto diferente según su valor de daño, con la excepción de que las pociones revertidas son idénticas a sus pociones base. Las pociones se pueden usar presionando y manteniendo use, de forma similar para comer alimentos. Al usarlas, se aplicará el efecto correspondiente al jugador.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <div id="tablaefectos">
+                    <table>
+                        <caption>Efectos Positivos</caption>
+                        <thead>
+                                <tr>
+                                    <td>Icono</td>
+                                    <td>Nombre</td>
+                                    <td colspan="2">Efecto</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/speed_sm.png" alt="velocidad"></td>
+                                <td>Velocidad</td>
+                                <td colspan="2">Aumenta la velocidad al caminar; niveles más altos incrementan la velocidad y aumentan el campo de visión del jugador.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/haste_sm.png" alt="prisaminera"></td>
+                                <td>Prisa minera</td>
+                                <td colspan="2">Aumenta la velocidad de minado y ataque.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/strength_sm.png" alt="fuerza"></td>
+                                <td>Fuerza</td>
+                                <td colspan="2">Aumenta el daño cuerpo a cuerpo.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/instant_health_sm.png" alt="curacioninstantanea"></td>
+                                <td>Curación instantánea</td>
+                                <td colspan="2">Cura a entidades vivas; daña a muertos vivientes.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/jump_boost_sm.png" alt="danoinstantaneo"></td>
+                                <td>Supersalto</td>
+                                <td colspan="2">Aumenta altura de salto y reduce daño por caída.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/regeneration_sm.png" alt="regeneracion"></td>
+                                <td>Regeneración</td>
+                                <td colspan="2">Regenera salud con el tiempo.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/resistance_sm.png" alt="resistencia"></td>
+                                <td>Resistencia</td>
+                                <td colspan="2">Reduce el daño recibido.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/fire_resistance_sm.png" alt="resistencaifuego"></td>
+                                <td>Cuerpo ignífugo</td>
+                                <td colspan="2">Evita daño por fuego/lava.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/water_breathing_sm.png" alt="apnea"></td>
+                                <td>Apnea</td>
+                                <td colspan="2">Permite respirar bajo el agua.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/invisibility_sm.png" alt="invisible"></td>
+                                <td>Invisibilidad</td>
+                                <td colspan="2">Hace invisible a la entidad (no su equipo), reduce rango de detección.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/night_vision_sm.png" alt="visionnocturna"></td>
+                                <td>Visión nocturna</td>
+                                <td colspan="2">Mejora visión en la oscuridad y bajo el agua.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/health_boost_sm.png" alt="saludmejorada"></td>
+                                <td>Salud mejorada</td>
+                                <td colspan="2">Aumenta salud máxima.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/absorption_sm.png" alt="absorcion"></td>
+                                <td>Absorción</td>
+                                <td colspan="2">Añade corazones temporales (no regenerables).</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/saturation_sm.png" alt="saturacion"></td>
+                                <td>Saturación</td>
+                                <td colspan="2">Restaura hambre y saturación.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/luck_sm.png" alt="suerte"></td>
+                                <td>Suerte</td>
+                                <td colspan="2">Aumenta probabilidad de botín de alta calidad.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/conduit_power_sm.png" alt="venenofatal"></td>
+                                <td>Canalización</td>
+                                <td colspan="2">Aumenta velocidad de natación/minado bajo el agua, evita ahogamiento.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/slow_falling_sm.png" alt="caidalenta"></td>
+                                <td>Caída lenta</td>
+                                <td colspan="2">Reduce velocidad de caída y anula daño por caída.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/dolphins_grace_sm.png" alt="graciadelfin"></td>
+                                <td>Gracia de delfín</td>
+                                <td colspan="2">Aumenta mucho la velocidad de nado (solo con delfines).</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/hero_of_the_village_sm.png" alt="herpedelaaldea"></td>
+                                <td>Héroe de la aldea</td>
+                                <td colspan="2">Descuentos en aldeanos, regalos, animación festiva.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="tablaefectosnegativos">
+                    <table>
+                        <caption>Efectos Negativos</caption>
+                        <thead>
+                                <tr>
+                                    <td>Icono</td>
+                                    <td>Nombre</td>
+                                    <td colspan="2">Efecto</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/slowness_sm.png" alt="lentitud"></td>
+                                <td>Lentitud</td>
+                                <td colspan="2">Disminuye la velocidad al caminar; niveles más altos reducen la velocidad y el campo de visión.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/mining_fatigue_sm.png" alt="fatigaminera"></td>
+                                <td>Fatiga minera</td>
+                                <td colspan="2">Disminuye la velocidad de minado y ataque.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/instant_damage_sm.png" alt="danoinstantaneo"></td>
+                                <td>Daño instantáneo</td>
+                                <td colspan="2">Daña a entidades vivas; cura a muertos vivientes.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/nausea_sm.png" alt="nausea"></td>
+                                <td>Náusea</td>
+                                <td colspan="2">La pantalla se tambalea y deforma.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/blindness_sm.png" alt="ceguera"></td>
+                                <td>Ceguera</td>
+                                <td colspan="2">Reduce visión al mínimo, impide correr y hacer golpes críticos.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/hunger_sm.png" alt="hambre"></td>
+                                <td>Hambre</td>
+                                <td colspan="2">Aumenta agotamiento de comida (saturación).</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/weakness_sm.png" alt="debilidad"></td>
+                                <td>Debilidad</td>
+                                <td colspan="2">Reduce daño cuerpo a cuerpo.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/poison_sm.png" alt="veneno"></td>
+                                <td>Veneno</td>
+                                <td colspan="2">Daño por segundo (no mata); no afecta muertos vivientes.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/wither_sm.png" alt="descomposicion"></td>
+                                <td>Descomposición</td>
+                                <td colspan="2">Daño por segundo (puede matar).</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/glowing_sm.png" alt="luminiscencia"></td>
+                                <td>Luminiscencia</td>
+                                <td colspan="2">Contorno visible a través de bloques.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/levitation_sm.png" alt="levitacion"></td>
+                                <td>Levitación</td>
+                                <td colspan="2">Eleva al jugador hacia arriba.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/unluck_sm.png" alt="malasuerte"></td>
+                                <td>Mala suerte</td>
+                                <td colspan="2">Reduce probabilidad de botín de alta calidad.</td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/poison_sm.png" alt="venenofatal"></td>
+                                <td>Veneno fatal</td>
+                                <td colspan="2">Daño por segundo que <strong>sí puede matar</strong>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="tablaefectosespeciales">
+                    <table>
+                        <caption>Efectos Especiales</caption>
+                        <thead>
+                                <tr>
+                                    <td>Icono</td>
+                                    <td>Nombre</td>
+                                    <td colspan="2">Efecto</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="../img/objetos/efectos/bad_omen_sm.png" alt="malpresagio"></td>
+                                <td>Mal presagio</td>
+                                <td colspan="2">Provoca una invasión al entrar en una aldea.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div id="redes">
+                <a href=""><img class="redesFotter" src="../img/redesSociales/facebook.png" alt="facebook"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/instagram.png" alt="instagram"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/ticktock.png" alt="ticktock"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/x.png" alt="x"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/youtube.png" alt="youtube"></a>
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../html/bioma.html">Mundos</a></li>
+                <li><a href="../index.html">Mobs</a></li>
+                <li><a href="../index.html">Crafteo</a></li>
+                <li><a href="../html/objetos.html">Objetos</a></li>
+                <li><a href="../html/efectos.html">Efectos</a></li>
+                <li><a href="../index.html">Contacto</a></li>
+            </ul>
+            <div>
+                <p>Pagina web creada por Andrii, Asier, Aaron, David y Antuan(Auxiliar).</p>
+                <p>Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
