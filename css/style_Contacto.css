@@ -517,3 +517,86 @@ main {
     border: 4px solid #5a4a3a;
   }
 }
+
+  /* ========================================
+     MODAL ESTILO MINECRAFT
+     ======================================== */
+
+  .modal-toggle {
+    display: none;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-toggle:checked ~ .modal-overlay {
+    display: flex;
+  }
+
+  .modal-contenido {
+    background-color: #3a3a3a;
+    border: 4px solid #8b7355;
+    padding: 2rem;
+    border-radius: 0;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    animation: popupAppear 0.3s ease-out;
+  }
+
+  @keyframes popupAppear {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .modal-contenido h2 {
+    color: #ffd700;
+    font-size: 1.8rem;
+    margin: 0 0 1rem 0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-contenido p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+  }
+
+  .modal-cerrar {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #8b7355;
+    color: white;
+    border: 2px solid #5a4a3a;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+
+  .modal-cerrar:hover {
+    background-color: #a0835e;
+    transform: translate(0, -2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .modal-cerrar:active {
+    transform: translate(0, 0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }

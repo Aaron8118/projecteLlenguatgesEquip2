@@ -20,18 +20,18 @@
                 <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba">
                 <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba2">
                 <ul id="lista">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="index.html">Mundos</a></li>
-                    <li><a href="index.html">Mobs</a></li>
-                    <li><a href="index.html">Objetos</a></li>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="bioma.html">Mundos</a></li>
+                    <li><a href="mobs.html">Mobs</a></li>
+                    <li><a href="objetos.html">Objetos</a></li>
                     <li>
-                        <a href="index.html">Juegos</a>
+                        <a href="Contacto.html">Juegos</a>
                         <ul class="submenu">
-                            <li><a href="./juego/juego.html">Minecraft Offline</a></li>
-                            <li><a href="./juego/juego2.html">Minecraft Online</a></li>
+                            <li><a href="../juego/juego.html">Minecraft Offline</a></li>
+                            <li><a href="../juego/juego2.html">Minecraft Online</a></li>
                         </ul>
                     </li>
-                    <li><a href="index.html">Contacto</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
                 </ul>
             </div>
         </nav>
@@ -121,7 +121,7 @@
 
                             <!-- Botones -->
                             <div class="botones">
-                                <button type="submit" class="boton boton-primario">✉️ Enviar</button>
+                                <label for="modal-bienvenida" class="boton boton-primario">✉️ Enviar</label>
                                 <button type="reset" class="boton boton-secundario">🗑️ Limpiar</button>
                             </div>
                         </form>
@@ -201,6 +201,16 @@
                 <p>Todos los derechos reservados.</p>
             </div>
         </footer>
+    </div>
+    
+    <!-- Modal de bienvenida -->
+    <input type="checkbox" id="modal-bienvenida" class="modal-toggle" hidden>
+    <div class="modal-overlay">
+        <div class="modal-contenido">
+            <h2>¡Bienvenido!</h2>
+            <p>Tu mensaje ha sido recibido. Gracias por contactarnos.</p>
+            <label for="modal-bienvenida" class="modal-cerrar">Cerrar</label>
+        </div>
     </div>
     </body>
     </html>
