@@ -119,6 +119,24 @@ main {
     opacity: 0.5;
 }
 
+#correo:valid {
+
+  background-image: url(../img/iconos/ok.jpg);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 20px;
+
+}
+
+#correo:focus:invalid {
+
+  background-image: url(../img/iconos/X.jpg);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 20px;
+
+}
+
 /* Keyframes de animación (loop infinito) */
 @keyframes slideMinecraft {
     0%, 15% { transform: translateX(0); }

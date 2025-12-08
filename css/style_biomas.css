@@ -5,10 +5,15 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(67, 67, 67);
-    
+        
 
 }
 
+main {
+
+padding-bottom: 130px;
+    
+}
 
 @font-face {
     font-family: "Lminecraft";

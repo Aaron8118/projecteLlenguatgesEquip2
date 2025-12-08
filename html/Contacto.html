@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,31 +10,37 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_Contacto.css">
+    <link rel="stylesheet" href="../css/equipo.css">
+
 </head>
     <body>
     <div id="wrapper">
-        <!-- NAVBAR -->
-        <nav id="nav-principal">
+           <!-- CHECKBOX OCULTO PARA MODAL -->
+        <input type="checkbox" id="modal-equipo" class="modal-checkbox">
+
+       <nav id="nav-principal">
             <div>
                 <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba">
                 <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba2">
                 <ul id="lista">
                     <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="bioma.html">Mundos</a></li>
-                    <li><a href="mobs.html">Mobs</a></li>
-                    <li><a href="objetos.html">Objetos</a></li>
+                    <li><a href="../html/bioma.html">Mundos</a></li>
+                    <li><a href="../html/mobs.html">Mobs</a></li>
+                    <li><a href="../html/objetos.html">Objetos</a></li>
+                    <li><a href="../html/efectos.html">Efectos</a></li>
                     <li>
-                        <a href="Contacto.html">Juegos</a>
+                        <a>Juegos</a>
                         <ul class="submenu">
                             <li><a href="../juego/juego.html">Minecraft Offline</a></li>
                             <li><a href="../juego/juego2.html">Minecraft Online</a></li>
                         </ul>
                     </li>
-                    <li><a href="Contacto.html">Contacto</a></li>
+                    <li><a href="../html/Contacto.html">Contacto</a></li>
+                    <!-- BOTÓN EQUIPO AÑADIDO AQUÍ -->
+                    <li><label for="modal-equipo"><strong>Equipo</strong></label></li>
                 </ul>
             </div>
         </nav>
-
         <main>
             <section class="contacto">
                 <!-- Encabezado tipo Minecraft -->
@@ -57,15 +63,15 @@
                                 <div class="bloque-contenido">
                                     <div class="grupo-input">
                                         <label for="nombre">Nombre completo</label>
-                                        <input id="nombre" name="nombre" type="text" required placeholder="Steve o Alex..." autofocus />
+                                        <input id="nombre" name="nombre" type="text" required placeholder="Steve o Alex..." autofocus/>
                                     </div>
                                     <div class="grupo-input">
                                         <label for="correo">Correo electrónico</label>
-                                        <input id="correo" name="correo" type="email" required placeholder="tu@correo.com" />
+                                        <input id="correo" name="correo" type="email" required placeholder="tu@correo.com" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"/>
                                     </div>
                                     <div class="grupo-input">
                                         <label for="telefono">Teléfono</label>
-                                        <input id="telefono" name="telefono" type="tel" placeholder="+34 600 000 000" />
+                                        <input id="telefono" name="telefono" type="tel" placeholder="+34 600 000 000" pattern="\+[0-9]{2}[0-9]{9}" required/>
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +222,7 @@
                             <div class="info-contenido">
                                 <p style="color: black;">Lee nuestras políticas:</p>
                                 <div class="enlaces">
-                                    <a href="./EULA _ Minecraft.html">Términos</a>
+                                    <a href="./EULAMinecraft.html">Términos</a>
                                     <a href="https://www.microsoft.com/es-es/privacy/privacystatement">Privacidad</a>
                                 </div>
                             </div>
@@ -259,27 +265,85 @@
                 <a href=""><img class="redesFotter" src="../img/redesSociales/youtube.png" alt="youtube"></a>
             </div>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="index.html">Mundos</a></li>
-                <li><a href="index.html">Mobs</a></li>
-                <li><a href="index.html">Crafteo</a></li>
-                <li><a href="index.html">Contacto</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../html/bioma.html">Mundos</a></li>
+                <li><a href="../html/mobs.html">Mobs</a></li>
+                <li><a href="../html/objetos.html">Objetos</a></li>
+                <li><a href="../html/efectos.html">Efectos</a></li>
+                <li><a href="../html/Contacto.html">Contacto</a></li>
             </ul>
             <div>
                 <p>Pagina web creada por Andrii, Asier, Aaron, David y Antuan(Auxiliar).</p>
                 <p>Todos los derechos reservados.</p>
             </div>
         </footer>
+        
+      <!-- MODAL DEL EQUIPO (AÑADIDO AL FINAL) -->
+<div class="modal-superpuesto">
+    <div class="contenido-modal">
+        <label for="modal-equipo" class="boton-cerrar">×</label>
+        <h2 class="titulo-modal">Nuestro Equipo de Desarrollo</h2>
+        
+        <div class="rejilla-miembros">
+            <div class="miembro-equipo">
+                <div class="contenedor-imagen">
+                    <img src="../img/AARON.png" alt="Aaron" class="imagen1" onerror="this.src='https://via.placeholder.com/150/667eea/ffffff?text=AARON'">
+                </div>
+                <div class="nombre-miembro">Aarón</div>
+                <div class="rol-miembro"><strong>Desarrollador Frontend</strong></div>
+            </div>
+
+            <div class="miembro-equipo">
+                <div class="contenedor-imagen">
+                    <img src="../img/ANDRII.png" alt="Andrii" class="imagen1" onerror="this.src='https://via.placeholder.com/150/764ba2/ffffff?text=ANDRII'">
+                </div>
+                <div class="nombre-miembro">Andrii</div>
+                <div class="rol-miembro"><strong>Desarrollador Backend</strong></div>
+            </div>
+
+            <div class="miembro-equipo">
+                <div class="contenedor-imagen">
+                    <img src="../img/ANTUAN.png" alt="Antuan" class="imagen1" onerror="this.src='https://via.placeholder.com/150/f093fb/ffffff?text=ANTUAN'">
+                </div>
+                <div class="nombre-miembro">Antuan</div>
+                <div class="rol-miembro"><strong>Diseñador UI/UX</strong></div>
+            </div>
+
+            <div class="miembro-equipo">
+                <div class="contenedor-imagen">
+                    <img src="../img/ASIER.png" alt="Asier" class="imagen1" onerror="this.src='https://via.placeholder.com/150/f5576c/ffffff?text=ASIER'">
+                </div>
+                <div class="nombre-miembro">Asier</div>
+                <div class="rol-miembro"><strong>Desarrollador Full Stack</strong></div>
+            </div>
+
+            <div class="miembro-equipo">
+                <div class="contenedor-imagen">
+                    <img src="../img/DAVID.png" alt="David" class="imagen1" onerror="this.src='https://via.placeholder.com/150/4facfe/ffffff?text=DAVID'">
+                </div>
+                <div class="nombre-miembro">David</div>
+                <div class="rol-miembro"><strong>Ingeniero DevOps</strong></div>
+            </div>
+
+            <!-- Nuevo miembro: Raúl -->
+            <div class="miembro-equipo">
+                <div class="contenedor-imagen">
+                    <img src="../img/RAUL.png" alt="Raul" class="imagen1" onerror="this.src='https://via.placeholder.com/150/ff9f43/ffffff?text=RAUL'">
+                </div>
+                <div class="nombre-miembro">Raúl</div>
+                <div class="rol-miembro"><strong>Profesor</strong></div>
+              </div>
+            </div>
+        </div>
     </div>
-    
+</div>    
           <!-- Modal de bienvenida con :target -->
     <div id="modal-bienvenida" class="modal-overlay">
         <div class="modal-contenido">
             <h2>¡Bienvenido!</h2>
             <p>Tu mensaje ha sido recibido. Gracias por contactarnos.</p>
             <a href="#" class="modal-cerrar">Cerrar</a>
-        </div>
+       </div>
     </div>
-    </div>
-    </body>
+  </body>
 </html>

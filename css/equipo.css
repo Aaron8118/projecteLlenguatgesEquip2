@@ -1,0 +1,265 @@
+/* ============================================
+   ESTILOS MINECRAFT PARA EL MODAL DEL EQUIPO
+   ============================================ */
+
+/* CHECKBOX HACK */
+.modal-checkbox {
+    display: none;
+}
+
+
+@font-face {
+    font-family: "Lminecraft";
+    src: url("../font/mac_s_minecraft/mac\'s\ Extended\ Minecraft.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* BOTÓN EQUIPO - Estilo bloque Minecraft */
+.boton-nav-equipo {
+    background: #4a7c17;
+    color: white;
+    padding: 12px 24px;
+    border: 3px solid #2d5016;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Lminecraft', cursive;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: all 0.1s ease;
+    display: inline-block;
+    margin: 0 10px;
+    box-shadow: 0 4px 0 #2d5016;
+    image-rendering: pixelated;
+}
+
+.boton-nav-equipo:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #2d5016;
+    background: #5a8c27;
+}
+
+.boton-nav-equipo:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+/* OVERLAY DEL MODAL */
+.modal-superpuesto {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-checkbox:checked ~ .modal-superpuesto {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* CONTENIDO DEL MODAL - Fondo ladrillos */
+.contenido-modal {
+    background: url('../img/ladrillos.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 40px;
+    border-radius: 0;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    box-shadow: 
+        inset 0 0 0 4px #8b7355,
+        0 0 0 6px #5d4e37,
+        0 10px 20px rgba(0, 0, 0, 0.7);
+    position: relative;
+    border: 4px solid #8b7355;
+    image-rendering: pixelated;
+}
+
+.modal-checkbox:checked ~ .modal-superpuesto .contenido-modal {
+    transform: scale(1);
+}
+
+/* BOTÓN CERRAR (X) - Bloque TNT */
+.boton-cerrar {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: #dc143c;
+    color: white;
+    width: 40px; height: 40px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.1s ease;
+    z-index: 10;
+    border: 3px solid #8b0000;
+    box-shadow: 0 3px 0 #8b0000;
+    font-family: 'Lminecraft', cursive;
+    padding-bottom: 4px;
+}
+
+.boton-cerrar:hover {
+    background: #ff2040;
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #8b0000;
+}
+
+.boton-cerrar:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+/* TÍTULO DEL MODAL */
+.titulo-modal {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #4a7c17;
+    border: 3px solid #2d5016;
+    font-family: 'Lminecraft', cursive;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #2d5016;
+    box-shadow: 0 4px 0 #2d5016;
+    line-height: 1.5;
+}
+
+/* GRID DE MIEMBROS */
+.rejilla-miembros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px; /* Más espacio para el zoom */
+    padding: 20px 0;
+}
+
+/* TARJETA DE CADA MIEMBRO - Bloque de piedra */
+.miembro-equipo {
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 0;
+    background: #333;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 3px solid #696969;
+    box-shadow: 0 4px 0 #696969;
+    position: relative;
+}
+
+.miembro-equipo:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #696969;
+    background: #909090;
+}
+
+/* CONTENEDOR DE IMAGEN - Centrado perfecto */
+.contenedor-imagen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    height: 110px; /* Altura fija para consistencia */
+    position: relative;
+    overflow: visible; /* Permite que la imagen se salga al hacer zoom */
+}
+
+/* IMAGEN DE PERFIL - Con efecto zoom */
+.miembro-equipo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 0;
+    object-fit: cover;
+    border: 4px solid #4a4a4a;
+    box-shadow: inset 0 0 0 2px #fff, 0 0 0 2px #000;
+    background: #d3d3d3;
+    image-rendering: pixelated;
+    display: block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+/* EFECTO ZOOM AL PASAR EL RATÓN - brillo verde */
+.miembro-equipo:hover img {
+    transform: scale(2.2); /* Aumenta al 220% */
+    z-index: 100; /* Se superpone a todo */
+    border-color: #00ff00; /* Borde verde */
+    box-shadow: 
+        inset 0 0 0 2px #fff, 
+        0 0 0 2px #000,
+        0 0 25px rgba(0, 255, 0, 0.7); /* Brillo verde */
+}
+
+/* NOMBRE DEL MIEMBRO */
+.nombre-miembro {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Lminecraft', cursive;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #333;
+    line-height: 1.4;
+    min-height: 35px;
+}
+
+/* ROL DEL MIEMBRO */
+.rol-miembro {
+    margin-top: 8px;
+    font-size: 9px;
+    color: #089108; /* Verde para que combine con el brillo */
+    font-family: 'Lminecraft', cursive;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .contenido-modal { padding: 30px 20px; }
+    .titulo-modal { font-size: 18px; }
+    .rejilla-miembros { 
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 30px;
+    }
+    .miembro-equipo img {
+        width: 85px;
+        height: 85px;
+    }
+    .miembro-equipo:hover img {
+        transform: scale(1.8); /* Menos zoom en móvil */
+    }
+}
+
+@media (max-width: 480px) {
+    .boton-nav-equipo {
+        padding: 10px 15px;
+        font-size: 10px;
+    }
+    .rejilla-miembros {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .contenedor-imagen {
+        height: 95px;
+    }
+}
+
+.imagen1 {
+    margin-left: 2px;
+}
