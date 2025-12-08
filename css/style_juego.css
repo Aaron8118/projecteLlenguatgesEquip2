@@ -21,13 +21,16 @@ body {
 }
 
 #video_fondo {
-    position: fixed; /* o absolute si prefieres que se mueva con la página */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ajusta el video al tamaño sin deformar */
-    z-index: -1; /* lo pone detrás del contenido */
+  position: fixed;
+  /* o absolute si prefieres que se mueva con la página */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* ajusta el video al tamaño sin deformar */
+  z-index: -1;
+  /* lo pone detrás del contenido */
 }
 
 
@@ -99,9 +102,9 @@ h1 {
   font-family: 'Lminecraft', sans-serif;
 
 }
+
 .boton:hover {
   background-color: #2e8b57;
   box-shadow: 0 0 25px #00ff7f;
   transform: scale(1.05);
 }
-

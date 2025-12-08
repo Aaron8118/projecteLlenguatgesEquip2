@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraf Blogger</title>
     <meta name="author" content="Asier, Andrii, Aaron, David, Asier">
-    <meta name="description" content="Minecraft Blogger, descubre el mundo de creatividad y libertad en nuestra página.">
+    <meta name="description"
+        content="Minecraft Blogger, descubre el mundo de creatividad y libertad en nuestra página.">
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -13,12 +15,13 @@
     <link rel="stylesheet" href="../css/equipo.css">
 
 </head>
-    <body>
+
+<body>
     <div id="wrapper">
-           <!-- CHECKBOX OCULTO PARA MODAL -->
+        <!-- CHECKBOX OCULTO PARA MODAL -->
         <input type="checkbox" id="modal-equipo" class="modal-checkbox">
 
-       <nav id="nav-principal">
+        <nav id="nav-principal">
             <div>
                 <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba">
                 <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba2">
@@ -56,22 +59,25 @@
                     <!-- Columna izquierda: Formulario -->
                     <div class="seccion-form">
                         <form id="formulario" method="POST" enctype="multipart/form-data">
-                            
+
                             <!-- Bloque: Información personal -->
                             <div class="bloque">
                                 <label class="bloque-titulo" for="nombre">👤 Tus datos</label>
                                 <div class="bloque-contenido">
                                     <div class="grupo-input">
                                         <label for="nombre">Nombre completo</label>
-                                        <input id="nombre" name="nombre" type="text" required placeholder="Steve o Alex..." autofocus/>
+                                        <input id="nombre" name="nombre" type="text" required
+                                            placeholder="Steve o Alex..." autofocus>
                                     </div>
                                     <div class="grupo-input">
                                         <label for="correo">Correo electrónico</label>
-                                        <input id="correo" name="correo" type="email" required placeholder="tu@correo.com" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"/>
+                                        <input id="correo" name="correo" type="email" required
+                                            placeholder="tu@correo.com" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$">
                                     </div>
                                     <div class="grupo-input">
                                         <label for="telefono">Teléfono</label>
-                                        <input id="telefono" name="telefono" type="tel" placeholder="+34 600 000 000" pattern="\+[0-9]{2}[0-9]{9}" required/>
+                                        <input id="telefono" name="telefono" type="tel" placeholder="+34 600 000 000"
+                                            pattern="\+[0-9]{2}[0-9]{9}" required>
                                     </div>
                                 </div>
                             </div>
@@ -82,15 +88,19 @@
                                 <div class="bloque-contenido">
                                     <div class="grupo-input">
                                         <label for="asunto">Asunto</label>
-                                        <input id="asunto" name="asunto" type="text" placeholder="Resumen de tu problema..." />
+                                        <input id="asunto" name="asunto" type="text"
+                                            placeholder="Resumen de tu problema...">
                                     </div>
                                     <div class="grupo-input">
                                         <label for="categoria">Categoría</label>
                                         <select id="categoria" name="categoria">
                                             <option style="background-color: black;" value="">-- Selecciona --</option>
-                                            <option style="background-color: black;" value="bug">🐛 Reporte de error</option>
-                                            <option style="background-color: black;" value="sugerencia">💡 Sugerencia</option>
-                                            <option style="background-color: black;" value="soporte">🔧 Soporte técnico</option>
+                                            <option style="background-color: black;" value="bug">🐛 Reporte de error
+                                            </option>
+                                            <option style="background-color: black;" value="sugerencia">💡 Sugerencia
+                                            </option>
+                                            <option style="background-color: black;" value="soporte">🔧 Soporte técnico
+                                            </option>
                                             <option style="background-color: black;" value="otro">❓ Otro</option>
                                         </select>
                                     </div>
@@ -101,7 +111,8 @@
                             <div class="bloque">
                                 <label class="bloque-titulo" for="mensaje">📝 Mensaje</label>
                                 <div class="bloque-contenido">
-                                    <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntanos qué necesitas..."></textarea>
+                                    <textarea id="mensaje" name="mensaje" rows="6"
+                                        placeholder="Cuéntanos qué necesitas..."></textarea>
                                 </div>
                             </div>
 
@@ -109,7 +120,7 @@
                             <div class="bloque">
                                 <label class="bloque-titulo">⚙️ Contacto directo</label><br><br>
                                 <div class="bloque-contenido">
-                                    
+
                                     <div class="grupo-input">
                                         <a href="mailto:minecraftAAAAD.com" class="boton-enlace">
                                             📧 Contactar por Email
@@ -123,7 +134,7 @@
                                     </div>
 
                                     <label class="casilla">
-                                        <input type="checkbox" name="newsletter" />
+                                        <input type="checkbox" name="newsletter">
                                         <span id="recibir">Recibir actualizaciones</span>
                                     </label>
 
@@ -133,7 +144,8 @@
 
                             <!-- Botones -->
                             <div class="botones">
-                                <button type="submit" formaction="#modal-bienvenida" class="boton boton-primario">✉️ Enviar</button>
+                                <button type="submit" formaction="#modal-bienvenida" class="boton boton-primario">✉️
+                                    Enviar</button>
                                 <button type="reset" class="boton boton-secundario">🗑️ Limpiar</button>
                             </div>
                         </form>
@@ -155,7 +167,8 @@
                                                 <div class="comentario-estrellas">★★★★★</div>
                                             </div>
                                         </div>
-                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers no destruyeron mi casa esta vez. Servicio épico."</div>
+                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers
+                                            no destruyeron mi casa esta vez. Servicio épico."</div>
                                     </div>
                                     <!-- Comentario 2 -->
                                     <div class="comentario-slide">
@@ -166,7 +179,8 @@
                                                 <div class="comentario-estrellas">★★★★☆</div>
                                             </div>
                                         </div>
-                                        <div class="comentario-texto">"Encontré diamantes gracias a sus tips. Casi me matan pero valió la pena. ¡Muy recomendado!"</div>
+                                        <div class="comentario-texto">"Encontré diamantes gracias a sus tips. Casi me
+                                            matan pero valió la pena. ¡Muy recomendado!"</div>
                                     </div>
                                     <!-- Comentario 3 -->
                                     <div class="comentario-slide">
@@ -177,7 +191,8 @@
                                                 <div class="comentario-estrellas">★★★★★</div>
                                             </div>
                                         </div>
-                                        <div class="comentario-texto">"Mis cultivos crecen más rápido que nunca. 10/10, volvería a sembrar con ustedes."</div>
+                                        <div class="comentario-texto">"Mis cultivos crecen más rápido que nunca. 10/10,
+                                            volvería a sembrar con ustedes."</div>
                                     </div>
                                     <!-- Comentario 4 -->
                                     <div class="comentario-slide">
@@ -188,7 +203,8 @@
                                                 <div class="comentario-estrellas">★★★☆☆</div>
                                             </div>
                                         </div>
-                                        <div class="comentario-texto">"Me ayudaron a sobrevivir al Nether. Perdí todo pero aprendí mucho. Ghast-friendly."</div>
+                                        <div class="comentario-texto">"Me ayudaron a sobrevivir al Nether. Perdí todo
+                                            pero aprendí mucho. Ghast-friendly."</div>
                                     </div>
                                     <!-- Comentario 5 -->
                                     <div class="comentario-slide">
@@ -199,7 +215,8 @@
                                                 <div class="comentario-estrellas">★★★★★</div>
                                             </div>
                                         </div>
-                                        <div class="comentario-texto">"Construí mi castillo en 3 días. Los materiales llegaron rápido. ¡Constructores confiables!"</div>
+                                        <div class="comentario-texto">"Construí mi castillo en 3 días. Los materiales
+                                            llegaron rápido. ¡Constructores confiables!"</div>
                                     </div>
                                     <!-- Duplicados para loop infinito -->
                                     <div class="comentario-slide">
@@ -210,7 +227,8 @@
                                                 <div class="comentario-estrellas">★★★★★</div>
                                             </div>
                                         </div>
-                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers no destruyeron mi casa esta vez. Servicio épico."</div>
+                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers
+                                            no destruyeron mi casa esta vez. Servicio épico."</div>
                                     </div>
                                 </div>
                             </div>
@@ -222,7 +240,7 @@
                             <div class="info-contenido">
                                 <p style="color: black;">Lee nuestras políticas:</p>
                                 <div class="enlaces">
-                                    <a href="./EULAMinecraft.html">Términos</a>
+                                    <a href="https://www.minecraft.net/es-es/eula">Términos</a>
                                     <a href="https://www.microsoft.com/es-es/privacy/privacystatement">Privacidad</a>
                                 </div>
                             </div>
@@ -235,15 +253,15 @@
                                 <p style="color: black;">¿Cómo valorarías la experiencia?</p>
                                 <form class="valoracion" action="#" method="post" aria-label="Valorar página">
                                     <div class="estrellas" role="radiogroup" aria-label="Valoración">
-                                        <input type="radio" id="r5" name="valoracion" value="5" />
+                                        <input type="radio" id="r5" name="valoracion" value="5">
                                         <label for="r5" title="5 estrellas">★</label>
-                                        <input type="radio" id="r4" name="valoracion" value="4" />
+                                        <input type="radio" id="r4" name="valoracion" value="4">
                                         <label for="r4" title="4 estrellas">★</label>
-                                        <input type="radio" id="r3" name="valoracion" value="3" />
+                                        <input type="radio" id="r3" name="valoracion" value="3">
                                         <label for="r3" title="3 estrellas">★</label>
-                                        <input type="radio" id="r2" name="valoracion" value="2" />
+                                        <input type="radio" id="r2" name="valoracion" value="2">
                                         <label for="r2" title="2 estrellas">★</label>
-                                        <input type="radio" id="r1" name="valoracion" value="1" />
+                                        <input type="radio" id="r1" name="valoracion" value="1">
                                         <label for="r1" title="1 estrella">★</label>
                                     </div>
                                 </form>
@@ -252,7 +270,6 @@
                         </div>
                     </div>
                 </div>
-                
             </section>
         </main>
 
@@ -277,73 +294,80 @@
                 <p>Todos los derechos reservados.</p>
             </div>
         </footer>
-        
-      <!-- MODAL DEL EQUIPO (AÑADIDO AL FINAL) -->
-<div class="modal-superpuesto">
-    <div class="contenido-modal">
-        <label for="modal-equipo" class="boton-cerrar">×</label>
-        <h2 class="titulo-modal">Nuestro Equipo de Desarrollo</h2>
-        
-        <div class="rejilla-miembros">
-            <div class="miembro-equipo">
-                <div class="contenedor-imagen">
-                    <img src="../img/AARON.png" alt="Aaron" class="imagen1" onerror="this.src='https://via.placeholder.com/150/667eea/ffffff?text=AARON'">
-                </div>
-                <div class="nombre-miembro">Aarón</div>
-                <div class="rol-miembro"><strong>Desarrollador Frontend</strong></div>
-            </div>
 
-            <div class="miembro-equipo">
-                <div class="contenedor-imagen">
-                    <img src="../img/ANDRII.png" alt="Andrii" class="imagen1" onerror="this.src='https://via.placeholder.com/150/764ba2/ffffff?text=ANDRII'">
-                </div>
-                <div class="nombre-miembro">Andrii</div>
-                <div class="rol-miembro"><strong>Desarrollador Backend</strong></div>
-            </div>
+        <!-- MODAL DEL EQUIPO (AÑADIDO AL FINAL) -->
+        <div class="modal-superpuesto">
+            <div class="contenido-modal">
+                <label for="modal-equipo" class="boton-cerrar">×</label>
+                <h2 class="titulo-modal">Nuestro Equipo de Desarrollo</h2>
 
-            <div class="miembro-equipo">
-                <div class="contenedor-imagen">
-                    <img src="../img/ANTUAN.png" alt="Antuan" class="imagen1" onerror="this.src='https://via.placeholder.com/150/f093fb/ffffff?text=ANTUAN'">
-                </div>
-                <div class="nombre-miembro">Antuan</div>
-                <div class="rol-miembro"><strong>Diseñador UI/UX</strong></div>
-            </div>
+                <div class="rejilla-miembros">
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/AARON.png" alt="Aaron" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/667eea/ffffff?text=AARON'">
+                        </div>
+                        <div class="nombre-miembro">Aarón</div>
+                        <div class="rol-miembro"><strong>Desarrollador Frontend</strong></div>
+                    </div>
 
-            <div class="miembro-equipo">
-                <div class="contenedor-imagen">
-                    <img src="../img/ASIER.png" alt="Asier" class="imagen1" onerror="this.src='https://via.placeholder.com/150/f5576c/ffffff?text=ASIER'">
-                </div>
-                <div class="nombre-miembro">Asier</div>
-                <div class="rol-miembro"><strong>Desarrollador Full Stack</strong></div>
-            </div>
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/ANDRII.png" alt="Andrii" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/764ba2/ffffff?text=ANDRII'">
+                        </div>
+                        <div class="nombre-miembro">Andrii</div>
+                        <div class="rol-miembro"><strong>Desarrollador Backend</strong></div>
+                    </div>
 
-            <div class="miembro-equipo">
-                <div class="contenedor-imagen">
-                    <img src="../img/DAVID.png" alt="David" class="imagen1" onerror="this.src='https://via.placeholder.com/150/4facfe/ffffff?text=DAVID'">
-                </div>
-                <div class="nombre-miembro">David</div>
-                <div class="rol-miembro"><strong>Ingeniero DevOps</strong></div>
-            </div>
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/ANTUAN.png" alt="Antuan" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/f093fb/ffffff?text=ANTUAN'">
+                        </div>
+                        <div class="nombre-miembro">Antuan</div>
+                        <div class="rol-miembro"><strong>Diseñador UI/UX</strong></div>
+                    </div>
 
-            <!-- Nuevo miembro: Raúl -->
-            <div class="miembro-equipo">
-                <div class="contenedor-imagen">
-                    <img src="../img/RAUL.png" alt="Raul" class="imagen1" onerror="this.src='https://via.placeholder.com/150/ff9f43/ffffff?text=RAUL'">
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/ASIER.png" alt="Asier" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/f5576c/ffffff?text=ASIER'">
+                        </div>
+                        <div class="nombre-miembro">Asier</div>
+                        <div class="rol-miembro"><strong>Desarrollador Full Stack</strong></div>
+                    </div>
+
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/DAVID.png" alt="David" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/4facfe/ffffff?text=DAVID'">
+                        </div>
+                        <div class="nombre-miembro">David</div>
+                        <div class="rol-miembro"><strong>Ingeniero DevOps</strong></div>
+                    </div>
+
+                    <!-- Nuevo miembro: Raúl -->
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/RAUL.png" alt="Raul" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/ff9f43/ffffff?text=RAUL'">
+                        </div>
+                        <div class="nombre-miembro">Raúl</div>
+                        <div class="rol-miembro"><strong>Profesor</strong></div>
+                    </div>
                 </div>
-                <div class="nombre-miembro">Raúl</div>
-                <div class="rol-miembro"><strong>Profesor</strong></div>
-              </div>
             </div>
         </div>
     </div>
-</div>    
-          <!-- Modal de bienvenida con :target -->
+    <!-- Modal de bienvenida con :target -->
     <div id="modal-bienvenida" class="modal-overlay">
         <div class="modal-contenido">
             <h2>¡Bienvenido!</h2>
             <p>Tu mensaje ha sido recibido. Gracias por contactarnos.</p>
             <a href="#" class="modal-cerrar">Cerrar</a>
-       </div>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>

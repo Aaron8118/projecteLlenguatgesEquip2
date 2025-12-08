@@ -49,8 +49,10 @@
 /* OVERLAY DEL MODAL */
 .modal-superpuesto {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.85);
     display: flex;
     align-items: center;
@@ -62,7 +64,7 @@
     padding: 20px;
 }
 
-.modal-checkbox:checked ~ .modal-superpuesto {
+.modal-checkbox:checked~.modal-superpuesto {
     opacity: 1;
     visibility: visible;
 }
@@ -79,7 +81,7 @@
     overflow-y: auto;
     transform: scale(0.95);
     transition: transform 0.3s ease;
-    box-shadow: 
+    box-shadow:
         inset 0 0 0 4px #8b7355,
         0 0 0 6px #5d4e37,
         0 10px 20px rgba(0, 0, 0, 0.7);
@@ -88,17 +90,19 @@
     image-rendering: pixelated;
 }
 
-.modal-checkbox:checked ~ .modal-superpuesto .contenido-modal {
+.modal-checkbox:checked~.modal-superpuesto .contenido-modal {
     transform: scale(1);
 }
 
 /* BOTÓN CERRAR (X) - Bloque TNT */
 .boton-cerrar {
     position: absolute;
-    top: 20px; right: 20px;
+    top: 20px;
+    right: 20px;
     background: #dc143c;
     color: white;
-    width: 40px; height: 40px;
+    width: 40px;
+    height: 40px;
     border-radius: 0;
     display: flex;
     align-items: center;
@@ -145,7 +149,8 @@
 .rejilla-miembros {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px; /* Más espacio para el zoom */
+    gap: 40px;
+    /* Más espacio para el zoom */
     padding: 20px 0;
 }
 
@@ -175,9 +180,11 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
-    height: 110px; /* Altura fija para consistencia */
+    height: 110px;
+    /* Altura fija para consistencia */
     position: relative;
-    overflow: visible; /* Permite que la imagen se salga al hacer zoom */
+    overflow: visible;
+    /* Permite que la imagen se salga al hacer zoom */
 }
 
 /* IMAGEN DE PERFIL - Con efecto zoom */
@@ -197,13 +204,17 @@
 
 /* EFECTO ZOOM AL PASAR EL RATÓN - brillo verde */
 .miembro-equipo:hover img {
-    transform: scale(2.2); /* Aumenta al 220% */
-    z-index: 100; /* Se superpone a todo */
-    border-color: #00ff00; /* Borde verde */
-    box-shadow: 
-        inset 0 0 0 2px #fff, 
+    transform: scale(2.2);
+    /* Aumenta al 220% */
+    z-index: 100;
+    /* Se superpone a todo */
+    border-color: #00ff00;
+    /* Borde verde */
+    box-shadow:
+        inset 0 0 0 2px #fff,
         0 0 0 2px #000,
-        0 0 25px rgba(0, 255, 0, 0.7); /* Brillo verde */
+        0 0 25px rgba(0, 255, 0, 0.7);
+    /* Brillo verde */
 }
 
 /* NOMBRE DEL MIEMBRO */
@@ -223,7 +234,8 @@
 .rol-miembro {
     margin-top: 8px;
     font-size: 9px;
-    color: #089108; /* Verde para que combine con el brillo */
+    color: #089108;
+    /* Verde para que combine con el brillo */
     font-family: 'Lminecraft', cursive;
     text-transform: uppercase;
     line-height: 1.4;
@@ -231,18 +243,27 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .contenido-modal { padding: 30px 20px; }
-    .titulo-modal { font-size: 18px; }
-    .rejilla-miembros { 
+    .contenido-modal {
+        padding: 30px 20px;
+    }
+
+    .titulo-modal {
+        font-size: 18px;
+    }
+
+    .rejilla-miembros {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 30px;
     }
+
     .miembro-equipo img {
         width: 85px;
         height: 85px;
     }
+
     .miembro-equipo:hover img {
-        transform: scale(1.8); /* Menos zoom en móvil */
+        transform: scale(1.8);
+        /* Menos zoom en móvil */
     }
 }
 
@@ -251,10 +272,12 @@
         padding: 10px 15px;
         font-size: 10px;
     }
+
     .rejilla-miembros {
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
+
     .contenedor-imagen {
         height: 95px;
     }
