@@ -10,6 +10,9 @@ main {
   display: flex;
   flex-direction: column;
   align-content: center;
+  font-family: 'Lminecraft2';
+  padding: 130px;
+  
 }
 
 /* -------------------------------------------------------------------------------------------- */
@@ -38,6 +41,7 @@ main {
   align-content: center;
   text-align: center;
 }
+
 
 #megatitulo h1 {
   flex: 0 0 80%;
@@ -173,7 +177,7 @@ main .tableadicional {
 /*          FUENTE PARA TITULO          */
 /*--------------------------------------*/
 @font-face {
-  font-family: "Lminecraft";
+  font-family: "Lminecraft2";
   src: url("../font/mac_s_minecraft/mac\'s\ Extended\ Minecraft\ Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: bold;

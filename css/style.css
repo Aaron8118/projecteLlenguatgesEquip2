@@ -83,11 +83,34 @@ nav li{
     color: #0db50d;
 }
 
+.modal-checkbox {
+    display: none;
+}
+
+nav li label {
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Lminecraft', sans-serif;
+    color: white;
+    text-align: center;
+    cursor: inherit;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav li label:hover {
+    color: #0db50d;
+    background-color: #222;
+    cursor: inherit;
+}
+
 #lista li:hover .submenu {
     display: block;
 }
 
-nav a {
+nav a, nav label strong {
   font-weight: 600;
   display: block;
   text-decoration: none;
@@ -95,10 +118,11 @@ nav a {
   height: 70px;
   line-height: 70px;
 }
-nav a:hover {
+nav a:hover, nav label strong:hover {
   color: #0db50d;
   background-color: #222;
 }
+
 
 #cabeza_arriba {
   width: 3%;
