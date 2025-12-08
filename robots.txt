@@ -1,0 +1,9 @@
+https://mi-proyecto.vercel.app/robots.txt
+
+User-agent: *
+Disallow: /
+
+# Permitir solo el index
+Allow: /index.html
+
+# Las URL son ficticias porque no tienen un dominio real y el agente solo le permite tener acceso al index
