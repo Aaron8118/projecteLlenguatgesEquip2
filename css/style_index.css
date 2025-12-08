@@ -1,5 +1,5 @@
 /* Fondo */
-#wrapper {  
+#wrapper {
   background-image: url('../img/fondo.png');
   background-repeat: no-repeat;
   background-position: center top;
@@ -37,7 +37,8 @@
 }
 
 #titulo_principal h1 span {
-  color: #0db50d;            /* Resalta la palabra “Minecraft” */
+  color: #0db50d;
+  /* Resalta la palabra “Minecraft” */
 }
 
 #titulo_principal h4 {
@@ -60,6 +61,7 @@
     opacity: 0;
     transform: scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -79,7 +81,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 40px; /* súbelo 50px */
+  margin-top: 40px;
+  /* súbelo 50px */
   margin-left: 22%;
 }
 
@@ -97,13 +100,14 @@
 }
 
 /* Bloques del timeline */
-.evento_left, .evento_right {
+.evento_left,
+.evento_right {
   position: relative;
   width: 45%;
   background: rgba(0, 0, 0, 0.65);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   font-size: 14px;
 }
 
@@ -112,8 +116,6 @@
   align-self: flex-start;
   text-align: right;
   animation: aparecerIzquierda 1s ease-out forwards;
-  animation-timeline: scrollLine;
-  animation-range: entry 0% cover 40%;
 }
 
 /* Punto conector (izquierda) */
@@ -134,8 +136,6 @@
   align-self: flex-end;
   text-align: left;
   animation: aparecerDerecha 1s ease-out forwards;
-  animation-timeline: scrollLine;
-  animation-range: entry 0% cover 40%;
 }
 
 /* Punto conector (derecha) */
@@ -161,6 +161,7 @@
     opacity: 0;
     transform: translateX(-80px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -173,6 +174,7 @@
     opacity: 0;
     transform: translateX(80px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -193,27 +195,31 @@ CATALOGO DE JUEGOS
   background-image: url(../img/tierra_encima.png);
   background-size: cover;
 }
+
 #tituloCatalogo h2 {
   padding: 170px;
   padding-top: 360px;
   color: rgb(0, 166, 0);
   text-transform: uppercase;
 }
+
 #catalogo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    height: 1000px;
-    gap: 40px;
-    background-color: #333;
-    background: url(../img/catalogo_fondo_fin.png), linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
-    background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 1000px;
+  gap: 40px;
+  background-color: #333;
+  background: url(../img/catalogo_fondo_fin.png), linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+  background-size: cover;
 }
+
 hr {
   margin-top: 8px;
   margin-bottom: 6px;
 }
+
 .juegos {
   background-color: #222;
   transition: 1s;
@@ -229,25 +235,31 @@ hr {
   margin: 30px;
   text-align: left;
 }
+
 .juegos h3 {
   font-size: 1.1rem;
   margin: 5px;
 }
+
 .juegos p {
   font-size: 0.8rem;
   margin: 5px;
 }
+
 .juegos img {
   display: inline-block;
 }
+
 .juegos .consolas {
   width: 20px;
   filter: brightness(0.4);
   margin: 4px;
 }
+
 .juegos .portada {
   width: 100%;
 }
+
 .juegos:hover {
   transition: 1s;
   transform: scale(1.09);
@@ -287,7 +299,8 @@ hr {
   top: 42.7%;
   width: 280px;
   left: -3%;
-  transform: scaleX(-1); /* Invierte la imagen horizontalmente */
+  transform: scaleX(-1);
+  /* Invierte la imagen horizontalmente */
 }
 
 /* BOTON */
@@ -296,12 +309,14 @@ hr {
    ========================================================== */
 
 html {
-  scroll-behavior: smooth; /* efecto de desplazamiento suave */
+  scroll-behavior: smooth;
+  /* efecto de desplazamiento suave */
 }
 
 .contenedor-excavar {
   display: flex;
-  margin: 50px 0px; /* separa del título y del timeline */
+  margin: 50px 0px;
+  /* separa del título y del timeline */
   position: absolute;
   top: 575px;
   height: 70px;
@@ -310,7 +325,8 @@ html {
 }
 
 .boton-excavar {
-  background-image: url(../img/bloque.png); /* verde estilo Xbox */
+  background-image: url(../img/bloque.png);
+  /* verde estilo Xbox */
   text-decoration: none;
   padding: 14px 32px;
   border-radius: 5px;
@@ -325,7 +341,7 @@ html {
 .boton-excavar:hover {
   background-color: #0e6a0e;
   transform: scale(1.05);
-  color:#0db50d;
+  color: #0db50d;
 
 }
 
@@ -333,5 +349,3 @@ html {
   font-size: 22px;
   transition: transform 0.2s ease;
 }
-
-

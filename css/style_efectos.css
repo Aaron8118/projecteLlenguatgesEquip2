@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
 }
+
 main {
   padding: 5%;
   text-align: left;
@@ -12,7 +13,7 @@ main {
   align-content: center;
   font-family: 'Lminecraft2';
   padding: 130px;
-  
+
 }
 
 /* -------------------------------------------------------------------------------------------- */
@@ -22,11 +23,13 @@ main {
   display: flex;
   flex-direction: column;
 }
+
 #partearribapocion {
   margin-top: 4%;
   display: flex;
   justify-content: space-between;
 }
+
 /* ----------------- */
 /* ICONO DE CURACION */
 /* ----------------- */
@@ -34,6 +37,7 @@ main {
   flex: 0 0 20%;
   animation: curacion-icono 5s 2.5s forwards;
 }
+
 /* ----------------- */
 /*       TITULO      */
 /* ----------------- */
@@ -78,6 +82,7 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
 #animacionpocion {
   width: 16%;
   height: 100%;
@@ -113,13 +118,16 @@ main {
   align-content: center;
   align-items: center;
 }
+
 caption {
   font-style: italic;
   font-size: 2rem;
 }
+
 #tablaexplicacion {
   overflow-x: auto;
 }
+
 #tablaefectos {
   overflow-x: auto;
 }
@@ -131,6 +139,7 @@ caption {
 tr:nth-child(even) {
   background-color: #949494;
 }
+
 tr:nth-child(odd) {
   background-color: #777;
 }
@@ -139,36 +148,48 @@ tr:nth-child(odd) {
 /*        TABLAS              */
 /* -------------------------- */
 
-main table, th, td {
+main table,
+th,
+td {
   border: 6px solid #555;
-  box-shadow:inset -5px -5px 0 #373737,inset 5px 5px 0 #d3d3d3;
+  box-shadow: inset -5px -5px 0 #373737, inset 5px 5px 0 #d3d3d3;
   border-collapse: collapse;
 }
-th, td {
+
+th,
+td {
   padding: 20px;
   box-sizing: border-box;
   transition: all 1s ease-in-out;
 }
-th:hover, td:hover {
+
+th:hover,
+td:hover {
   background-image: url(../img/fondos/fondo_efectos_animado.gif);
   background-size: 94%;
 }
+
 th {
-  text-decoration:underline;
+  text-decoration: underline;
 }
+
 td img {
   border-radius: 7px;
 }
+
 td#partebruja img {
   float: right;
   width: 15%;
 }
+
 #inforefectos {
   background-color: #777;
 }
+
 #inforefectos:hover {
   background-color: #949494;
 }
+
 main .tableadicional {
   text-align: center !important;
 }
@@ -180,7 +201,7 @@ main .tableadicional {
   font-family: "Lminecraft2";
   src: url("../font/mac_s_minecraft/mac\'s\ Extended\ Minecraft\ Bold.ttf") format("truetype");
   font-weight: bold;
-  font-style: bold;
+  font-style: normal;
 }
 
 /*--------------------------------------*/
@@ -190,60 +211,79 @@ main .tableadicional {
   0% {
     transform: translateY(20px);
   }
+
   5% {
     transform: translateY(-20px);
   }
+
   10% {
     transform: translateY(20px);
   }
+
   15% {
     transform: translateY(-20px);
   }
+
   20% {
     transform: translateY(20px);
   }
+
   25% {
     transform: translateY(-20px);
   }
+
   30% {
     transform: translateY(20px);
   }
+
   35% {
     transform: translateY(-20px);
   }
+
   40% {
     transform: translateY(20px);
   }
+
   45% {
     transform: translateY(-20px);
   }
+
   50% {
     transform: translateY(20px);
   }
+
   55% {
     transform: translateY(-20px);
   }
+
   60% {
     transform: translateY(20px);
   }
+
   65% {
     transform: translateY(-20px);
   }
+
   70% {
     transform: translateY(20px);
   }
+
   75% {
     transform: translateY(-20px);
   }
+
   80% {
     transform: translateY(20px);
   }
+
   85% {
     transform: translateY(-20px);
   }
+
   90% {
     transform: translateY(20px);
   }
+
   91% {
     transform: scale(1.4) translateY(20px) rotateY(180deg);
     background-image: url(../img/potion_animacion.png);
@@ -251,6 +291,7 @@ main .tableadicional {
     background-repeat: no-repeat;
     background-position: center;
   }
+
   100% {
     transform: scale(1) rotateY(360deg);
     background-image: url(../img/potion_vacio_animacion.png), url(../img/fondos/fondo_efectos_animado.gif);
@@ -271,12 +312,14 @@ main .tableadicional {
     background-repeat: no-repeat;
     background-position: top;
   }
+
   95% {
-     background-image: url(../img/mobs_andrii/intro_barra_de_salud_curacion_cortado.gif);
+    background-image: url(../img/mobs_andrii/intro_barra_de_salud_curacion_cortado.gif);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
   }
+
   100% {
     background-image: url(../img/mobs_andrii/barra_de_vida.png);
     background-size: contain;
@@ -295,9 +338,11 @@ main .tableadicional {
   0% {
     flex: 0 0 20%;
   }
+
   95% {
     flex: 0 0 20%;
   }
+
   100% {
     flex: 0 0 20%;
     background-image: url(../img/mobs_andrii/curacion_icono.png);

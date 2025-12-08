@@ -2,7 +2,8 @@
    ESTILOS TIPO MINECRAFT - CONTACTO
    ======================================== */
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -15,108 +16,109 @@ main {
   padding: 0;
   box-sizing: border-box;
 }
+
 /* ===================================
    SLIDER DE COMENTARIOS - MINECRAFT
    =================================== */
 
 /* Contenedor principal del slider */
 .slider-comentarios {
-    overflow: hidden;
-    position: relative;
-    background: #2A2C2A !important;
-    border: 4px solid #1A1C1A !important;
-    box-shadow: inset 3px 3px 0 #4A4C4A !important;
+  overflow: hidden;
+  position: relative;
+  background: #2A2C2A !important;
+  border: 4px solid #1A1C1A !important;
+  box-shadow: inset 3px 3px 0 #4A4C4A !important;
 }
 
 /* Título del slider */
 .slider-comentarios .info-titulo {
-    text-align: center;
-    font-size: 18px !important;
-    letter-spacing: 2px;
-    margin-bottom: 15px !important;
-    color: #5A9C4E !important;
-    text-shadow: 2px 2px 0 #3A6C3E;
+  text-align: center;
+  font-size: 18px !important;
+  letter-spacing: 2px;
+  margin-bottom: 15px !important;
+  color: #5A9C4E !important;
+  text-shadow: 2px 2px 0 #3A6C3E;
 }
 
 /* Contenedor con máscara */
 .slider-contenedor {
-    height: 180px;
-    overflow: hidden;
-    position: relative;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Track del slider */
 .slider-track {
-    display: flex;
-    animation: slideMinecraft 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: flex;
+  animation: slideMinecraft 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 /* Cada slide de comentario */
 .comentario-slide {
-    min-width: 100%;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  min-width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Header del comentario */
 .comentario-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 /* Avatar pixelado */
 .comentario-avatar {
-    width: 50px;
-    height: 50px;
-    background: #8B6F47;
-    border: 3px solid #5A4F37;
-    margin-right: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
-    transition: all 0.3s;
+  width: 50px;
+  height: 50px;
+  background: #8B6F47;
+  border: 3px solid #5A4F37;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  transition: all 0.3s;
 }
 
 /* Nombre del jugador */
 .comentario-autor {
-    font-weight: bold;
-    color: #5A9C4E;
-    font-size: 16px;
-    text-shadow: 2px 2px 0 #3A6C3E;
+  font-weight: bold;
+  color: #5A9C4E;
+  font-size: 16px;
+  text-shadow: 2px 2px 0 #3A6C3E;
 }
 
 /* Estrellas de valoración */
 .comentario-estrellas {
-    color: #FFD700;
-    margin-top: 3px;
-    font-size: 16px;
-    letter-spacing: 2px;
+  color: #FFD700;
+  margin-top: 3px;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 /* Texto del comentario */
 .comentario-texto {
-    line-height: 1.6;
-    font-size: 13px;
-    color: #FFF;
-    font-style: italic;
-    position: relative;
-    padding-left: 20px;
+  line-height: 1.6;
+  font-size: 13px;
+  color: #FFF;
+  font-style: italic;
+  position: relative;
+  padding-left: 20px;
 }
 
 /* Comillas decorativas */
 .comentario-texto::before {
-    content: "“";
-    position: absolute;
-    left: 0;
-    top: -10px;
-    font-size: 35px;
-    color: #8B6F47;
-    opacity: 0.5;
+  content: "“";
+  position: absolute;
+  left: 0;
+  top: -10px;
+  font-size: 35px;
+  color: #8B6F47;
+  opacity: 0.5;
 }
 
 #correo:valid {
@@ -139,44 +141,93 @@ main {
 
 /* Keyframes de animación (loop infinito) */
 @keyframes slideMinecraft {
-    0%, 15% { transform: translateX(0); }
-    20%, 35% { transform: translateX(-100%); }
-    40%, 55% { transform: translateX(-200%); }
-    60%, 75% { transform: translateX(-300%); }
-    80%, 95% { transform: translateX(-400%); }
-    100% { transform: translateX(-500%); } /* Vuelve al inicio */
+
+  0%,
+  15% {
+    transform: translateX(0);
+  }
+
+  20%,
+  35% {
+    transform: translateX(-100%);
+  }
+
+  40%,
+  55% {
+    transform: translateX(-200%);
+  }
+
+  60%,
+  75% {
+    transform: translateX(-300%);
+  }
+
+  80%,
+  95% {
+    transform: translateX(-400%);
+  }
+
+  100% {
+    transform: translateX(-500%);
+  }
+
+  /* Vuelve al inicio */
 }
 
 /* Barra de progreso animada */
 .slider-comentarios::after {
-    content: "";
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: #5A9C4E;
-    animation: loadingBar 25s linear infinite;
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: #5A9C4E;
+  animation: loadingBar 25s linear infinite;
 }
 
 @keyframes loadingBar {
-    0% { width: 0%; }
-    100% { width: 85%; }
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 85%;
+  }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .slider-contenedor { height: 200px; }
-    .comentario-avatar { width: 40px; height: 40px; font-size: 20px; }
-    .comentario-autor { font-size: 14px; }
-    .comentario-texto { font-size: 12px; }
+  .slider-contenedor {
+    height: 200px;
+  }
+
+  .comentario-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .comentario-autor {
+    font-size: 14px;
+  }
+
+  .comentario-texto {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 480px) {
-    .slider-contenedor { height: 220px; }
-    .comentario-slide { padding: 10px; }
+  .slider-contenedor {
+    height: 220px;
+  }
+
+  .comentario-slide {
+    padding: 10px;
+  }
 }
+
 /* Fondo tipo Minecraft con textura */
 .contacto {
   position: relative;
@@ -185,7 +236,8 @@ main {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: #1f1f1f; /* fondo oscuro gris */
+  background-color: #1f1f1f;
+  /* fondo oscuro gris */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -228,7 +280,7 @@ main {
   background: linear-gradient(135deg, #4a4a4a 0%, #2b2b2b 100%);
   border: 6px solid #111111;
   padding: 1.5rem;
-  box-shadow: 
+  box-shadow:
     inset 0 2px 0 rgba(255, 255, 255, 0.06),
     inset 0 -2px 0 rgba(0, 0, 0, 0.6),
     0 6px 18px rgba(0, 0, 0, 0.6);
@@ -347,7 +399,7 @@ main {
 .grupo-input textarea:focus,
 .grupo-input select:focus {
   outline: none;
-  box-shadow: inset 0 0 0 2px rgba(150,150,150,0.6), 0 0 8px rgba(0,0,0,0.45);
+  box-shadow: inset 0 0 0 2px rgba(150, 150, 150, 0.6), 0 0 8px rgba(0, 0, 0, 0.45);
   background: #ffffff;
 }
 
@@ -563,13 +615,16 @@ main {
 .valoracion {
   margin-top: 0.6rem;
 }
+
 .estrellas {
   display: flex;
   gap: 0.35rem;
   justify-content: center;
   align-items: center;
-  flex-direction: row-reverse; /* important: order inputs then labels, show left-to-right */
+  flex-direction: row-reverse;
+  /* important: order inputs then labels, show left-to-right */
 }
+
 .estrellas input {
   position: absolute;
   opacity: 0;
@@ -577,36 +632,53 @@ main {
   height: 0;
   pointer-events: none;
 }
+
 .estrellas label {
   font-size: 1.6rem;
   color: #bdbdbd;
   cursor: pointer;
   transition: transform 0.16s ease, color 0.18s ease, text-shadow 0.18s;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.04);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
   user-select: none;
 }
+
 /* Hover highlights the hovered star and previous ones */
 .estrellas label:hover,
-.estrellas label:hover ~ label {
+.estrellas label:hover~label {
   color: #f1c40f;
   transform: translateY(-6%) scale(1.18);
-  text-shadow: 0 2px 6px rgba(241,196,15,0.35);
+  text-shadow: 0 2px 6px rgba(241, 196, 15, 0.35);
 }
+
 /* Checked state: color all relevant stars */
-.estrellas input:checked ~ label {
+.estrellas input:checked~label {
   color: #f1c40f;
-  text-shadow: 0 2px 6px rgba(241,196,15,0.35);
+  text-shadow: 0 2px 6px rgba(241, 196, 15, 0.35);
 }
+
 /* Pop animation for the selected star */
-.estrellas input:checked + label {
+.estrellas input:checked+label {
   transform: scale(1.25) translateY(-6%);
-  animation: pop 300ms cubic-bezier(.2,.8,.2,1);
+  animation: pop 300ms cubic-bezier(.2, .8, .2, 1);
 }
+
 @keyframes pop {
-  0% { transform: scale(0.9) translateY(0); opacity: 0.7; }
-  60% { transform: scale(1.28) translateY(-8%); opacity: 1; }
-  100% { transform: scale(1.0) translateY(-6%); opacity: 1; }
+  0% {
+    transform: scale(0.9) translateY(0);
+    opacity: 0.7;
+  }
+
+  60% {
+    transform: scale(1.28) translateY(-8%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.0) translateY(-6%);
+    opacity: 1;
+  }
 }
+
 .valor-texto {
   margin-top: 0.6rem;
   font-weight: 600;
@@ -693,99 +765,100 @@ main {
   }
 }
 
- .modal-toggle {
-    display: none;
+.modal-toggle {
+  display: none;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.modal-overlay:target {
+  display: flex;
+}
+
+.modal-contenido {
+  background-color: #3a3a3a;
+  border: 4px solid #8b7355;
+  padding: 2rem;
+  border-radius: 0;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  animation: popupAppear 0.3s ease-out;
+  position: relative;
+  z-index: 1001;
+}
+
+@keyframes popupAppear {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
   }
 
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
+}
+
+.modal-contenido h2 {
+  color: #ffd700;
+  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.modal-contenido p {
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.modal-cerrar {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #8b7355;
+  color: white;
+  border: 2px solid #5a4a3a;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.modal-cerrar:hover {
+  background-color: #a0835e;
+  transform: translate(0, -2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.modal-cerrar:active {
+  transform: translate(0, 0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
 
 
-  .modal-overlay:target {
-    display: flex;
-  }
+.modal-overlay {
+  pointer-events: none;
+}
 
-  .modal-contenido {
-    background-color: #3a3a3a;
-    border: 4px solid #8b7355;
-    padding: 2rem;
-    border-radius: 0;
-    text-align: center;
-    max-width: 400px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
-    animation: popupAppear 0.3s ease-out;
-    position: relative;
-    z-index: 1001;
-  }
+.modal-overlay:target {
+  pointer-events: auto;
+}
 
-  @keyframes popupAppear {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  .modal-contenido h2 {
-    color: #ffd700;
-    font-size: 1.8rem;
-    margin: 0 0 1rem 0;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
-  }
-
-  .modal-contenido p {
-    color: #ffffff;
-    font-size: 1rem;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.5;
-  }
-
-  .modal-cerrar {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background-color: #8b7355;
-    color: white;
-    border: 2px solid #5a4a3a;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    text-align: center;
-  }
-
-  .modal-cerrar:hover {
-    background-color: #a0835e;
-    transform: translate(0, -2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  }
-
-  .modal-cerrar:active {
-    transform: translate(0, 0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  }
-
-
-  .modal-overlay {
-    pointer-events: none;
-  }
-
-  .modal-overlay:target {
-    pointer-events: auto;
-  }
-
-  .modal-contenido {
-    pointer-events: auto;
-  }
+.modal-contenido {
+  pointer-events: auto;
+}
