@@ -9,12 +9,5 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- EULA o páginas legales -->
-  <url>
-    <loc>https://mi-proyecto.vercel.app/EULA.html</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
 </urlset>
   <!-- Las URL son ficticias porque no tienen un dominio real -->
