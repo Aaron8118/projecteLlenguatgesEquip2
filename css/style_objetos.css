@@ -82,6 +82,9 @@ legend {
 
 
 
+#escudo_css {
+    max-width: 110px;
+}
 
 main {
     padding: 100px 0px;
