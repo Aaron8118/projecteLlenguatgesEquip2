@@ -6,6 +6,14 @@ Disallow: /
 # Permitir solo el index
 Allow: /index.html
 
+# Permitir carpetas específicas
+Allow: /css/
+Allow: /html/
+
+# Mantener bloqueada esta carpeta (por ejemplo admin)
+Disallow: /font/
+Disallow: /juego/
+
 Sitemap: https://mi-proyecto.vercel.app/sitemap.xml
 
 # Las URL son ficticias porque no tienen un dominio real y el agente solo le permite tener acceso al index
