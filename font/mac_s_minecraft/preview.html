@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		@font-face {
+			font-family: "mc-main-regular";
+			src: url("mac's Minecraft woff2/mac's Minecraft.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-main-bold";
+			src: url("mac's Minecraft woff2/mac's Minecraft Bold.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-main-italic";
+			src: url("mac's Minecraft woff2/mac's Minecraft Italic.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-main-bold-italic";
+			src: url("mac's Minecraft woff2/mac's Minecraft Bold Italic.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-tweaked-regular";
+			src: url("mac's Tweaked Minecraft woff2/mac's Tweaked Minecraft.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-tweaked-bold";
+			src: url("mac's Tweaked Minecraft woff2/mac's Tweaked Minecraft Bold.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-tweaked-italic";
+			src: url("mac's Tweaked Minecraft woff2/mac's Tweaked Minecraft Italic.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-tweaked-bold-italic";
+			src: url("mac's Tweaked Minecraft woff2/mac's Tweaked Minecraft Bold Italic.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-extended-regular";
+			src: url("mac's Extended Minecraft woff2/mac's Extended Minecraft.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-extended-bold";
+			src: url("mac's Extended Minecraft woff2/mac's Extended Minecraft Bold.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-extended-italic";
+			src: url("mac's Extended Minecraft woff2/mac's Extended Minecraft Italic.woff2");
+		}
+
+		@font-face {
+			font-family: "mc-extended-bold-italic";
+			src: url("mac's Extended Minecraft woff2/mac's Extended Minecraft Bold Italic.woff2");
+		}
+
+		html {
+			color: #fff;
+			background: #1e1e1e;
+		}
+
+		body {
+			margin: 0;
+		}
+
+		header {
+			margin: 0 auto;
+			padding: 8px;
+			height: min-content;
+			background: #1e1e1eaa;
+			backdrop-filter: blur(6px);
+		}
+
+		#previews {
+			display: flex;
+			margin: 6px;
+			padding: 6px;
+			border: 2px solid #fff;
+			border-radius: 6px;
+		}
+
+		textarea {
+			padding: 6px;
+			width: 100%;
+			height: 500px;
+			color: #fff;
+			background: transparent;
+			border: none;
+			resize: vertical;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		font size
+		<input id="preview_size" type="range" value="16" min="8" max="32" step="8">
+	</header>
+
+	<div id="previews"></div>
+
+	<script>
+		const characters = "mac's Minecraft\n\n!\"#$%&'()*+,-.1234567890:;<=>?@\nABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`\nabcdefghijklmnopqrstuvwxyz{|}~\n\n¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¹º»¼½¾¿\nÀÁÂÃÄÅÆÇÈÉÊË ÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß\nàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ\n\nĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğ\nĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿ\nŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞş\nŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſ\n\nƀƁƂƃƄƅƆƇƈƉƊƋƌƍƎƏƐƑƒƓƔƕƖƗƘƙƚƛƜƝƞ\nƟƠơƢƣƤƥƦƧƨƩƪƫƬƭƮƯưƱƲƳƴƵƶƷƸƹƺƻƼƽƾ\nƿǀǁǂǃǄǅǆǇǈǉǊǋǌǍǎǏǐǑǒǓǔǕǖǗǘǙǚǛǜǝ\nǞǟǠǡǢǣǤǥǦǧǨǩǪǫǬǭǮǯǰǱǲǳǴǵǶǷǸǹǺǻǼǽ\nǾǿȀȁȂȃȄȅȆȇȈȉȊȋȌȍȎȏȐȑȒȓȔȕȖȗȘșȚțȜȝ\nȞȟȠȡȢȣȤȥȦȧȨȩȪȫȬȭȮȯȰȱȲȳȴȵȶȷȸȹȺȻȼ\nȽȾȿɀɁɂɃɄɅɆɇɈɉɊɋɌɍɎɏ\n\nɐɑɒɓɔɕɖɗɘəɚɛɜɝɞɟɠɡɢɣɤɥɦɧɨɩɪɫɬɭɮɯ\nɰɱɲɳɴɵɶɷɸɹɺɻɼɽɾɿʀʁʂʃʄʅʆʇʈʉʊʋʌʍʎʏ\nʐʑʒʓʔʕʖʗʘʙʚʛʜʝʞʟʠʡʢʣʤʥʦʧʨʩʪʫʬʭʮʯ\n\nΆ·ΈΉΊΌΎΏΐΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨ\nΩΪΫάέήίΰαβγδεζηθικλμνξοπρςστυφχψ\nωϊϋόύώϓϔϛ\n\nЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОП\nРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмноп\nрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџ\nѢѣѲѳѴѵѶѷҊҋҌҍҎҏҐґҒғҔҕҖҗҘҙҚқҜҝҞҟҠҡ\nҢңҤҥҦҧҨҩҪҫҬҭҮүҰұҲҳҴҵҶҷҸҹҺһҼҽҾҿӀ\nӁӂӃӄӅӆӇӈӉӊӋӌӍӎӐӑӒӓӔӕӖӗӘәӚӛӜӝӞӟӠӡ\nӢӣӤӥӦӧӨөӪӫӬӭӮӯӰӱӲӳӴӵӶӷӸӹӺ\n\nԀԂԃԄԅԆԇԈԉԊԋԌԍԎԏԐԑԒԓԔԕԖԗԘԙԚԛԜԝԞԟ\nԠԡԢԣԤԥԦԧԨԩԪԫԬԭԮԯ\n\nԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՍՎՏՐ\nՑՒՓՔՕՖՙ՚՛՜՝՞՟ՠաբգդեզէըթժիլխծկհձղ\nճմյնշոչպջռսվտրցւփքօֆևֈ֊֏\n\n־׃׆אבגדהוזחטיךכלםמןנסעףפץצקרשתװױ\nײ׳״\n\n߈  ᗡᗺᘔ\n\nႠႡႢႣႤႥႦႧႨႩႪႫႬႭႮႯႰႱႲႳႴႵႶႷႸႹႺႻႼႽႾႿ\nჀჁჂჃჄჅჇჍაბგდევზთიკლმნოპჟრსტუფქღყ\nშჩცძწჭხჯჰჱჲჳჴჵჶჷჸჹჺ჻ჼჽჾჿ\n\nᚠᚡᚢᚣᚤᚥᚦᚧᚨᚩᚪᚫᚬᚭᚮᚯᚰᚱᚲᚳᚴᚵᚶᚷᚸᚹᚺᚻᚼᚽᚾᚿ\nᛀᛁᛂᛃᛄᛅᛆᛇᛈᛉᛊᛋᛌᛍᛎᛏᛐᛑᛒᛓᛔᛕᛖᛗᛘᛙᛚᛛᛜᛝᛞᛟ\nᛠᛡᛢᛣᛤᛥᛦᛧᛨᛩᛪ᛫᛬᛭ᛮᛯᛰᛱᛲᛳᛴᛵᛶᛷᛸ\n\nᴀᴂᴄᴅᴇᴉᴊᴋᴍᴏᴔᴘᴚᴛᴜᴠᴡᴢᵫᵬᵭᵮᵯᵰᵱᵲᵳᵴᵵᵶᵷᵺ\n\nᶀᶁᶂᶃᶄᶅᶆᶇᶈᶉᶊᶋᶌᶍᶎᶏᶐᶑᶒᶓᶔᶕᶖᶗᶘᶙᶚ\n\nḀḁḂḃḄḅḆḇḈḉḊḋḌḍḎḏḐḑḒḓḔḕḖḗḘḙḚḛḜḝḞḟ\nḠḡḢḣḤḥḦḧḨḩḪḫḬḭḮḯḰḱḲḳḴḵḶḷḸḹḺḻḼḽḾḿ\nṀṁṂṃṄṅṆṇṈṉṊṋṌṍṎṏṐṑṒṓṔṕṖṗṘṙṚṛṜṝṞṟ\nṠṡṢṣṤṥṦṧṨṩṪṫṬṭṮṯṰṱṲṳṴṵṶṷṸṹṺṻṼṽṾṿ\nẀẁẂẃẄẅẆẇẈẉẊẋẌẍẎẏẐẑẒẓẔẕẖẗẘẙẚẛẜẝẞẟ\nẠạẢảẤấẦầẨẩẪẫẬậẮắẰằẲẳẴẵẶặẸẹẺẻẼẽẾế\nỀềỂểỄễỆệỈỉỊịỌọỎỏỐốỒồỔổỖỗỘộỚớỜờỞở\nỠỡỢợỤụỦủỨứỪừỬửỮữỰựỲỳỴỵỶỷỸỹỺỻỼỽỾỿ\n\nἀἁἂἃἄἅἆἇἈἉἊἋἌἍἎἏἐἑἒἓἔἕἘἙἚἛἜἝἠἡἢἣ\nἤἥἦἧἨἩἪἫἬἭἮἯἰἱἲἳἴἵἶἷἸἹἺἻἼἽἾἿὀὁὂὃ\nὄὅὈὉὊὋὌὍὐὑὒὓὔὕὖὗὙὛὝὟὠὡὢὣὤὥὦὧὨὩὪὫ\nὬὭὮὯὰάὲέὴήὶίὸόὺύὼώᾀᾁᾂᾃᾄᾅᾆᾇᾈᾉᾊᾋᾌᾍ\nᾎᾏᾐᾑᾒᾓᾔᾕᾖᾗᾘᾙᾚᾛᾜᾝᾞᾟᾠᾡᾢᾣᾤᾥᾦᾧᾨᾩᾪᾫᾬᾭ\nᾮᾯᾰᾱᾲᾳᾴᾶᾷᾸᾹᾺΆᾼῂῃῄῆῇῈΈῊΉῌῐῑῒΐῖῗῘῙ\nῚΊῠῡῢΰῤῥῦῧῨῩῪΎῬῲῳῴῶῷῸΌῺΏῼ\n\n‐‑–—‘’‚“”„†‡•‰‱′″‴‵‶‷‹›※‼⁂⁇⁈⁉\n⁊⁋⁎⁏⁑⁒⁗\n\n⁰ⁱ⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎\n\n₠₡₢₣₤₥₦₧₨₩₪₫€₭₮₯₰₱₲₳₴₵₶₷₸₹₺₻₼₽₾₿\n\n№℗™Ⅎℹ⅁⅄⅋ ⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞⅟↉\n\n←↑→↓↔⇄⇏⇒⇔⇵\n\n∀∁∂∃∄∅∈∉∋∌∑−∓∙√∛∜∝∞∥∧∨∩∫∮∴∵≈≔≠≡≢\n≤≥⊂⊃⊄⊅⊆⊇⊢⊤⊥⊨⊻⊼⊽⋃⋆\n\n⌀⌂⌘⌚⌛⌠⌡⏏⏩⏪⏭⏮⏯⏳⏴⏵⏶⏷⏸⏹⏺⏻⏼⏽\n\n①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳\nⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ\nⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ⓪\n\n│─┌┐└┘┬┴├┼┤╒╕╘╛╥╨╞╪╡\n║═╔╗╚╝╦╩╠╬╣╓╖╙╜╤╧╟╫╢\n\n▀▄█▌▐░▒▓ ■□▲△▶▷▼▽◀◁◆◇○◎●◦\n\n☀☁☂☃☄★☆☈☐☑☒☔☜☞☠☮☯☰☱☲☳☴☵☶☷☹☺☻☽♀♂♠\n♡♢♣♤♥♦♧♩♪♫♬♭♮♯⚀⚁⚂⚃⚄⚅⚐⚑⚓⚔⚗⚠⚡⚥⛄⛈⛏⛨\n\n✂✉✎✔✗❄❌❣❤ ⥝       ⧈\n\n⭐⭘⯪⯫        ⱢⱥⱦⱭⱯⱱⱾⱿ\n\nⴀⴁⴂⴃⴄⴅⴆⴇⴈⴉⴊⴋⴌⴍⴎⴏⴐⴑⴒⴓⴔⴕⴖⴗⴘⴙⴚⴛⴜⴝⴞⴟ\nⴠⴡⴢⴣⴤⴥ\n\n⸘⸮⸵⸸⹁⹋   〒         ㄥ\n\nꚀꚁꚂꚃꚄꚅꚆꚇꚈꚉꚊꚋꚌꚍꚎꚏꚐꚑꚒꚓꚔꚕꚖꚗ\n\nꜦꜧꜨꜩꜰꜱꜲꜳꜴꜵꜶꜷꜸꜹꜺꜻꜼꜽꜾꜿꝎꝏꝚꝛꝠꝡꝹꞀꞁꞔꞕ\nꞨꞩꞯꞰꟄꟆ\n\nꭐꭑꭣ    ﬀﬁﬂﬃﬄﬅﬆﬓﬔﬕﬖﬗיִײַשׂאַאָבּוּכּפּתּוֹבֿפֿ\n\n＋       �\n\n𐌰𐌱𐌲𐌳𐌴𐌵𐌶𐌷𐌸𐌹𐌺𐌻𐌼𐌽𐌾𐌿𐍀𐍁𐍂𐍃𐍄𐍅𐍆𐍇𐍈𐍉𐍊\n\n🌊🌧🍖🎣🏹🔔🔥🔱🗡 🛡  🧪      🪓🪣\n\n⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇⒈⒉⒊⒋⒌⒍⒎⒏⒐⒑⒒⒓\n⒔⒕⒖⒗⒘⒙⒚⒛⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳\n⒴⒵⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴⓿\n\n✀✁✃✄✅✆✇✈✏✐✑✒✓✕✖✘✙✚✛✜✝✞✟✠✡✢✣✤✥✦✧✨\n✩✪✫✬✭✮✯✰✱✲✳✴✵✶✷✸✹✺✻✼✽✾✿❀❁❂❃❍❎❏❐❑\n❒❓❔❕❖❗❘❙❚❛❜❝❞❟❠❡❢❥❦❧❨❩❪❫❬❭❮❯❰❱❲❳\n❴❵❶❷❸❹❺❻❼❽❾❿➀➁➂➃➄➅➆➇➈➉➊➋➌➍➎➏➐➑➒➓\n➔➕➖➗➘➙➚➛➜➝➞➟➠➡➢➣➤➥➦➧➨➩➪➫➬➭➮➯➰➱➲\n➳➴➵➶➷➸➹➺➻➼➽➾➿\n\n🄀🄁🄂🄃🄄🄅🄆🄇🄈🄉🄊🄋🄌🄍🄎🄏🄐🄑🄒🄓🄔🄕🄖🄗🄘🄙🄚🄛🄜🄝🄞🄟\n🄠🄡🄢🄣🄤🄥🄦🄧🄨🄩🄪🄫🄬🄭🄮🄯🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿\n🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉🅊🅋🅌🅍🅎🅏🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟\n🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅪🅫🅬🅭🅮🅯🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿\n🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉🆊🆋🆌🆍🆎🆏🆐🆑🆒🆓🆔🆕🆖🆗🆘🆙🆚🆛🆝🆞🆟🆠\n🆡🆢🆣🆤🆥🆦🆧🆪🆫🆬🆭🇦🇧🇨🇩🇪🇫🇬🇭🇮🇯🇰🇱🇲🇳🇴🇵🇶🇷🇸🇹🇺\n🇻🇼🇽🇾🇿\n\n𐑐𐑑𐑒𐑓𐑔𐑕𐑖𐑗𐑘𐑙𐑚𐑛𐑜𐑝𐑞𐑟𐑠𐑡𐑢𐑣𐑤𐑥𐑦𐑧𐑨𐑩𐑪𐑫𐑬𐑭𐑮𐑯\n𐑰𐑱𐑲𐑳𐑴𐑵𐑶𐑷𐑸𐑹𐑺𐑻𐑼𐑽𐑾𐑿";
+
+		const packs = ["main", "tweaked", "extended"]
+		const styles = ["regular", "bold", "italic", "bold-italic"]
+
+		class Preview {
+			constructor(label, pack, style) {
+				this.preview = document.createElement("textarea");
+				this.preview.spellcheck = false;
+				this.preview.append(document.createTextNode(characters));
+				previews.append(this.preview);
+
+				this.pack = pack;
+				this.style = style;
+
+				const header = document.querySelector("header");
+
+				this.pack_select = document.createElement("select");
+				this.style_select = document.createElement("select");
+				header.append(document.createTextNode(` | preview font ${label}: `));
+				header.append(this.pack_select);
+				header.append(this.style_select);
+
+				packs.forEach(pack => this.pack_select.append(new Option(pack)));
+				styles.forEach(style => this.style_select.append(new Option(style)));
+
+				this.pack_select.oninput = () => this.setFont();
+				this.style_select.oninput = () => this.setFont();
+
+				preview_size.addEventListener("change", () => {
+					this.setFontSize(preview_size.value);
+				});
+
+				this.setFont();
+				this.setFontSize(16);
+			}
+
+			setFont() {
+				const pack = this.pack_select.value;
+				const style = this.style_select.value;
+
+				this.preview.style.fontFamily = ["mc", pack, style].join("-");
+			}
+
+			setFontSize(size) {
+				this.preview.style.fontSize = size + "px";
+			}
+		}
+
+		new Preview("🐔", "main", "regular")
+		new Preview("🥚", "main", "bold")
+	</script>
+</body>
+
+</html>

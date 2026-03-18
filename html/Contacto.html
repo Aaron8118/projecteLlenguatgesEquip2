@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Asier, Andrii, Aaron, David, Asier">
+    <meta name="description" content="Página de contacto">
+    <meta name="robots" content="index, follow">
+    <title>Minecraf Blogger</title>
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_Contacto.css">
+    <link rel="stylesheet" href="../css/equipo.css">
+
+</head>
+
+<body>
+     <div id="chat-overlay">
+        <div id="chat-container">
+            <div id="chat-messages">
+                <div class="chat-message system">=== Minecraft Console ===</div>
+                <div class="chat-message info">Presiona Alt+T para abrir/cerrar el chat</div>
+                <div class="chat-message info">Escribe /help para ver los comandos disponibles</div>
+            </div>
+            <div id="chat-input-container">
+                <div id="autocomplete"></div>
+                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off">
+                <button id="chat-send">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reloj Solar de Minecraft -->
+    <div id="reloj-solar-container">
+        <div id="reloj-wrapper">
+            <video id="relojVideo" muted playsinline>
+                <source src="../img/reloj_solar.mp4" type="video/mp4">
+            </video>
+            <div>
+                <div id="hora-actual">00:00:00</div>
+                <div id="info-dia">Cargando...</div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <!-- CHECKBOX OCULTO PARA MODAL -->
+        <input type="checkbox" id="modal-equipo" class="modal-checkbox">
+
+        <nav id="nav-principal">
+            <div>
+                <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba">
+                <img src="../img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba2">
+                <ul id="lista">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../html/bioma.html">Mundos</a></li>
+                    <li><a href="../html/mobs.html">Mobs</a></li>
+                    <li><a href="../html/objetos.html">Objetos</a></li>
+                    <li><a href="../html/efectos.html">Efectos</a></li>
+                    <li>
+                        <a>Juegos</a>
+                        <ul class="submenu">
+                            <li><a href="../juego/juego.html">Minecraft Offline</a></li>
+                            <li><a href="../juego/juego2.html">Minecraft Online</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../html/Contacto.html">Contacto</a></li>
+                    <!-- BOTÓN EQUIPO AÑADIDO AQUÍ -->
+                    <li><label for="modal-equipo"><strong>Equipo</strong></label></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <section class="contacto">
+                <!-- Encabezado tipo Minecraft -->
+                <div class="encabezado">
+                    <div class="titulo">
+                        <h1>📮 CONTACTO</h1>
+                        <p class="subtitulo">¿Necesitas ayuda? ¡Cuéntanos tu problema!</p>
+                    </div>
+                </div>
+
+                <!-- Contenedor principal con grid Minecraft -->
+                <div class="contenedor">
+                    <!-- Columna izquierda: Formulario -->
+                    <div class="seccion-form">
+                        <form id="formulario" method="POST" enctype="multipart/form-data">
+
+                            <!-- Bloque: Información personal -->
+                            <div class="bloque">
+                                <label class="bloque-titulo" for="nombre">👤 Tus datos</label>
+                                <div class="bloque-contenido">
+                                    <div class="grupo-input">
+                                        <label for="nombre">Nombre completo</label>
+                                        <input id="nombre" name="nombre" type="text" required
+                                            placeholder="Steve o Alex..." autofocus>
+                                    </div>
+                                    <div class="grupo-input">
+                                        <label for="correo">Correo electrónico</label>
+                                        <input id="correo" name="correo" type="email" required
+                                            placeholder="tu@correo.com" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$">
+                                    </div>
+                                    <div class="grupo-input">
+                                        <label for="telefono">Teléfono</label>
+                                        <input id="telefono" name="telefono" type="tel" placeholder="+34 600 000 000"
+                                            pattern="\+[0-9]{2}[0-9]{9}" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bloque: Asunto y categoría -->
+                            <div class="bloque">
+                                <label class="bloque-titulo" for="asunto">💬 Tu consulta</label>
+                                <div class="bloque-contenido">
+                                    <div class="grupo-input">
+                                        <label for="asunto">Asunto</label>
+                                        <input id="asunto" name="asunto" type="text"
+                                            placeholder="Resumen de tu problema...">
+                                    </div>
+                                    <div class="grupo-input">
+                                        <label for="categoria">Categoría</label>
+                                        <select id="categoria" name="categoria">
+                                            <option style="background-color: black;" value="">-- Selecciona --</option>
+                                            <option style="background-color: black;" value="bug">🐛 Reporte de error
+                                            </option>
+                                            <option style="background-color: black;" value="sugerencia">💡 Sugerencia
+                                            </option>
+                                            <option style="background-color: black;" value="soporte">🔧 Soporte técnico
+                                            </option>
+                                            <option style="background-color: black;" value="otro">❓ Otro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bloque: Mensaje -->
+                            <div class="bloque">
+                                <label class="bloque-titulo" for="mensaje">📝 Mensaje</label>
+                                <div class="bloque-contenido">
+                                    <textarea id="mensaje" name="mensaje" rows="6"
+                                        placeholder="Cuéntanos qué necesitas..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Bloque: Contacto directo -->
+                            <div class="bloque">
+                                <label class="bloque-titulo">⚙️ Contacto directo</label><br><br>
+                                <div class="bloque-contenido">
+
+                                    <div class="grupo-input">
+                                        <a href="mailto:minecraftAAAAD.com" class="boton-enlace">
+                                            📧 Contactar por Email
+                                        </a>
+                                    </div>
+
+                                    <div class="grupo-input">
+                                        <a href="tel:654567890" class="boton-enlace">
+                                            📞 Llamar al 654 567 890
+                                        </a>
+                                    </div>
+
+                                    <label class="casilla">
+                                        <input type="checkbox" name="newsletter">
+                                        <span id="recibir">Recibir actualizaciones</span>
+                                    </label>
+
+                                </div>
+                            </div>
+
+
+                            <!-- Botones -->
+                            <div class="botones">
+                                <button type="submit" formaction="#modal-bienvenida" class="boton boton-primario">✉️
+                                    Enviar</button>
+                                <button type="reset" class="boton boton-secundario">🗑️ Limpiar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Columna derecha: Comentarios slider -->
+                    <div class="seccion-info">
+                        <!-- Slider Comentarios -->
+                        <div class="info-caja slider-comentarios">
+                            <div class="info-titulo">💬 Comentarios de la Comunidad</div>
+                            <div class="slider-contenedor">
+                                <div class="slider-track">
+                                    <!-- Comentario 1 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🏹</div>
+                                            <div>
+                                                <div class="comentario-autor">xXNightWolfXx</div>
+                                                <div class="comentario-estrellas">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers
+                                            no destruyeron mi casa esta vez. Servicio épico."</div>
+                                    </div>
+                                    <!-- Comentario 2 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">💎</div>
+                                            <div>
+                                                <div class="comentario-autor">DiamondMiner99</div>
+                                                <div class="comentario-estrellas">★★★★☆</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"Encontré diamantes gracias a sus tips. Casi me
+                                            matan pero valió la pena. ¡Muy recomendado!"</div>
+                                    </div>
+                                    <!-- Comentario 3 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🌾</div>
+                                            <div>
+                                                <div class="comentario-autor">FarmerJoe</div>
+                                                <div class="comentario-estrellas">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"Mis cultivos crecen más rápido que nunca. 10/10,
+                                            volvería a sembrar con ustedes."</div>
+                                    </div>
+                                    <!-- Comentario 4 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🔥</div>
+                                            <div>
+                                                <div class="comentario-autor">NetherExplorer</div>
+                                                <div class="comentario-estrellas">★★★☆☆</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"Me ayudaron a sobrevivir al Nether. Perdí todo
+                                            pero aprendí mucho. Ghast-friendly."</div>
+                                    </div>
+                                    <!-- Comentario 5 -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🏰</div>
+                                            <div>
+                                                <div class="comentario-autor">BuilderPro</div>
+                                                <div class="comentario-estrellas">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"Construí mi castillo en 3 días. Los materiales
+                                            llegaron rápido. ¡Constructores confiables!"</div>
+                                    </div>
+                                    <!-- Duplicados para loop infinito -->
+                                    <div class="comentario-slide">
+                                        <div class="comentario-header">
+                                            <div class="comentario-avatar">🏹</div>
+                                            <div>
+                                                <div class="comentario-autor">xXNightWolfXx</div>
+                                                <div class="comentario-estrellas">★★★★★</div>
+                                            </div>
+                                        </div>
+                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers
+                                            no destruyeron mi casa esta vez. Servicio épico."</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Info Box 2 -->
+                        <div class="info-caja">
+                            <div class="info-titulo">📜 Legal</div>
+                            <div class="info-contenido">
+                                <p style="color: black;">Lee nuestras políticas:</p>
+                                <div class="enlaces">
+                                    <a href="https://www.minecraft.net/es-es/eula">Términos</a>
+                                    <a href="https://www.microsoft.com/es-es/privacy/privacystatement">Privacidad</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Info Box 3: Valoración -->
+                        <div class="info-caja">
+                            <div class="info-titulo">💎 Califica la página</div>
+                            <div class="info-contenido">
+                                <p style="color: black;">¿Cómo valorarías la experiencia?</p>
+                                <form class="valoracion" action="#" method="post" aria-label="Valorar página">
+                                    <div class="estrellas" role="radiogroup" aria-label="Valoración">
+                                        <input type="radio" id="r5" name="valoracion" value="5">
+                                        <label for="r5" title="5 estrellas">★</label>
+                                        <input type="radio" id="r4" name="valoracion" value="4">
+                                        <label for="r4" title="4 estrellas">★</label>
+                                        <input type="radio" id="r3" name="valoracion" value="3">
+                                        <label for="r3" title="3 estrellas">★</label>
+                                        <input type="radio" id="r2" name="valoracion" value="2">
+                                        <label for="r2" title="2 estrellas">★</label>
+                                        <input type="radio" id="r1" name="valoracion" value="1">
+                                        <label for="r1" title="1 estrella">★</label>
+                                    </div>
+                                </form>
+                                <p class="valor-texto" aria-hidden="true">Tu valoración ayuda a mejorar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div id="redes">
+                <a href=""><img class="redesFotter" src="../img/redesSociales/facebook.png" alt="facebook"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/instagram.png" alt="instagram"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/ticktock.png" alt="ticktock"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/x.png" alt="x"></a>
+                <a href=""><img class="redesFotter" src="../img/redesSociales/youtube.png" alt="youtube"></a>
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../html/bioma.html">Mundos</a></li>
+                <li><a href="../html/mobs.html">Mobs</a></li>
+                <li><a href="../html/objetos.html">Objetos</a></li>
+                <li><a href="../html/efectos.html">Efectos</a></li>
+                <li><a href="../html/Contacto.html">Contacto</a></li>
+            </ul>
+            <div>
+                <p>Pagina web creada por Andrii, Asier, Aaron, David y Antuan(Auxiliar).</p>
+                <p>Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+        <!-- MODAL DEL EQUIPO (AÑADIDO AL FINAL) -->
+        <div class="modal-superpuesto">
+            <div class="contenido-modal">
+                <label for="modal-equipo" class="boton-cerrar">×</label>
+                <h2 class="titulo-modal">Nuestro Equipo de Desarrollo</h2>
+
+                <div class="rejilla-miembros">
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/AARON.png" alt="Aaron" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/667eea/ffffff?text=AARON'">
+                        </div>
+                        <div class="nombre-miembro">Aarón</div>
+                        <div class="rol-miembro"><strong>Desarrollador Frontend</strong></div>
+                    </div>
+
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/ANDRII.png" alt="Andrii" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/764ba2/ffffff?text=ANDRII'">
+                        </div>
+                        <div class="nombre-miembro">Andrii</div>
+                        <div class="rol-miembro"><strong>Desarrollador Backend</strong></div>
+                    </div>
+
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/ANTUAN.png" alt="Antuan" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/f093fb/ffffff?text=ANTUAN'">
+                        </div>
+                        <div class="nombre-miembro">Antuan</div>
+                        <div class="rol-miembro"><strong>Diseñador UI/UX</strong></div>
+                    </div>
+
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/ASIER.png" alt="Asier" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/f5576c/ffffff?text=ASIER'">
+                        </div>
+                        <div class="nombre-miembro">Asier</div>
+                        <div class="rol-miembro"><strong>Desarrollador Full Stack</strong></div>
+                    </div>
+
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/DAVID.png" alt="David" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/4facfe/ffffff?text=DAVID'">
+                        </div>
+                        <div class="nombre-miembro">David</div>
+                        <div class="rol-miembro"><strong>Ingeniero DevOps</strong></div>
+                    </div>
+
+                    <!-- Nuevo miembro: Raúl -->
+                    <div class="miembro-equipo">
+                        <div class="contenedor-imagen">
+                            <img src="../img/RAUL.png" alt="Raul" class="imagen1"
+                                onerror="this.src='https://via.placeholder.com/150/ff9f43/ffffff?text=RAUL'">
+                        </div>
+                        <div class="nombre-miembro">Raúl</div>
+                        <div class="rol-miembro"><strong>Profesor</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de bienvenida con :target -->
+    <div id="modal-bienvenida" class="modal-overlay">
+        <div class="modal-contenido">
+            <h2>¡Bienvenido!</h2>
+            <p>Tu mensaje ha sido recibido. Gracias por contactarnos.</p>
+            <a href="#" class="modal-cerrar">Cerrar</a>
+        </div>
+    </div>
+            <script src="../js/reloj_solar.js"></script>
+</body>
+
+</html>
