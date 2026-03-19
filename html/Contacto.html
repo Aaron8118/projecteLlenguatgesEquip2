@@ -17,6 +17,33 @@
 </head>
 
 <body>
+     <div id="chat-overlay">
+        <div id="chat-container">
+            <div id="chat-messages">
+                <div class="chat-message system">=== Minecraft Console ===</div>
+                <div class="chat-message info">Presiona Alt+T para abrir/cerrar el chat</div>
+                <div class="chat-message info">Escribe /help para ver los comandos disponibles</div>
+            </div>
+            <div id="chat-input-container">
+                <div id="autocomplete"></div>
+                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off">
+                <button id="chat-send">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reloj Solar de Minecraft -->
+    <div id="reloj-solar-container">
+        <div id="reloj-wrapper">
+            <video id="relojVideo" muted playsinline>
+                <source src="../img/reloj_solar.mp4" type="video/mp4">
+            </video>
+            <div>
+                <div id="hora-actual">00:00:00</div>
+                <div id="info-dia">Cargando...</div>
+            </div>
+        </div>
+    </div>
     <div id="wrapper">
         <!-- CHECKBOX OCULTO PARA MODAL -->
         <input type="checkbox" id="modal-equipo" class="modal-checkbox">
@@ -368,6 +395,7 @@
             <a href="#" class="modal-cerrar">Cerrar</a>
         </div>
     </div>
+            <script src="../js/reloj_solar.js"></script>
 </body>
 
 </html>

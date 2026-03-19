@@ -16,6 +16,34 @@
 </head>
 
 <body>
+    <!-- Chat Modal -->
+    <div id="chat-overlay">
+        <div id="chat-container">
+            <div id="chat-messages">
+                <div class="chat-message system">=== Minecraft Console ===</div>
+                <div class="chat-message info">Presiona Alt+T para abrir/cerrar el chat</div>
+                <div class="chat-message info">Escribe /help para ver los comandos disponibles</div>
+            </div>
+            <div id="chat-input-container">
+                <div id="autocomplete"></div>
+                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off">
+                <button id="chat-send">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reloj Solar de Minecraft -->
+    <div id="reloj-solar-container">
+        <div id="reloj-wrapper">
+            <video id="relojVideo" muted playsinline>
+                <source src="../img/reloj_solar.mp4" type="video/mp4">
+            </video>
+            <div>
+                <div id="hora-actual">00:00:00</div>
+                <div id="info-dia">Cargando...</div>
+            </div>
+        </div>
+    </div>
     <div id="wrapper">
         <nav id="nav-principal">
             <div>
@@ -35,7 +63,6 @@
                         </ul>
                     </li>
                     <li><a href="../html/Contacto.html">Contacto</a></li>
-                    <!-- BOTÓN EQUIPO AÑADIDO AQUÍ -->
                 </ul>
             </div>
         </nav>
@@ -43,23 +70,9 @@
             <header id="biomas">
                 <div><a><img src="../img/logo_biomas.png" alt="logo_biomas"></a></div>
             </header>
-            <div class="contenedor-principal">
-
-                <input type="radio" name="slide" id="slide1" checked>
-                <input type="radio" name="slide" id="slide2">
-                <input type="radio" name="slide" id="slide3">
-                <input type="radio" name="slide" id="slide4">
-                <input type="radio" name="slide" id="slide5">
-                <input type="radio" name="slide" id="slide6">
-                <input type="radio" name="slide" id="slide7">
-                <input type="radio" name="slide" id="slide8">
-                <input type="radio" name="slide" id="slide9">
-                <input type="radio" name="slide" id="slide10">
-
-
+            <div class="contenedor-principal" id="slider-container">
                 <div class="info1">
-                    <div class="info1-slides">
-
+                    <div class="info1-slides" id="info1-slides">
                         <div class="info1-slide">
                             <h1><mark>NIEVE</mark></h1><br><br>
                             <p>El bioma de nieve se caracteriza por sus bajas temperaturas y la presencia constante de
@@ -70,7 +83,6 @@
                                 <cite><a href="https://minecraft.fandom.com/es/wiki/Nieve">WIKI</a></cite>
                             </div>
                         </div>
-
                         <div class="info1-slide">
                             <h1>JUNGLA</h1><br><br>
                             <p>El bioma de la julva se caracteriza por su clima cálido y húmedo, con lluvias abundantes
@@ -81,7 +93,6 @@
                                 <cite><a href="https://minecraft.fandom.com/es/wiki/Jungla">WIKI</a></cite>
                             </div>
                         </div>
-
                         <div class="info1-slide">
                             <h1>DESIERTO</h1><br><br>
                             <p>El bioma del desierto se caracteriza por su clima extremadamente seco, con altas
@@ -92,7 +103,6 @@
                                 <cite><a href="https://minecraft.fandom.com/es/wiki/Desierto">WIKI</a></cite>
                             </div>
                         </div>
-
                         <div class="info1-slide">
                             <h1>CÁLIDO</h1><br><br>
                             <p>El bioma cálido se caracteriza por sus altas temperaturas durante todo el año y una gran
@@ -105,7 +115,6 @@
                                         href="https://minecraft.fandom.com/es/wiki/Bioma#Biomas_secos/c%C3%A1lidos">WIKI</a></cite>
                             </div>
                         </div>
-
                         <div class="info1-slide">
                             <h1>OCÉANO</h1><br><br>
                             <p>El bioma océano se caracteriza por su gran extensión de agua, diferentes profundidades y
@@ -117,7 +126,6 @@
                                 <cite><a href="https://minecraft.fandom.com/es/wiki/Oc%C3%A9ano">WIKI</a></cite>
                             </div>
                         </div>
-
                         <div class="info1-slide">
                             <h1>CHAMPIÑÓN</h1><br><br>
                             <p>El bioma de hongos o champiñón se caracteriza por sus grandes setas que sirven como
@@ -130,7 +138,6 @@
                                         href="https://minecraft.fandom.com/es/wiki/Campo_de_champi%C3%B1ones">WIKI</a></cite>
                             </div>
                         </div>
-
                         <div class="info1-slide">
                             <h1>SABANA</h1><br><br>
                             <p>El bioma de sabana se caracteriza por su clima cálido, amplias llanuras y árboles
@@ -142,7 +149,6 @@
                                 <cite><a href="https://minecraft.fandom.com/es/wiki/Sabana">WIKI</a></cite>
                             </div>
                         </div>
-
                         <div class="info1-slide">
                             <h1>OSCURO</h1><br><br>
                             <p>El bioma oscuro, conocido como las profundidades o Deep Dark, se caracteriza por su
@@ -154,7 +160,6 @@
                                 <cite><a href="https://minecraft.fandom.com/es/wiki/Oscuridad_profunda">WIKI</a></cite>
                             </div>
                         </div>
-
                         <div class="info1-slide">
                             <h1>NETHER</h1><br><br>
                             <p>El bioma del Nether se caracteriza por su ambiente infernal, con temperaturas extremas,
@@ -165,7 +170,6 @@
                                 <cite><a href="https://minecraft.fandom.com/es/wiki/El_Nether">WIKI</a></cite>
                             </div>
                         </div>
-
                         <div class="info1-slide">
                             <h1>END</h1><br><br>
                             <p>El bioma del End se caracteriza por su paisaje desolado y flotante, con islas de piedra
@@ -178,10 +182,8 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="slider">
-                    <div class="slides">
+                    <div class="slides" id="slides">
                         <div class="slide"><img src="../img/nieve.jpg" alt="Paisaje de nieve"></div>
                         <div class="slide"><img src="../img/selva.jpg" alt="Selva"></div>
                         <div class="slide" id="desierto"><img src="../img/desierto.jpg" alt="Desierto"></div>
@@ -193,38 +195,12 @@
                         <div class="slide"><img src="../img/nether.jpg" alt="nether"></div>
                         <div class="slide"><img src="../img/end.jpg" alt="end"></div>
                     </div>
-
-
                     <div class="controls">
-
-                        <label for="slide10" class="prev">&#10094;</label>
-                        <label for="slide1" class="prev">&#10094;</label>
-                        <label for="slide2" class="prev">&#10094;</label>
-                        <label for="slide3" class="prev">&#10094;</label>
-                        <label for="slide4" class="prev">&#10094;</label>
-                        <label for="slide5" class="prev">&#10094;</label>
-                        <label for="slide6" class="prev">&#10094;</label>
-                        <label for="slide7" class="prev">&#10094;</label>
-                        <label for="slide8" class="prev">&#10094;</label>
-                        <label for="slide9" class="prev">&#10094;</label>
-
-
-                        <label for="slide2" class="next">&#10095;</label>
-                        <label for="slide3" class="next">&#10095;</label>
-                        <label for="slide4" class="next">&#10095;</label>
-                        <label for="slide5" class="next">&#10095;</label>
-                        <label for="slide6" class="next">&#10095;</label>
-                        <label for="slide7" class="next">&#10095;</label>
-                        <label for="slide8" class="next">&#10095;</label>
-                        <label for="slide9" class="next">&#10095;</label>
-                        <label for="slide10" class="next">&#10095;</label>
-                        <label for="slide1" class="next">&#10095;</label>
+                
                     </div>
                 </div>
-
-
                 <div class="info2">
-                    <div class="info2-slides">
+                    <div class="info2-slides" id="info2-slides">
                         <div class="info2-slide info2-slide1">
                         </div>
                         <div class="info2-slide info2-slide2">
@@ -271,6 +247,8 @@
             </div>
         </footer>
     </div>
+        <script src="../js/reloj_solar.js"></script>
+        <script src="../js/banner.js"></script>
 </body>
 
 </html>
