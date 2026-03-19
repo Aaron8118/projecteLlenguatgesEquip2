@@ -16,10 +16,40 @@
 </head>
 
 <body>
+    <!-- Chat Modal -->
+    <div id="chat-overlay">
+        <div id="chat-container">
+            <div id="chat-messages">
+                <div class="chat-message system">=== Minecraft Console ===</div>
+                <div class="chat-message info">Presiona Alt+T para abrir/cerrar el chat</div>
+                <div class="chat-message info">Escribe /help para ver los comandos disponibles</div>
+            </div>
+            <div id="chat-input-container">
+                <div id="autocomplete"></div>
+                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off">
+                <button id="chat-send">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    
+
     <div id="wrapper">
         <!-- Nav -->
         <nav id="nav-principal">
             <div>
+                <!-- Reloj Solar de Minecraft -->
+    <div id="reloj-solar-container">
+        <div id="reloj-wrapper">
+            <video id="relojVideo" muted playsinline>
+                <source src="img/reloj_solar.mp4" type="video/mp4">
+            </video>
+            <div>
+                <div id="hora-actual">00:00:00</div>
+                <div id="info-dia">Cargando...</div>
+            </div>
+        </div>
+    </div>
                 <img src="img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba">
                 <img src="img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba2">
                 <ul id="lista">
@@ -39,6 +69,7 @@
                 </ul>
             </div>
         </nav>
+
         <!-- Header -->
         <header>
             <div>
@@ -52,6 +83,7 @@
                 </div>
             </div>
         </header>
+
         <!-- Enlaze al Catalogo -->
         <div class="contenedor-excavar">
             <a href="#catalogo" class="boton-excavar">
@@ -67,11 +99,12 @@
             <img src="img/aldeano.gif" alt="aldeano" class="aldeano">
             <img src="img/malo.gif" alt="malo" class="malo">
             <img src="img/araña.gif" alt="araña" class="araña">
+            
             <!-- Timeline -->
             <div class="timeLine">
                 <div class="evento_left">
                     <h3>2009 — Nacimiento del proyecto</h3><br>
-                    <p>Mayo: Markus “Notch” Persson publica la primera versión <strong>Minecraft Classic</strong> en
+                    <p>Mayo: Markus "Notch" Persson publica la primera versión <strong>Minecraft Classic</strong> en
                         TIGSource, dando inicio al fenómeno.</p>
                 </div>
                 <div class="evento_right">
@@ -117,6 +150,7 @@
                         Minecraft sigue siendo una referencia cultural y técnica.</p>
                 </div>
             </div>
+            
             <!-- Catalogo -->
             <div id="tituloCatalogo">
                 <h2>Catalogo de juegos</h2>
@@ -158,6 +192,7 @@
                 </div>
             </div>
         </main>
+
         <!-- Footer -->
         <footer>
             <div id="redes">
@@ -181,6 +216,7 @@
             </div>
         </footer>
     </div>
+    <script src="js/reloj_solar.js"></script>
+    <script src="js/info.js"></script>
 </body>
-
 </html>
