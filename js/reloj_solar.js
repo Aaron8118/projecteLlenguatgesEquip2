@@ -1,22 +1,22 @@
-// Variables del reloj
-var video = document.getElementById("relojVideo");
-var modoDebug = false;
-var horaDebugH = 0;
-var horaDebugM = 0;
-var horaDebugS = 0;
+// letiables del reloj
+let video = document.getElementById("relojVideo");
+let modoDebug = false;
+let horaDebugH = 0;
+let horaDebugM = 0;
+let horaDebugS = 0;
 
-// Variables del chat
-var chatOverlay = document.getElementById("chat-overlay");
-var chatInput = document.getElementById("chat-input");
-var chatMessages = document.getElementById("chat-messages");
-var chatSend = document.getElementById("chat-send");
-var autocomplete = document.getElementById("autocomplete");
+// letiables del chat
+let chatOverlay = document.getElementById("chat-overlay");
+let chatInput = document.getElementById("chat-input");
+let chatMessages = document.getElementById("chat-messages");
+let chatSend = document.getElementById("chat-send");
+let autocomplete = document.getElementById("autocomplete");
 
-var chatAbierto = false;
-var selectedIndex = -1;
+let chatAbierto = false;
+let selectedIndex = -1;
 
 // Comandos disponibles
-var comandos = [
+let comandos = [
     { cmd: "/help", desc: "Muestra todos los comandos disponibles" },
     { cmd: "/time set day 0", desc: "Pone el reloj a las 9:00 (mañana)" },
     { cmd: "/time set day 1", desc: "Pone el reloj a las 00:00 (medianoche)" },
@@ -49,9 +49,9 @@ function avanzarTiempoDebug() {
 // OBTENER HORA DE ESPAÑA SIN ERRORES
 function obtenerHoraEspaña() {
 
-    var ahora = new Date();
+    let ahora = new Date();
 
-    var partes = new Intl.DateTimeFormat("es-ES", {
+    let partes = new Intl.DateTimeFormat("es-ES", {
         timeZone: "Europe/Madrid",
         hour: "2-digit",
         minute: "2-digit",
@@ -59,11 +59,11 @@ function obtenerHoraEspaña() {
         hour12: false
     }).formatToParts(ahora);
 
-    var h = 0;
-    var m = 0;
-    var s = 0;
+    let h = 0;
+    let m = 0;
+    let s = 0;
 
-    for (var i = 0; i < partes.length; i++) {
+    for (let i = 0; i < partes.length; i++) {
         if (partes[i].type === "hour") h = parseInt(partes[i].value);
         if (partes[i].type === "minute") m = parseInt(partes[i].value);
         if (partes[i].type === "second") s = parseInt(partes[i].value);
@@ -75,7 +75,7 @@ function obtenerHoraEspaña() {
 // Función para actualizar el reloj
 function actualizarRelojSolar() {
 
-    var h, m, s;
+    let h, m, s;
 
     if (modoDebug) {
 
@@ -87,7 +87,7 @@ function actualizarRelojSolar() {
 
     } else {
 
-        var hora = obtenerHoraEspaña();
+        let hora = obtenerHoraEspaña();
         h = hora.h;
         m = hora.m;
         s = hora.s;
@@ -100,7 +100,7 @@ function actualizarRelojSolar() {
         ("0" + m).slice(-2) + ":" +
         ("0" + s).slice(-2);
 
-    var fase = "";
+    let fase = "";
 
     if (h >= 6 && h < 12) fase = "🌅 Mañana";
     else if (h >= 12 && h < 18) fase = "☀️ Tarde";
@@ -109,9 +109,9 @@ function actualizarRelojSolar() {
 
     document.getElementById("info-dia").textContent = fase;
 
-    var horaInvertida = (12 - h + 24) % 24;
-    var segundosDia = horaInvertida * 3600 + (59 - m) * 60 + (59 - s);
-    var progreso = segundosDia / 86400;
+    let horaInvertida = (12 - h + 24) % 24;
+    let segundosDia = horaInvertida * 3600 + (59 - m) * 60 + (59 - s);
+    let progreso = segundosDia / 86400;
 
     if (video.duration) {
         video.currentTime = video.duration * progreso;
@@ -137,7 +137,7 @@ function addMessage(texto, tipo) {
 
     if (!tipo) tipo = "normal";
 
-    var msg = document.createElement("div");
+    let msg = document.createElement("div");
 
     msg.className = "chat-message " + tipo;
     msg.textContent = texto;
@@ -151,7 +151,7 @@ function mostrarAyuda() {
 
     addMessage("=== COMANDOS DISPONIBLES ===", "system");
 
-    for (var i = 0; i < comandos.length; i++) {
+    for (let i = 0; i < comandos.length; i++) {
         addMessage(comandos[i].cmd + " - " + comandos[i].desc, "info");
     }
 }
@@ -176,12 +176,12 @@ function volverHoraReal() {
 
 function procesarComando(texto) {
 
-    var partes = texto.trim().toLowerCase().split(" ");
+    let partes = texto.trim().toLowerCase().split(" ");
 
-    var cmd = partes[0];
-    var subcmd = partes[1];
-    var valor = partes[2];
-    var extra = partes[3];
+    let cmd = partes[0];
+    let subcmd = partes[1];
+    let valor = partes[2];
+    let extra = partes[3];
 
     addMessage("> " + texto, "normal");
 
@@ -255,7 +255,7 @@ document.addEventListener("keydown", function(e) {
 
 chatSend.addEventListener("click", function() {
 
-    var texto = chatInput.value.trim();
+    let texto = chatInput.value.trim();
 
     if (texto) {
         procesarComando(texto);
@@ -268,7 +268,7 @@ chatInput.addEventListener("keypress", function(e) {
 
     if (e.key === "Enter") {
 
-        var texto = chatInput.value.trim();
+        let texto = chatInput.value.trim();
 
         if (texto) {
             procesarComando(texto);
