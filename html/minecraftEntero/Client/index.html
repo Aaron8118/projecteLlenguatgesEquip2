@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Minecraft JS - Menu</title>
+        <title>Minecraft JS - Menú</title>
         <link rel="stylesheet" href="menu.css" />
         <link rel="icon" href="Assets/sprites/misc/icon_16x16.png" />
     </head>
@@ -11,7 +11,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
         <script src="Assets/utils/indexDB.js"></script>
 
-        <!-- Panoramic background container -->
+        <!-- Contenedor de fondo panorámico -->
         <div class="panorama">
             <div class="cube">
                 <div class="face face0"></div>
@@ -25,10 +25,6 @@
 
         <div class="footer">
             <p>
-                Made by Plekiko - For the best experience use Firefox<br />
-                <a class="footer-button" onclick="downloadServer()"
-                    >Download Server</a
-                >
             </p>
         </div>
         <div class="menu-container">
@@ -42,7 +38,7 @@
                         />
                         <div class="random-text">
                             <button
-                                title="Click me!"
+                                title="¡Haz clic aquí!"
                                 onclick="setRandomText()"
                                 class="splash"
                             ></button>
@@ -52,36 +48,30 @@
             </div>
 
             <div class="buttons">
-                <a onclick="playGame()" class="btn">Singleplayer</a>
+                <a onclick="playGame()" class="btn">Solitario</a>
                 <a onclick="multiplayerButton()" class="btn"
-                    >Multiplayer (beta)</a
-                >
-                <a
-                    href="https://buymeacoffee.com/plekiko"
-                    onclick="buttonSound()"
-                    class="btn"
-                    >Buy me a coffee!</a
+                    >Multijugador (beta)</a
                 >
                 <div class="button-space"></div>
-                <a onclick="gotoOptions()" class="btn">Options...</a>
-                <!-- <a class="btn" onclick="showTexturePacks()">Texture Packs</a> -->
+                <a onclick="gotoOptions()" class="btn">Opciones...</a>
+                <!-- <a class="btn" onclick="showTexturePacks()">Paquetes de Texturas</a> -->
             </div>
         </div>
 
         <div class="world-select-container" id="world-select-container">
             <div class="world-select-container-text">
-                <div class="big-text">Select World</div>
-                <button onclick="backToMenu()" id="" class="btn">Back</button>
+                <div class="big-text">Seleccionar Mundo</div>
+                <button onclick="backToMenu()" id="" class="btn">Volver</button>
                 <div class="world-select">
                     <div class="world-container">
                         <img
-                            alt="World Preview"
+                            alt="Vista Previa del Mundo"
                             src="Assets/sprites/menu/worldPreview.png"
                             class="world-image"
                         />
                         <div class="world-data-container">
-                            <div class="world-name">Test World</div>
-                            <div class="world-date">Right Now</div>
+                            <div class="world-name">Mundo de Prueba</div>
+                            <div class="world-date">Ahora mismo</div>
                         </div>
                     </div>
                 </div>
@@ -92,21 +82,21 @@
                         id="create-new-btn"
                         class="btn"
                     >
-                        Create new world
+                        Crear nuevo mundo
                     </button>
                     <button
                         onclick="playSelectedWorld()"
                         id="play-selected-btn"
                         class="btn"
                     >
-                        Play selected world
+                        Jugar mundo seleccionado
                     </button>
                     <button
                         onclick="removeWorld()"
                         id="remove-world-btn"
                         class="btn"
                     >
-                        Remove selected world
+                        Eliminar mundo seleccionado
                     </button>
                 </div>
             </div>
@@ -120,19 +110,19 @@
 
         <div class="world-select-container" id="texture-pack-select-container">
             <div class="world-select-container-text">
-                <div class="big-text">Texture Packs</div>
-                <div class="small-text">Supports original Minecraft 1.8.9 texture packs!</div>
-                <button onclick="gotoOptions()" class="btn">Back</button>
+                <div class="big-text">Paquetes de Texturas</div>
+                <div class="small-text">¡Compatible con los paquetes de texturas originales de Minecraft 1.8.9!</div>
+                <button onclick="gotoOptions()" class="btn">Volver</button>
                 <div class="world-select">
                     <div class="world-container">
                         <img
-                            alt="Texture Pack Preview"
+                            alt="Vista Previa del Paquete de Texturas"
                             src="Assets/sprites/menu/worldPreview.png"
                             class="world-image"
                         />
                         <div class="world-data-container">
-                            <div class="world-name">Default</div>
-                            <div class="world-date">Right Now</div>
+                            <div class="world-name">Predeterminado</div>
+                            <div class="world-date">Ahora mismo</div>
                         </div>
                     </div>
                 </div>
@@ -143,18 +133,15 @@
                         id="upload-texture-btn"
                         class="btn"
                     >
-                        Upload Texture Pack
+                        Subir Paquete de Texturas
                     </button>
                     <button
                         onclick="removeTexturePack()"
                         id="remove-texture-btn"
                         class="btn"
                     >
-                        Remove Selected Pack
+                        Eliminar Paquete Seleccionado
                     </button>
-                    <!-- <div class="button-flex">
-                        
-                    </div> -->
                 </div>
             </div>
             <div class="world-select-bar-container">
@@ -166,10 +153,10 @@
 
         <div class="world-select-container" id="server-select-container">
             <div class="world-select-container-text">
-                <div class="big-text">Servers</div>
-                <button onclick="backToMenu()" class="btn">Back</button>
+                <div class="big-text">Servidores</div>
+                <button onclick="backToMenu()" class="btn">Volver</button>
                 <div class="world-select" id="server-list">
-                    <!-- Servers will be dynamically added here -->
+                    <!-- Los servidores se añadirán aquí dinámicamente -->
                 </div>
 
                 <div class="world-buttons-container">
@@ -178,28 +165,21 @@
                         id="add-server-btn"
                         class="btn"
                     >
-                        Add Server
+                        Añadir Servidor
                     </button>
-                    <!-- <button
-                        onclick="gotoQuickConnect()"
-                        id="quick-connect-btn"
-                        class="btn"
-                    >
-                        Quick Connect
-                    </button> -->
                     <button
                         onclick="connectToServer()"
                         id="connect-btn"
                         class="btn"
                     >
-                        Connect to Server
+                        Conectar al Servidor
                     </button>
                     <button
                         onclick="removeServer()"
                         id="remove-server-btn"
                         class="btn"
                     >
-                        Remove Selected Server
+                        Eliminar Servidor Seleccionado
                     </button>
                 </div>
             </div>
@@ -214,25 +194,25 @@
             <div class="center-modal">
                 <div class="world-create-background"></div>
                 <div class="world-create-top-container">
-                    <div class="big-text">Add Server</div>
+                    <div class="big-text">Añadir Servidor</div>
                     <div class="input-field-container">
-                        <div class="input-field-title">Server Name</div>
+                        <div class="input-field-title">Nombre del Servidor</div>
                         <input
                             class="input-field"
                             type="text"
                             id="server-name-input"
                             maxlength="20"
-                            value="New Server"
+                            value="Nuevo Servidor"
                             autocomplete="off"
                             autofocus
                             oninput="updateServerName(this.value)"
                         />
                         <div class="input-field-footer" id="server-name-footer">
-                            Enter the server name
+                            Introduce el nombre del servidor
                         </div>
                     </div>
                     <div class="input-field-container">
-                        <div class="input-field-title">Server IP</div>
+                        <div class="input-field-title">IP del Servidor</div>
                         <input
                             class="input-field"
                             type="text"
@@ -244,13 +224,13 @@
                             oninput="updateServerIP(this.value)"
                         />
                         <div class="input-field-footer">
-                            Enter the server IP (e.g., 127.0.0.1:25565)
+                            Introduce la IP del servidor (p. ej., 127.0.0.1:25565)
                         </div>
                     </div>
                 </div>
                 <div class="world-create-bottom-container">
-                    <a onclick="addServer()" class="btn">Add Server</a>
-                    <a onclick="backToServerSelection()" class="btn">Cancel</a>
+                    <a onclick="addServer()" class="btn">Añadir Servidor</a>
+                    <a onclick="backToServerSelection()" class="btn">Cancelar</a>
                 </div>
             </div>
         </div>
@@ -259,9 +239,9 @@
             <div class="center-modal">
                 <div class="world-create-background"></div>
                 <div class="world-create-top-container">
-                    <div class="big-text">Quick Connect</div>
+                    <div class="big-text">Conexión Rápida</div>
                     <div class="input-field-container">
-                        <div class="input-field-title">Server IP</div>
+                        <div class="input-field-title">IP del Servidor</div>
                         <input
                             class="input-field"
                             type="text"
@@ -273,13 +253,13 @@
                             oninput="updateQuickConnectIP(this.value)"
                         />
                         <div class="input-field-footer">
-                            Enter the server IP (e.g., 127.0.0.1:25565)
+                            Introduce la IP del servidor (p. ej., 127.0.0.1:25565)
                         </div>
                     </div>
                 </div>
                 <div class="world-create-bottom-container">
-                    <a onclick="connectToServer()" class="btn">Connect</a>
-                    <a onclick="cancelQuickConnect()" class="btn">Cancel</a>
+                    <a onclick="connectToServer()" class="btn">Conectar</a>
+                    <a onclick="cancelQuickConnect()" class="btn">Cancelar</a>
                 </div>
             </div>
         </div>
@@ -288,26 +268,26 @@
             <div class="center-modal">
                 <div class="world-create-background"></div>
                 <div class="world-create-top-container">
-                    <div class="big-text">Create New World</div>
+                    <div class="big-text">Crear Nuevo Mundo</div>
                     <div class="input-field-container">
-                        <div class="input-field-title">World Name</div>
+                        <div class="input-field-title">Nombre del Mundo</div>
                         <input
                             class="input-field"
                             type="text"
                             id="world-name-input"
                             maxlength="20"
-                            value="New World"
+                            value="Nuevo Mundo"
                             autocomplete="off"
                             autofocus
                             oninput="updateWorldName(this.value)"
                         />
                         <div class="input-field-footer" id="saved-in-text">
-                            Will be saved in: New World
+                            Se guardará en: Nuevo Mundo
                         </div>
                     </div>
                     <div class="input-field-container">
                         <div class="input-field-title">
-                            Seed for the world generator
+                            Semilla para el generador de mundos
                         </div>
                         <input
                             class="input-field"
@@ -320,7 +300,7 @@
                             oninput="updateWorldSeed(this.value)"
                         />
                         <div class="input-field-footer">
-                            Leave blank for a random seed
+                            Deja en blanco para una semilla aleatoria
                         </div>
                     </div>
 
@@ -329,14 +309,14 @@
                         id="game-mode-button"
                         onclick="switchGameMode()"
                     >
-                        Game Mode: Survival
+                        Modo de Juego: Supervivencia
                     </div>
                 </div>
                 <div class="world-create-bottom-container">
                     <a onclick="createNewWorld()" class="btn"
-                        >Create New World</a
+                        >Crear Nuevo Mundo</a
                     >
-                    <a onclick="backToWorldSelection()" class="btn">Cancel</a>
+                    <a onclick="backToWorldSelection()" class="btn">Cancelar</a>
                 </div>
             </div>
         </div>
@@ -345,29 +325,27 @@
             <div class="center-modal">
                 <div class="world-create-background"></div>
                 <div class="world-create-top-container">
-                    <div class="big-text">Options</div>
+                    <div class="big-text">Opciones</div>
                 </div>
                 <div class="options-modal">
-                    <!-- <div class="button-grid">  -->
-                        <a class="btn" id="music-toggle-btn" onclick="toggleMusic()">Music - ON</a>
-                        <a class="btn" id="sfx-toggle-btn" onclick="toggleSFX()">SFX - ON</a>
-                        <a class="btn" id="lighting-toggle-btn" onclick="toggleLighting()">Lighting - ON</a>
+                        <a class="btn" id="music-toggle-btn" onclick="toggleMusic()">Música - ACTIVADA</a>
+                        <a class="btn" id="sfx-toggle-btn" onclick="toggleSFX()">Efectos de Sonido - ACTIVADOS</a>
+                        <a class="btn" id="lighting-toggle-btn" onclick="toggleLighting()">Iluminación - ACTIVADA</a>
                         
-                        <a class="btn" onclick="showTexturePacks()">Texture Packs...</a>
+                        <a class="btn" onclick="showTexturePacks()">Paquetes de Texturas...</a>
 
-                        
                         <button
                         onclick="uploadSkin()"
                         id="upload-skin-btn"
                         class="btn"
                         >
-                        Upload Skin
+                        Subir Skin
                     </button>
                     <button onclick="clearSkin()" class="btn">
-                        Clear Skin
+                        Eliminar Skin
                     </button>
                     <div class="input-field-container">
-                        <div class="input-field-title">Username</div>
+                        <div class="input-field-title">Nombre de Usuario</div>
                         <input
                             class="input-field"
                             type="text"
@@ -377,14 +355,13 @@
                             autocomplete="off"
                         />
                         <div class="input-field-footer" id="username-footer">
-                            Will be used for multiplayer
+                            Se usará en el multijugador
                         </div>
                     </div>
-                    <!-- </div> -->
 
                     <div class="button-space"></div>
 
-                    <a onclick="backToMenu(), saveSettings()" class="btn">Done</a>
+                    <a onclick="backToMenu(), saveSettings()" class="btn">Hecho</a>
                 </div>
             </div>
     </body>
