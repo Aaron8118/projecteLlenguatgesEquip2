@@ -28,47 +28,43 @@ const comandos = [
 
 // SUMAR 1 SEGUNDO AL RELOJ DEBUG
 function avanzarTiempoDebug() {
-
     horaDebugS++;
-
     if (horaDebugS >= 60) {
         horaDebugS = 0;
         horaDebugM++;
     }
-
     if (horaDebugM >= 60) {
         horaDebugM = 0;
         horaDebugH++;
     }
-
     if (horaDebugH >= 24) {
         horaDebugH = 0;
     }
+
 }
 
 // Función para actualizar el reloj
 function actualizarRelojSolar() {
-
-    let h, m, s;
-
+    let h, m, s, d, mes, a;
     if (modoDebug) {
-
         avanzarTiempoDebug();
-
         h = horaDebugH;
         m = horaDebugM;
         s = horaDebugS;
-
+        d = new Date().getDate();
+        mes = new Date().getMonth() + 1;
+        a = new Date().getFullYear();
     } else {
-
         const ahora = new Date();
-        const horaEspaña = new Date(
-            ahora.toLocaleString("es-ES", { timeZone: "Europe/Madrid" })
+        const horaEspanya = new Date(
+            ahora.toString("es-ES", { timeZone: "Europe/Madrid" })
         );
-
-        h = horaEspaña.getHours();
-        m = horaEspaña.getMinutes();
-        s = horaEspaña.getSeconds();
+        h = horaEspanya.getHours();
+        m = horaEspanya.getMinutes();
+        s = horaEspanya.getSeconds();
+        d = horaEspanya.getDate();
+        mes = horaEspanya.getMonth() + 1;
+        a = horaEspanya.getFullYear();
     }
 
     // Mostrar hora
@@ -76,6 +72,12 @@ function actualizarRelojSolar() {
         String(h).padStart(2, "0") + ":" +
         String(m).padStart(2, "0") + ":" +
         String(s).padStart(2, "0");
+
+    // Muestra fecha
+    document.getElementById("fecha-actual").textContent =
+        String(d).padStart(2, "0") + "/" +
+        String(mes).padStart(2, "0") + "/" +
+        String(a).padStart(4, "0");
 
     // Fase del día
     let fase = "";
@@ -93,7 +95,7 @@ function actualizarRelojSolar() {
     const progreso = segundosDia / 86400;
 
     if (video.duration) {
-        video.currentTime = video.duration * progreso;
+        video.currentTime = video.duration * parseFloat(progreso);
     }
 }
 
