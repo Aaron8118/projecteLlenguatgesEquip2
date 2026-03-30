@@ -1,118 +1,136 @@
-// Notificaciones Minecraft simplificadas, arrastrables y sin superposición
-(function () {
-
-    const notifications = [
-        { title: "⛏️ Prueba el Juego Real", msg: "¡Juega Minecraft Offline ahora!", link: "./html/minecraftEntero/Client/index.html", text: "Jugar Ahora →" },
-        { title: "🏰 Modo Creativo", msg: "Construye sin límites", link: "./html/minecraftEntero/Client/structureCreator.html", text: "Explorar →" }
-    ];
-
-    let activeNotification = null; // para evitar superposición
-
-    function randomPosition(div) {
-        const width = window.innerWidth - div.offsetWidth - 20;
-        const height = window.innerHeight - div.offsetHeight - 20;
-        const x = Math.random() * width;
-        const y = Math.random() * height;
-        div.style.left = x + "px";
-        div.style.top = y + "px";
+let avisos = [
+    {
+        titulo: "⛏️ Prueba el Juego Real",
+        msg: "Juega Minecraft Offline ahora",
+        link: "./html/minecraftEntero/Client/index.html",
+        txt: "Jugar Ahora →"
+    },
+    {
+        titulo: "🏰 Modo Creativo",
+        msg: "Construye sin límites",
+        link: "./html/minecraftEntero/Client/structureCreator.html",
+        txt: "Explorar →"
     }
+]
 
-    function makeDraggable(div) {
-        let offsetX, offsetY, isDragging = false;
+let activo = null
 
-        div.onmousedown = function (e) {
-            isDragging = true;
-            offsetX = e.clientX - div.offsetLeft;
-            offsetY = e.clientY - div.offsetTop;
-            div.style.cursor = "grabbing";
-        };
+function ponerPos(el) {
+    let w = innerWidth - el.offsetWidth - 20
+    let h = innerHeight - el.offsetHeight - 20
 
-        document.onmousemove = function (e) {
-            if (!isDragging) return;
-            div.style.left = e.clientX - offsetX + "px";
-            div.style.top = e.clientY - offsetY + "px";
-        };
-
-        document.onmouseup = function () {
-            if (isDragging) {
-                isDragging = false;
-                div.style.cursor = "grab";
-            }
-        };
-
-        div.style.cursor = "grab";
-    }
-
-    function showNotification(custom) {
-    const data = custom || notifications[Math.floor(Math.random() * notifications.length)];
-
-    if (!custom && activeNotification) {
-        // No mostrar pero igual programamos la siguiente
-        setTimeout(showNotification, 5000);
-        return;
-    }
-
-    const div = document.createElement("div");
-    div.style = `
-        position:fixed;
-        width:320px;
-        min-height:100px;
-        background:#1e1e2e;
-        border:3px solid #55aa55;
-        color:white;
-        font-family:monospace;
-        padding:16px;
-        z-index:9999;
-        box-shadow:0 0 10px black;
-    `;
-    div.innerHTML = `
-        <div style="display:flex;justify-content:space-between;">
-            <b>${data.title}</b>
-            <span style="cursor:pointer">✖</span>
-        </div>
-        <p>${data.msg}</p>
-        <a href="${data.link}" target="_blank" style="color:#00ffaa;text-decoration:none;">
-            ${data.text}
-        </a>
-    `;
-    document.body.appendChild(div);
-
-    randomPosition(div);
-    makeDraggable(div);
-    activeNotification = div;
-
-    // Cerrar manual
-    div.querySelector("span").onclick = () => {
-        div.remove();
-        activeNotification = null;
-    };
-
-    // Cerrar automático
-    setTimeout(() => {
-        if (div.parentNode) {
-            div.remove();
-            activeNotification = null;
-        }
-    }, 15000);
-
-    // Programar siguiente notificación siempre
-    if (!custom) setTimeout(showNotification, 5000);
+    el.style.left = Math.random() * w + "px"
+    el.style.top = Math.random() * h + "px"
 }
 
-    // Primera notificación de prueba 2s después de cargar
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            showNotification({
-                title: "⛏️ Prueba el Juego Real",
-                msg: "¡Juega Minecraft Offline ahora!",
-                link: "./html/minecraftEntero/Client/index.html",
-                text: "Jugar Ahora →"
-            });
+function mover(el) {
+    let x = 0
+    let y = 0
+    let mov = false
 
-            // Iniciar ciclo de la segunda notificación cada 5s
-            setTimeout(showNotification, 5000);
+    el.onmousedown = (e) => {
+        mov = true
+        x = e.clientX - el.offsetLeft
+        y = e.clientY - el.offsetTop
+        el.style.cursor = "grabbing"
+    }
 
-        }, 2000);
-    });
+    document.onmousemove = (e) => {
+        if (!mov) return
+        el.style.left = e.clientX - x + "px"
+        el.style.top = e.clientY - y + "px"
+    }
 
-})();
+    document.onmouseup = () => {
+        if (mov) {
+            mov = false
+            el.style.cursor = "grab"
+        }
+    }
+
+    el.style.cursor = "grab"
+}
+
+function mostrarAviso(a) {
+    let datos = a || avisos[Math.floor(Math.random() * avisos.length)]
+
+    if (!a && activo) {
+        setTimeout(mostrarAviso, 5000)
+        return
+    }
+
+    let caja = document.createElement("div")
+
+    caja.style.position = "fixed"
+    caja.style.width = "320px"
+    caja.style.minHeight = "100px"
+    caja.style.background = "#1e1e2e"
+    caja.style.border = "3px solid #55aa55"
+    caja.style.color = "white"
+    caja.style.fontFamily = "monospace"
+    caja.style.padding = "16px"
+    caja.style.zIndex = "9999"
+    caja.style.boxShadow = "0 0 10px black"
+
+    let header = document.createElement("div")
+    header.style.display = "flex"
+    header.style.justifyContent = "space-between"
+
+    let titulo = document.createElement("b")
+    titulo.textContent = datos.titulo
+
+    let cerrar = document.createElement("span")
+    cerrar.textContent = "✖"
+    cerrar.style.cursor = "pointer"
+
+    header.appendChild(titulo)
+    header.appendChild(cerrar)
+
+    let msg = document.createElement("p")
+    msg.textContent = datos.msg
+
+    let link = document.createElement("a")
+    link.href = datos.link
+    link.target = "_blank"
+    link.textContent = datos.txt
+    link.style.color = "#00ffaa"
+    link.style.textDecoration = "none"
+
+    caja.appendChild(header)
+    caja.appendChild(msg)
+    caja.appendChild(link)
+
+    document.body.appendChild(caja)
+
+    ponerPos(caja)
+    mover(caja)
+
+    activo = caja
+
+    cerrar.onclick = () => {
+        caja.remove()
+        activo = null
+    }
+
+    setTimeout(() => {
+        if (caja.parentNode) {
+            caja.remove()
+            activo = null
+        }
+    }, 15000)
+
+    if (!a) setTimeout(mostrarAviso, 5000)
+}
+
+addEventListener("load", () => {
+    setTimeout(() => {
+        mostrarAviso({
+            titulo: "⛏️ Prueba el Juego Real",
+            msg: "Juega Minecraft Offline ahora",
+            link: "./html/minecraftEntero/Client/index.html",
+            txt: "Jugar Ahora →"
+        })
+
+        setTimeout(mostrarAviso, 5000)
+    }, 2000)
+})

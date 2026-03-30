@@ -1,22 +1,22 @@
-// Variables del reloj
-const video = document.getElementById("relojVideo");
+// letiables del reloj
+let video = document.getElementById("relojVideo");
 let modoDebug = false;
 let horaDebugH = 0;
 let horaDebugM = 0;
 let horaDebugS = 0;
 
-// Variables del chat
-const chatOverlay = document.getElementById("chat-overlay");
-const chatInput = document.getElementById("chat-input");
-const chatMessages = document.getElementById("chat-messages");
-const chatSend = document.getElementById("chat-send");
-const autocomplete = document.getElementById("autocomplete");
+// letiables del chat
+let chatOverlay = document.getElementById("chat-overlay");
+let chatInput = document.getElementById("chat-input");
+let chatMessages = document.getElementById("chat-messages");
+let chatSend = document.getElementById("chat-send");
+let autocomplete = document.getElementById("autocomplete");
 
 let chatAbierto = false;
 let selectedIndex = -1;
 
 // Comandos disponibles
-const comandos = [
+let comandos = [
     { cmd: "/help", desc: "Muestra todos los comandos disponibles" },
     { cmd: "/time set day 0", desc: "Pone el reloj a las 9:00 (mañana)" },
     { cmd: "/time set day 1", desc: "Pone el reloj a las 00:00 (medianoche)" },
@@ -43,6 +43,32 @@ function avanzarTiempoDebug() {
 
 }
 
+// OBTENER HORA DE ESPAÑA SIN ERRORES
+function obtenerHoraEspaña() {
+
+    let ahora = new Date();
+
+    let partes = new Intl.DateTimeFormat("es-ES", {
+        timeZone: "Europe/Madrid",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    }).formatToParts(ahora);
+
+    let h = 0;
+    let m = 0;
+    let s = 0;
+
+    for (let i = 0; i < partes.length; i++) {
+        if (partes[i].type === "hour") h = parseInt(partes[i].value);
+        if (partes[i].type === "minute") m = parseInt(partes[i].value);
+        if (partes[i].type === "second") s = parseInt(partes[i].value);
+    }
+
+    return { h: h, m: m, s: s };
+}
+
 // Función para actualizar el reloj
 function actualizarRelojSolar() {
     let h, m, s, d, mes, a;
@@ -67,11 +93,12 @@ function actualizarRelojSolar() {
         a = horaEspanya.getFullYear();
     }
 
-    // Mostrar hora
+    if (isNaN(h) || isNaN(m) || isNaN(s)) return;
+
     document.getElementById("hora-actual").textContent =
-        String(h).padStart(2, "0") + ":" +
-        String(m).padStart(2, "0") + ":" +
-        String(s).padStart(2, "0");
+        ("0" + h).slice(-2) + ":" +
+        ("0" + m).slice(-2) + ":" +
+        ("0" + s).slice(-2);
 
     // Muestra fecha
     document.getElementById("fecha-actual").textContent =
@@ -89,10 +116,9 @@ function actualizarRelojSolar() {
 
     document.getElementById("info-dia").textContent = fase;
 
-    // Progreso del día para el video
-    const horaInvertida = (12 - h + 24) % 24;
-    const segundosDia = horaInvertida * 3600 + (59 - m) * 60 + (59 - s);
-    const progreso = segundosDia / 86400;
+    let horaInvertida = (12 - h + 24) % 24;
+    let segundosDia = horaInvertida * 3600 + (59 - m) * 60 + (59 - s);
+    let progreso = segundosDia / 86400;
 
     if (video.duration) {
         video.currentTime = video.duration * parseFloat(progreso);
@@ -114,9 +140,11 @@ function toggleChat() {
     }
 }
 
-function addMessage(texto, tipo = "normal") {
+function addMessage(texto, tipo) {
 
-    const msg = document.createElement("div");
+    if (!tipo) tipo = "normal";
+
+    let msg = document.createElement("div");
 
     msg.className = "chat-message " + tipo;
     msg.textContent = texto;
@@ -130,9 +158,9 @@ function mostrarAyuda() {
 
     addMessage("=== COMANDOS DISPONIBLES ===", "system");
 
-    comandos.forEach(c => {
-        addMessage(c.cmd + " - " + c.desc, "info");
-    });
+    for (let i = 0; i < comandos.length; i++) {
+        addMessage(comandos[i].cmd + " - " + comandos[i].desc, "info");
+    }
 }
 
 function setHoraForzada(horas, minutos, segundos) {
@@ -155,12 +183,12 @@ function volverHoraReal() {
 
 function procesarComando(texto) {
 
-    const partes = texto.trim().toLowerCase().split(" ");
+    let partes = texto.trim().toLowerCase().split(" ");
 
-    const cmd = partes[0];
-    const subcmd = partes[1];
-    const valor = partes[2];
-    const extra = partes[3];
+    let cmd = partes[0];
+    let subcmd = partes[1];
+    let valor = partes[2];
+    let extra = partes[3];
 
     addMessage("> " + texto, "normal");
 
@@ -172,7 +200,6 @@ function procesarComando(texto) {
     else if (cmd === "/clear") {
 
         chatMessages.innerHTML = "";
-
         addMessage("Chat limpiado", "success");
     }
 
@@ -181,35 +208,30 @@ function procesarComando(texto) {
         if (valor === "real") {
 
             volverHoraReal();
-
             addMessage("⏰ Reloj sincronizado con hora real de España", "success");
         }
 
         else if (valor === "day" && extra === "0") {
 
             setHoraForzada(9, 0, 0);
-
             addMessage("☀️ Hora establecida: 09:00 (Mañana)", "success");
         }
 
         else if (valor === "day" && extra === "1") {
 
             setHoraForzada(0, 0, 0);
-
             addMessage("🌙 Hora establecida: 00:00 (Medianoche)", "success");
         }
 
         else if (valor === "noon") {
 
             setHoraForzada(12, 0, 0);
-
             addMessage("☀️ Hora establecida: 12:00 (Mediodía)", "success");
         }
 
         else if (valor === "night") {
 
             setHoraForzada(21, 0, 0);
-
             addMessage("🌙 Hora establecida: 21:00 (Noche)", "success");
         }
 
@@ -225,107 +247,48 @@ function procesarComando(texto) {
     }
 }
 
-// Autocompletado
-function mostrarAutocomplete(texto) {
-
-    if (!texto.startsWith("/")) {
-        autocomplete.style.display = "none";
-        return;
-    }
-
-    const coincidencias = comandos.filter(c => c.cmd.startsWith(texto));
-
-    if (coincidencias.length === 0) {
-        autocomplete.style.display = "none";
-        return;
-    }
-
-    autocomplete.innerHTML = "";
-
-    coincidencias.forEach((c, index) => {
-
-        const item = document.createElement("div");
-
-        item.className = "autocomplete-item";
-
-        if (index === selectedIndex) item.classList.add("selected");
-
-        item.innerHTML = c.cmd + '<span class="cmd-desc">' + c.desc + '</span>';
-
-        item.onclick = () => {
-
-            chatInput.value = c.cmd;
-
-            autocomplete.style.display = "none";
-
-            chatInput.focus();
-        };
-
-        autocomplete.appendChild(item);
-    });
-
-    autocomplete.style.display = "block";
-}
-
-// Eventos del Chat
-document.addEventListener("keydown", (e) => {
+// Eventos
+document.addEventListener("keydown", function(e) {
 
     if (e.altKey && e.key === "t") {
-
         e.preventDefault();
-
         toggleChat();
     }
 
     if (chatAbierto && e.key === "Escape") {
-
         toggleChat();
     }
 });
 
-chatInput.addEventListener("input", (e) => {
+chatSend.addEventListener("click", function() {
 
-    selectedIndex = -1;
-
-    mostrarAutocomplete(e.target.value);
-});
-
-chatSend.addEventListener("click", () => {
-
-    const texto = chatInput.value.trim();
+    let texto = chatInput.value.trim();
 
     if (texto) {
-
         procesarComando(texto);
-
         chatInput.value = "";
-
         autocomplete.style.display = "none";
     }
 });
 
-chatInput.addEventListener("keypress", (e) => {
+chatInput.addEventListener("keypress", function(e) {
 
     if (e.key === "Enter") {
 
-        const texto = chatInput.value.trim();
+        let texto = chatInput.value.trim();
 
         if (texto) {
-
             procesarComando(texto);
-
             chatInput.value = "";
-
             autocomplete.style.display = "none";
         }
     }
 });
 
 // Inicializar
-video.addEventListener("loadedmetadata", () => {
+video.addEventListener("loadedmetadata", function() {
     actualizarRelojSolar();
 });
 
 setInterval(actualizarRelojSolar, 1000);
-
 actualizarRelojSolar();

@@ -8,6 +8,42 @@ body {
   margin: 0;
 }
 
+body.control-activo {
+  background: #111 !important;
+  color: #eee !important;
+}
+body.control-activo * {
+  color: #eee !important;
+  border-color: #777 !important;
+}
+body.control-activo img,
+body.control-activo video {
+  filter: brightness(0.7) saturate(1.2) contrast(1.2) !important;
+}
+
+/* ...existing code... */
+
+.contacto.sin-fondo {
+  background-image: none !important;
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+body.control-activo {
+  background-color: #111 !important;
+  color: #eee !important;
+}
+
+body.control-activo * {
+  color: #222020 !important;
+  border-color: #777 !important;
+}
+
+body.control-activo img,
+body.control-activo video {
+  filter: brightness(0.8) saturate(1.2) contrast(1.1) !important;
+}
+
 main {
   width: 100%;
   min-height: auto;
@@ -25,7 +61,7 @@ main {
 .slider-comentarios {
   overflow: hidden;
   position: relative;
-  background: #2A2C2A !important;
+  background: #626662 !important;
   border: 4px solid #1A1C1A !important;
   box-shadow: inset 3px 3px 0 #4A4C4A !important;
 }
