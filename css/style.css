@@ -47,10 +47,16 @@
             /* Efecto espejo horizontal para corregir la dirección */
             transform: scaleX(-1);
         }
+
+        #fecha-actual {
+            color: #AAA;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-align: center;
+        }
         
         #hora-actual {
             color: #FFD700;
-            font-family: 'Courier New', monospace;
             font-size: 26px;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
@@ -61,7 +67,6 @@
             color: #AAA;
             font-size: 14px;
             text-align: center;
-            font-family: Arial, sans-serif;
         }
 
         /* Chat Modal Estilo Minecraft */

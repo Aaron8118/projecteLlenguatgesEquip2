@@ -28,22 +28,19 @@ let comandos = [
 
 // SUMAR 1 SEGUNDO AL RELOJ DEBUG
 function avanzarTiempoDebug() {
-
     horaDebugS++;
-
     if (horaDebugS >= 60) {
         horaDebugS = 0;
         horaDebugM++;
     }
-
     if (horaDebugM >= 60) {
         horaDebugM = 0;
         horaDebugH++;
     }
-
     if (horaDebugH >= 24) {
         horaDebugH = 0;
     }
+
 }
 
 // OBTENER HORA DE ESPAÑA SIN ERRORES
@@ -74,23 +71,26 @@ function obtenerHoraEspaña() {
 
 // Función para actualizar el reloj
 function actualizarRelojSolar() {
-
-    let h, m, s;
-
+    let h, m, s, d, mes, a;
     if (modoDebug) {
-
         avanzarTiempoDebug();
-
         h = horaDebugH;
         m = horaDebugM;
         s = horaDebugS;
-
+        d = new Date().getDate();
+        mes = new Date().getMonth() + 1;
+        a = new Date().getFullYear();
     } else {
-
-        let hora = obtenerHoraEspaña();
-        h = hora.h;
-        m = hora.m;
-        s = hora.s;
+        const ahora = new Date();
+        const horaEspanya = new Date(
+            ahora.toString("es-ES", { timeZone: "Europe/Madrid" })
+        );
+        h = horaEspanya.getHours();
+        m = horaEspanya.getMinutes();
+        s = horaEspanya.getSeconds();
+        d = horaEspanya.getDate();
+        mes = horaEspanya.getMonth() + 1;
+        a = horaEspanya.getFullYear();
     }
 
     if (isNaN(h) || isNaN(m) || isNaN(s)) return;
@@ -100,6 +100,13 @@ function actualizarRelojSolar() {
         ("0" + m).slice(-2) + ":" +
         ("0" + s).slice(-2);
 
+    // Muestra fecha
+    document.getElementById("fecha-actual").textContent =
+        String(d).padStart(2, "0") + "/" +
+        String(mes).padStart(2, "0") + "/" +
+        String(a).padStart(4, "0");
+
+    // Fase del día
     let fase = "";
 
     if (h >= 6 && h < 12) fase = "🌅 Mañana";
@@ -114,7 +121,7 @@ function actualizarRelojSolar() {
     let progreso = segundosDia / 86400;
 
     if (video.duration) {
-        video.currentTime = video.duration * progreso;
+        video.currentTime = video.duration * parseFloat(progreso);
     }
 }
 
