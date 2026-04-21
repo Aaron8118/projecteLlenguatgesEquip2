@@ -7,7 +7,79 @@ body {
   height: 100%;
   margin: 0;
 }
+/* ================================================
+   AFEGIR AL FINAL DE style_Contacto.css
+   Estils per al formulari nou amb validació JS
+   ================================================ */
 
+/* --- Missatges d'error --- */
+.error-msg {
+  display: none;
+  color: #cc0000;
+  font-size: 0.82rem;
+  font-weight: bold;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 0, 0, 0.08);
+  border-left: 3px solid #cc0000;
+}
+
+.error-msg.visible {
+  display: block;
+}
+
+/* --- Estats dels inputs --- */
+.grupo-input input.input-error,
+.grupo-input textarea.input-error {
+  border-color: #cc0000 !important;
+  background: #fff5f5 !important;
+}
+
+.grupo-input input.input-ok,
+.grupo-input textarea.input-ok {
+  border-color: #2d7a2d !important;
+  background: #f5fff5 !important;
+}
+
+/* --- Comptador de caràcters --- */
+#comptador-chars {
+  font-size: 0.82rem;
+  color: #555;
+  text-align: right;
+  font-family: 'mac_s_minecraft', monospace;
+  margin-top: 0.2rem;
+}
+
+#comptador-chars.comptador-warning {
+  color: #b85c00;
+  font-weight: bold;
+}
+
+#comptador-chars.comptador-danger {
+  color: #cc0000;
+  font-weight: bold;
+}
+
+/* --- Radio buttons en error --- */
+#grup-radio.radio-error {
+  outline: 2px solid #cc0000;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* --- Modal formulari validat (JS-driven) --- */
+#modal-validat {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
 body.control-activo {
   background: #111 !important;
   color: #eee !important;
