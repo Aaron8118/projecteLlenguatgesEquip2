@@ -222,30 +222,6 @@
                                         <div class="comentario-texto">"Mis cultivos crecen más rápido que nunca. 10/10,
                                             volvería a sembrar con ustedes."</div>
                                     </div>
-                                    <!-- Comentario 4 -->
-                                    <div class="comentario-slide">
-                                        <div class="comentario-header">
-                                            <div class="comentario-avatar">🔥</div>
-                                            <div>
-                                                <div class="comentario-autor">NetherExplorer</div>
-                                                <div class="comentario-estrellas">★★★☆☆</div>
-                                            </div>
-                                        </div>
-                                        <div class="comentario-texto">"Me ayudaron a sobrevivir al Nether. Perdí todo
-                                            pero aprendí mucho. Ghast-friendly."</div>
-                                    </div>
-                                    <!-- Comentario 5 -->
-                                    <div class="comentario-slide">
-                                        <div class="comentario-header">
-                                            <div class="comentario-avatar">🏰</div>
-                                            <div>
-                                                <div class="comentario-autor">BuilderPro</div>
-                                                <div class="comentario-estrellas">★★★★★</div>
-                                            </div>
-                                        </div>
-                                        <div class="comentario-texto">"Construí mi castillo en 3 días. Los materiales
-                                            llegaron rápido. ¡Constructores confiables!"</div>
-                                    </div>
                                     <!-- Duplicados para loop infinito -->
                                     <div class="comentario-slide">
                                         <div class="comentario-header">
@@ -262,6 +238,50 @@
                             </div>
                         </div>
 
+<div class="info-caja" id="caja-nuevo-comentario">
+    <div class="info-titulo">✍️ Añadir comentario</div>
+    <div class="info-contenido">
+        <form id="form-comentario" novalidate>
+ 
+            <div class="grupo-input" style="margin-bottom: 0.8rem;">
+                <label for="com-nombre">Tu nombre</label>
+                <input type="text" id="com-nombre" placeholder="Steve o Alex..."
+                    maxlength="30" autocomplete="off">
+                <span class="val-error" id="err-com-nombre"></span>
+            </div>
+ 
+            <div class="grupo-input" style="margin-bottom: 0.8rem;">
+                <label for="com-texto">Comentario</label>
+                <textarea id="com-texto" rows="3" maxlength="200"
+                    placeholder="Cuéntanos tu experiencia..."></textarea>
+                <span class="val-error" id="err-com-texto"></span>
+                <span id="com-comptador" class="val-comptador">0 / 200 caracteres</span>
+            </div>
+ 
+            <div class="grupo-input" style="margin-bottom: 0.8rem;">
+                <label>Valoración</label>
+                <div class="opciones-radio" id="com-estrellas-radio">
+                    <label class="radio"><input type="radio" name="com-estrellas" value="5"> ★★★★★</label>
+                    <label class="radio"><input type="radio" name="com-estrellas" value="4"> ★★★★☆</label>
+                    <label class="radio"><input type="radio" name="com-estrellas" value="3"> ★★★☆☆</label>
+                    <label class="radio"><input type="radio" name="com-estrellas" value="2"> ★★☆☆☆</label>
+                    <label class="radio"><input type="radio" name="com-estrellas" value="1"> ★☆☆☆☆</label>
+                </div>
+                <span class="val-error" id="err-com-estrellas"></span>
+            </div>
+ 
+            <div style="display:flex; gap: 0.8rem; margin-top: 0.5rem;">
+                <button type="submit" class="boton boton-primario" style="flex:1;">
+                    ➕ Publicar
+                </button>
+                <button type="button" id="btn-limpiar-comentario" class="boton boton-secundario" style="flex:1;">
+                    🗑️ Limpiar
+                </button>
+            </div>
+ 
+        </form>
+    </div>
+</div>
                         <!-- Info Box 2 -->
                         <div class="info-caja">
                             <div class="info-titulo">📜 Legal</div>

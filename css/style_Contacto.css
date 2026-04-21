@@ -54,7 +54,80 @@ body {
   color: #b85c00;
   font-weight: bold;
 }
+/* ================================================
+   AÑADIR AL FINAL DE style_Contacto.css
+   Estilos para el formulario de nuevo comentario
+   ================================================ */
 
+/* Marca visual para comentarios añadidos por el usuario */
+.comentario-nuevo {
+    border-left: 3px solid #5A9C4E;
+    position: relative;
+}
+
+.comentario-nuevo::after {
+    content: "NUEVO";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 9px;
+    background: #5A9C4E;
+    color: #fff;
+    padding: 2px 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Mensajes de error inline (si no los tienes ya) */
+.val-error {
+    display: none;
+    color: #cc0000;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 0.25rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(200, 0, 0, 0.08);
+    border-left: 3px solid #cc0000;
+    font-family: 'mac_s_minecraft', monospace;
+}
+
+/* Contador de caracteres (si no lo tienes ya) */
+.val-comptador {
+    display: block;
+    font-size: 0.8rem;
+    color: #555;
+    text-align: right;
+    margin-top: 0.2rem;
+    font-family: 'mac_s_minecraft', monospace;
+}
+
+/* Ajuste de los radio buttons de estrellas dentro del formulario */
+#caja-nuevo-comentario .opciones-radio {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+#caja-nuevo-comentario .radio {
+    font-size: 0.85rem;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+#caja-nuevo-comentario .grupo-input label {
+    color: #222;
+    font-size: 0.85rem;
+}
+
+#caja-nuevo-comentario input[type="text"],
+#caja-nuevo-comentario textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#caja-nuevo-comentario .boton {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+}
 #comptador-chars.comptador-danger {
   color: #cc0000;
   font-weight: bold;
