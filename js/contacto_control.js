@@ -301,3 +301,183 @@ function tancarModalExit() {
     document.body.style.overflow = '';
   }
 }
+
+
+document.addEventListener('DOMContentLoaded', iniciarComentarios);
+ 
+/* Array en memoria — simula el JSON persistente */
+let comentariosArray = JSON.parse(localStorage.getItem('mc_comentarios') || '[]');
+ 
+/* Avatares aleatorios para nuevos comentarios */
+const AVATARES = ['⚔️','🏹','💎','🌾','🔥','🏰','🧪','🛡️','🎯','🪓','🧱','🌙'];
+ 
+function iniciarComentarios() {
+    const form        = document.getElementById('form-comentario');
+    const textarea    = document.getElementById('com-texto');
+    const comptador   = document.getElementById('com-comptador');
+    const btnLimpiar  = document.getElementById('btn-limpiar-comentario');
+ 
+    if (!form) return;
+ 
+    /* Contador de caracteres */
+    textarea.addEventListener('input', () => {
+        const len = textarea.value.length;
+        comptador.textContent = len + ' / 200 caracteres';
+        comptador.style.color = len >= 200 ? '#cc0000' : len >= 160 ? '#b85c00' : '#555';
+        comptador.style.fontWeight = len >= 160 ? 'bold' : 'normal';
+    });
+ 
+    /* Limpiar */
+    btnLimpiar.addEventListener('click', () => {
+        form.reset();
+        comptador.textContent = '0 / 200 caracteres';
+        comptador.style.color = '#555';
+        limpiarErroresComentario();
+    });
+ 
+    /* Enviar */
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!validarFormComentario()) return;
+ 
+        const nombre   = document.getElementById('com-nombre').value.trim();
+        const texto    = document.getElementById('com-texto').value.trim();
+        const estrellas = document.querySelector('input[name="com-estrellas"]:checked').value;
+ 
+        /* Crear objeto comentario */
+        const nuevoComentario = {
+            id:       Date.now(),
+            nombre:   nombre,
+            texto:    texto,
+            estrellas: parseInt(estrellas),
+            avatar:   AVATARES[Math.floor(Math.random() * AVATARES.length)]
+        };
+ 
+        /* Guardar en array y en localStorage (simula JSON persistente) */
+        comentariosArray.push(nuevoComentario);
+        localStorage.setItem('mc_comentarios', JSON.stringify(comentariosArray));
+ 
+        /* Añadir al slider sin recargar */
+        añadirSlide(nuevoComentario);
+ 
+        /* Resetear formulario */
+        form.reset();
+        comptador.textContent = '0 / 200 caracteres';
+        comptador.style.color = '#555';
+        limpiarErroresComentario();
+ 
+        /* Feedback visual breve */
+        mostrarConfirmacion();
+    });
+ 
+    /* Cargar comentarios guardados previamente al arrancar */
+    comentariosArray.forEach(c => añadirSlide(c));
+}
+ 
+ 
+/* Añade un nuevo slide al track del slider */
+function añadirSlide(comentario) {
+    const track = document.querySelector('.slider-track');
+    if (!track) return;
+ 
+    const estrellaStr = generarEstrellas(comentario.estrellas);
+ 
+    const slide = document.createElement('div');
+    slide.className = 'comentario-slide comentario-nuevo';
+    slide.dataset.id = comentario.id;
+    slide.innerHTML = `
+        <div class="comentario-header">
+            <div class="comentario-avatar">${comentario.avatar}</div>
+            <div>
+                <div class="comentario-autor">${escapeHtml(comentario.nombre)}</div>
+                <div class="comentario-estrellas">${estrellaStr}</div>
+            </div>
+        </div>
+        <div class="comentario-texto">"${escapeHtml(comentario.texto)}"</div>
+    `;
+ 
+    track.appendChild(slide);
+ 
+    /* Reiniciar la animación CSS para que incluya el nuevo slide */
+    track.style.animation = 'none';
+    track.offsetHeight; /* forzar reflow */
+    track.style.animation = '';
+}
+ 
+ 
+/* Genera string de estrellas según valoración */
+function generarEstrellas(n) {
+    const llenas  = '★'.repeat(n);
+    const vacias  = '☆'.repeat(5 - n);
+    return llenas + vacias;
+}
+ 
+ 
+/* Validación del formulario de comentario */
+function validarFormComentario() {
+    let ok = true;
+ 
+    const nombre  = document.getElementById('com-nombre').value.trim();
+    const texto   = document.getElementById('com-texto').value.trim();
+    const estrella = document.querySelector('input[name="com-estrellas"]:checked');
+ 
+    if (nombre === '' || nombre.length < 2) {
+        mostrarErrCom('err-com-nombre', 'El nombre es obligatorio (mín. 2 caracteres).');
+        ok = false;
+    } else {
+        ocultarErrCom('err-com-nombre');
+    }
+ 
+    if (texto === '' || texto.length < 5) {
+        mostrarErrCom('err-com-texto', 'El comentario es obligatorio (mín. 5 caracteres).');
+        ok = false;
+    } else if (texto.length > 200) {
+        mostrarErrCom('err-com-texto', 'Máximo 200 caracteres.');
+        ok = false;
+    } else {
+        ocultarErrCom('err-com-texto');
+    }
+ 
+    if (!estrella) {
+        mostrarErrCom('err-com-estrellas', 'Selecciona una valoración.');
+        ok = false;
+    } else {
+        ocultarErrCom('err-com-estrellas');
+    }
+ 
+    return ok;
+}
+ 
+function mostrarErrCom(id, msg) {
+    const span = document.getElementById(id);
+    if (span) { span.textContent = msg; span.style.display = 'block'; }
+}
+ 
+function ocultarErrCom(id) {
+    const span = document.getElementById(id);
+    if (span) { span.textContent = ''; span.style.display = 'none'; }
+}
+ 
+function limpiarErroresComentario() {
+    ['err-com-nombre','err-com-texto','err-com-estrellas'].forEach(ocultarErrCom);
+}
+ 
+ 
+/* Feedback visual al publicar */
+function mostrarConfirmacion() {
+    const caja = document.getElementById('caja-nuevo-comentario');
+    if (!caja) return;
+    const msg = document.createElement('div');
+    msg.textContent = '✅ ¡Comentario publicado!';
+    msg.style.cssText = 'color:#2d7a2d;font-weight:bold;text-align:center;padding:0.5rem;font-family:monospace;';
+    caja.querySelector('.info-contenido').prepend(msg);
+    setTimeout(() => msg.remove(), 2500);
+}
+ 
+ 
+/* Escape para evitar XSS */
+function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+              .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+ 
