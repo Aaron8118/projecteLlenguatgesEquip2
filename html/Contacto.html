@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_Contacto.css">
     <link rel="stylesheet" href="../css/equipo.css">
-
 </head>
 
 <body data-nombre="CONTACTO">
-     <div id="chat-overlay">
+
+    <div id="chat-overlay">
         <div id="chat-container">
             <div id="chat-messages">
                 <div class="chat-message system">=== Minecraft Console ===</div>
@@ -45,8 +45,9 @@
             </div>
         </div>
     </div>
+
     <div id="wrapper">
-        <!-- CHECKBOX OCULTO PARA MODAL -->
+
         <input type="checkbox" id="modal-equipo" class="modal-checkbox">
 
         <nav id="nav-principal">
@@ -67,14 +68,14 @@
                         </ul>
                     </li>
                     <li><a href="../html/Contacto.html">Contacto</a></li>
-                    <!-- BOTÓN EQUIPO AÑADIDO AQUÍ -->
                     <li><label for="modal-equipo"><strong>Equipo</strong></label></li>
                 </ul>
             </div>
         </nav>
+
         <main>
             <section class="contacto">
-                <!-- Encabezado tipo Minecraft -->
+
                 <div class="encabezado">
                     <div class="titulo">
                         <h1>📮 CONTACTO</h1>
@@ -82,13 +83,12 @@
                     </div>
                 </div>
 
-                <!-- Contenedor principal con grid Minecraft -->
                 <div class="contenedor">
+
                     <!-- Columna izquierda: Formulario -->
                     <div class="seccion-form">
                         <form id="formulario" method="POST" enctype="multipart/form-data">
 
-                            <!-- Bloque: Información personal -->
                             <div class="bloque">
                                 <label class="bloque-titulo" for="nombre">👤 Tus datos</label>
                                 <div class="bloque-contenido">
@@ -104,13 +104,13 @@
                                     </div>
                                     <div class="grupo-input">
                                         <label for="telefono">Teléfono</label>
-                                        <input id="telefono" name="telefono" type="tel" placeholder="+34 600 000 000"
+                                        <input id="telefono" name="telefono" type="tel"
+                                            placeholder="+34 600 000 000"
                                             pattern="\+[0-9]{2}[0-9]{9}" required>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Bloque: Asunto y categoría -->
                             <div class="bloque">
                                 <label class="bloque-titulo" for="asunto">💬 Tu consulta</label>
                                 <div class="bloque-contenido">
@@ -122,20 +122,16 @@
                                     <div class="grupo-input">
                                         <label for="categoria">Categoría</label>
                                         <select id="categoria" name="categoria">
-                                            <option style="background-color: black;" value="">-- Selecciona --</option>
-                                            <option style="background-color: black;" value="bug">🐛 Reporte de error
-                                            </option>
-                                            <option style="background-color: black;" value="sugerencia">💡 Sugerencia
-                                            </option>
-                                            <option style="background-color: black;" value="soporte">🔧 Soporte técnico
-                                            </option>
-                                            <option style="background-color: black;" value="otro">❓ Otro</option>
+                                            <option style="background-color:black;" value="">-- Selecciona --</option>
+                                            <option style="background-color:black;" value="bug">🐛 Reporte de error</option>
+                                            <option style="background-color:black;" value="sugerencia">💡 Sugerencia</option>
+                                            <option style="background-color:black;" value="soporte">🔧 Soporte técnico</option>
+                                            <option style="background-color:black;" value="otro">❓ Otro</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Bloque: Mensaje -->
                             <div class="bloque">
                                 <label class="bloque-titulo" for="mensaje">📝 Mensaje</label>
                                 <div class="bloque-contenido">
@@ -144,49 +140,44 @@
                                 </div>
                             </div>
 
-                            <!-- Bloque: Contacto directo -->
                             <div class="bloque">
                                 <label class="bloque-titulo">⚙️ Contacto directo</label><br><br>
                                 <div class="bloque-contenido">
-
                                     <div class="grupo-input">
                                         <a href="mailto:minecraftAAAAD.com" class="boton-enlace">
                                             📧 Contactar por Email
                                         </a>
                                     </div>
-
                                     <div class="grupo-input">
                                         <a href="tel:654567890" class="boton-enlace">
                                             📞 Llamar al 654 567 890
                                         </a>
                                     </div>
-
                                     <label class="casilla">
                                         <input type="checkbox" name="newsletter">
                                         <span id="recibir">Recibir actualizaciones</span>
                                     </label>
-
                                 </div>
                             </div>
 
-
-                            <!-- Botones -->
                             <div class="botones">
-                                <button type="submit" formaction="#modal-bienvenida" class="boton boton-primario">✉️
-                                    Enviar</button>
+                                <button type="submit" formaction="#modal-bienvenida"
+                                    class="boton boton-primario">✉️ Enviar</button>
                                 <button type="reset" class="boton boton-secundario">🗑️ Limpiar</button>
                             </div>
+
                         </form>
                     </div>
 
-                    <!-- Columna derecha: Comentarios slider -->
+                    <!-- Columna derecha -->
                     <div class="seccion-info">
-                        <!-- Slider Comentarios -->
+
+                        <!-- SLIDER DE COMENTARIOS -->
                         <div class="info-caja slider-comentarios">
                             <div class="info-titulo">💬 Comentarios de la Comunidad</div>
                             <div class="slider-contenedor">
-                                <div class="slider-track">
-                                    <!-- Comentario 1 -->
+                                <!-- El track lo gestiona JS. Los 2 comentarios base están aquí -->
+                                <div class="slider-track" id="slider-track">
                                     <div class="comentario-slide">
                                         <div class="comentario-header">
                                             <div class="comentario-avatar">🏹</div>
@@ -195,10 +186,8 @@
                                                 <div class="comentario-estrellas">★★★★★</div>
                                             </div>
                                         </div>
-                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers
-                                            no destruyeron mi casa esta vez. Servicio épico."</div>
+                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers no destruyeron mi casa esta vez. Servicio épico."</div>
                                     </div>
-                                    <!-- Comentario 2 -->
                                     <div class="comentario-slide">
                                         <div class="comentario-header">
                                             <div class="comentario-avatar">💎</div>
@@ -207,86 +196,63 @@
                                                 <div class="comentario-estrellas">★★★★☆</div>
                                             </div>
                                         </div>
-                                        <div class="comentario-texto">"Encontré diamantes gracias a sus tips. Casi me
-                                            matan pero valió la pena. ¡Muy recomendado!"</div>
-                                    </div>
-                                    <!-- Comentario 3 -->
-                                    <div class="comentario-slide">
-                                        <div class="comentario-header">
-                                            <div class="comentario-avatar">🌾</div>
-                                            <div>
-                                                <div class="comentario-autor">FarmerJoe</div>
-                                                <div class="comentario-estrellas">★★★★★</div>
-                                            </div>
-                                        </div>
-                                        <div class="comentario-texto">"Mis cultivos crecen más rápido que nunca. 10/10,
-                                            volvería a sembrar con ustedes."</div>
-                                    </div>
-                                    <!-- Duplicados para loop infinito -->
-                                    <div class="comentario-slide">
-                                        <div class="comentario-header">
-                                            <div class="comentario-avatar">🏹</div>
-                                            <div>
-                                                <div class="comentario-autor">xXNightWolfXx</div>
-                                                <div class="comentario-estrellas">★★★★★</div>
-                                            </div>
-                                        </div>
-                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers
-                                            no destruyeron mi casa esta vez. Servicio épico."</div>
+                                        <div class="comentario-texto">"Encontré diamantes gracias a sus tips. Casi me matan pero valió la pena. ¡Muy recomendado!"</div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Barra de progreso controlada por JS -->
+                            <div id="slider-barra-wrap">
+                                <div id="slider-barra"></div>
+                            </div>
                         </div>
 
-<div class="info-caja" id="caja-nuevo-comentario">
-    <div class="info-titulo">✍️ Añadir comentario</div>
-    <div class="info-contenido">
-        <form id="form-comentario" novalidate>
- 
-            <div class="grupo-input" style="margin-bottom: 0.8rem;">
-                <label for="com-nombre">Tu nombre</label>
-                <input type="text" id="com-nombre" placeholder="Steve o Alex..."
-                    maxlength="30" autocomplete="off">
-                <span class="val-error" id="err-com-nombre"></span>
-            </div>
- 
-            <div class="grupo-input" style="margin-bottom: 0.8rem;">
-                <label for="com-texto">Comentario</label>
-                <textarea id="com-texto" rows="3" maxlength="200"
-                    placeholder="Cuéntanos tu experiencia..."></textarea>
-                <span class="val-error" id="err-com-texto"></span>
-                <span id="com-comptador" class="val-comptador">0 / 200 caracteres</span>
-            </div>
- 
-            <div class="grupo-input" style="margin-bottom: 0.8rem;">
-                <label>Valoración</label>
-                <div class="opciones-radio" id="com-estrellas-radio">
-                    <label class="radio"><input type="radio" name="com-estrellas" value="5"> ★★★★★</label>
-                    <label class="radio"><input type="radio" name="com-estrellas" value="4"> ★★★★☆</label>
-                    <label class="radio"><input type="radio" name="com-estrellas" value="3"> ★★★☆☆</label>
-                    <label class="radio"><input type="radio" name="com-estrellas" value="2"> ★★☆☆☆</label>
-                    <label class="radio"><input type="radio" name="com-estrellas" value="1"> ★☆☆☆☆</label>
-                </div>
-                <span class="val-error" id="err-com-estrellas"></span>
-            </div>
- 
-            <div style="display:flex; gap: 0.8rem; margin-top: 0.5rem;">
-                <button type="submit" class="boton boton-primario" style="flex:1;">
-                    ➕ Publicar
-                </button>
-                <button type="button" id="btn-limpiar-comentario" class="boton boton-secundario" style="flex:1;">
-                    🗑️ Limpiar
-                </button>
-            </div>
- 
-        </form>
-    </div>
-</div>
-                        <!-- Info Box 2 -->
+                        <!-- FORMULARIO AÑADIR COMENTARIO -->
+                        <div class="info-caja" id="caja-nuevo-comentario">
+                            <div class="info-titulo">✍️ Añadir comentario</div>
+                            <div class="info-contenido">
+                                <form id="form-comentario" novalidate>
+
+                                    <div class="grupo-input">
+                                        <label for="com-nombre">Tu nombre</label>
+                                        <input type="text" id="com-nombre" placeholder="Steve o Alex..."
+                                            maxlength="30" autocomplete="off">
+                                        <span class="val-error" id="err-com-nombre"></span>
+                                    </div>
+
+                                    <div class="grupo-input" style="margin-top:0.8rem;">
+                                        <label for="com-texto">Comentario</label>
+                                        <textarea id="com-texto" rows="3" maxlength="200"
+                                            placeholder="Cuéntanos tu experiencia..."></textarea>
+                                        <span class="val-error" id="err-com-texto"></span>
+                                        <span id="com-comptador" class="val-comptador">0 / 200 caracteres</span>
+                                    </div>
+
+                                    <div class="grupo-input" style="margin-top:0.8rem;">
+                                        <label>Valoración</label>
+                                        <div class="opciones-radio">
+                                            <label class="radio"><input type="radio" name="com-estrellas" value="5"> ★★★★★</label>
+                                            <label class="radio"><input type="radio" name="com-estrellas" value="4"> ★★★★☆</label>
+                                            <label class="radio"><input type="radio" name="com-estrellas" value="3"> ★★★☆☆</label>
+                                            <label class="radio"><input type="radio" name="com-estrellas" value="2"> ★★☆☆☆</label>
+                                            <label class="radio"><input type="radio" name="com-estrellas" value="1"> ★☆☆☆☆</label>
+                                        </div>
+                                        <span class="val-error" id="err-com-estrellas"></span>
+                                    </div>
+
+                                    <div class="botones-com">
+                                        <button type="submit" class="boton boton-primario">➕ Publicar</button>
+                                        <button type="button" id="btn-limpiar-com" class="boton boton-secundario">🗑️ Limpiar</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Info Box: Legal -->
                         <div class="info-caja">
                             <div class="info-titulo">📜 Legal</div>
                             <div class="info-contenido">
-                                <p style="color: black;">Lee nuestras políticas:</p>
+                                <p style="color:black;">Lee nuestras políticas:</p>
                                 <div class="enlaces">
                                     <a href="https://www.minecraft.net/es-es/eula">Términos</a>
                                     <a href="https://www.microsoft.com/es-es/privacy/privacystatement">Privacidad</a>
@@ -294,11 +260,11 @@
                             </div>
                         </div>
 
-                        <!-- Info Box 3: Valoración -->
+                        <!-- Info Box: Valoración -->
                         <div class="info-caja">
                             <div class="info-titulo">💎 Califica la página</div>
                             <div class="info-contenido">
-                                <p style="color: black;">¿Cómo valorarías la experiencia?</p>
+                                <p style="color:black;">¿Cómo valorarías la experiencia?</p>
                                 <form class="valoracion" action="#" method="post" aria-label="Valorar página">
                                     <div class="estrellas" role="radiogroup" aria-label="Valoración">
                                         <input type="radio" id="r5" name="valoracion" value="5">
@@ -316,6 +282,7 @@
                                 <p class="valor-texto" aria-hidden="true">Tu valoración ayuda a mejorar.</p>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -343,12 +310,11 @@
             </div>
         </footer>
 
-        <!-- MODAL DEL EQUIPO (AÑADIDO AL FINAL) -->
+        <!-- MODAL DEL EQUIPO -->
         <div class="modal-superpuesto">
             <div class="contenido-modal">
                 <label for="modal-equipo" class="boton-cerrar">×</label>
                 <h2 class="titulo-modal">Nuestro Equipo de Desarrollo</h2>
-
                 <div class="rejilla-miembros">
                     <div class="miembro-equipo">
                         <div class="contenedor-imagen">
@@ -358,7 +324,6 @@
                         <div class="nombre-miembro">Aarón</div>
                         <div class="rol-miembro"><strong>Desarrollador Frontend</strong></div>
                     </div>
-
                     <div class="miembro-equipo">
                         <div class="contenedor-imagen">
                             <img src="../img/ANDRII.png" alt="Andrii" class="imagen1"
@@ -367,7 +332,6 @@
                         <div class="nombre-miembro">Andrii</div>
                         <div class="rol-miembro"><strong>Desarrollador Backend</strong></div>
                     </div>
-
                     <div class="miembro-equipo">
                         <div class="contenedor-imagen">
                             <img src="../img/ANTUAN.png" alt="Antuan" class="imagen1"
@@ -376,7 +340,6 @@
                         <div class="nombre-miembro">Antuan</div>
                         <div class="rol-miembro"><strong>Diseñador UI/UX</strong></div>
                     </div>
-
                     <div class="miembro-equipo">
                         <div class="contenedor-imagen">
                             <img src="../img/ASIER.png" alt="Asier" class="imagen1"
@@ -385,7 +348,6 @@
                         <div class="nombre-miembro">Asier</div>
                         <div class="rol-miembro"><strong>Desarrollador Full Stack</strong></div>
                     </div>
-
                     <div class="miembro-equipo">
                         <div class="contenedor-imagen">
                             <img src="../img/DAVID.png" alt="David" class="imagen1"
@@ -394,8 +356,6 @@
                         <div class="nombre-miembro">David</div>
                         <div class="rol-miembro"><strong>Ingeniero DevOps</strong></div>
                     </div>
-
-                    <!-- Nuevo miembro: Raúl -->
                     <div class="miembro-equipo">
                         <div class="contenedor-imagen">
                             <img src="../img/RAUL.png" alt="Raul" class="imagen1"
@@ -407,8 +367,10 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modal de bienvenida con :target -->
+
+    </div><!-- fin #wrapper -->
+
+    <!-- Modal bienvenida (CSS :target) -->
     <div id="modal-bienvenida" class="modal-overlay">
         <div class="modal-contenido">
             <h2>¡Bienvenido!</h2>
@@ -416,9 +378,10 @@
             <a href="#" class="modal-cerrar">Cerrar</a>
         </div>
     </div>
-            <script src="../js/contacto_control.js"></script>
-            <script src="../js/reloj_solar.js"></script>
-            <script src="../js/mensaje_paginas.js"></script>
-        </body>
 
+    <script src="../js/contacto_control.js"></script>
+    <script src="../js/reloj_solar.js"></script>
+    <script src="../js/mensaje_paginas.js"></script>
+
+</body>
 </html>

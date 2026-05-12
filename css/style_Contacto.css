@@ -2,171 +2,10 @@
    ESTILOS TIPO MINECRAFT - CONTACTO
    ======================================== */
 
-html,
-body {
+html, body {
   height: 100%;
   margin: 0;
 }
-/* ================================================
-   AFEGIR AL FINAL DE style_Contacto.css
-   Estils per al formulari nou amb validació JS
-   ================================================ */
-
-/* --- Missatges d'error --- */
-.error-msg {
-  display: none;
-  color: #cc0000;
-  font-size: 0.82rem;
-  font-weight: bold;
-  margin-top: 0.25rem;
-  padding: 0.25rem 0.5rem;
-  background: rgba(255, 0, 0, 0.08);
-  border-left: 3px solid #cc0000;
-}
-
-.error-msg.visible {
-  display: block;
-}
-
-/* --- Estats dels inputs --- */
-.grupo-input input.input-error,
-.grupo-input textarea.input-error {
-  border-color: #cc0000 !important;
-  background: #fff5f5 !important;
-}
-
-.grupo-input input.input-ok,
-.grupo-input textarea.input-ok {
-  border-color: #2d7a2d !important;
-  background: #f5fff5 !important;
-}
-
-/* --- Comptador de caràcters --- */
-#comptador-chars {
-  font-size: 0.82rem;
-  color: #555;
-  text-align: right;
-  font-family: 'mac_s_minecraft', monospace;
-  margin-top: 0.2rem;
-}
-
-#comptador-chars.comptador-warning {
-  color: #b85c00;
-  font-weight: bold;
-}
-/* ================================================
-   AÑADIR AL FINAL DE style_Contacto.css
-   Estilos para el formulario de nuevo comentario
-   ================================================ */
-
-/* Marca visual para comentarios añadidos por el usuario */
-.comentario-nuevo {
-    border-left: 3px solid #5A9C4E;
-    position: relative;
-}
-
-.comentario-nuevo::after {
-    content: "NUEVO";
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    font-size: 9px;
-    background: #5A9C4E;
-    color: #fff;
-    padding: 2px 5px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-/* Mensajes de error inline (si no los tienes ya) */
-.val-error {
-    display: none;
-    color: #cc0000;
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-top: 0.25rem;
-    padding: 0.2rem 0.5rem;
-    background: rgba(200, 0, 0, 0.08);
-    border-left: 3px solid #cc0000;
-    font-family: 'mac_s_minecraft', monospace;
-}
-
-/* Contador de caracteres (si no lo tienes ya) */
-.val-comptador {
-    display: block;
-    font-size: 0.8rem;
-    color: #555;
-    text-align: right;
-    margin-top: 0.2rem;
-    font-family: 'mac_s_minecraft', monospace;
-}
-
-/* Ajuste de los radio buttons de estrellas dentro del formulario */
-#caja-nuevo-comentario .opciones-radio {
-    flex-wrap: wrap;
-    gap: 0.4rem;
-}
-
-#caja-nuevo-comentario .radio {
-    font-size: 0.85rem;
-    color: #FFD700;
-    font-weight: bold;
-}
-
-#caja-nuevo-comentario .grupo-input label {
-    color: #222;
-    font-size: 0.85rem;
-}
-
-#caja-nuevo-comentario input[type="text"],
-#caja-nuevo-comentario textarea {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#caja-nuevo-comentario .boton {
-    font-size: 0.85rem;
-    padding: 0.5rem 0.8rem;
-}
-#comptador-chars.comptador-danger {
-  color: #cc0000;
-  font-weight: bold;
-}
-
-/* --- Radio buttons en error --- */
-#grup-radio.radio-error {
-  outline: 2px solid #cc0000;
-  outline-offset: 4px;
-  border-radius: 2px;
-}
-
-/* --- Modal formulari validat (JS-driven) --- */
-#modal-validat {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-}
-body.control-activo {
-  background: #111 !important;
-  color: #eee !important;
-}
-body.control-activo * {
-  color: #eee !important;
-  border-color: #777 !important;
-}
-body.control-activo img,
-body.control-activo video {
-  filter: brightness(0.7) saturate(1.2) contrast(1.2) !important;
-}
-
-/* ...existing code... */
 
 .contacto.sin-fondo {
   background-image: none !important;
@@ -198,11 +37,10 @@ main {
   box-sizing: border-box;
 }
 
-/* ===================================
-   SLIDER DE COMENTARIOS - MINECRAFT
-   =================================== */
+/* ========================================
+   SLIDER DE COMENTARIOS
+   ======================================== */
 
-/* Contenedor principal del slider */
 .slider-comentarios {
   overflow: hidden;
   position: relative;
@@ -211,7 +49,6 @@ main {
   box-shadow: inset 3px 3px 0 #4A4C4A !important;
 }
 
-/* Título del slider */
 .slider-comentarios .info-titulo {
   text-align: center;
   font-size: 18px !important;
@@ -221,36 +58,33 @@ main {
   text-shadow: 2px 2px 0 #3A6C3E;
 }
 
-/* Contenedor con máscara */
 .slider-contenedor {
   height: 180px;
   overflow: hidden;
   position: relative;
 }
 
-/* Track del slider */
+/* El track se mueve con JS — sin animation CSS */
 .slider-track {
   display: flex;
-  animation: slideMinecraft 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  width: 100%;
 }
 
-/* Cada slide de comentario */
 .comentario-slide {
   min-width: 100%;
   padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-sizing: border-box;
 }
 
-/* Header del comentario */
 .comentario-header {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
 }
 
-/* Avatar pixelado */
 .comentario-avatar {
   width: 50px;
   height: 50px;
@@ -262,10 +96,8 @@ main {
   justify-content: center;
   font-size: 24px;
   flex-shrink: 0;
-  transition: all 0.3s;
 }
 
-/* Nombre del jugador */
 .comentario-autor {
   font-weight: bold;
   color: #5A9C4E;
@@ -273,7 +105,6 @@ main {
   text-shadow: 2px 2px 0 #3A6C3E;
 }
 
-/* Estrellas de valoración */
 .comentario-estrellas {
   color: #FFD700;
   margin-top: 3px;
@@ -281,7 +112,6 @@ main {
   letter-spacing: 2px;
 }
 
-/* Texto del comentario */
 .comentario-texto {
   line-height: 1.6;
   font-size: 13px;
@@ -291,9 +121,8 @@ main {
   padding-left: 20px;
 }
 
-/* Comillas decorativas */
 .comentario-texto::before {
-  content: "“";
+  content: "\201C";
   position: absolute;
   left: 0;
   top: -10px;
@@ -302,114 +131,110 @@ main {
   opacity: 0.5;
 }
 
-#correo:valid {
+/* Marca visual para comentarios nuevos del usuario */
+.comentario-nuevo {
+  border-left: 3px solid #5A9C4E;
+}
 
+/* Barra de progreso — controlada por JS */
+#slider-barra-wrap {
+  height: 5px;
+  background: #3a3a3a;
+  position: relative;
+  overflow: hidden;
+}
+
+#slider-barra {
+  height: 100%;
+  width: 0%;
+  background: #5A9C4E;
+}
+
+/* ========================================
+   FORMULARIO AÑADIR COMENTARIO
+   ======================================== */
+
+.val-error {
+  display: none;
+  color: #cc0000;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 0.25rem;
+  padding: 0.2rem 0.5rem;
+  background: rgba(200, 0, 0, 0.08);
+  border-left: 3px solid #cc0000;
+  font-family: 'mac_s_minecraft', monospace;
+}
+
+.val-comptador {
+  display: block;
+  font-size: 0.8rem;
+  color: #555;
+  text-align: right;
+  margin-top: 0.2rem;
+  font-family: 'mac_s_minecraft', monospace;
+}
+
+.botones-com {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.botones-com .boton {
+  flex: 1;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.8rem;
+}
+
+#caja-nuevo-comentario .opciones-radio {
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+#caja-nuevo-comentario .radio {
+  font-size: 0.85rem;
+  color: #FFD700;
+  font-weight: bold;
+}
+
+#caja-nuevo-comentario .grupo-input {
+  margin-bottom: 0.6rem;
+}
+
+#caja-nuevo-comentario .grupo-input label {
+  color: #222;
+  font-size: 0.85rem;
+}
+
+#caja-nuevo-comentario input[type="text"],
+#caja-nuevo-comentario textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   CORREO CON ICONOS DE VALIDEZ
+   ======================================== */
+
+#correo:valid {
   background-image: url(../img/iconos/ok.jpg);
   background-position: right;
   background-repeat: no-repeat;
   background-size: 20px;
-
 }
 
 #correo:focus:invalid {
-
   background-image: url(../img/iconos/X.jpg);
   background-position: right;
   background-repeat: no-repeat;
   background-size: 20px;
-
 }
 
-/* Keyframes de animación (loop infinito) */
-@keyframes slideMinecraft {
+/* ========================================
+   FONDO TIPO MINECRAFT
+   ======================================== */
 
-  0%,
-  15% {
-    transform: translateX(0);
-  }
-
-  20%,
-  35% {
-    transform: translateX(-100%);
-  }
-
-  40%,
-  55% {
-    transform: translateX(-200%);
-  }
-
-  60%,
-  75% {
-    transform: translateX(-300%);
-  }
-
-  80%,
-  95% {
-    transform: translateX(-400%);
-  }
-
-  100% {
-    transform: translateX(-500%);
-  }
-
-  /* Vuelve al inicio */
-}
-
-/* Barra de progreso animada */
-.slider-comentarios::after {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: #5A9C4E;
-  animation: loadingBar 25s linear infinite;
-}
-
-@keyframes loadingBar {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 85%;
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .slider-contenedor {
-    height: 200px;
-  }
-
-  .comentario-avatar {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .comentario-autor {
-    font-size: 14px;
-  }
-
-  .comentario-texto {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .slider-contenedor {
-    height: 220px;
-  }
-
-  .comentario-slide {
-    padding: 10px;
-  }
-}
-
-/* Fondo tipo Minecraft con textura */
 .contacto {
   position: relative;
   width: 100%;
@@ -418,7 +243,6 @@ main {
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #1f1f1f;
-  /* fondo oscuro gris */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -433,7 +257,6 @@ main {
   z-index: 1;
 }
 
-/* Overlay suave */
 .contacto::before {
   content: "";
   position: absolute;
@@ -462,9 +285,9 @@ main {
   border: 6px solid #111111;
   padding: 1.5rem;
   box-shadow:
-    inset 0 2px 0 rgba(255, 255, 255, 0.06),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.6),
-    0 6px 18px rgba(0, 0, 0, 0.6);
+    inset 0 2px 0 rgba(255,255,255,0.06),
+    inset 0 -2px 0 rgba(0,0,0,0.6),
+    0 6px 18px rgba(0,0,0,0.6);
   font-family: 'mac_s_minecraft', Arial, sans-serif;
 }
 
@@ -472,7 +295,7 @@ main {
   margin: 0;
   font-size: 3rem;
   color: #f5f5f5;
-  text-shadow: 2px 2px 0 #0f0f0f, 4px 4px 0 rgba(0, 0, 0, 0.6);
+  text-shadow: 2px 2px 0 #0f0f0f, 4px 4px 0 rgba(0,0,0,0.6);
   font-weight: bold;
   letter-spacing: 3px;
 }
@@ -481,7 +304,7 @@ main {
   margin: 0.5rem 0 0 0;
   color: #dcdcdc;
   font-size: 1.1rem;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.6);
 }
 
 /* ========================================
@@ -514,7 +337,6 @@ main {
   gap: 1.5rem;
 }
 
-/* Bloques Minecraft */
 .bloque {
   background: linear-gradient(135deg, #e9e9e9 0%, #d1d1d1 60%, #bdbdbd 100%);
   border: 4px solid #444444;
@@ -522,7 +344,7 @@ main {
   border-left: 4px solid #6b6b6b;
   border-bottom: 4px solid #222222;
   border-right: 4px solid #222222;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
   overflow: hidden;
 }
 
@@ -545,7 +367,6 @@ main {
   color: black;
 }
 
-/* Grupos de entrada */
 .grupo-input {
   display: flex;
   flex-direction: column;
@@ -556,7 +377,6 @@ main {
   color: #222222;
   font-weight: bold;
   font-size: 0.95rem;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
   font-family: 'mac_s_minecraft', Arial, sans-serif;
 }
 
@@ -580,7 +400,7 @@ main {
 .grupo-input textarea:focus,
 .grupo-input select:focus {
   outline: none;
-  box-shadow: inset 0 0 0 2px rgba(150, 150, 150, 0.6), 0 0 8px rgba(0, 0, 0, 0.45);
+  box-shadow: inset 0 0 0 2px rgba(150,150,150,0.6), 0 0 8px rgba(0,0,0,0.45);
   background: #ffffff;
 }
 
@@ -589,7 +409,6 @@ main {
   font-family: monospace;
 }
 
-/* Radio buttons tipo Minecraft */
 .grupo-radio {
   display: flex;
   flex-direction: column;
@@ -618,7 +437,6 @@ main {
   accent-color: #6b6b6b;
 }
 
-/* Checkboxes */
 .casilla {
   display: flex;
   align-items: center;
@@ -635,7 +453,6 @@ main {
   accent-color: #6b6b6b;
 }
 
-/* Botones */
 .botones {
   position: relative;
   display: grid;
@@ -665,17 +482,8 @@ main {
   border-right: 4px solid #6b6b6b;
 }
 
-#recibir {
-
-  color: black;
-
-}
-
-.boton-enlace {
-
-  color: black;
-
-}
+#recibir { color: black; }
+.boton-enlace { color: black; }
 
 .boton-primario {
   background: linear-gradient(135deg, #3a3a3a 0%, #222222 100%);
@@ -715,7 +523,7 @@ main {
   border-left: 4px solid #6b6b6b;
   border-bottom: 4px solid #222222;
   border-right: 4px solid #222222;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .info-titulo {
@@ -736,25 +544,6 @@ main {
 .info-contenido p {
   margin: 0.5rem 0;
   font-weight: 500;
-}
-
-.info-contenido ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0;
-}
-
-.info-contenido li {
-  margin: 0.4rem 0;
-  padding-left: 1.2rem;
-  position: relative;
-}
-
-.info-contenido li::before {
-  content: "⬛";
-  position: absolute;
-  left: 0;
-  color: #444444;
 }
 
 .info-contenido a {
@@ -793,9 +582,8 @@ main {
 /* ========================================
    VALORACIÓN CON ESTRELLAS (CSS ONLY)
    ======================================== */
-.valoracion {
-  margin-top: 0.6rem;
-}
+
+.valoracion { margin-top: 0.6rem; }
 
 .estrellas {
   display: flex;
@@ -803,7 +591,6 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: row-reverse;
-  /* important: order inputs then labels, show left-to-right */
 }
 
 .estrellas input {
@@ -819,185 +606,84 @@ main {
   color: #bdbdbd;
   cursor: pointer;
   transition: transform 0.16s ease, color 0.18s ease, text-shadow 0.18s;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
   user-select: none;
 }
 
-/* Hover highlights the hovered star and previous ones */
 .estrellas label:hover,
-.estrellas label:hover~label {
+.estrellas label:hover ~ label {
   color: #f1c40f;
   transform: translateY(-6%) scale(1.18);
-  text-shadow: 0 2px 6px rgba(241, 196, 15, 0.35);
+  text-shadow: 0 2px 6px rgba(241,196,15,0.35);
 }
 
-/* Checked state: color all relevant stars */
-.estrellas input:checked~label {
+.estrellas input:checked ~ label {
   color: #f1c40f;
-  text-shadow: 0 2px 6px rgba(241, 196, 15, 0.35);
+  text-shadow: 0 2px 6px rgba(241,196,15,0.35);
 }
 
-/* Pop animation for the selected star */
-.estrellas input:checked+label {
+.estrellas input:checked + label {
   transform: scale(1.25) translateY(-6%);
-  animation: pop 300ms cubic-bezier(.2, .8, .2, 1);
+  animation: pop 300ms cubic-bezier(.2,.8,.2,1);
 }
 
 @keyframes pop {
-  0% {
-    transform: scale(0.9) translateY(0);
-    opacity: 0.7;
-  }
-
-  60% {
-    transform: scale(1.28) translateY(-8%);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1.0) translateY(-6%);
-    opacity: 1;
-  }
+  0%   { transform: scale(0.9)  translateY(0);   opacity: 0.7; }
+  60%  { transform: scale(1.28) translateY(-8%); opacity: 1; }
+  100% { transform: scale(1.0)  translateY(-6%); opacity: 1; }
 }
 
 .valor-texto {
   margin-top: 0.6rem;
   font-weight: 600;
   color: #222222;
-  opacity: 0.95;
-  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 /* ========================================
-   NOTA AL PIE
+   MODALES
    ======================================== */
 
-.nota-pie {
-  text-align: center;
-  color: #fffacd;
-  font-size: 0.95rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 0 #3d2817;
-  margin-top: 1rem;
-  font-family: 'mac_s_minecraft', Arial, sans-serif;
-  z-index: 2;
-}
-
-/* ========================================
-   RESPONSIVE - TABLETS Y MÓVILES
-   ======================================== */
-
-@media (max-width: 768px) {
-  .contenedor {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .titulo h1 {
-    font-size: 2rem;
-  }
-
-  .botones {
-    grid-template-columns: 1fr;
-  }
-
-  .contacto {
-    padding: 1.5rem;
-    border: 5px solid #5a4a3a;
-  }
-
-  main {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .titulo h1 {
-    font-size: 1.5rem;
-  }
-
-  .titulo {
-    padding: 1rem;
-  }
-
-  .bloque-titulo {
-    font-size: 1rem;
-  }
-
-  .grupo-input input,
-  .grupo-input textarea,
-  .grupo-input select {
-    font-size: 0.85rem;
-  }
-
-  .boton {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .opciones-radio {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .contacto {
-    padding: 1rem;
-    border: 4px solid #5a4a3a;
-  }
-}
-
-.modal-toggle {
-  display: none;
-}
+.modal-toggle { display: none; }
 
 .modal-overlay {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.7);
   z-index: 1000;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
-
 
 .modal-overlay:target {
   display: flex;
+  pointer-events: auto;
 }
 
 .modal-contenido {
   background-color: #3a3a3a;
   border: 4px solid #8b7355;
   padding: 2rem;
-  border-radius: 0;
   text-align: center;
   max-width: 400px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.8);
   animation: popupAppear 0.3s ease-out;
   position: relative;
   z-index: 1001;
+  pointer-events: auto;
 }
 
 @keyframes popupAppear {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
 }
 
 .modal-contenido h2 {
   color: #ffd700;
   font-size: 1.8rem;
   margin: 0 0 1rem 0;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
 }
 
 .modal-contenido p {
@@ -1023,23 +709,36 @@ main {
 .modal-cerrar:hover {
   background-color: #a0835e;
   transform: translate(0, -2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
-.modal-cerrar:active {
-  transform: translate(0, 0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .contenedor { grid-template-columns: 1fr; gap: 1.5rem; }
+  .titulo h1  { font-size: 2rem; }
+  .botones    { grid-template-columns: 1fr; }
+  .contacto   { padding: 1.5rem; border: 5px solid #5a4a3a; }
+  main        { padding: 1rem; }
+  .slider-contenedor { height: 200px; }
+  .comentario-avatar { width: 40px; height: 40px; font-size: 20px; }
+  .comentario-autor  { font-size: 14px; }
+  .comentario-texto  { font-size: 12px; }
+  .seccion-info      { width: 100%; }
 }
 
-
-.modal-overlay {
-  pointer-events: none;
-}
-
-.modal-overlay:target {
-  pointer-events: auto;
-}
-
-.modal-contenido {
-  pointer-events: auto;
+@media (max-width: 480px) {
+  .titulo h1   { font-size: 1.5rem; }
+  .titulo      { padding: 1rem; }
+  .bloque-titulo { font-size: 1rem; }
+  .grupo-input input,
+  .grupo-input textarea,
+  .grupo-input select { font-size: 0.85rem; }
+  .boton       { padding: 0.6rem 1rem; font-size: 0.9rem; }
+  .opciones-radio { flex-direction: column; gap: 0.5rem; }
+  .contacto    { padding: 1rem; border: 4px solid #5a4a3a; }
+  .slider-contenedor { height: 220px; }
+  .comentario-slide  { padding: 10px; }
 }
