@@ -18,13 +18,15 @@ function inicio() {
     div.innerHTML = `
         <div style="display:flex;justify-content:space-between;align-items:center;">
             <span>¡Has entrado a ${nombrePagina}!</span>
-            <span style="cursor:pointer;margin-left:10px;">✖</span>
+            <span id="cerrar" style="cursor:pointer;margin-left:10px;">✖</span>
         </div>
     `;
 
     document.body.appendChild(div);
 
-    div.querySelector("span:last-child").onclick = () => {
+    // Al pulsar la X se elimina el aviso
+    let botonCerrar = document.getElementById("cerrar");
+    botonCerrar.onclick = function () {
         div.remove();
     };
 }
