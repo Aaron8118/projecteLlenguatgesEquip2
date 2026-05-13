@@ -169,9 +169,16 @@ function crearContador(tx, max) {
 
 function actualizarContador(s, len, max) {
   s.textContent = len + ' / ' + max + ' caracteres';
-  if (len >= max)             { s.style.color = '#cc0000'; s.style.fontWeight = 'bold'; }
-  else if (len >= max * 0.8)  { s.style.color = '#b85c00'; s.style.fontWeight = 'bold'; }
-  else                        { s.style.color = '#555';    s.style.fontWeight = 'normal'; }
+  if (len >= max) {
+     s.style.color = '#cc0000';
+     s.style.fontWeight = 'bold'; 
+    } else if (len >= max * 0.8) { 
+      s.style.color = '#b85c00'; 
+      s.style.fontWeight = 'bold'; 
+    } else { 
+      s.style.color = '#555';
+      s.style.fontWeight = 'normal';
+    }
 }
 
 inicio();
