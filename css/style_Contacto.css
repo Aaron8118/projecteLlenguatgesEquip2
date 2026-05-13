@@ -7,6 +7,103 @@ html, body {
   margin: 0;
 }
 
+
+#modal-comentario {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.comentario-slide {
+    position: relative;
+}
+
+/* zona clicable ampliada */
+.comentario-slide button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+
+    width: 40px;
+    height: 40px;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+}
+
+#caja-nuevo-comentario .boton-primario {
+  color: #f5f5f5 !important;
+  background: linear-gradient(135deg, #3a3a3a 0%, #222222 100%) !important;
+  border-color: #222222 !important;
+}
+
+
+
+/* el icono real */
+.comentario-slide button::before {
+    content: "✖";
+    width: 26px;
+    height: 26px;
+
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* hover más suave */
+.comentario-slide button:hover::before {
+    background: darkred;
+    transform: scale(1.1);
+    transition: 0.15s ease;
+}
+
+.mensaje-card {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: 2px solid #55aa55;
+    color: black;
+}
+
+.mensaje-card button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+#modal-comentario .modal-contenido {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+}
+
 .contacto.sin-fondo {
   background-image: none !important;
   background-color: transparent !important;

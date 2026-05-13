@@ -178,26 +178,6 @@
                             <div class="slider-contenedor">
                                 <!-- El track lo gestiona JS. Los 2 comentarios base están aquí -->
                                 <div class="slider-track" id="slider-track">
-                                    <div class="comentario-slide">
-                                        <div class="comentario-header">
-                                            <div class="comentario-avatar">🏹</div>
-                                            <div>
-                                                <div class="comentario-autor">xXNightWolfXx</div>
-                                                <div class="comentario-estrellas">★★★★★</div>
-                                            </div>
-                                        </div>
-                                        <div class="comentario-texto">"¡La mejor experiencia en survival! Los creepers no destruyeron mi casa esta vez. Servicio épico."</div>
-                                    </div>
-                                    <div class="comentario-slide">
-                                        <div class="comentario-header">
-                                            <div class="comentario-avatar">💎</div>
-                                            <div>
-                                                <div class="comentario-autor">DiamondMiner99</div>
-                                                <div class="comentario-estrellas">★★★★☆</div>
-                                            </div>
-                                        </div>
-                                        <div class="comentario-texto">"Encontré diamantes gracias a sus tips. Casi me matan pero valió la pena. ¡Muy recomendado!"</div>
-                                    </div>
                                 </div>
                             </div>
                             <!-- Barra de progreso controlada por JS -->
@@ -207,47 +187,67 @@
                         </div>
 
                         <!-- FORMULARIO AÑADIR COMENTARIO -->
-                        <div class="info-caja" id="caja-nuevo-comentario">
-                            <div class="info-titulo">✍️ Añadir comentario</div>
-                            <div class="info-contenido">
-                                <form id="form-comentario" novalidate>
+                        <!-- BOTÓN ABRIR MODAL -->
+<div class="info-caja" id="caja-nuevo-comentario">
+    <div class="info-titulo">✍️ Añadir comentario</div>
+    <div class="info-contenido" style="text-align:center;">
+    <a href="#" class="boton boton-primario" id="abrir-comentario">            ➕ Nuevo comentario
+        </a>
+    </div>
+</div>
 
-                                    <div class="grupo-input">
-                                        <label for="com-nombre">Tu nombre</label>
-                                        <input type="text" id="com-nombre" placeholder="Steve o Alex..."
-                                            maxlength="30" autocomplete="off">
-                                        <span class="val-error" id="err-com-nombre"></span>
-                                    </div>
+<!-- MODAL COMENTARIO -->
+<div id="modal-comentario" class="modal-overlay">
+    <div class="modal-contenido">
 
-                                    <div class="grupo-input" style="margin-top:0.8rem;">
-                                        <label for="com-texto">Comentario</label>
-                                        <textarea id="com-texto" rows="3" maxlength="200"
-                                            placeholder="Cuéntanos tu experiencia..."></textarea>
-                                        <span class="val-error" id="err-com-texto"></span>
-                                        <span id="com-comptador" class="val-comptador">0 / 200 caracteres</span>
-                                    </div>
+    <button type="button" class="modal-cerrar" id="cerrar-comentario">✖</button>       
+     <h2>✍️ Añadir comentario</h2>
+        <form id="form-comentario" novalidate>
 
-                                    <div class="grupo-input" style="margin-top:0.8rem;">
-                                        <label>Valoración</label>
-                                        <div class="opciones-radio">
-                                            <label class="radio"><input type="radio" name="com-estrellas" value="5"> ★★★★★</label>
-                                            <label class="radio"><input type="radio" name="com-estrellas" value="4"> ★★★★☆</label>
-                                            <label class="radio"><input type="radio" name="com-estrellas" value="3"> ★★★☆☆</label>
-                                            <label class="radio"><input type="radio" name="com-estrellas" value="2"> ★★☆☆☆</label>
-                                            <label class="radio"><input type="radio" name="com-estrellas" value="1"> ★☆☆☆☆</label>
-                                        </div>
-                                        <span class="val-error" id="err-com-estrellas"></span>
-                                    </div>
+            <div class="grupo-input">
+                <label for="com-nombre">Tu nombre</label>
+                <input type="text" id="com-nombre"
+                    placeholder="Steve o Alex..."
+                    maxlength="30" autocomplete="off">
+                <span class="val-error" id="err-com-nombre"></span>
+            </div>
 
-                                    <div class="botones-com">
-                                        <button type="submit" class="boton boton-primario">➕ Publicar</button>
-                                        <button type="button" id="btn-limpiar-com" class="boton boton-secundario">🗑️ Limpiar</button>
-                                    </div>
+            <div class="grupo-input">
+                <label for="com-texto">Comentario</label>
+                <textarea id="com-texto" rows="3" maxlength="200"
+                    placeholder="Cuéntanos tu experiencia... (Mínimo 5 carácteres)"></textarea>
+                <span class="val-error" id="err-com-texto"></span>
+                <span id="com-comptador" class="val-comptador">
+                    0 / 200 caracteres
+                </span>
+            </div>
 
-                                </form>
-                            </div>
+                <div class="grupo-input" style="margin-top:0.8rem;">
+                    <label>Valoración</label>
+                    <div class="opciones-radio">
+                        <label class="radio"><input type="radio" name="com-estrellas" value="5"> ★★★★★</label>
+                        <label class="radio"><input type="radio" name="com-estrellas" value="4"> ★★★★☆</label>
+                        <label class="radio"><input type="radio" name="com-estrellas" value="3"> ★★★☆☆</label>
+                        <label class="radio"><input type="radio" name="com-estrellas" value="2"> ★★☆☆☆</label>
+                        <label class="radio"><input type="radio" name="com-estrellas" value="1"> ★☆☆☆☆</label>
+                    </div>
+                    <span class="val-error" id="err-com-estrellas"></span>
+                </div>
+
+                        <div class="botones-com">
+                            <button type="submit" class="boton boton-primario">
+                                ➕ Publicar
+                            </button>
+                            <button type="button" id="btn-limpiar-com"
+                                class="boton boton-secundario">
+                                🗑️ Limpiar
+                            </button>
                         </div>
 
+                    </form>
+                </div>
+            </div>
+            
                         <!-- Info Box: Legal -->
                         <div class="info-caja">
                             <div class="info-titulo">📜 Legal</div>
