@@ -27,7 +27,7 @@ function cargar() {
   // Validar al salir de cada campo
   document.getElementById('nombre').addEventListener('blur', validarNom);
   document.getElementById('correo').addEventListener('blur', validarMail);
-  document.getElementById('telefono').addEventListener('blur', validarTel);
+  document.getElementById('telefono').addEventListener('blur', validarTelef);
   document.getElementById('asunto').addEventListener('blur', validarAs);
   document.getElementById('mensaje').addEventListener('blur', validarMsg);
   document.getElementById('categoria').addEventListener('change', validarCat);
@@ -73,7 +73,7 @@ function validarMail() {
   return ok(c, 'err-correo');
 }
 
-function validarTel() {
+function validarTelef() {
   let c = document.getElementById('telefono');
   let v = c.value.trim();
   if (!v)           return err(c, 'err-telefono', 'El telefono es obligatorio.');
@@ -110,11 +110,9 @@ function validarCat() {
 }
 
 // Llama a todos y devuelve true solo si pasan todos
-function validarTodo() {
-  let res = [validarNom(), validarMail(), validarTel(), validarAs(), validarMsg(), validarCat()];
-  return res.every(function (r) { return r === true; });
+function validarTodo() { 
+  return validarNom() && validarMail() && validarTelef() && validarAs() && validarMsg() && validarCat(); 
 }
-
 // Pinta el campo en rojo
 function err(c, id, msg) {
   c.style.borderColor = '#cc0000';
@@ -167,12 +165,12 @@ function crearContador(tx, max) {
   return s;
 }
 
-function actualizarContador(s, len, max) {
-  s.textContent = len + ' / ' + max + ' caracteres';
-  if (len >= max) {
+function actualizarContador(s, len1, max) {
+  s.textContent = len1 + ' / ' + max + ' caracteres';
+  if (len1 >= max) {
      s.style.color = '#cc0000';
      s.style.fontWeight = 'bold'; 
-    } else if (len >= max * 0.8) { 
+    } else if (len1 >= max * 0.8) { 
       s.style.color = '#b85c00'; 
       s.style.fontWeight = 'bold'; 
     } else { 

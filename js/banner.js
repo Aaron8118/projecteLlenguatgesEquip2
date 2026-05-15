@@ -40,12 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
             intervalId = null;
         }
     }
-    let html = document.documentElement;
-    html.addEventListener('load', function() {
+    window.addEventListener('load', function() {
         prevSlide();
     });
     
-    html.addEventListener('load', function() {
+    window.addEventListener('load', function() {
         nextSlide();
     });
     
