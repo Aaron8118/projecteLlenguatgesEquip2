@@ -1,13 +1,10 @@
 // Tiempo entre slides
 let tiempo = 4000;
-
-// Emojis aleatorios
 let avatares = ['⚔️', '🏹', '💎', '🔥', '🏰'];
-
 let slideActual = 0;
 let timer;
 
-// Array JSON inicial
+// Array de mensajes iniciales
 let mensajesJSON = [
   {
     nombre: 'Steve',
@@ -51,11 +48,10 @@ let mensajesJSON = [
   }
 ];
 
-// Array principal
+// Array principal de objetos
 let mensajes = [];
 
-// ---------------- CLASE ----------------
-
+// Clase Missatge
 class Missatge {
   constructor(nombre, edad, correo, asunto, mensaje, estrellas) {
     this.nombre = nombre;
@@ -67,307 +63,154 @@ class Missatge {
   }
 }
 
-// Iniciar cuando cargue la página
-document.addEventListener('DOMContentLoaded', iniciar);
+// Evento de carga
+window.addEventListener('load', iniciar);
 
 function iniciar() {
-  cargarMensajesIniciales();
-  iniciarSlider();
-  iniciarFormulario();
+  cargar();
+  moverBarra();
+  timer = setInterval(siguienteSlide, tiempo);
+  document.getElementById('abrir-comentario').addEventListener('click', abrirModal);
+  document.getElementById('cerrar-comentario').addEventListener('click', cerrarModal);
+  document.getElementById('form-comentario').addEventListener('submit', enviarFormulario);
+  document.getElementById('btn-limpiar-com').addEventListener('click', limpiarFormulario);
 }
 
-let modal = document.getElementById("modal-comentario");
-let abrir = document.getElementById("abrir-comentario");
-let cerrar = document.getElementById("cerrar-comentario");
-
-function abrirModal(evt) {
-    evt.preventDefault();
-    modal.style.display = "flex";
+// Abrir y cerrar modal
+function abrirModal(e) {
+  e.preventDefault();
+  document.getElementById('modal-comentario').style.display = 'flex';
 }
 
 function cerrarModal(e) {
     if (e) e.preventDefault();
-    modal.style.display = "none";
+    document.getElementById('modal-comentario').style.display = 'none';
 }
 
-abrir.addEventListener("click", abrirModal);
-cerrar.addEventListener("click", cerrarModal);
+// Carga el JSON y rellena el array
+function cargar() {
+  for (let i = 0; i < mensajesJSON.length; i++) {
+      let m = mensajesJSON[i];
+    let nuevo = new Missatge(m.nombre, m.edad, m.correo, m.asunto, m.mensaje, m.estrellas);
+    mensajes.push(nuevo);
+  }
+  renderSild();
+  mostrarMensajes();
+}
 
-// ---------------- SLIDES ----------------
+// Renderiza los slides del slider
+function renderSild() {
+  let track2 = document.getElementById('slider-track');
+    track2.innerHTML = '';
 
-function renderizarSlides() {
-
-  let track = document.getElementById('slider-track');
-
-  track.innerHTML = '';
-
-  mensajes.forEach(function (m, index) {
-
+  for (let i = 0; i < mensajes.length; i++) {
+    let m = mensajes[i];
     let avatar = avatares[Math.floor(Math.random() * avatares.length)];
-
     let estrellasTexto = '';
 
-    function generarEstrellas() {
-      for (let i = 0; i < m.estrellas; i++) {
-        estrellasTexto += '★';
-      }
+    for (let j = 0; j < m.estrellas; j++) {
+      estrellasTexto += '★';
     }
 
-    generarEstrellas();
-
-    track.innerHTML +=
-      '<div class="comentario-slide">' +
-      '<button onclick="eliminarMensaje(' + index + ')" style="float:right;"></button>' +
+    track2.innerHTML += '<div class="comentario-slide">' +
+      '<button onclick="eliminarMensaje(' + i + ')" style="float:right;"></button>' +
       '<h3>' + avatar + ' ' + m.nombre + '</h3>' +
-      '<p>' + estrellasTexto + '</p>' +
+        '<p>' + estrellasTexto + '</p>' +
       '<p>"' + m.mensaje + '"</p>' +
       '</div>';
-  });
+  }
 }
 
-// ---------------- CARGAR JSON ----------------
+// Muestra los mensajes bajo el formulario
+function mostrarMensajes() {
+  let contenedor = document.getElementById('lista-mensajes');
+  if (!contenedor) return;
 
-function cargarMensajesIniciales() {
+    contenedor.innerHTML = '';
 
-  function cargar() {
-    mensajesJSON.forEach(function (m) {
+  for (let i = 0; i < mensajes.length; i++) {
+    let m = mensajes[i];
+    contenedor.innerHTML +=
+      '<div class="mensaje-card">' +
+      '<h3>' + m.nombre + '</h3>' +
+      '<p><strong>Edad:</strong> ' + m.edad + '</p>' +
+        '<p><strong>Email:</strong> ' + m.correo + '</p>' +
+      '<p><strong>Asunto:</strong> ' + m.asunto + '</p>' +
+      '<p>' + m.mensaje + '</p>' +
+        '<button onclick="eliminarMensaje(' + i + ')">❌ Eliminar</button>' +
+      '</div>';
+  }
+}
 
-      let nuevo = new Missatge(
-        m.nombre,
-        m.edad,
-        m.correo,
-        m.asunto,
-        m.mensaje,
-        m.estrellas
-      );
+// Elimina un mensaje del array
+function eliminarMensaje(index) {
+  mensajes.splice(index, 1);
+  if (slideActual >= mensajes.length) slideActual = 0;
+  renderSild();
+  mostrarMensajes();
+  moverSlide(slideActual);
+}
 
-      mensajes.push(nuevo);
-    });
+// Valida y envia el formulario
+function enviarFormulario(e) {
+  e.preventDefault();
 
-    renderizarSlides();
+  let nombre    = document.getElementById('com-nombre').value;
+  let texto     = document.getElementById('com-texto').value;
+  let estrellas = document.querySelector('input[name="com-estrellas"]:checked');
+
+  if (nombre.length < 2) {
+    alert('Escribe un nombre');
+    return;
+  }
+  if (texto.length < 5) {
+    alert('Escribe un comentario');
+    return;
+  }
+  if (!estrellas) {
+    alert('Selecciona estrellas');
+    return;
   }
 
-  cargar();
-}
+  let nuevo = new Missatge(nombre, 18, 'nuevo@gmail.com', 'Comentario', texto, parseInt(estrellas.value));
+  mensajes.push(nuevo);
 
-// ---------------- SLIDER ----------------
-
-function iniciarSlider() {
-
+  renderSild();
+  mostrarMensajes();
+  clearInterval(timer);
+  timer = setInterval(siguienteSlide, tiempo);
   moverBarra();
 
-  function iniciar() {
-    timer = setInterval(siguienteSlide, tiempo);
-  }
-
-  iniciar();
+  document.getElementById('form-comentario').reset();
+  alert('Comentario añadido');
+  cerrarModal();
 }
 
+// Limpia el formulario
+function limpiarFormulario() {
+  document.getElementById('form-comentario').reset();
+}
+
+// Avanza al siguiente slide
 function siguienteSlide() {
-
   let slides = document.querySelectorAll('.comentario-slide');
-
   slideActual++;
-
-  if (slideActual >= slides.length) {
-    slideActual = 0;
-  }
-
+  if (slideActual >= slides.length) slideActual = 0;
   moverSlide(slideActual);
   moverBarra();
 }
 
+// Mueve el track al slide indicado
 function moverSlide(num) {
-
-  let track = document.getElementById('slider-track');
-
-  track.style.transform =
-    'translateX(-' + (num * 100) + '%)';
+  document.getElementById('slider-track').style.transform = 'translateX(-' + (num * 100) + '%)';
 }
 
-// ---------------- BARRA ----------------
-
+// Anima la barra de progreso
 function moverBarra() {
-
   let barra = document.getElementById('slider-barra');
-
-  function resetBarra() {
-    barra.style.transition = 'none';
-    barra.style.width = '0%';
-    barra.offsetWidth;
-  }
-
-  function animarBarra() {
-    barra.style.transition =
-      'width ' + tiempo + 'ms linear';
-    barra.style.width = '100%';
-  }
-
-  resetBarra();
-  animarBarra();
-}
-
-// ---------------- FORMULARIO ----------------
-
-function iniciarFormulario() {
-
-  let form = document.getElementById('form-comentario');
-
-  form.addEventListener('submit', function (e) {
-
-    e.preventDefault();
-
-    let nombre = document.getElementById('com-nombre').value;
-    let texto = document.getElementById('com-texto').value;
-    let estrellas = document.querySelector('input[name="com-estrellas"]:checked');
-
-    function validar() {
-
-      if (nombre.length < 2) {
-        alert('Escribe un nombre');
-        return false;
-      }
-
-      if (texto.length < 5) {
-        alert('Escribe un comentario');
-        return false;
-      }
-
-      if (!estrellas) {
-        alert('Selecciona estrellas');
-        return false;
-      }
-
-      return true;
-    }
-
-    if (!validar()) return;
-
-    function crearMensaje() {
-      let numeroconvertido = parseInt(estrellas.value);
-
-      return new Missatge(
-        nombre,
-        18,
-        'nuevo@gmail.com',
-        'Comentario',
-        texto,
-        numeroconvertido
-      );
-    }
-
-    mensajes.push(crearMensaje());
-
-    renderizarSlides();
-
-    clearInterval(timer);
-
-    moverBarra();
-
-    function reiniciarSlider() {
-      timer = setInterval(siguienteSlide, tiempo);
-    }
-
-    reiniciarSlider();
-
-    form.reset();
-
-    alert('Comentario añadido');
-
-    modal.style.display = "none";
-    document.body.classList.remove("modal-open");
-  });
-}
-
-// ---------------- LIMPIAR ----------------
-
-let btnLimpiar = document.getElementById("btn-limpiar-com");
-
-function eliminarTodo() {
-  document.getElementById("form-comentario").reset();
-}
-
-btnLimpiar.addEventListener("click", eliminarTodo);
-
-// ---------------- CREAR SLIDE ----------------
-
-function crearSlide(nombre, texto, estrellas) {
-
-  function crear() {
-
-    let slide = document.createElement('div');
-
-    slide.className = 'comentario-slide';
-
-    let avatar = avatares[Math.floor(Math.random() * avatares.length)];
-
-    let estrellasTexto = '';
-
-    function build() {
-      for (let i = 0; i < estrellas; i++) {
-        estrellasTexto += '★';
-      }
-    }
-
-    build();
-
-    slide.innerHTML =
-      '<h3>' + avatar + ' ' + nombre + '</h3>' +
-      '<p>' + estrellasTexto + '</p>' +
-      '<p>"' + texto + '"</p>';
-
-    document.getElementById('slider-track').appendChild(slide);
-
-    let slides = document.querySelectorAll('.comentario-slide');
-
-    slideActual = slides.length - 1;
-
-    moverSlide(slideActual);
-  }
-
-  crear();
-}
-
-// ---------------- MOSTRAR MENSAJES ----------------
-
-function mostrarMensajes() {
-
-  let contenedor = document.getElementById('lista-mensajes');
-
-  if (!contenedor) return;
-
-  function render() {
-    contenedor.innerHTML = '';
-    mensajes.forEach(function (m, index) {
-      contenedor.innerHTML +=
-        '<div class="mensaje-card">' +
-        '<h3>' + m.nombre + '</h3>' +
-        '<p><strong>Edad:</strong> ' + m.edad + '</p>' +
-        '<p><strong>Email:</strong> ' + m.correo + '</p>' +
-        '<p><strong>Asunto:</strong> ' + m.asunto + '</p>' +
-        '<p>' + m.mensaje + '</p>' +
-        '<button onclick="eliminarMensaje(' + index + ')">❌ Eliminar</button>' +
-        '</div>';
-    });
-  }
-
-  render();
-}
-
-// ---------------- ELIMINAR ----------------
-
-function eliminarMensaje(index) {
-
-  function borrar() {
-    mensajes.splice(index, 1);
-
-    if (slideActual >= mensajes.length) {
-      slideActual = 0;
-    }
-
-    renderizarSlides();
-    moverSlide(slideActual);
-  }
-
-  borrar();
+  barra.style.transition = 'none';
+  barra.style.width = '0%';
+  barra.offsetWidth;
+  barra.style.transition = 'width ' + tiempo + 'ms linear';
+  barra.style.width = '100%';
 }
