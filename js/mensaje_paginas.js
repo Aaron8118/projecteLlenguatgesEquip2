@@ -4,6 +4,7 @@ function inicio(colorFondo, colorBorde) {
 
     const div = document.createElement("div");
 
+    /// los estilos
     div.style.position = "fixed";
     div.style.top = "80px";
     div.style.left = "20px";
@@ -25,11 +26,19 @@ function inicio(colorFondo, colorBorde) {
     document.body.appendChild(div);
 
     let botonCerrar = document.getElementById("cerrar");
-    botonCerrar.onclick = function () {
-        div.remove();
-    };
+    botonCerrar.onclick = cerrarAviso;
 }
 
-window.addEventListener("load", function () {
+//para cerrar el mensaje
+function cerrarAviso() {
+    let aviso = document.querySelector("body div");
+    aviso.remove();
+}
+
+//abrir mensaje
+
+function cargarAviso() {
     inicio("#1e1e2e", "#55aa55");
-});
+}
+
+window.addEventListener("load", cargarAviso);
