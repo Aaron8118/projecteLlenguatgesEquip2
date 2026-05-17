@@ -51,9 +51,57 @@ html, body {
   border-color: #222222 !important;
 }
 
+#modal-comentario {
+  margin-top: 28px;
+}
 
+/* 🔥 MODAL MÁS PEQUEÑO GLOBAL */
+#modal-comentario .modal-contenido {
+  width: 480px;          /* más estrecho */
+  max-width: 90%;
+  padding: 12px 14px;    /* menos espacio interno */
+  border-radius: 12px;
+}
 
-/* el icono real */
+/* 🔥 TITULO MÁS PEQUEÑO */
+#modal-comentario h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* 🔥 ESPACIADO ENTRE CAMPOS */
+#form-comentario .grupo-input {
+  margin-bottom: 6px;
+}
+
+/* 🔥 INPUTS MÁS COMPACTOS */
+#form-comentario input,
+#form-comentario textarea {
+  padding: 5px 8px;
+  font-size: 13px;
+}
+
+#com-texto {
+  height: 60px;
+}
+
+#form-comentario label {
+  font-size: 13px;
+}
+
+.opciones-radio label {
+  font-size: 12px;
+}
+
+.botones-com button {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.modal-contenido {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
 .comentario-slide button::before {
     content: "✖";
     width: 26px;

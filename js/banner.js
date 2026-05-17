@@ -1,60 +1,60 @@
-document.addEventListener('DOMContentLoaded', function() {
+// Slider principal
+document.addEventListener('DOMContentLoaded', iniciar);
+
+function iniciar() {
+
     const slides = document.getElementById('slides');
-    const info1Slides = document.getElementById('info1-slides');
-    const info2Slides = document.getElementById('info2-slides');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const container = document.getElementById('slider-container');
-    
-    const totalSlides = 10;
-    let currentSlide = 0;
-    let intervalId = null;
-    const slideDuration = 2000;
-    
-    function updateSlides() {
-        const translateX = -(currentSlide * 100);
-        slides.style.transform = `translateX(${translateX}%)`;
-        info1Slides.style.transform = `translateX(${translateX}%)`;
-        info2Slides.style.transform = `translateX(${translateX}%)`;
+    const info1 = document.getElementById('info1-slides');
+    const info2 = document.getElementById('info2-slides');
+    const contenedor = document.getElementById('slider-container');
+
+    const total = 10;
+    let actual = 0;
+    let timer = null;
+    const tiempo = 2000;
+
+    // Mueve el slider
+    function mover() {
+        const pos = -(actual * 100);
+
+        slides.style.transform = `translateX(${pos}%)`;
+        info1.style.transform = `translateX(${pos}%)`;
+        info2.style.transform = `translateX(${pos}%)`;
     }
-    
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlides();
+
+    function siguiente() {
+        actual = (actual + 1) % total;
+        mover();
     }
-    
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateSlides();
+
+    function anterior() {
+        actual = (actual - 1 + total) % total;
+        mover();
     }
-    
-    function startAutoplay() {
-        if (intervalId === null) {
-            intervalId = setInterval(nextSlide, slideDuration);
+
+    function iniciarAuto() {
+        if (!timer) {
+            timer = setInterval(siguiente, tiempo);
         }
     }
-    
-    function stopAutoplay() {
-        if (intervalId !== null) {
-            clearInterval(intervalId);
-            intervalId = null;
-        }
+
+    function pararAuto() {
+        clearInterval(timer);
+        timer = null;
     }
-    window.addEventListener('load', function() {
-        prevSlide();
-    });
-    
-    window.addEventListener('load', function() {
-        nextSlide();
-    });
-    
-    container.addEventListener('mouseenter', function() {
-        stopAutoplay();
-    });
-    
-    container.addEventListener('mouseleave', function() {
-        startAutoplay();
-    });
-    
-    startAutoplay();
-});
+
+    function iniciarSlider() {
+        anterior();
+        siguiente();
+        iniciarAuto();
+    }
+
+    function inicio() {
+        window.addEventListener('load', iniciarSlider);
+
+        contenedor.addEventListener('mouseenter', pararAuto);
+        contenedor.addEventListener('mouseleave', iniciarAuto);
+    }
+
+    inicio();
+}
