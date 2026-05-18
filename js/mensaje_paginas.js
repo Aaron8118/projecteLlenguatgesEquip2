@@ -1,10 +1,7 @@
-function inicio(colorFondo, colorBorde) {
+function crearAviso(colorFondo, colorBorde) {
 
-    let nombrePagina = document.body.dataset.nombre;
-
+    let nombrePagina = "MINECRAFT";
     const div = document.createElement("div");
-
-    /// los estilos
     div.style.position = "fixed";
     div.style.top = "80px";
     div.style.left = "20px";
@@ -16,6 +13,7 @@ function inicio(colorFondo, colorBorde) {
     div.style.zIndex = "9999";
     div.style.boxShadow = "0 0 10px black";
 
+    //div donde esta el saludo
     div.innerHTML = `
         <div style="display:flex;justify-content:space-between;align-items:center;">
             <span>¡Has entrado a ${nombrePagina}!</span>
@@ -25,20 +23,29 @@ function inicio(colorFondo, colorBorde) {
 
     document.body.appendChild(div);
 
+    avisoActual = div;
+
     let botonCerrar = document.getElementById("cerrar");
-    botonCerrar.onclick = cerrarAviso;
+
+    botonCerrar.addEventListener("click", cerrarAvisoPagina);
 }
 
-//para cerrar el mensaje
-function cerrarAviso() {
-    let aviso = document.querySelector("body div");
-    aviso.remove();
+let avisoActual = null;
+
+//para cerrar el aviso de la pagina de arriba
+function cerrarAvisoPagina() {
+
+    if (avisoActual) {
+
+        document.body.removeChild(avisoActual);
+
+        avisoActual = null;
+    }
 }
 
-//abrir mensaje
-
-function cargarAviso() {
-    inicio("#1e1e2e", "#55aa55");
+//funcion inicio para empezar y para crear aviso con el color
+function inicio() {
+    crearAviso("#1e1e2e", "#55aa55");
 }
 
-window.addEventListener("load", cargarAviso);
+window.addEventListener("load", inicio);
