@@ -48,6 +48,17 @@
   opacity: 0.9;
 }
 
+select {
+  margin: 160px 0px 0px 45%;
+}
+#filtroCatalogo {
+  margin: 100px 0px 0px 45%;
+}
+
+.contenedorSelect{
+  position: relative;
+}
+
 .logo {
 
   width: 60%;

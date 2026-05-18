@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_index.css">
+    <script src="./js/index.js"></script>
 </head>
 
 <body data-nombre="MINECRAFT">
@@ -150,42 +151,49 @@
             <div id="tituloCatalogo">
                 <h2>Catalogo de juegos</h2>
             </div>
-            <div id="catalogo">
-                <div class="juegos">
-                    <img src="./img/javabedrock.png" alt="javabedrock" class="portada">
-                    <h3>Minecraft</h3>
-                    <p>Sandbox de supervivencia, aventura<br>Un solo jugador + multijugador</p>
-                    <hr>
-                    <img src="./img/iconos/icon_platform__windows.png" alt="pc" class="consolas">
-                    <img src="./img/iconos/icon_platform_Chromebook.png" alt="chromebook" class="consolas">
-                    <img src="./img/iconos/icon_platform__xbox.png" alt="xbox" class="consolas">
-                    <img src="./img/iconos/icon_platform__playstation.png" alt="pc" class="consolas">
-                    <img src="./img/iconos/icon_platform__nintendo.png" alt="pc" class="consolas">
-                    <img src="./img/iconos/icon_platform_apple.png" alt="pc" class="consolas">
-                </div>
-                <div class="juegos">
-                    <img src="./img/dungeons.png" alt="dungeons" class="portada">
-                    <h3>Minecraft Dungeons</h3>
-                    <p>Exploración de mazmorras, RPG de acción, un solo jugador + multijugador</p>
-                    <hr>
-                    <img src="./img/iconos/icon_platform__windows.png" alt="pc" class="consolas">
-                    <img src="./img/iconos/icon_platform__steam.png" alt="chromebook" class="consolas">
-                    <img src="./img/iconos/icon_platform__xbox.png" alt="xbox" class="consolas">
-                    <img src="./img/iconos/icon_platform__playstation.png" alt="pc" class="consolas">
-                    <img src="./img/iconos/icon_platform__nintendo.png" alt="pc" class="consolas">
-                </div>
-                <div class="juegos">
-                    <img src="./img/legends.png" alt="legends" class="portada">
-                    <h3>Minecraft Legends</h3>
-                    <p>RPG de acción, estrategia, un solo jugador + multijugador</p>
-                    <hr>
-                    <img src="./img/iconos/icon_platform__windows.png" alt="pc" class="consolas">
-                    <img src="./img/iconos/icon_platform__steam.png" alt="chromebook" class="consolas">
-                    <img src="./img/iconos/icon_platform__xbox.png" alt="xbox" class="consolas">
-                    <img src="./img/iconos/icon_platform__playstation.png" alt="pc" class="consolas">
-                    <img src="./img/iconos/icon_platform__nintendo.png" alt="pc" class="consolas">
+            <div id="contenedorSelect">
+                <select name="filtroCatalogo" id="filtroCatalogo">
+                <option value="Todos">Todos</option>
+                <option value="Individual">Individual</option>
+                </select>
+                <div id="catalogo">
+                    <div class="juegos">
+                        <img src="./img/javabedrock.png" alt="javabedrock" class="portada">
+                        <h3>Minecraft</h3>
+                        <p>Sandbox de supervivencia, aventura<br>Un solo jugador + multijugador</p>
+                        <hr>
+                        <img src="./img/iconos/icon_platform__windows.png" alt="pc" class="consolas">
+                        <img src="./img/iconos/icon_platform_Chromebook.png" alt="chromebook" class="consolas">
+                        <img src="./img/iconos/icon_platform__xbox.png" alt="xbox" class="consolas">
+                        <img src="./img/iconos/icon_platform__playstation.png" alt="pc" class="consolas">
+                        <img src="./img/iconos/icon_platform__nintendo.png" alt="pc" class="consolas">
+                        <img src="./img/iconos/icon_platform_apple.png" alt="pc" class="consolas">
+                    </div>
+                    <div class="juegos">
+                        <img src="./img/dungeons.png" alt="dungeons" class="portada">
+                        <h3>Minecraft Dungeons</h3>
+                        <p>Exploración de mazmorras, RPG de acción, un solo jugador + multijugador</p>
+                        <hr>
+                        <img src="./img/iconos/icon_platform__windows.png" alt="pc" class="consolas">
+                        <img src="./img/iconos/icon_platform__steam.png" alt="chromebook" class="consolas">
+                        <img src="./img/iconos/icon_platform__xbox.png" alt="xbox" class="consolas">
+                        <img src="./img/iconos/icon_platform__playstation.png" alt="pc" class="consolas">
+                        <img src="./img/iconos/icon_platform__nintendo.png" alt="pc" class="consolas">
+                    </div>
+                    <div class="juegos">
+                        <img src="./img/legends.png" alt="legends" class="portada">
+                        <h3>Minecraft Legends</h3>
+                        <p>RPG de acción, estrategia, un solo jugador + multijugador</p>
+                        <hr>
+                        <img src="./img/iconos/icon_platform__windows.png" alt="pc" class="consolas">
+                        <img src="./img/iconos/icon_platform__steam.png" alt="chromebook" class="consolas">
+                        <img src="./img/iconos/icon_platform__xbox.png" alt="xbox" class="consolas">
+                        <img src="./img/iconos/icon_platform__playstation.png" alt="pc" class="consolas">
+                        <img src="./img/iconos/icon_platform__nintendo.png" alt="pc" class="consolas">
+                    </div>
                 </div>
             </div>
+            
         </main>
 
         <!-- Footer -->
