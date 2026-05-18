@@ -18,106 +18,119 @@ function inicio() {
   document.getElementById('categoria').addEventListener('change', comprobarCat);
 }
 
+//aqui van todas las valdiaciones de aqui para abajo
 function comprobarN() {
-  let c = document.getElementById('nombre');
-  let v = c.value.trim();
-  if (!v) {
-    return err(c, 'err-nombre', 'El nombre es obligatorio.');
+  let nombre1 = document.getElementById('nombre');
+  let textoNom = nombre1.value.trim();
+
+  if (!textoNom) {
+    return err(nombre1, 'err-nombre', 'El nombre es obligatorio.');
   }
-  if (v.length > maxNom) {
-    return err(c, 'err-nombre', 'Maximo ' + maxNom + ' caracteres.');
+  if (textoNom.length > maxNom) {
+    return err(nombre1, 'err-nombre', 'Maximo ' + maxNom + ' caracteres.');
   }
-  if (!rxNom.test(v)) {
-    return err(c, 'err-nombre', 'Solo letras y espacios. Minimo 2 caracteres.');
+  if (!rxNom.test(textoNom)) {
+    return err(nombre1, 'err-nombre', 'Solo letras y espacios. Minimo 2 caracteres.');
   }
-  return ok(c, 'err-nombre');
+  return ok(nombre1, 'err-nombre');
 }
 
 function comprobarMail() {
-  let c = document.getElementById('correo');
-  let v = c.value.trim();
-  if (!v) {
-    return err(c, 'err-correo', 'El correo es obligatorio.');
+  let mail1 = document.getElementById('correo');
+  let mailValor = mail1.value.trim();
+
+  if (!mailValor) {
+    return err(mail1, 'err-correo', 'El correo es obligatorio.');
   }
-  if (v.length > maxMail) {
-    return err(c, 'err-correo', 'Maximo ' + maxMail + ' caracteres.');
+  if (mailValor.length > maxMail) {
+    return err(mail1, 'err-correo', 'Maximo ' + maxMail + ' caracteres.');
   }
-  if (!rxCorreo.test(v)) {
-    return err(c, 'err-correo', 'Formato invalido. Ej: usuario@dominio.com');
+  if (!rxCorreo.test(mailValor)) {
+    return err(mail1, 'err-correo', 'Formato invalido. Ej: usuario@dominio.com');
   }
-  return ok(c, 'err-correo');
+  return ok(mail1, 'err-correo');
 }
 
 function comprobarTelef() {
-  let c = document.getElementById('telefono');
-  let v = c.value.trim();
-  if (!v) {
-    return err(c, 'err-telefono', 'El telefono es obligatorio.');
+  let telefono1 = document.getElementById('telefono');
+  let valorTel = telefono1.value.trim();
+
+  if (!valorTel) {
+    return err(telefono1, 'err-telefono', 'El telefono es obligatorio.');
   }
-  if (!rxTel.test(v)) {
-    return err(c, 'err-telefono', 'Formato: +34XXXXXXXXX');
+  if (!rxTel.test(valorTel)) {
+    return err(telefono1, 'err-telefono', 'Formato: +34XXXXXXXXX');
   }
-  return ok(c, 'err-telefono');
+  return ok(telefono1, 'err-telefono');
 }
 
 function comprobarAs() {
-  let c = document.getElementById('asunto');
-  let v = c.value.trim();
-  if (!v) {
-    return err(c, 'err-asunto', 'El asunto es obligatorio.');
+  let asunto1 = document.getElementById('asunto');
+  let asuntoValor = asunto1.value.trim();
+
+  if (!asuntoValor) {
+    return err(asunto1, 'err-asunto', 'El asunto es obligatorio.');
   }
-  if (v.length > maxAs) {
-    return err(c, 'err-asunto', 'Maximo ' + maxAs + ' caracteres.');
+  if (asuntoValor.length > maxAs) {
+    return err(asunto1, 'err-asunto', 'Maximo ' + maxAs + ' caracteres.');
   }
-  return ok(c, 'err-asunto');
+  return ok(asunto1, 'err-asunto');
 }
 
 function comprobarMsg() {
-  let c = document.getElementById('mensaje');
-  let v = c.value.trim();
-  if (!v) {
-    return err(c, 'err-mensaje', 'El mensaje es obligatorio.');
+  let mensaje1 = document.getElementById('mensaje');
+  let textoMensaje = mensaje1.value.trim();
+
+  if (!textoMensaje) {
+    return err(mensaje1, 'err-mensaje', 'El mensaje es obligatorio.');
   }
-  if (v.length > maxMsg) {
-    return err(c, 'err-mensaje', 'Maximo ' + maxMsg + ' caracteres.');
+  if (textoMensaje.length > maxMsg) {
+    return err(mensaje1, 'err-mensaje', 'Maximo ' + maxMsg + ' caracteres.');
   }
-  return ok(c, 'err-mensaje');
+  return ok(mensaje1, 'err-mensaje');
 }
 
 function comprobarCat() {
-  let c = document.getElementById('categoria');
-  if (!c.value) {
-    return err(c, 'err-categoria', 'Selecciona una categoria.');
+  let categoria1 = document.getElementById('categoria');
+
+  if (!categoria1.value) {
+    return err(categoria1, 'err-categoria', 'Selecciona una categoria.');
   }
-  return ok(c, 'err-categoria');
+  return ok(categoria1, 'err-categoria');
 }
 
-function err(c, id, msg) {
-  c.style.borderColor = '#cc0000';
-  c.style.background  = '#fff5f5';
+//si falla es rojo 
+function err(input1, id, msg) {
+  input1.style.borderColor = '#cc0000';
+  input1.style.background = '#fff5f5';
   mostrarErr(id, msg);
   return false;
 }
 
-function ok(c, id) {
-  c.style.borderColor = '#2d7a2d';
-  c.style.background  = '#f5fff5';
+//si el patron cumple es verde
+function ok(inputOk, id) {
+  inputOk.style.borderColor = '#2d7a2d';
+  inputOk.style.background = '#f5fff5';
   ocultarErr(id);
   return true;
 }
 
+//para mostrar error
 function mostrarErr(id, msg) {
-  let s = document.getElementById(id);
-  if (s) {
-    s.textContent = msg;
-    s.style.display = 'block';
+  let spanError = document.getElementById(id);
+
+  if (spanError) {
+    spanError.textContent = msg;
+    spanError.style.display = 'block';
   }
 }
 
+//para ocultar el error
 function ocultarErr(id) {
-  let s = document.getElementById(id);
-  if (s) {
-    s.style.display = 'none';
+  let spanOcultar = document.getElementById(id);
+
+  if (spanOcultar) {
+    spanOcultar.style.display = 'none';
   }
 }
 

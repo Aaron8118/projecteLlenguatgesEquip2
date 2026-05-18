@@ -63,7 +63,7 @@ class Missatge {
   }
 }
 
-function iniciar() {
+function inicio() {
   cargar();
   moverBarra();
   timerTiempo = setInterval(siguienteSlide, tiempo);
@@ -236,4 +236,4 @@ function moverBarra() {
 }
 
 // Evento de carga
-window.addEventListener('load', iniciar);
+window.addEventListener('load', inicio);

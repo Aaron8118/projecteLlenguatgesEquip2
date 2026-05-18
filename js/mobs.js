@@ -1,3 +1,4 @@
+//pasar por encima (metodos y eventos)
 window.onload=function(){
     let mobs = document.querySelectorAll(".tarjeta_mob");
     mobs.forEach(element => {
@@ -8,6 +9,7 @@ window.onload=function(){
 }
 
 
+//cuando entras por el moob
 function entrar(evt) {
     let texto = document.createElement("p");
     texto.appendChild(document.createTextNode(evt.target.querySelector("h3").innerHTML));
@@ -20,10 +22,13 @@ function entrar(evt) {
     document.body.appendChild(texto);
 }
 
+//cuando sales del moob
 function salir(evt) {
     document.body.querySelector("#mousemove").remove();
 }
 
+
+//cuando vas por encima
 function encima(evt) {
     let texto = document.body.querySelector("#mousemove");
     texto.style.top=(evt.pageY+5)+"px";

@@ -1,7 +1,11 @@
-function crearAviso(colorFondo, colorBorde) {
+//funcion inicio para empezar y para crear aviso con el color
+function inicio() {
+    crearAviso("#1e1e2e", "#55aa55");
+}
 
-    let nombrePagina = "MINECRAFT";
-    const div = document.createElement("div");
+//para crear el aviso de arriba y sobreponerlo con el zzindex
+function crearAviso(colorFondo, colorBorde) {
+    let nombrePagina = document.body.dataset.nombre;    const div = document.createElement("div");
     div.style.position = "fixed";
     div.style.top = "80px";
     div.style.left = "20px";
@@ -22,30 +26,25 @@ function crearAviso(colorFondo, colorBorde) {
     `;
 
     document.body.appendChild(div);
-
-    avisoActual = div;
-
+    avisoprimero1 = div;
     let botonCerrar = document.getElementById("cerrar");
 
     botonCerrar.addEventListener("click", cerrarAvisoPagina);
 }
 
-let avisoActual = null;
+let avisoprimero1 = null;
 
 //para cerrar el aviso de la pagina de arriba
 function cerrarAvisoPagina() {
 
-    if (avisoActual) {
+    if (avisoprimero1) {
 
-        document.body.removeChild(avisoActual);
+        document.body.removeChild(avisoprimero1);
 
-        avisoActual = null;
+        avisoprimero1 = null;
     }
 }
 
-//funcion inicio para empezar y para crear aviso con el color
-function inicio() {
-    crearAviso("#1e1e2e", "#55aa55");
-}
+
 
 window.addEventListener("load", inicio);
