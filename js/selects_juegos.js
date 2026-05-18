@@ -2,6 +2,7 @@ let filtroCatalogo = null;
 let juegos = [];
 let segundoSelect = null;
 
+//esilos del select
 function styleSelect(select) {
     select.style.padding = '0.5rem 0.85rem';
     select.style.border = '1px solid #555';
@@ -13,12 +14,14 @@ function styleSelect(select) {
     select.style.position = 'absolute';
 }
 
+//muestra todos los juegos
 function mostrarTodos() {
     juegos.forEach((juego) => {
         juego.style.display = 'block';
     });
 }
 
+//para mostrar solo 1
 function mostrarSolo(index) {
     juegos.forEach((juego, idx) => {
         if (idx === index) {
@@ -29,6 +32,7 @@ function mostrarSolo(index) {
     });
 }
 
+//para crear un segundo select para los juegos individuales
 function crearSegundoSelect() {
     segundoSelect = document.createElement('select');
     segundoSelect.id = 'filtroCatalogoJuego';
@@ -53,6 +57,8 @@ function crearSegundoSelect() {
     return segundoSelect;
 }
 
+
+//para cambiar
 function cambiar() {
     if (filtroCatalogo.value === 'Todos') {
         if (segundoSelect) {
@@ -69,6 +75,8 @@ function cambiar() {
     }
 }
 
+
+//todos los eventos
 window.onload = function () {
     filtroCatalogo = document.getElementById('filtroCatalogo');
     juegos = Array.from(document.querySelectorAll('.juegos'));
