@@ -1,3 +1,4 @@
+//dos avisos que saldran por la pantalla
 let avisos = [
     {
         titulo: "⛏️ Prueba el Juego Real",
@@ -15,6 +16,7 @@ let avisos = [
 
 let activo = null;
 
+ //random el sitio donde saldra
 function ponerPos(el) {
     let w = innerWidth - el.offsetWidth - 20;
     let h = innerHeight - el.offsetHeight - 20;
@@ -28,17 +30,24 @@ function mover(el) {
     let y = 0;
     let mov = false;
 
-    el.onmousedown = empezarMover;
-    document.onmousemove = moverCaja;
-    document.onmouseup = soltarCaja;
-
     function empezarMover(evnt) {
-        mov = true;
-        x = evnt.clientX - el.offsetLeft;
-        y = evnt.clientY - el.offsetTop;
-        el.style.cursor = "grabbing";
+
+    // NO mover si se pulsa la X o un link
+    if (
+        evnt.target.tagName === "SPAN" || evnt.target.tagName === "A"
+    ) {
+        return;
     }
 
+    mov = true;
+
+    x = evnt.clientX - el.offsetLeft;
+    y = evnt.clientY - el.offsetTop;
+
+    el.style.cursor = "grabbing";
+}
+
+    //para mover la caja arrastrandola
     function moverCaja(e) {
         if (!mov) return;
 
@@ -53,11 +62,25 @@ function mover(el) {
         }
     }
 
+    // addEventListener en vez de onmousemove/onmouseup para no machacar otros listeners de la página
+    el.addEventListener("mousedown", empezarMover);
+    document.addEventListener("mousemove", moverCaja);
+    document.addEventListener("mouseup", soltarCaja);
+
+    // Guardamos la limpieza en el elemento para poder llamarla al cerrarlo
+    el._limpiar = function () {
+        el.removeEventListener("mousedown", empezarMover);
+        document.removeEventListener("mousemove", moverCaja);
+        document.removeEventListener("mouseup", soltarCaja);
+    };
+
     el.style.cursor = "grab";
 }
 
 function cerrarAviso() {
     if (activo) {
+        // Quitamos los listeners antes de eliminar el elemento
+        if (activo._limpiar) activo._limpiar();
         activo.remove();
         activo = null;
     }
@@ -65,11 +88,14 @@ function cerrarAviso() {
 
 function borrarAutomatico() {
     if (activo && activo.parentNode) {
+        // Igual que cerrarAviso pero llamado por el timeout
+        if (activo._limpiar) activo._limpiar();
         activo.remove();
         activo = null;
     }
 }
 
+//para mostrar el aviso 
 function mostrarAviso(a) {
     let datos = a || avisos[Math.floor(Math.random() * avisos.length)];
 
@@ -101,11 +127,19 @@ function mostrarAviso(a) {
     let cerrar = document.createElement("span");
     cerrar.textContent = "✖";
     cerrar.style.cursor = "pointer";
-    cerrar.onclick = cerrarAviso;
+
+    cerrar.addEventListener("click",cerrarAvisoClick);
+    
+    //para cerrar el aviso y parar la propagacion (se nos ponia en blanco la imagen por el propagation)
+    function cerrarAvisoClick(vt) {
+        vt.stopPropagation();
+        vt.preventDefault();
+
+        cerrarAviso();
+    }
 
     header.appendChild(titulo);
     header.appendChild(cerrar);
-
     let msg = document.createElement("p");
     msg.textContent = datos.msg;
 
@@ -134,10 +168,12 @@ function mostrarAviso(a) {
     }
 }
 
+//esto es para iniciar Avisos
 function iniciarAvisos() {
     setTimeout(mostrarPrimero, 2000);
 }
 
+//para mostrar el primer aviso cuando entras a los 5 segundos
 function mostrarPrimero() {
     mostrarAviso({
         titulo: "⛏️ Prueba el Juego Real",

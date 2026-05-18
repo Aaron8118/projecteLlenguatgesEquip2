@@ -22,33 +22,39 @@ function iniciar() {
         info2.style.transform = `translateX(${pos}%)`;
     }
 
+    //para pasar al de despues
     function siguiente() {
         actual = (actual + 1) % total;
         mover();
     }
 
+    //pasamos al de antes
     function anterior() {
         actual = (actual - 1 + total) % total;
         mover();
     }
 
+    //se inicia automatico
     function iniciarAuto() {
         if (!timer) {
             timer = setInterval(siguiente, tiempo);
         }
     }
 
+    //cuando te pones encima se para
     function pararAuto() {
         clearInterval(timer);
         timer = null;
     }
 
+    //para iniciar el slide
     function iniciarSlider() {
         anterior();
         siguiente();
         iniciarAuto();
     }
 
+    //eventos de movimiento del raton y todos los otros
     function inicio() {
         window.addEventListener('load', iniciarSlider);
 
