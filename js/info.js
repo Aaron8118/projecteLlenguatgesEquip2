@@ -3,13 +3,13 @@ let avisos = [
     {
         titulo: "⛏️ Prueba el Juego Real",
         msg: "Juega Minecraft Offline ahora",
-        linkDentro: "./html/minecraftEntero/Client/index.html",
+        link: "./html/minecraftEntero/Client/index.html",
         txt: "Jugar Ahora →"
     },
     {
         titulo: "🏰 Modo Creativo",
         msg: "Construye sin límites",
-        linkDentro: "./html/minecraftEntero/Client/structureCreator.html",
+        link: "./html/minecraftEntero/Client/structureCreator.html",
         txt: "Explorar →"
     }
 ];
@@ -31,7 +31,6 @@ function ponerPos(el) {
 
 function mover(el) {
     cajaActual = el;
-
     // addEventListener en vez de onmousemove/onmouseup para no machacar otros listeners de la página
     el.addEventListener("mousedown", empezarMover);
     document.addEventListener("mousemove", moverPorLaPantalla);
@@ -40,16 +39,9 @@ function mover(el) {
     el.style.cursor = "grab";
 }
 
-// NO mover si se pulsa la X o un linkDentro
+// no mover si se pulsa la X o un linkDentro
 function empezarMover(evnt) {
-    if (
-        evnt.target.tagName === "SPAN" || evnt.target.tagName === "avt"
-    ) {
-        return;
-    }
-
     mov1 = true;
-
     x = evnt.clientX - cajaActual.offsetLeft;
     y = evnt.clientY - cajaActual.offsetTop;
 
@@ -97,8 +89,13 @@ function tancarAviso(vt) {
 
 //para mostrar el aviso
 function mostraravisos(avt) {
-    let datos = avt || avisos[Math.floor(Math.random() * avisos.length)];
+    let datos;
 
+    if (avt) {
+        datos = avt;
+    } else {
+        datos = avisos[Math.floor(Math.random() * avisos.length)];
+    }
     if (!avt && activo1) {
         setTimeout(mostraravisos, 5000);
         return;
@@ -106,13 +103,13 @@ function mostraravisos(avt) {
 
     let caja = document.createElement("div");
 
+    //estilos para la caja
     caja.style.position = "fixed";
     caja.style.width = "320px";
     caja.style.minHeight = "100px";
     caja.style.background = "#1e1e2e";
     caja.style.border = "3px solid #55aa55";
     caja.style.color = "white";
-    caja.style.fontFamily = "monospace";
     caja.style.padding = "16px";
     caja.style.zIndex = "9999";
     caja.style.boxShadow = "0 0 10px black";
@@ -136,6 +133,7 @@ function mostraravisos(avt) {
     let msg = document.createElement("p");
     msg.textContent = datos.msg;
 
+    //estilos para el link de dentrok
     let linkDentro = document.createElement("a");
     linkDentro.href = datos.linkDentro;
     linkDentro.target = "_blank";
@@ -153,7 +151,6 @@ function mostraravisos(avt) {
     mover(caja);
 
     activo1 = caja;
-
     setTimeout(borrarAutomatico, 15000);
 
     if (!avt) {

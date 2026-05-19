@@ -15,24 +15,48 @@ function inicio() {
   document.getElementById('telefono').addEventListener('input', comprobarTelef);
   document.getElementById('asunto').addEventListener('input', comprobarAs);
   document.getElementById('mensaje').addEventListener('input', comprobarMsg);
+  document.getElementById('mensaje').addEventListener('input', contadorMsg);
   document.getElementById('categoria').addEventListener('change', comprobarCat);
+
+  contadorMsg();
 }
 
+// contador textArea
+function contadorMsg() {
+  let mensaje1 = document.getElementById('mensaje');
+  let contador = document.getElementById('contador-msg');
+  contador.style.marginLeft = "20px";
+  contador.style.marginBottom = "20px";
+  let actualValorlongit = mensaje1.value.length;
+  if (contador) {
+    contador.textContent = actualValorlongit + " / " + maxMsg + " caracteres";
+
+    if (actualValorlongit > maxMsg) {
+      contador.style.color = "red";
+    } else {
+      contador.style.color = "green";
+    }
+  }
+
+  if (actualValorlongit > maxMsg) {
+    mensaje1.value = mensaje1.value.substring(0, maxMsg);
+  }
+}
 //aqui van todas las valdiaciones de aqui para abajo
 function comprobarN() {
   let nombre1 = document.getElementById('nombre');
   let textoNom = nombre1.value.trim();
 
   if (!textoNom) {
-    return err(nombre1, 'err-nombre', 'El nombre es obligatorio.');
+    return errormostrar(nombre1, 'err-nombre', 'El nombre es obligatorio.');
   }
   if (textoNom.length > maxNom) {
-    return err(nombre1, 'err-nombre', 'Maximo ' + maxNom + ' caracteres.');
+    return errormostrar(nombre1, 'err-nombre', 'Maximo ' + maxNom + ' caracteres.');
   }
   if (!rxNom.test(textoNom)) {
-    return err(nombre1, 'err-nombre', 'Solo letras y espacios. Minimo 2 caracteres.');
+    return errormostrar(nombre1, 'err-nombre', 'Solo letras y espacios. Minimo 2 caracteres.');
   }
-  return ok(nombre1, 'err-nombre');
+  return okvalidado(nombre1, 'err-nombre');
 }
 
 function comprobarMail() {
@@ -40,15 +64,15 @@ function comprobarMail() {
   let mailValor = mail1.value.trim();
 
   if (!mailValor) {
-    return err(mail1, 'err-correo', 'El correo es obligatorio.');
+    return errormostrar(mail1, 'err-correo', 'El correo es obligatorio.');
   }
   if (mailValor.length > maxMail) {
-    return err(mail1, 'err-correo', 'Maximo ' + maxMail + ' caracteres.');
+    return errormostrar(mail1, 'err-correo', 'Maximo ' + maxMail + ' caracteres.');
   }
   if (!rxCorreo.test(mailValor)) {
-    return err(mail1, 'err-correo', 'Formato invalido. Ej: usuario@dominio.com');
+    return errormostrar(mail1, 'err-correo', 'Formato invalido. Ej: usuario@dominio.com');
   }
-  return ok(mail1, 'err-correo');
+  return okvalidado(mail1, 'err-correo');
 }
 
 function comprobarTelef() {
@@ -56,12 +80,12 @@ function comprobarTelef() {
   let valorTel = telefono1.value.trim();
 
   if (!valorTel) {
-    return err(telefono1, 'err-telefono', 'El telefono es obligatorio.');
+    return errormostrar(telefono1, 'err-telefono', 'El telefono es obligatorio.');
   }
   if (!rxTel.test(valorTel)) {
-    return err(telefono1, 'err-telefono', 'Formato: +34XXXXXXXXX');
+    return errormostrar(telefono1, 'err-telefono', 'Formato: +34XXXXXXXXX');
   }
-  return ok(telefono1, 'err-telefono');
+  return okvalidado(telefono1, 'err-telefono');
 }
 
 function comprobarAs() {
@@ -69,12 +93,12 @@ function comprobarAs() {
   let asuntoValor = asunto1.value.trim();
 
   if (!asuntoValor) {
-    return err(asunto1, 'err-asunto', 'El asunto es obligatorio.');
+    return errormostrar(asunto1, 'err-asunto', 'El asunto es obligatorio.');
   }
   if (asuntoValor.length > maxAs) {
-    return err(asunto1, 'err-asunto', 'Maximo ' + maxAs + ' caracteres.');
+    return errormostrar(asunto1, 'err-asunto', 'Maximo ' + maxAs + ' caracteres.');
   }
-  return ok(asunto1, 'err-asunto');
+  return okvalidado(asunto1, 'err-asunto');
 }
 
 function comprobarMsg() {
@@ -82,25 +106,25 @@ function comprobarMsg() {
   let textoMensaje = mensaje1.value.trim();
 
   if (!textoMensaje) {
-    return err(mensaje1, 'err-mensaje', 'El mensaje es obligatorio.');
+    return errormostrar(mensaje1, 'err-mensaje', 'El mensaje es obligatorio.');
   }
   if (textoMensaje.length > maxMsg) {
-    return err(mensaje1, 'err-mensaje', 'Maximo ' + maxMsg + ' caracteres.');
+    return errormostrar(mensaje1, 'err-mensaje', 'Maximo ' + maxMsg + ' caracteres.');
   }
-  return ok(mensaje1, 'err-mensaje');
+  return okvalidado(mensaje1, 'err-mensaje');
 }
 
 function comprobarCat() {
   let categoria1 = document.getElementById('categoria');
 
   if (!categoria1.value) {
-    return err(categoria1, 'err-categoria', 'Selecciona una categoria.');
+    return errormostrar(categoria1, 'err-categoria', 'Selecciona una categoria.');
   }
-  return ok(categoria1, 'err-categoria');
+  return okvalidado(categoria1, 'err-categoria');
 }
 
 //si falla es rojo 
-function err(input1, id, msg) {
+function errormostrar(input1, id, msg) {
   input1.style.borderColor = '#cc0000';
   input1.style.background = '#fff5f5';
   mostrarErr(id, msg);
@@ -108,9 +132,9 @@ function err(input1, id, msg) {
 }
 
 //si el patron cumple es verde
-function ok(inputOk, id) {
-  inputOk.style.borderColor = '#2d7a2d';
-  inputOk.style.background = '#f5fff5';
+function okvalidado(input2, id) {
+  input2.style.borderColor = '#2d7a2d';
+  input2.style.background = '#f5fff5';
   ocultarErr(id);
   return true;
 }

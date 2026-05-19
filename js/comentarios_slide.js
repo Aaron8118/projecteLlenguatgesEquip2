@@ -88,14 +88,7 @@ function cerrarModal(e) {
 function cargar() {
   for (let i = 0; i < mensajesJSON.length; i++) {
     let m = mensajesJSON[i];
-    let nuevo = new Missatge(
-      m.nombre,
-      m.edad,
-      m.correo,
-      m.asunto,
-      m.mensaje,
-      m.estrellasMarcadas
-    );
+    let nuevo = new Missatge(m.nombre,m.edad,m.correo,m.asunto,m.mensaje,m.estrellasMarcadas);
     mensajes.push(nuevo);
   }
 
@@ -189,7 +182,6 @@ function enviarFormulario(vnt) {
 
   let edadParseada = parseInt(edad);
   let nuevo = new Missatge(nombre,edadParseada,correo,asunto,texto,parseInt(estrellasMarcadas.value));
-
   mensajes.push(nuevo);
 
   renderSild();
