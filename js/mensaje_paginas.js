@@ -1,11 +1,12 @@
 //funcion inicio para empezar y para crear aviso con el color
 function inicio() {
-    crearAviso("#1e1e2e", "#55aa55");
+    avisoporPantalla("#1e1e2e", "#55aa55");
 }
 
 //para crear el aviso de arriba y sobreponerlo con el zzindex
-function crearAviso(colorFondo, colorBorde) {
-    let nombrePagina = document.body.dataset.nombre;    const div = document.createElement("div");
+function avisoporPantalla(colorFondo, colorBorde) {
+    let nombrePagina = document.body.dataset.nombre;    
+    const div = document.createElement("div");
     div.style.position = "fixed";
     div.style.top = "80px";
     div.style.left = "20px";
@@ -38,9 +39,7 @@ let avisoprimero1 = null;
 function cerrarAvisoPagina() {
 
     if (avisoprimero1) {
-
         document.body.removeChild(avisoprimero1);
-
         avisoprimero1 = null;
     }
 }
