@@ -1,7 +1,7 @@
 // Patrones válidos
 let rxCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 let rxNom = /^[a-zA-ZàáâäèéêëìíîïòóôöùúûüñÑÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜ' -]{2,50}$/;
-let rxTel = /^\+[0-9]{2}[0-9]{9}$/;
+let rxEdad = /^(1[89]|[2-9][0-9]|100)$/;
 
 // Límites de caracteres
 let maxNom = 50;
@@ -11,8 +11,8 @@ let maxMsg = 500;
 
 function inicio() {
   document.getElementById('nombre').addEventListener('input', comprobarN);
+  document.getElementById('edad').addEventListener('input', comprobarEdad);
   document.getElementById('correo').addEventListener('input', comprobarMail);
-  document.getElementById('telefono').addEventListener('input', comprobarTelef);
   document.getElementById('asunto').addEventListener('input', comprobarAs);
   document.getElementById('mensaje').addEventListener('input', comprobarMsg);
   document.getElementById('mensaje').addEventListener('input', contadorMsg);
@@ -59,6 +59,19 @@ function comprobarN() {
   return okvalidado(nombre1, 'err-nombre');
 }
 
+function comprobarEdad() {
+  let edad1 = document.getElementById('edad');
+  let edadValor = edad1.value.trim();
+
+  if (!edadValor) {
+    return errormostrar(edad1, 'err-edad', 'La edad es obligatoria.');
+  }
+  if (!rxEdad.test(edadValor)) {
+    return errormostrar(edad1, 'err-edad', 'La edad debe estar entre 18 y 100.');
+  }
+  return okvalidado(edad1, 'err-edad');
+}
+
 function comprobarMail() {
   let mail1 = document.getElementById('correo');
   let mailValor = mail1.value.trim();
@@ -73,19 +86,6 @@ function comprobarMail() {
     return errormostrar(mail1, 'err-correo', 'Formato invalido. Ej: usuario@dominio.com');
   }
   return okvalidado(mail1, 'err-correo');
-}
-
-function comprobarTelef() {
-  let telefono1 = document.getElementById('telefono');
-  let valorTel = telefono1.value.trim();
-
-  if (!valorTel) {
-    return errormostrar(telefono1, 'err-telefono', 'El telefono es obligatorio.');
-  }
-  if (!rxTel.test(valorTel)) {
-    return errormostrar(telefono1, 'err-telefono', 'Formato: +34XXXXXXXXX');
-  }
-  return okvalidado(telefono1, 'err-telefono');
 }
 
 function comprobarAs() {
