@@ -99,17 +99,16 @@
                                         <span class="val-error" id="err-nombre"></span>
                                     </div>
                                     <div class="grupo-input">
+                                        <label for="edad">Edad</label>
+                                        <input id="edad" name="edad" type="number" required
+                                            placeholder="Tu edad (18-100)" min="18" max="100">
+                                        <span class="val-error" id="err-edad"></span>
+                                    </div>
+                                    <div class="grupo-input">
                                         <label for="correo">Correo electrónico</label>
                                         <input id="correo" name="correo" type="email" required
                                             placeholder="tu@correo.com" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$">
                                         <span class="val-error" id="err-correo"></span>
-                                    </div>
-                                    <div class="grupo-input">
-                                        <label for="telefono">Teléfono</label>
-                                        <input id="telefono" name="telefono" type="tel"
-                                            placeholder="+34 600 000 000"
-                                            pattern="\+[0-9]{2}[0-9]{9}" required>
-                                        <span class="val-error" id="err-telefono"></span>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +146,7 @@
                                 <div id="contador-msg">0 / 500 caracteres</div>
                             </div>
 
-                            <div class="bloque">
+                                <div class="bloque">
                                 <label class="bloque-titulo">⚙️ Contacto directo</label><br><br>
                                 <div class="bloque-contenido">
                                     <div class="grupo-input">
@@ -198,7 +197,7 @@
 <div class="info-caja" id="caja-nuevo-comentario">
     <div class="info-titulo">✍️ Añadir comentario</div>
     <div class="info-contenido" style="text-align:center;">
-    <a href="#" class="boton boton-primario" id="abrir-comentario">            ➕ Nuevo comentario
+    <a href="#" class="boton boton-primario" id="abrir-comentario">➕ Nuevo comentario
         </a>
     </div>
 </div>
@@ -222,16 +221,19 @@
             <div class="grupo-input">
                 <label for="com-edad">Edad</label>
                 <input type="number" id="com-edad" min="1" max="120" placeholder="Tu edad">
+                <span class="val-error" id="err-com-edad"></span>
             </div>
 
             <div class="grupo-input">
                 <label for="com-correo">Correo</label>
                 <input type="email" id="com-correo" placeholder="tu@email.com">
+                <span class="val-error" id="err-com-correo"></span>
             </div>
 
             <div class="grupo-input">
                 <label for="com-asunto">Asunto</label>
                 <input type="text" id="com-asunto" placeholder="Motivo del comentario">
+                <span class="val-error" id="err-com-asunto"></span>
             </div>
 
             <div class="grupo-input">
