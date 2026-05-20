@@ -9,6 +9,9 @@ let maxMail = 100;
 let maxAs = 80;
 let maxMsg = 500;
 
+// suma validaciones
+let sumaValidacion = 0;
+
 function inicio() {
   document.getElementById('nombre').addEventListener('input', comprobarN);
   document.getElementById('edad').addEventListener('input', comprobarEdad);
@@ -17,6 +20,8 @@ function inicio() {
   document.getElementById('mensaje').addEventListener('input', comprobarMsg);
   document.getElementById('mensaje').addEventListener('input', contadorMsg);
   document.getElementById('categoria').addEventListener('change', comprobarCat);
+
+  document.querySelector('form').addEventListener('submit', validarTodo);
 
   contadorMsg();
 }
@@ -42,6 +47,45 @@ function contadorMsg() {
     mensaje1.value = mensaje1.value.substring(0, maxMsg);
   }
 }
+
+// validación global formulario
+function validarTodo(e) {
+  e.preventDefault();
+
+  sumaValidacion = 0;
+
+  if (comprobarN()) {
+    sumaValidacion++;
+  }
+
+  if (comprobarEdad()) {
+    sumaValidacion++;
+  }
+
+  if (comprobarMail()) {
+    sumaValidacion++;
+  }
+
+  if (comprobarAs()) {
+    sumaValidacion++;
+  }
+
+  if (comprobarMsg()) {
+    sumaValidacion++;
+  }
+
+  if (comprobarCat()) {
+    sumaValidacion++;
+  }
+
+  if (sumaValidacion === 6) {
+    alert("Formulario validado correctamente");
+    e.target.submit();
+  } else {
+    alert("Hay errores en el formulario");
+  }
+}
+
 //aqui van todas las valdiaciones de aqui para abajo
 function comprobarN() {
   let nombre1 = document.getElementById('nombre');

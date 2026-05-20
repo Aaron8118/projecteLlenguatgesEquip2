@@ -543,6 +543,7 @@ main {
   font-family: 'mac_s_minecraft', monospace;
   font-size: 0.9rem;
   box-sizing: border-box;
+  transition: all 0.25s ease-in-out;
 }
 
 .grupo-input input:focus,
@@ -551,6 +552,19 @@ main {
   outline: none;
   box-shadow: inset 0 0 0 2px rgba(150,150,150,0.6), 0 0 8px rgba(0,0,0,0.45);
   background: #ffffff;
+  transform: scale(1.02);
+}
+
+.grupo-input input:required,
+.grupo-input textarea:required,
+.grupo-input select:required {
+  border-left: 4px solid #cc0000;
+}
+
+.grupo-input input:required:valid,
+.grupo-input textarea:required:valid,
+.grupo-input select:required:valid {
+  border-left: 4px solid #0db50d;
 }
 
 .grupo-input textarea {
