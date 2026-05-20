@@ -1,6 +1,6 @@
 // Tiempo entre slides
 let tiempo = 4000;
-let avatares = ['⚔️', '🏹', '💎', '🔥', '🏰'];
+let emojisavatares = ['⚔️', '🏹', '💎', '🔥', '🏰'];
 let slide1 = 0;
 let timerTiempo;
 let rxCorreoCom = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -111,7 +111,7 @@ function renderSild() {
 
   for (let i = 0; i < mensajes.length; i++) {
     let m1 = mensajes[i];
-    let avatar = avatares[Math.floor(Math.random() * avatares.length)];
+    let avatar = emojisavatares[Math.floor(Math.random() * emojisavatares.length)];
     let estrellasTexto = '';
 
     for (let j = 0; j < m1.estrellasMarcadas; j++) {
@@ -189,14 +189,12 @@ function comentariovalido(input1, id) {
 // Valida y envia el formulario
 function enviarFormulario(vnt) {
   vnt.preventDefault();
-
   let comNombre = document.getElementById('com-nombre');
   let comEdad = document.getElementById('com-edad');
   let comCorreo = document.getElementById('com-correo');
   let comAsunto = document.getElementById('com-asunto');
   let comTexto = document.getElementById('com-texto');
   let estrellasMarcadas = document.querySelector('input[name="com-estrellas"]:checked');
-
   let valido = true;
 
   // Validacion nombre
@@ -278,7 +276,9 @@ function enviarFormulario(vnt) {
     if (spanEst) spanEst.style.display = 'none';
   }
 
-  if (!valido) return;
+  if (!valido) {
+  return;
+  }
 
   let edadParseada = parseInt(comEdad.value);
   let nuevo = new Missatge(comNombre.value,edadParseada,comCorreo.value,comAsunto.value,comTexto.value,parseInt(estrellasMarcadas.value));
@@ -305,8 +305,9 @@ function siguienteSlide() {
   let slides = document.querySelectorAll('.comentario-slide');
   slide1++;
 
-  if (slide1 >= slides.length) slide1 = 0;
-
+ if (slide1 >= slides.length) {
+  slide1 = 0;
+}
   moverSlide(slide1);
   moverBarra();
 }

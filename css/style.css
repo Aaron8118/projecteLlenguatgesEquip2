@@ -9,26 +9,27 @@
   font-family: 'Lminecraft', sans-serif;
   color: white;
 }
+
+
+
  /* Estilos para el reloj solar - Posicionado debajo del nav */
-        #reloj-solar-container {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.9);
-            border: 4px solid #5D3A1A;
-            border-radius: 15px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            z-index: 999;
-            box-shadow: 
-                0 6px 12px rgba(0,0,0,0.5),
-                inset 0 0 20px rgba(139, 69, 19, 0.3);
-            min-width: 220px;
-        }
-        
+#reloj-solar-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+   background: radial-gradient(circle at center, #3d6e2e 0%, #1a3d14 50%, #0d260a 100%);    border: 4px solid #5D3A1A;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 999;
+    box-shadow: 
+        0 6px 12px rgba(0,0,0,0.5),
+        inset 0 0 20px rgba(139, 69, 19, 0.3);
+    min-width: 220px;
+}
         #reloj-wrapper {
             display: flex;
             align-items: center;
@@ -329,6 +330,20 @@ nav a:hover,
 nav label strong:hover {
   color: #0db50d;
   background-color: #222;
+}
+
+nav a.active,
+nav label.active {
+  color: #0db50d;
+  background-color: #1a3a1a;
+  box-shadow: inset 0 -3px 0 #0db50d, 0 0 10px rgba(13, 181, 13, 0.3);
+  text-shadow: 0 0 8px rgba(13, 181, 13, 0.5);
+}
+
+#lista li .submenu li a.active {
+  color: #0db50d;
+  background-color: #1a3a1a;
+  box-shadow: inset 3px 0 0 #0db50d;
 }
 
 

@@ -13,6 +13,43 @@
 <a href="../index.html" id="boton">Índice</a><br>
 </head>
 <body data-nombre="MINECRAFT OFFLINE">
+  <div id="chat-overlay">
+    <div id="chat-container">
+      <div id="chat-messages">
+        <div class="chat-message system">=== Minecraft Console ===</div>
+      </div>
+      <div id="chat-input-container">
+        <div id="autocomplete"></div>
+        <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off" list="lista-comandos">
+        <button id="enviar1">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <datalist id="lista-comandos">
+    <option value="/help">
+    <option value="/time set day 0">
+    <option value="/time set day 1">
+    <option value="/time set noon">
+    <option value="/time set night">
+    <option value="/time set real">
+    <option value="/clear">
+  </datalist>
+
+  <!-- Reloj Solar de Minecraft -->
+  <div id="reloj-solar-container">
+    <div id="reloj-wrapper">
+      <video id="relojVideo" muted playsinline>
+        <source src="../img/reloj_solar.webm" type="video/webm">
+        <source src="../img/reloj_solar.mp4" type="video/mp4">
+      </video>
+      <div>
+        <div id="fecha-actual">00/00/0000</div>
+        <div id="hora-actual">00:00:00</div>
+        <div id="info-dia">Cargando...</div>
+      </div>
+    </div>
+  </div>
   <video autoplay loop muted id="video_fondo">
     <source src="https://res.cloudinary.com/dbymmlthd/video/upload/v1763022853/video2_iovnw0.mp4" type="video/mp4">
   </video>
@@ -46009,6 +46046,7 @@
 </div>
 </div>
 </main>
+        <script src="../js/reloj_solar.js"></script>
         <script src="../js/mensaje_paginas.js"></script>
 </body>
 </html>

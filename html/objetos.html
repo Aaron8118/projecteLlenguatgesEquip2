@@ -16,7 +16,7 @@
 </head>
 
 <body data-nombre="OBJETOS">
-     <div id="chat-overlay">
+    <div id="chat-overlay">
         <div id="chat-container">
             <div id="chat-messages">
                 <div class="chat-message system">=== Minecraft Console ===</div>
@@ -25,17 +25,28 @@
             </div>
             <div id="chat-input-container">
                 <div id="autocomplete"></div>
-                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off">
-                <button id="chat-send">Enviar</button>
+                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off" list="lista-comandos">
+                <button id="enviar1">Enviar</button>
             </div>
         </div>
     </div>
+
+    <<datalist id="lista-comandos">
+    <option value="/help">
+    <option value="/time set day 0">
+    <option value="/time set day 1">
+    <option value="/time set noon">
+    <option value="/time set night">
+    <option value="/time set real">
+    <option value="/clear">
+    </datalist>
 
     <!-- Reloj Solar de Minecraft -->
     <div id="reloj-solar-container">
         <div id="reloj-wrapper">
             <video id="relojVideo" muted playsinline>
-                <source src="../img/reloj_solar.webm" type="video/mp4">
+                <source src="../img/reloj_solar.webm" type="video/webm">
+                <source src="../img/reloj_solar.mp4" type="video/mp4">
             </video>
             <div>
                 <div id="fecha-actual">00/00/0000</div>
@@ -54,7 +65,7 @@
                     <li><a href="../index.html">Inicio</a></li>
                     <li><a href="../html/bioma.html">Mundos</a></li>
                     <li><a href="../html/mobs.html">Mobs</a></li>
-                    <li><a href="../html/objetos.html">Objetos</a></li>
+                    <li><a href="../html/objetos.html" class="active">Objetos</a></li>
                     <li><a href="../html/efectos.html">Efectos</a></li>
                     <li>
                         <a>Juegos</a>

@@ -9,9 +9,10 @@ let horaDebugS = 0;
 let chatOverlay = document.getElementById("chat-overlay");
 let chatInput = document.getElementById("chat-input");
 let mensajechat = document.getElementById("chat-messages");
-let chatSend = document.getElementById("chat-send");
+let enviarconsola = document.getElementById("enviar1");
 let autocomplete = document.getElementById("autocomplete");
 
+if (enviarconsola) enviarconsola.style.color = "black";
 let chatAbierto = false;
 
 // Comandos disponibles
@@ -287,9 +288,9 @@ function cargarVideo() {
 function inicio() {
 
     document.addEventListener("keydown", teclaGlobal);
-    chatSend.addEventListener("click", botonEnviar);
-    chatInput.addEventListener("keypress", teclaInputChat);
-    video.addEventListener("loadedmetadata", cargarVideo);
+    if (enviarconsola) enviarconsola.addEventListener("click", botonEnviar);
+    if (chatInput) chatInput.addEventListener("keypress", teclaInputChat);
+    if (video) video.addEventListener("loadedmetadata", cargarVideo);
 
     setInterval(actualizarRelojSolar, 1000);
     actualizarRelojSolar();

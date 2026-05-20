@@ -15,7 +15,6 @@
 </head>
 
 <body data-nombre="MINECRAFT">
-    <!-- Chat Modal -->
     <div id="chat-overlay">
         <div id="chat-container">
             <div id="chat-messages">
@@ -25,11 +24,21 @@
             </div>
             <div id="chat-input-container">
                 <div id="autocomplete"></div>
-                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off">
-                <button id="chat-send">Enviar</button>
+                  <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off" list="lista-comandos">
+                <button id="enviar1">Enviar</button>
             </div>
         </div>
     </div>
+
+    <<datalist id="lista-comandos">
+    <option value="/help">
+    <option value="/time set day 0">
+    <option value="/time set day 1">
+    <option value="/time set noon">
+    <option value="/time set night">
+    <option value="/time set real">
+    <option value="/clear">
+    </datalist>
     <div id="wrapper">
         <!-- Nav -->
         <nav id="nav-principal">
@@ -38,7 +47,8 @@
     <div id="reloj-solar-container">
         <div id="reloj-wrapper">
             <video id="relojVideo" muted playsinline>
-                <source src="img/reloj_solar.webm" type="video/mp4">
+                <source src="img/reloj_solar.webm" type="video/webm">
+                <source src="img/reloj_solar.mp4" type="video/mp4">
             </video>
             <div>
                 <div id="fecha-actual">00/00/0000</div>
@@ -50,7 +60,7 @@
                 <img src="img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba">
                 <img src="img/minecraft-minecraftmobs.gif" alt="gif de cabezas" id="cabeza_arriba2">
                 <ul id="lista">
-                    <li><a href="index.html">Inicio</a></li>
+<li><a href="index.html" class="active">Inicio</a></li>
                     <li><a href="./html/bioma.html">Mundos</a></li>
                     <li><a href="./html/mobs.html">Mobs</a></li>
                     <li><a href="./html/objetos.html">Objetos</a></li>

@@ -18,25 +18,36 @@
 <body data-nombre="CONTACTO">
 
     <div id="chat-overlay">
-        <div id="chat-container">
-            <div id="chat-messages">
-                <div class="chat-message system">=== Minecraft Console ===</div>
-                <div class="chat-message info">Presiona Alt+T para abrir/cerrar el chat</div>
-                <div class="chat-message info">Escribe /help para ver los comandos disponibles</div>
-            </div>
-            <div id="chat-input-container">
-                <div id="autocomplete"></div>
-                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off">
-                <button id="chat-send">Enviar</button>
-            </div>
+    <div id="chat-container">
+        <div id="chat-messages">
+            <div class="chat-message system">=== Minecraft Console ===</div>
+            <div class="chat-message info">Presiona Alt+T para abrir/cerrar el chat</div>
+            <div class="chat-message info">Escribe /help para ver los comandos disponibles</div>
+        </div>
+        <div id="chat-input-container">
+            <div id="autocomplete"></div>
+                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off" list="lista-comandos">
+            <button id="enviar1">Enviar</button>
         </div>
     </div>
+</div>
+
+<<datalist id="lista-comandos">
+    <option value="/help">
+    <option value="/time set day 0">
+    <option value="/time set day 1">
+    <option value="/time set noon">
+    <option value="/time set night">
+    <option value="/time set real">
+    <option value="/clear">
+</datalist>
 
     <!-- Reloj Solar de Minecraft -->
     <div id="reloj-solar-container">
         <div id="reloj-wrapper">
             <video id="relojVideo" muted playsinline>
-                <source src="../img/reloj_solar.webm" type="video/mp4">
+                <source src="../img/reloj_solar.webm" type="video/webm">
+                <source src="../img/reloj_solar.mp4" type="video/mp4">
             </video>
             <div>
                 <div id="fecha-actual">00/00/0000</div>
@@ -67,7 +78,7 @@
                             <li><a href="../juego/juego2.html">Minecraft Online</a></li>
                         </ul>
                     </li>
-                    <li><a href="../html/Contacto.html">Contacto</a></li>
+                    <li><a href="../html/Contacto.html" class="active">Contacto</a></li>
                     <li><label for="modal-equipo"><strong>Equipo</strong></label></li>
                 </ul>
             </div>
@@ -92,12 +103,18 @@
                             <div class="bloque">
                                 <label class="bloque-titulo" for="nombre">👤 Tus datos</label>
                                 <div class="bloque-contenido">
-                                    <div class="grupo-input">
-                                        <label for="nombre">Nombre completo</label>
-                                        <input id="nombre" name="nombre" type="text" required
-                                            placeholder="Steve o Alex..." autofocus>
-                                        <span class="val-error" id="err-nombre"></span>
-                                    </div>
+                                <div class="grupo-input">
+                                    <label for="nombre">Nombre completo</label>
+                                    <input id="nombre" name="nombre" type="text" required placeholder="Steve o Alex..." list="nombrefals" autofocus>
+                                    <span class="val-error" id="err-nombre"></span>
+                                </div>
+                                <datalist id="nombrefals">
+                                    <option value="Steve">
+                                    <option value="Alex">
+                                    <option value="Herobrine">
+                                    <option value="Notch">
+                                    <option value="CreeperLover99">
+                                </datalist>
                                     <div class="grupo-input">
                                         <label for="edad">Edad</label>
                                         <input id="edad" name="edad" type="number" required
@@ -212,34 +229,31 @@
 
             <div class="grupo-input">
                 <label for="com-nombre">Tu nombre</label>
-                <input type="text" id="com-nombre"
-                    placeholder="Steve o Alex..."
-                    maxlength="30" autocomplete="off">
+                <input type="text" id="com-nombre" placeholder="Steve o Alex..." maxlength="30" autocomplete="off" required>
                 <span class="val-error" id="err-com-nombre"></span>
             </div>
 
             <div class="grupo-input">
                 <label for="com-edad">Edad</label>
-                <input type="number" id="com-edad" min="1" max="120" placeholder="Tu edad">
+                <input type="number" id="com-edad" min="1" max="120" placeholder="Tu edad"  required>
                 <span class="val-error" id="err-com-edad"></span>
             </div>
 
             <div class="grupo-input">
                 <label for="com-correo">Correo</label>
-                <input type="email" id="com-correo" placeholder="tu@email.com">
+                <input type="email" id="com-correo" placeholder="tu@email.com"  required>
                 <span class="val-error" id="err-com-correo"></span>
             </div>
 
             <div class="grupo-input">
                 <label for="com-asunto">Asunto</label>
-                <input type="text" id="com-asunto" placeholder="Motivo del comentario">
+                <input type="text" id="com-asunto" placeholder="Motivo del comentario"  required>
                 <span class="val-error" id="err-com-asunto"></span>
             </div>
 
             <div class="grupo-input">
                 <label for="com-texto">Comentario</label>
-                <textarea id="com-texto" rows="3" maxlength="200"
-                    placeholder="Cuéntanos tu experiencia... (Mínimo 5 carácteres)"></textarea>
+                <textarea id="com-texto" rows="3" maxlength="200"  required placeholder="Cuéntanos tu experiencia... (Mínimo 5 carácteres)"></textarea>
                 <span class="val-error" id="err-com-texto"></span>
                 <span id="com-comptador" class="val-comptador">
                     0 / 200 caracteres

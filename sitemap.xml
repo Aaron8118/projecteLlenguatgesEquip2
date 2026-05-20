@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Página principal -->
   <url>
     <loc>https://mi-proyecto.vercel.app/index.html</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-05-20</lastmod>
     <priority>1.0</priority>
   </url>
-
+  <url>
+    <loc>https://mi-proyecto.vercel.app/html/bioma.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/html/mobs.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/html/objetos.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/html/efectos.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/html/Contacto.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/juego/juego.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/juego/juego2.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/html/minecraftEntero/Client/index.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/html/minecraftEntero/Client/game.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/html/minecraftEntero/Client/structureCreator.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mi-proyecto.vercel.app/html/minecraftEntero/Client/Noise/index.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <priority>0.4</priority>
+  </url>
 </urlset>
-  <!-- Las URL son ficticias porque no tienen un dominio real -->

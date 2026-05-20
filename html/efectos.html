@@ -17,7 +17,7 @@
     
 
 <body data-nombre="EFECTOS">
-     <div id="chat-overlay">
+    <div id="chat-overlay">
         <div id="chat-container">
             <div id="chat-messages">
                 <div class="chat-message system">=== Minecraft Console ===</div>
@@ -26,17 +26,28 @@
             </div>
             <div id="chat-input-container">
                 <div id="autocomplete"></div>
-                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off">
-                <button id="chat-send">Enviar</button>
+                <input type="text" id="chat-input" placeholder="Escribe un comando..." autocomplete="off" list="lista-comandos">
+                <button id="enviar1">Enviar</button>
             </div>
         </div>
     </div>
+
+    <<datalist id="lista-comandos">
+    <option value="/help">
+    <option value="/time set day 0">
+    <option value="/time set day 1">
+    <option value="/time set noon">
+    <option value="/time set night">
+    <option value="/time set real">
+    <option value="/clear">
+    </datalist>
 
     <!-- Reloj Solar de Minecraft -->
     <div id="reloj-solar-container">
         <div id="reloj-wrapper">
             <video id="relojVideo" muted playsinline>
-                <source src="../img/reloj_solar.webm" type="video/mp4">
+                <source src="../img/reloj_solar.webm" type="video/webm">
+                <source src="../img/reloj_solar.mp4" type="video/mp4">
             </video>
             <div>
                 <div id="fecha-actual">00/00/0000</div>
@@ -56,7 +67,7 @@
                     <li><a href="../html/bioma.html">Mundos</a></li>
                     <li><a href="../html/mobs.html">Mobs</a></li>
                     <li><a href="../html/objetos.html">Objetos</a></li>
-                    <li><a href="../html/efectos.html">Efectos</a></li>
+                    <li><a href="../html/efectos.html" class="active">Efectos</a></li>
                     <li>
                         <a>Juegos</a>
                         <ul class="submenu">
@@ -93,42 +104,46 @@
             <!-- TABLAS EN COLUMNAS (TODAS) -->
             <div id="tablasencolumnas">
                 <div id="tablaexplicacion">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col" colspan="2" >Explicación</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td  id="inforefectos" colspan="2">Un efecto es una condición útil o perjudicial que
-                                    afecta a una entidad. Los efectos pueden ser infligidos de varias maneras a lo largo
-                                    del juego, incluyendo el consumo de pociones y algunos objetos de comida, estar en
-                                    el rango de un faro y canalizador, y ser atacado por o cerca de ciertos criaturas.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="tableadicional">¿Pociones?</td>
-                                <td class="tableadicional">¿La bruja?</td>
-                            </tr>
-                            <tr>
-                                <td>Las pociones son brebajes que, dependiendo de la poción, generan o no un
-                                    tipo de efecto, con un tiempo limitado.</td>
-                                <td id="partebruja" rowspan="2"><img src="../img/mobs_andrii/Witch.png"
-                                        alt="bruja">
-                                    <p>Las brujas pueden soltar Pociones de Curación, Cuerpo Ignífugo, Rapidez y Apnea,
-                                        pero solo cuando mueren mientras beben esa poción. </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Las pociones tienen un efecto diferente según su valor de daño, con la
-                                    excepción de que las pociones revertidas son idénticas a sus pociones base. Las
-                                    pociones se pueden usar presionando y manteniendo use, de forma similar para comer
-                                    alimentos. Al usarlas, se aplicará el efecto correspondiente al jugador.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Explicación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="inforefectos" colspan="2">
+                                Un efecto es una condición útil o perjudicial que afecta a una entidad. 
+                                Los efectos pueden ser infligidos de varias maneras a lo largo del juego, 
+                                incluyendo el consumo de pociones y algunos objetos de comida, estar en el 
+                                rango de un faro y canalizador, y ser atacado por o cerca de ciertos criaturas.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tableadicional">¿Pociones?</td>
+                            <td class="tableadicional">¿La bruja?</td>
+                        </tr>
+                        <tr>
+                            <td>Las pociones son brebajes que, dependiendo de la poción, generan o no un tipo de efecto, con un tiempo limitado.</td>
+                            <td id="partebruja" rowspan="2">
+                                <img src="../img/mobs_andrii/Witch.png" alt="bruja">
+                                <p>Las brujas pueden soltar Pociones de Curación, Cuerpo Ignífugo, Rapidez y Apnea, 
+                                pero solo cuando mueren mientras beben esa poción.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Las pociones tienen un efecto diferente según su valor de daño, con la excepción de que las pociones revertidas son idénticas a sus pociones base. Las pociones se pueden usar presionando y manteniendo use, de forma similar para comer alimentos. Al usarlas, se aplicará el efecto correspondiente al jugador.</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" class="estilofoot1">
+                                💡 Consejo: Siempre lleva pociones de curación en tu inventario antes de enfrentarte a brujas o Wither.
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
                 <br>
                 <div id="tablaefectos">
                     <table>
@@ -240,6 +255,13 @@
                                 <td>Descuentos en aldeanos, regalos, animación festiva.</td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="estilofoot1">
+                                    💡 Consejo: Combina pociones de velocidad y salto para explorar más rápido.
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
                 <div id="tablaefectosnegativos">
@@ -320,6 +342,13 @@
                                 <td >Daño por segundo que <strong>sí puede matar</strong>.</td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="estilofoot1">
+                                    💡 Consejo: Lleva siempre leche contigo para eliminar efectos negativos al instante.
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
                 <div id="tablaefectosespeciales">
@@ -339,6 +368,13 @@
                                 <td >Provoca una invasión al entrar en una aldea.</td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="estilofoot1">
+                                    💡 Consejo: El Mal presagio se activa al entrar en una aldea con el efecto activo.
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>

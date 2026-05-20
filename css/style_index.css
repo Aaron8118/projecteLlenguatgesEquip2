@@ -8,7 +8,6 @@
 }
 
 
-
 /* ==========================================================
    SECCIÓN DE TÍTULO PRINCIPAL
    ========================================================== */
@@ -28,6 +27,13 @@
   /* Animación de aparición suave */
   animation: fadeZoomIn 1.3s ease-out forwards;
 }
+
+#titulo_principal h4::first-letter {
+    font-size: 1.3em;
+    color: #55aa55;
+    font-weight: bold;
+}
+
 
 #titulo_principal h1 {
   font-size: 1.3rem;
