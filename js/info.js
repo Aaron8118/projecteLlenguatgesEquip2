@@ -1,6 +1,11 @@
 //dos avisos que saldran por la pantalla
 let avisos = [
     {
+        titulo: "⌨️ Abrir Terminal",
+        msg: "Pulsa ALT + T para abrir la terminal",
+        txt: "Entendido →"
+    },
+    {
         titulo: "⛏️ Prueba el Juego Real",
         msg: "Juega Minecraft Offline ahora",
         link: "./html/minecraftEntero/Client/index.html",
@@ -135,8 +140,12 @@ function mostraravisos(avt) {
 
     //estilos para el link de dentrok
     let linkDentro = document.createElement("a");
-    linkDentro.href = datos.linkDentro;
-    linkDentro.target = "_blank";
+
+    if (datos.link) {
+        linkDentro.href = datos.link;
+        linkDentro.target = "_blank";
+    }
+
     linkDentro.textContent = datos.txt;
     linkDentro.style.color = "#00ffaa";
     linkDentro.style.textDecoration = "none";
@@ -166,10 +175,9 @@ function inicio() {
 //para mostrar el primer aviso cuando entras avt los 5 segundos
 function mostrarPrimero() {
     mostraravisos({
-        titulo: "⛏️ Prueba el Juego Real",
-        msg: "Juega Minecraft Offline ahora",
-        linkDentro: "./html/minecraftEntero/Client/index.html",
-        txt: "Jugar Ahora →"
+        titulo: "⌨️ Abrir Terminal",
+        msg: "Pulsa ALT + T para abrir la terminal",
+        txt: "Entendido →"
     });
 
     setTimeout(mostraravisos, 5000);
