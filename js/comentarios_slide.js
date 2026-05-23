@@ -7,12 +7,12 @@ let rxCorreoCom = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 let rxNomCom = /^[a-zA-ZàáâäèéêëìíîïòóôöùúûüñÑÀÁÂÄÈÉÊËÌÍÎÏÒÓÔÖÙÚÛÜ' -]{2,50}$/;
 let rxEdadCom = /^(1[89]|[2-9][0-9]|100)$/;
 
-// Límites de caracteres comentarios
+// límites de caracteres comentarios
 let maxNombre = 30;
 let maxasunto = 80;
 let maxcomentario = 200;
 
- // Array de mensajes iniciales
+// array de mensajes iniciales
 let mensajesJSON = [
   {
     nombre: 'Steve',
@@ -56,10 +56,10 @@ let mensajesJSON = [
   }
 ];
 
-  // Array principal de objetos
+// array principal de objetos
 let mensajes = [];
 
- // Clase Missatge
+// clase Missatge
 class Missatge {
   constructor(nombre, edad, correo, asunto, mensaje, estrellasMarcadas) {
     this.nombre = nombre;
@@ -75,13 +75,19 @@ function inicio() {
   cargar();
   moverBarra();
   timerTiempo = setInterval(siguienteSlide, tiempo);
-  document.getElementById('abrir-comentario').addEventListener('click', abrirModal);
-  document.getElementById('cerrar-comentario').addEventListener('click', cerrarModal);
-  document.getElementById('form-comentario').addEventListener('submit', enviarFormulario);
-  document.getElementById('btn-limpiar-com').addEventListener('click', limpiarFormulario);
+
+  let btnAbrir = document.getElementById('abrir-comentario');
+  let btnCerrar = document.getElementById('cerrar-comentario');
+  let formCom = document.getElementById('form-comentario');
+  let btnLimpCom = document.getElementById('btn-limpiar-com');
+
+  btnAbrir.addEventListener('click', abrirModal);
+  btnCerrar.addEventListener('click', cerrarModal);
+  formCom.addEventListener('submit', enviarFormulario);
+  btnLimpCom.addEventListener('click', limpiarFormulario);
 }
 
-// Abrir y cerrar modal
+// abrir y cerrar modal
 function abrirModal(e) {
   e.preventDefault();
   document.getElementById('modal-comentario').style.display = 'flex';
@@ -92,11 +98,11 @@ function cerrarModal(e) {
   document.getElementById('modal-comentario').style.display = 'none';
 }
 
-// Carga el JSON y rellena el array
+// carga el JSON y rellena el array
 function cargar() {
   for (let i = 0; i < mensajesJSON.length; i++) {
     let m1 = mensajesJSON[i];
-    let nuevo = new Missatge(m1.nombre,m1.edad,m1.correo,m1.asunto,m1.mensaje,m1.estrellasMarcadas);
+    let nuevo = new Missatge(m1.nombre, m1.edad, m1.correo, m1.asunto, m1.mensaje, m1.estrellasMarcadas);
     mensajes.push(nuevo);
   }
 
@@ -104,7 +110,7 @@ function cargar() {
   mostrarMensajes();
 }
 
-// Renderiza los slides del slider
+// renderiza los slides del slider
 function renderSild() {
   let track2 = document.getElementById('slider-track');
   track2.innerHTML = '';
@@ -130,7 +136,7 @@ function renderSild() {
   }
 }
 
-// Muestra los mensajes bajo el formulario
+// muestra los mensajes bajo el formulario
 function mostrarMensajes() {
   let contenedor = document.getElementById('lista-mensajes');
   if (!contenedor) return;
@@ -152,7 +158,7 @@ function mostrarMensajes() {
   }
 }
 
-// Elimina un mensaje del array
+// elimina un mensaje del array
 function eliminarMensaje(index) {
   mensajes.splice(index, 1);
 
@@ -165,123 +171,187 @@ function eliminarMensaje(index) {
   moverSlide(slide1);
 }
 
-// Muestra error en el modal de comentarios
-function mostrarError(input1, id, msg) {
-  input1.style.borderColor = '#cc0000';
-  input1.style.background = '#fff5f5';
-  let spanError = document.getElementById(id);
-  if (spanError) {
-    spanError.textContent = msg;
-    spanError.style.display = 'block';
-  }
-}
-
-// Limpia el error en el modal de comentarios
-function comentariovalido(input1, id) {
-  input1.style.borderColor = '#2d7a2d';
-  input1.style.background = '#f5fff5';
-  let spanOcultar = document.getElementById(id);
-  if (spanOcultar) {
-    spanOcultar.style.display = 'none';
-  }
-}
-
-// Valida y envia el formulario
+// valida y envia el formulario
 function enviarFormulario(vnt) {
   vnt.preventDefault();
-  let comNombre = document.getElementById('com-nombre');
-  let comEdad = document.getElementById('com-edad');
-  let comCorreo = document.getElementById('com-correo');
-  let comAsunto = document.getElementById('com-asunto');
-  let comTexto = document.getElementById('com-texto');
+
+  let camNom = document.getElementById('com-nombre');
+  let años = document.getElementById('com-edad');
+  let mail = document.getElementById('com-correo');
+  let tema = document.getElementById('com-asunto');
+  let texto = document.getElementById('com-texto');
   let estrellasMarcadas = document.querySelector('input[name="com-estrellas"]:checked');
   let valido = true;
 
-  // Validacion nombre
-  let textoNomCom = comNombre.value.trim();
+  // validacion nombre
+  let textoNomCom = camNom.value.trim();
+  let errorNom = false;
+
   if (!textoNomCom) {
-    mostrarError(comNombre, 'err-com-nombre', 'El nombre es obligatorio.');
-    valido = false;
+    errorNom = true;
   } else if (textoNomCom.length > maxNombre) {
-    mostrarError(comNombre, 'err-com-nombre', 'Maximo ' + maxNombre + ' caracteres.');
-    valido = false;
+    errorNom = true;
   } else if (!rxNomCom.test(textoNomCom)) {
-    mostrarError(comNombre, 'err-com-nombre', 'Solo letras y espacios. Minimo 2 caracteres.');
-    valido = false;
-  } else {
-    comentariovalido(comNombre, 'err-com-nombre');
+    errorNom = true;
   }
 
-  // Validacion edad
-  let textoEdadCom = comEdad.value.trim();
-  if (!textoEdadCom) {
-    mostrarError(comEdad, 'err-com-edad', 'La edad es obligatoria.');
-    valido = false;
-  } else if (!rxEdadCom.test(textoEdadCom)) {
-    mostrarError(comEdad, 'err-com-edad', 'La edad debe estar entre 18 y 100.');
-    valido = false;
-  } else {
-    comentariovalido(comEdad, 'err-com-edad');
-  }
-
-  // Validacion correo
-  let textoCorreoCom = comCorreo.value.trim();
-  if (!textoCorreoCom) {
-    mostrarError(comCorreo, 'err-com-correo', 'El correo es obligatorio.');
-    valido = false;
-  } else if (!rxCorreoCom.test(textoCorreoCom)) {
-    mostrarError(comCorreo, 'err-com-correo', 'Formato invalido. Ej: usuario@dominio.com');
+  let bloqueError1 = document.getElementById('err-com-nombre');
+  if (errorNom == true) {
+    camNom.style.borderColor = '#cc0000';
+    camNom.style.background = '#fff5f5';
+    if (!textoNomCom) {
+      bloqueError1.textContent = 'El nombre es obligatorio.';
+    } else if (textoNomCom.length > maxNombre) {
+      bloqueError1.textContent = 'Maximo ' + maxNombre + ' caracteres.';
+    } else {
+      bloqueError1.textContent = 'Solo letras y espacios. Minimo 2 caracteres.';
+    }
+    bloqueError1.style.display = 'block';
     valido = false;
   } else {
-    comentariovalido(comCorreo, 'err-com-correo');
+    camNom.style.borderColor = '#2d7a2d';
+    camNom.style.background = '#f5fff5';
+    bloqueError1.style.display = 'none';
   }
 
-  // Validacion asunto
-  let textoAsuntoCom = comAsunto.value.trim();
-  if (!textoAsuntoCom) {
-    mostrarError(comAsunto, 'err-com-asunto', 'El asunto es obligatorio.');
-    valido = false;
-  } else if (textoAsuntoCom.length > maxasunto) {
-    mostrarError(comAsunto, 'err-com-asunto', 'Maximo ' + maxasunto + ' caracteres.');
+  // validacion edad
+  let edadVal = años.value.trim();
+  let falloEdad = false;
+
+  if (!edadVal) {
+    falloEdad = true;
+  } else if (!rxEdadCom.test(edadVal)) {
+    falloEdad = true;
+  }
+
+  let bloqueError2 = document.getElementById('err-com-edad');
+  if (falloEdad == true) {
+    años.style.borderColor = '#cc0000';
+    años.style.background = '#fff5f5';
+    if (!edadVal) {
+      bloqueError2.textContent = 'La edad es obligatoria.';
+    } else {
+      bloqueError2.textContent = 'La edad debe estar entre 18 y 100.';
+    }
+    bloqueError2.style.display = 'block';
     valido = false;
   } else {
-    comentariovalido(comAsunto, 'err-com-asunto');
+    años.style.borderColor = '#2d7a2d';
+    años.style.background = '#f5fff5';
+    bloqueError2.style.display = 'none';
   }
 
-  // Validacion mensaje
-  let textoMsgCom = comTexto.value.trim();
-  if (!textoMsgCom) {
-    mostrarError(comTexto, 'err-com-texto', 'El mensaje es obligatorio.');
-    valido = false;
-  } else if (textoMsgCom.length < 5) {
-    mostrarError(comTexto, 'err-com-texto', 'Minimo 5 caracteres.');
-    valido = false;
-  } else if (textoMsgCom.length > maxcomentario) {
-    errorostrarCom(comTexto, 'err-com-texto', 'Maximo ' + maxcomentario + ' caracteres.');
+  // validacion correo
+  let mailVal = mail.value.trim();
+  let estadoMail = 'si';
+
+  if (!mailVal) {
+    estadoMail = 'no';
+  } else if (!rxCorreoCom.test(mailVal)) {
+    estadoMail = 'no';
+  }
+
+  let bloqueError3 = document.getElementById('err-com-correo');
+  if (estadoMail == 'no') {
+    mail.style.borderColor = '#cc0000';
+    mail.style.background = '#fff5f5';
+    if (!mailVal) {
+      bloqueError3.textContent = 'El correo es obligatorio.';
+    } else {
+      bloqueError3.textContent = 'Formato invalido. Ej: usuario@dominio.com';
+    }
+    bloqueError3.style.display = 'block';
     valido = false;
   } else {
-    comentariovalido(comTexto, 'err-com-texto');
+    mail.style.borderColor = '#2d7a2d';
+    mail.style.background = '#f5fff5';
+    bloqueError3.style.display = 'none';
   }
 
-  // Validacion estrellas
+  // validacion asunto
+  let temaVal = tema.value.trim();
+  let estadoTema = 'si';
+
+  if (!temaVal) {
+    estadoTema = 'no';
+  } else if (temaVal.length > maxasunto) {
+    estadoTema = 'no';
+  }
+
+  let bloqueError4 = document.getElementById('err-com-asunto');
+  if (estadoTema == 'no') {
+    tema.style.borderColor = '#cc0000';
+    tema.style.background = '#fff5f5';
+    if (!temaVal) {
+      bloqueError4.textContent = 'El asunto es obligatorio.';
+    } else {
+      bloqueError4.textContent = 'Maximo ' + maxasunto + ' caracteres.';
+    }
+    bloqueError4.style.display = 'block';
+    valido = false;
+  } else {
+    tema.style.borderColor = '#2d7a2d';
+    tema.style.background = '#f5fff5';
+    bloqueError4.style.display = 'none';
+  }
+
+  // validacion mensaje
+  let textoVal = texto.value.trim();
+  let mensajeMal = false;
+
+  if (!textoVal) {
+    mensajeMal = true;
+  } else if (textoVal.length < 5) {
+    mensajeMal = true;
+  } else if (textoVal.length > maxcomentario) {
+    mensajeMal = true;
+  }
+
+  let bloqueError5 = document.getElementById('err-com-texto');
+  if (mensajeMal == true) {
+    texto.style.borderColor = '#cc0000';
+    texto.style.background = '#fff5f5';
+    if (!textoVal) {
+      bloqueError5.textContent = 'El mensaje es obligatorio.';
+    } else if (textoVal.length < 5) {
+      bloqueError5.textContent = 'Minimo 5 caracteres.';
+    } else {
+      bloqueError5.textContent = 'Maximo ' + maxcomentario + ' caracteres.';
+    }
+    bloqueError5.style.display = 'block';
+    valido = false;
+  } else {
+    texto.style.borderColor = '#2d7a2d';
+    texto.style.background = '#f5fff5';
+    bloqueError5.style.display = 'none';
+  }
+
+  // validacion estrellas
+  let sinEstrellas = false;
+
   if (!estrellasMarcadas) {
-    let spanEst = document.getElementById('err-com-estrellas');
-    if (spanEst) {
-      spanEst.textContent = 'Selecciona una valoracion.';
-      spanEst.style.display = 'block';
+    sinEstrellas = true;
+  }
+
+  let bloqueError6 = document.getElementById('err-com-estrellas');
+  if (sinEstrellas == true) {
+    if (bloqueError6) {
+      bloqueError6.textContent = 'Selecciona una valoracion.';
+      bloqueError6.style.display = 'block';
     }
     valido = false;
   } else {
-    let spanEst = document.getElementById('err-com-estrellas');
-    if (spanEst) spanEst.style.display = 'none';
+    if (bloqueError6) {
+      bloqueError6.style.display = 'none';
+    }
   }
 
   if (!valido) {
-  return;
+    return;
   }
 
-  let edadParseada = parseInt(comEdad.value);
-  let nuevo = new Missatge(comNombre.value,edadParseada,comCorreo.value,comAsunto.value,comTexto.value,parseInt(estrellasMarcadas.value));
+  let edadParseada = parseInt(años.value);
+  let nuevo = new Missatge(camNom.value, edadParseada, mail.value, tema.value, texto.value, parseInt(estrellasMarcadas.value));
   mensajes.push(nuevo);
 
   renderSild();
@@ -295,30 +365,48 @@ function enviarFormulario(vnt) {
   cerrarModal();
 }
 
-// Limpia el formulario
+// limpia el formulario y borra errores
 function limpiarFormulario() {
   document.getElementById('form-comentario').reset();
+
+  let campos = ['com-nombre', 'com-edad', 'com-correo', 'com-asunto', 'com-texto'];
+  let errores = ['err-com-nombre', 'err-com-edad', 'err-com-correo', 'err-com-asunto', 'err-com-texto', 'err-com-estrellas'];
+
+  for (let i = 0; i < campos.length; i++) {
+    let campo = document.getElementById(campos[i]);
+    campo.style.borderColor = '';
+    campo.style.background = '';
+  }
+
+  for (let i = 0; i < errores.length; i++) {
+    let span = document.getElementById(errores[i]);
+    if (span) {
+      span.textContent = '';
+      span.style.display = 'none';
+    }
+  }
 }
 
-// Avanza al siguiente slide
+// avanza al siguiente slide
 function siguienteSlide() {
   let slides = document.querySelectorAll('.comentario-slide');
   slide1++;
 
- if (slide1 >= slides.length) {
-  slide1 = 0;
-}
+  if (slide1 >= slides.length) {
+    slide1 = 0;
+  }
+
   moverSlide(slide1);
   moverBarra();
 }
 
-// Mueve el track al slide indicado
+// mueve el track al slide indicado
 function moverSlide(num) {
   document.getElementById('slider-track').style.transform =
     'translateX(-' + (num * 100) + '%)';
 }
 
-// Anima la barra de progreso
+// anima la barra de progreso
 function moverBarra() {
   let barra = document.getElementById('slider-barra');
   barra.style.transition = 'none';
@@ -328,5 +416,5 @@ function moverBarra() {
   barra.style.width = '100%';
 }
 
-// Evento de carga
+// evento de carga
 window.addEventListener('load', inicio);
