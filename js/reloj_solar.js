@@ -12,18 +12,39 @@ let mensajechat = document.getElementById("chat-messages");
 let enviarconsola = document.getElementById("enviar1");
 let autocomplete = document.getElementById("autocomplete");
 
-if (enviarconsola) enviarconsola.style.color = "black";
+enviarconsola.style.color = "black";
 let chatAbierto = false;
 
 // Comandos disponibles
 let comandos = [
-    { cmd: "/help", desc: "Muestra todos los comandos disponibles" },
-    { cmd: "/time set day 0", desc: "Pone el reloj a las 9:00 (mañana)" },
-    { cmd: "/time set day 1", desc: "Pone el reloj a las 00:00 (medianoche)" },
-    { cmd: "/time set noon", desc: "Pone el reloj a las 12:00 (mediodía)" },
-    { cmd: "/time set night", desc: "Pone el reloj a las 21:00 (noche)" },
-    { cmd: "/time set real", desc: "Vuelve a la hora del PC" },
-    { cmd: "/clear", desc: "Limpia el chat" }
+    {
+        cmd: "/help",
+        desc: "Muestra todos los comandos disponibles"
+    },
+    {
+        cmd: "/time set day 0",
+        desc: "Pone el reloj a las 9:00 (mañana)"
+    },
+    {
+        cmd: "/time set day 1",
+        desc: "Pone el reloj a las 00:00 (medianoche)"
+    },
+    {
+        cmd: "/time set noon",
+        desc: "Pone el reloj a las 12:00 (mediodía)"
+    },
+    {
+        cmd: "/time set night",
+        desc: "Pone el reloj a las 21:00 (noche)"
+    },
+    {
+        cmd: "/time set real",
+        desc: "Vuelve a la hora del PC"
+    },
+    {
+        cmd: "/clear",
+        desc: "Limpia el chat"
+    }
 ];
 
 // SUMAR 1 SEGUNDO AL RELOJ DEBUG
@@ -49,17 +70,21 @@ function avanzarTiempoDebug() {
 // OBTENER HORA DEL PC
 function obtenerHoraPC() {
     let ahora = new Date();
-
-    return {
-        h1: ahora.getHours(),
-        m2: ahora.getMinutes(),
-        s3: ahora.getSeconds()
-    };
+    let h1 = ahora.getHours();
+    let m2 = ahora.getMinutes();
+    let s3 = ahora.getSeconds();
+    return h1 + "," + m2 + "," + s3;
 }
 
 // Función para actualizar el reloj
 function actualizarRelojSolar() {
-    let h1, m2, s3, dia1, mes1, anyo1;
+    let h1 = "";
+    let m2 = "";
+    let s3 = "";
+    let dia1 = "";
+    let mes1 = "";
+    let anyo1 = "";
+
     if (modoDebug) {
 
         avanzarTiempoDebug();
@@ -75,11 +100,11 @@ function actualizarRelojSolar() {
 
     } else {
 
-        let horaSistemapc = obtenerHoraPC();
+        let horaSistemapc = obtenerHoraPC().split(",");
 
-        h1 = horaSistemapc.h1;
-        m2 = horaSistemapc.m2;
-        s3 = horaSistemapc.s3;
+        h1 = parseInt(horaSistemapc[0]);
+        m2 = parseInt(horaSistemapc[1]);
+        s3 = parseInt(horaSistemapc[2]);
 
         let fechaSistema = new Date();
         dia1 = fechaSistema.getDate();
@@ -91,18 +116,15 @@ function actualizarRelojSolar() {
         return;
     }
 
-    document.getElementById("hora-actual").textContent =
-        ("0" + h1).slice(-2) + ":" +
-        ("0" + m2).slice(-2) + ":" +
-        ("0" + s3).slice(-2);
+    let cajaHora = document.getElementById("hora-actual");
+    let horaFormato = ("0" + h1).slice(-2) + ":" + ("0" + m2).slice(-2) + ":" + ("0" + s3).slice(-2);
+    cajaHora.textContent = horaFormato;
 
-    // Muestra fecha
-    document.getElementById("fecha-actual").textContent =
-        dia1.toString().padStart(2, "0") + "/" +
-        mes1.toString().padStart(2, "0") + "/" +
-        anyo1.toString();
+    let cajaFecha = document.getElementById("fecha-actual");
+    let diaFormato = dia1.toString().padStart(2, "0");
+    let mesFormato = mes1.toString().padStart(2, "0");
+    cajaFecha.textContent = diaFormato + "/" + mesFormato + "/" + anyo1;
 
-    // Fase del día
     let faseDia = "";
 
     if (h1 >= 6 && h1 < 12) {
@@ -127,7 +149,7 @@ function actualizarRelojSolar() {
 }
 
 // abrir y cerrar chat
-function toggleChat() {
+function chat1() {
 
     chatAbierto = !chatAbierto;
 
@@ -141,49 +163,6 @@ function toggleChat() {
     }
 }
 
-function mensajeparaterminal(textoMsg, tipoMsg) {
-
-    if (!tipoMsg) {
-        tipoMsg = "normal";
-    }
-
-    let cajaMensaje = document.createElement("div");
-
-    cajaMensaje.className = "chat-message " + tipoMsg;
-    cajaMensaje.textContent = textoMsg;
-
-    mensajechat.appendChild(cajaMensaje);
-    mensajechat.scrollTop = mensajechat.scrollHeight;
-}
-
-// ayuda
-function mostrarAyuda() {
-
-    mensajeparaterminal("=== COMANDOS DISPONIBLES ===", "system");
-
-    for (let i = 0; i < comandos.length; i++) {
-        mensajeparaterminal(comandos[i].cmd + " - " + comandos[i].desc, "info");
-    }
-}
-
-// poner hora manual
-function ponerHoraDebug(hh, mm, ss) {
-
-    modoDebug = true;
-
-    horaDebugH = hh;
-    horaDebugM = mm;
-    horaDebugS = ss;
-
-    actualizarRelojSolar();
-}
-
-// volver a hora real del PC
-function volverHoraReal() {
-    modoDebug = false;
-    actualizarRelojSolar();
-}
-
 // procesar comandos
 function procesarComando(textoEntrada) {
 
@@ -194,51 +173,111 @@ function procesarComando(textoEntrada) {
     let valor1 = partes[2];
     let valor2 = partes[3];
 
-    mensajeparaterminal("> " + textoEntrada, "normal");
+    let cajaNormal = document.createElement("div");
+    cajaNormal.className = "chat-message normal";
+    cajaNormal.textContent = "> " + textoEntrada;
+    mensajechat.appendChild(cajaNormal);
+    mensajechat.scrollTop = mensajechat.scrollHeight;
 
     if (cmd1 === "/help") {
-        mostrarAyuda();
-    }
 
-    else if (cmd1 === "/clear") {
+        let cajaSystem = document.createElement("div");
+        cajaSystem.className = "chat-message system";
+        cajaSystem.textContent = "=== COMANDOS DISPONIBLES ===";
+        mensajechat.appendChild(cajaSystem);
+        mensajechat.scrollTop = mensajechat.scrollHeight;
+
+        for (let i = 0; i < comandos.length; i++) {
+            let linea = comandos[i].cmd + " - " + comandos[i].desc;
+            let cajaInfo = document.createElement("div");
+            cajaInfo.className = "chat-message info";
+            cajaInfo.textContent = linea;
+            mensajechat.appendChild(cajaInfo);
+            mensajechat.scrollTop = mensajechat.scrollHeight;
+        }
+
+    } else if (cmd1 === "/clear") {
+
         mensajechat.innerHTML = "";
-        mensajeparaterminal("Chat limpiado", "success");
-    }
+        let cajaSuccess = document.createElement("div");
+        cajaSuccess.className = "chat-message success";
+        cajaSuccess.textContent = "Chat limpiado";
+        mensajechat.appendChild(cajaSuccess);
+        mensajechat.scrollTop = mensajechat.scrollHeight;
 
-    else if (cmd1 === "/time" && cmd2 === "set") {
+    } else if (cmd1 === "/time" && cmd2 === "set") {
 
         if (valor1 === "real") {
-            volverHoraReal();
-            mensajeparaterminal("⏰ Hora del PC activada", "success");
+            modoDebug = false;
+            actualizarRelojSolar();
+            let cajaSuccess = document.createElement("div");
+            cajaSuccess.className = "chat-message success";
+            cajaSuccess.textContent = "⏰ Hora del PC activada";
+            mensajechat.appendChild(cajaSuccess);
+            mensajechat.scrollTop = mensajechat.scrollHeight;
+
+        } else if (valor1 === "day" && valor2 === "0") {
+            modoDebug = true;
+            horaDebugH = 9;
+            horaDebugM = 0;
+            horaDebugS = 0;
+            actualizarRelojSolar();
+            let cajaSuccess = document.createElement("div");
+            cajaSuccess.className = "chat-message success";
+            cajaSuccess.textContent = "☀️ 09:00 mañana";
+            mensajechat.appendChild(cajaSuccess);
+            mensajechat.scrollTop = mensajechat.scrollHeight;
+
+        } else if (valor1 === "day" && valor2 === "1") {
+            modoDebug = true;
+            horaDebugH = 0;
+            horaDebugM = 0;
+            horaDebugS = 0;
+            actualizarRelojSolar();
+            let cajaSuccess = document.createElement("div");
+            cajaSuccess.className = "chat-message success";
+            cajaSuccess.textContent = "🌙 00:00 medianoche";
+            mensajechat.appendChild(cajaSuccess);
+            mensajechat.scrollTop = mensajechat.scrollHeight;
+
+        } else if (valor1 === "noon") {
+            modoDebug = true;
+            horaDebugH = 12;
+            horaDebugM = 0;
+            horaDebugS = 0;
+            actualizarRelojSolar();
+            let cajaSuccess = document.createElement("div");
+            cajaSuccess.className = "chat-message success";
+            cajaSuccess.textContent = "☀️ 12:00 mediodía";
+            mensajechat.appendChild(cajaSuccess);
+            mensajechat.scrollTop = mensajechat.scrollHeight;
+
+        } else if (valor1 === "night") {
+            modoDebug = true;
+            horaDebugH = 21;
+            horaDebugM = 0;
+            horaDebugS = 0;
+            actualizarRelojSolar();
+            let cajaSuccess = document.createElement("div");
+            cajaSuccess.className = "chat-message success";
+            cajaSuccess.textContent = "🌙 21:00 noche";
+            mensajechat.appendChild(cajaSuccess);
+            mensajechat.scrollTop = mensajechat.scrollHeight;
+
+        } else {
+            let cajaError = document.createElement("div");
+            cajaError.className = "chat-message error";
+            cajaError.textContent = "❌ comando incorrecto";
+            mensajechat.appendChild(cajaError);
+            mensajechat.scrollTop = mensajechat.scrollHeight;
         }
 
-        else if (valor1 === "day" && valor2 === "0") {
-            ponerHoraDebug(9, 0, 0);
-            mensajeparaterminal("☀️ 09:00 mañana", "success");
-        }
-
-        else if (valor1 === "day" && valor2 === "1") {
-            ponerHoraDebug(0, 0, 0);
-            mensajeparaterminal("🌙 00:00 medianoche", "success");
-        }
-
-        else if (valor1 === "noon") {
-            ponerHoraDebug(12, 0, 0);
-            mensajeparaterminal("☀️ 12:00 mediodía", "success");
-        }
-
-        else if (valor1 === "night") {
-            ponerHoraDebug(21, 0, 0);
-            mensajeparaterminal("🌙 21:00 noche", "success");
-        }
-
-        else {
-            mensajeparaterminal("❌ comando incorrecto", "error");
-        }
-    }
-
-    else {
-        mensajeparaterminal("❌ desconocido", "error");
+    } else {
+        let cajaError = document.createElement("div");
+        cajaError.className = "chat-message error";
+        cajaError.textContent = "❌ desconocido";
+        mensajechat.appendChild(cajaError);
+        mensajechat.scrollTop = mensajechat.scrollHeight;
     }
 }
 
@@ -247,11 +286,11 @@ function teclaGlobal(e) {
 
     if (e.altKey && e.key === "t") {
         e.preventDefault();
-        toggleChat();
+        chat1();
     }
 
     if (chatAbierto && e.key === "Escape") {
-        toggleChat();
+        chat1();
     }
 }
 
@@ -288,9 +327,9 @@ function cargarVideo() {
 function inicio() {
 
     document.addEventListener("keydown", teclaGlobal);
-    if (enviarconsola) enviarconsola.addEventListener("click", botonEnviar);
-    if (chatInput) chatInput.addEventListener("keypress", teclaInputChat);
-    if (video) video.addEventListener("loadedmetadata", cargarVideo);
+    enviarconsola.addEventListener("click", botonEnviar);
+    chatInput.addEventListener("keypress", teclaInputChat);
+    video.addEventListener("loadedmetadata", cargarVideo);
 
     setInterval(actualizarRelojSolar, 1000);
     actualizarRelojSolar();
