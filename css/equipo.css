@@ -181,10 +181,8 @@
     align-items: center;
     margin-bottom: 15px;
     height: 110px;
-    /* Altura fija para consistencia */
     position: relative;
     overflow: visible;
-    /* Permite que la imagen se salga al hacer zoom */
 }
 
 /* IMAGEN DE PERFIL - Con efecto zoom */

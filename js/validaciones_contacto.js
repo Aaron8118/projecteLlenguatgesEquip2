@@ -130,6 +130,7 @@ function comprobarN() {
   }
 }
 
+//comprbacion edad
 function comprobarEdad() {
   let edad1 = document.getElementById('edad');
   let spanError = document.getElementById('err-edad');
@@ -158,6 +159,7 @@ function comprobarEdad() {
   }
 }
 
+//comprobacion email
 function comprobarMail() {
   let mail1 = document.getElementById('correo');
   let spanError = document.getElementById('err-correo');
@@ -189,6 +191,7 @@ function comprobarMail() {
   }
 }
 
+//comprobacion asunto
 function comprobarAs() {
   let asunto1 = document.getElementById('asunto');
   let spanError = document.getElementById('err-asunto');
@@ -217,6 +220,7 @@ function comprobarAs() {
   }
 }
 
+//comprobacion mensaje
 function comprobarMsg() {
   let mensaje1 = document.getElementById('mensaje');
   let spanError = document.getElementById('err-mensaje');
@@ -245,6 +249,7 @@ function comprobarMsg() {
   }
 }
 
+//comprobar categoria
 function comprobarCat() {
   let categoria1 = document.getElementById('categoria');
   let spanError = document.getElementById('err-categoria');

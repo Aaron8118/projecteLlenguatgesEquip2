@@ -1,29 +1,31 @@
+//variables para usar
+let body = document.body;
+let contactoBloque = document.getElementsByClassName("contacto");
+let contacto = contactoBloque[0];
+
+//array de colores (pd: equipo no se me ocurren mas en ingles)
+let coloreselec = ['red', 'green', 'blue', 'yellow', 'magenta', 'cyan', 'white'];
+function cambiarColor(e) {
+    if (e.ctrlKey && e.key.toLowerCase() === "c") {
+        e.preventDefault();
+        let colorAleatorio = coloreselec[Math.floor(Math.random() * coloreselec.length)];
+        body.style.backgroundColor = colorAleatorio;
+        body.style.backgroundImage = "none";
+        contacto.style.backgroundImage = "none";
+        contacto.style.backgroundColor = colorAleatorio;
+    }
+
+    if (e.key === "Alt") {
+        body.style.backgroundColor = "";
+        body.style.backgroundImage = "";
+        contacto.style.backgroundImage = "";
+        contacto.style.backgroundColor = "";
+    }
+}
+
+//funcion iicio para llamar
 function inicio() {
-    const body = document.body;
-
-    const colores = [
-        '#FF0000', '#00FF00', '#0000FF',
-        '#FFFF00', '#FF00FF', '#00FFFF', '#FFFFFF'
-    ];
-
-    // Detecta teclas pulsadas
-    window.addEventListener("keydown", function (e) {
-
-        // Ctrl + C cambia color
-        if (e.ctrlKey && e.key.toLowerCase() === "c") {
-            e.preventDefault();
-
-            let colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
-            body.style.backgroundColor = colorAleatorio;
-            body.style.backgroundImage = "none";
-        }
-
-        // Alt restaura fondo original
-        if (e.key === "Alt") {
-            body.style.backgroundColor = "";
-            body.style.backgroundImage = "";
-        }
-    });
+    window.addEventListener("keydown", cambiarColor);
 }
 
 window.addEventListener("load", inicio);
