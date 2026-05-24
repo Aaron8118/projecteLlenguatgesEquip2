@@ -90,12 +90,15 @@ function inicio() {
 // abrir y cerrar modal
 function abrirModal(e) {
   e.preventDefault();
-  document.getElementById('modal-comentario').style.display = 'flex';
+  let modal1 = document.getElementById('modal-comentario');
+  modal1.style.display = 'flex';
 }
 
 function cerrarModal(e) {
-  if (e) e.preventDefault();
-  document.getElementById('modal-comentario').style.display = 'none';
+  e.preventDefault();
+  if (e) {
+    document.getElementById('modal-comentario').style.display = 'none';
+  }
 }
 
 // carga el JSON y rellena el array

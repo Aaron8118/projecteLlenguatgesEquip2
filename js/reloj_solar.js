@@ -163,7 +163,7 @@ function chat1() {
     }
 }
 
-// procesar comandos
+// comando de la terminal que escribirña el usuario
 function procesarComando(textoEntrada) {
 
     let partes = textoEntrada.trim().toLowerCase().split(" ");
@@ -173,36 +173,36 @@ function procesarComando(textoEntrada) {
     let valor1 = partes[2];
     let valor2 = partes[3];
 
-    let cajaNormal = document.createElement("div");
-    cajaNormal.className = "chat-message normal";
-    cajaNormal.textContent = "> " + textoEntrada;
-    mensajechat.appendChild(cajaNormal);
+    let cnormal1 = document.createElement("div");
+    cnormal1.className = "chat-message normal";
+    cnormal1.textContent = "> " + textoEntrada;
+    mensajechat.appendChild(cnormal1);
     mensajechat.scrollTop = mensajechat.scrollHeight;
 
     if (cmd1 === "/help") {
 
-        let cajaSystem = document.createElement("div");
-        cajaSystem.className = "chat-message system";
-        cajaSystem.textContent = "=== COMANDOS DISPONIBLES ===";
-        mensajechat.appendChild(cajaSystem);
+        let csystem5 = document.createElement("div");
+        csystem5.className = "chat-message system";
+        csystem5.textContent = "=== COMANDOS DISPONIBLES ===";
+        mensajechat.appendChild(csystem5);
         mensajechat.scrollTop = mensajechat.scrollHeight;
 
         for (let i = 0; i < comandos.length; i++) {
             let linea = comandos[i].cmd + " - " + comandos[i].desc;
-            let cajaInfo = document.createElement("div");
-            cajaInfo.className = "chat-message info";
-            cajaInfo.textContent = linea;
-            mensajechat.appendChild(cajaInfo);
+            let cinfo3 = document.createElement("div");
+            cinfo3.className = "chat-message info";
+            cinfo3.textContent = linea;
+            mensajechat.appendChild(cinfo3);
             mensajechat.scrollTop = mensajechat.scrollHeight;
         }
 
     } else if (cmd1 === "/clear") {
 
         mensajechat.innerHTML = "";
-        let cajaSuccess = document.createElement("div");
-        cajaSuccess.className = "chat-message success";
-        cajaSuccess.textContent = "Chat limpiado";
-        mensajechat.appendChild(cajaSuccess);
+        let csucces4 = document.createElement("div");
+        csucces4.className = "chat-message success";
+        csucces4.textContent = "Chat limpiado";
+        mensajechat.appendChild(csucces4);
         mensajechat.scrollTop = mensajechat.scrollHeight;
 
     } else if (cmd1 === "/time" && cmd2 === "set") {
@@ -210,10 +210,10 @@ function procesarComando(textoEntrada) {
         if (valor1 === "real") {
             modoDebug = false;
             actualizarRelojSolar();
-            let cajaSuccess = document.createElement("div");
-            cajaSuccess.className = "chat-message success";
-            cajaSuccess.textContent = "⏰ Hora del PC activada";
-            mensajechat.appendChild(cajaSuccess);
+            let csucces4 = document.createElement("div");
+            csucces4.className = "chat-message success";
+            csucces4.textContent = "⏰ Hora española activada";
+            mensajechat.appendChild(csucces4);
             mensajechat.scrollTop = mensajechat.scrollHeight;
 
         } else if (valor1 === "day" && valor2 === "0") {
@@ -222,10 +222,10 @@ function procesarComando(textoEntrada) {
             horaDebugM = 0;
             horaDebugS = 0;
             actualizarRelojSolar();
-            let cajaSuccess = document.createElement("div");
-            cajaSuccess.className = "chat-message success";
-            cajaSuccess.textContent = "☀️ 09:00 mañana";
-            mensajechat.appendChild(cajaSuccess);
+            let csucces4 = document.createElement("div");
+            csucces4.className = "chat-message success";
+            csucces4.textContent = "☀️ 09:00 mañana";
+            mensajechat.appendChild(csucces4);
             mensajechat.scrollTop = mensajechat.scrollHeight;
 
         } else if (valor1 === "day" && valor2 === "1") {
@@ -234,10 +234,10 @@ function procesarComando(textoEntrada) {
             horaDebugM = 0;
             horaDebugS = 0;
             actualizarRelojSolar();
-            let cajaSuccess = document.createElement("div");
-            cajaSuccess.className = "chat-message success";
-            cajaSuccess.textContent = "🌙 00:00 medianoche";
-            mensajechat.appendChild(cajaSuccess);
+            let csucces4 = document.createElement("div");
+            csucces4.className = "chat-message success";
+            csucces4.textContent = "🌙 00:00 medianoche";
+            mensajechat.appendChild(csucces4);
             mensajechat.scrollTop = mensajechat.scrollHeight;
 
         } else if (valor1 === "noon") {
@@ -246,10 +246,10 @@ function procesarComando(textoEntrada) {
             horaDebugM = 0;
             horaDebugS = 0;
             actualizarRelojSolar();
-            let cajaSuccess = document.createElement("div");
-            cajaSuccess.className = "chat-message success";
-            cajaSuccess.textContent = "☀️ 12:00 mediodía";
-            mensajechat.appendChild(cajaSuccess);
+            let csucces4 = document.createElement("div");
+            csucces4.className = "chat-message success";
+            csucces4.textContent = "☀️ 12:00 mediodía";
+            mensajechat.appendChild(csucces4);
             mensajechat.scrollTop = mensajechat.scrollHeight;
 
         } else if (valor1 === "night") {
@@ -258,10 +258,10 @@ function procesarComando(textoEntrada) {
             horaDebugM = 0;
             horaDebugS = 0;
             actualizarRelojSolar();
-            let cajaSuccess = document.createElement("div");
-            cajaSuccess.className = "chat-message success";
-            cajaSuccess.textContent = "🌙 21:00 noche";
-            mensajechat.appendChild(cajaSuccess);
+            let csucces4 = document.createElement("div");
+            csucces4.className = "chat-message success";
+            csucces4.textContent = "🌙 21:00 noche";
+            mensajechat.appendChild(csucces4);
             mensajechat.scrollTop = mensajechat.scrollHeight;
 
         } else {
