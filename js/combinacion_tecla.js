@@ -8,7 +8,7 @@ let coloreselec = ['red', 'green', 'blue', 'yellow', 'magenta', 'cyan', 'white']
 function cambiarColor(e) {
     if (e.ctrlKey && e.key.toLowerCase() === "c") {
         e.preventDefault();
-        let colorAleatorio = coloreselec[Math.floor(Math.random() * coloreselec.length)];
+        let colorAleatorio = coloreselec[Math.floor(Math.random() * 7)];
         body.style.backgroundColor = colorAleatorio;
         body.style.backgroundImage = "none";
         contacto.style.backgroundImage = "none";

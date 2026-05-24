@@ -138,7 +138,7 @@ function mostraravisos(avt) {
     let msg = document.createElement("p");
     msg.textContent = datos.msg;
 
-    //estilos para el link de dentrok
+    //crear link de dentrok
     let linkDentro = document.createElement("a");
 
     if (datos.link) {
