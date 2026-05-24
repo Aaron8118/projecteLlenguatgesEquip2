@@ -8,13 +8,13 @@ let avisos = [
     {
         titulo: "⛏️ Prueba el Juego Real",
         msg: "Juega Minecraft Offline ahora",
-        link: "./html/minecraftEntero/Client/index.html",
+        link: "./juego/minecraftEntero/Client/index.html",
         txt: "Jugar Ahora →"
     },
     {
         titulo: "🏰 Modo Creativo",
         msg: "Construye sin límites",
-        link: "./html/minecraftEntero/Client/structureCreator.html",
+        link: "./juego/minecraftEntero/Client/structureCreator.html",
         txt: "Explorar →"
     }
 ];
