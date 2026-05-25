@@ -96,9 +96,8 @@ function abrirModal(e) {
 
 function cerrarModal(e) {
   e.preventDefault();
-  if (e) {
-    document.getElementById('modal-comentario').style.display = 'none';
-  }
+  let modal = document.getElementById('modal-comentario');
+  modal.style.display = 'none';
 }
 
 // carga el JSON y rellena el array
@@ -160,6 +159,8 @@ function mostrarMensajes() {
       '</div>';
   }
 }
+
+
 
 // elimina un mensaje del array
 function eliminarMensaje(index) {
