@@ -6,7 +6,7 @@ let contenedor;
 
 const total = 10;
 let actual = 0;
-let timer = null;
+let tiempointervalo = null;
 const tiempo = 2000;
 
 // Mueve el slider
@@ -32,15 +32,15 @@ function anterior() {
 
 //se inicia automatico
 function iniciarAuto() {
-    if (!timer) {
-        timer = setInterval(siguiente, tiempo);
+    if (!tiempointervalo) {
+        tiempointervalo = setInterval(siguiente, tiempo);
     }
 }
 
 //cuando te pones encima se para
 function pararAuto() {
-    clearInterval(timer);
-    timer = null;
+    clearInterval(tiempointervalo);
+    tiempointervalo = null;
 }
 
 //para iniciar el slide

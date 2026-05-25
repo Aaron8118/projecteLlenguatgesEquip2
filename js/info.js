@@ -172,7 +172,7 @@ function inicio() {
     setTimeout(mostrarPrimero, 2000);
 }
 
-//para mostrar el primer aviso cuando entras avt los 5 segundos
+//para mostrar el primer aviso cuando entras avt los 5 segundos (asi raul lo ve el primero)
 function mostrarPrimero() {
     mostraravisos({
         titulo: "⌨️ Abrir Terminal",
