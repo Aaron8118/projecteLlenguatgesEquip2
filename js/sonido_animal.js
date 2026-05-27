@@ -12,11 +12,14 @@ function inicio() {
     }
 }
 
+
+//parar audio
 function finalizarAudio() {
     suma = 0;
     audioActual = null;
 }
 
+//reproducir el sonido del animal usamos dataset para saber que animal es
 function pulsarBotonSonido() {
     reproducirSonido(this.dataset.sonido);
 }

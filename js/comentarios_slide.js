@@ -13,7 +13,7 @@ let maxasunto = 80;
 let maxcomentario = 200;
 
 // array de mensajes iniciales
-let mensajesJSON = [
+let mensajesPrrueba = [
   {
     nombre: 'Steve',
     edad: 22,
@@ -102,8 +102,8 @@ function cerrarModal(e) {
 
 // carga el JSON y rellena el array
 function cargar() {
-  for (let i = 0; i < mensajesJSON.length; i++) {
-    let m1 = mensajesJSON[i];
+  for (let i = 0; i < mensajesPrrueba.length; i++) {
+    let m1 = mensajesPrrueba[i];
     let nuevo = new Missatge(m1.nombre, m1.edad, m1.correo, m1.asunto, m1.mensaje, m1.estrellasMarcadas);
     mensajes.push(nuevo);
   }
@@ -141,7 +141,9 @@ function renderSild() {
 // muestra los mensajes bajo el formulario
 function mostrarMensajes() {
   let contenedor = document.getElementById('lista-mensajes');
-  if (!contenedor) return;
+  if (!contenedor) {
+    return;
+  }
 
   contenedor.innerHTML = '';
 
