@@ -6,10 +6,11 @@ function inicio() {
     let coloresnombresData = document.body.dataset.nombre;
 
     if (coloresnombresData === "MINECRAFT") {
+       
         color1 = "#1e1e2e";
         color2 = "#55aa55";
     } else if (coloresnombresData === "BIOMAS") {
-        color1 = "#1a3a2a";
+         color1 = "#1a3a2a";
         color2 = "#4caf50";
     } else if (coloresnombresData === "MOBS") {
         color1 = "#3a1a1a";

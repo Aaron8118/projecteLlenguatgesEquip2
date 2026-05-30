@@ -27,6 +27,7 @@ function inicio() {
     mail.addEventListener('input', comprobarMail);
     asun.addEventListener('input', comprobarAs);
     mensj.addEventListener('input', comprobarMsg);
+    mensj.addEventListener('input', comprobarlongiMensa);
     mensj.addEventListener('input', contadorMsg);
     cate.addEventListener('change', comprobarCat);
     btnBorrar1.addEventListener('click', borrartodo1);
@@ -68,13 +69,11 @@ function contadorMsg() {
     if (actualValorlongit > maxMsg) {
       contador.style.color = "red";
     } else {
+      
       contador.style.color = "green";
     }
   }
 
-  if (actualValorlongit > maxMsg) {
-    mensaje1.value = mensaje1.value.substring(0, maxMsg);
-  }
 }
 
 // validación global formulario
@@ -88,9 +87,10 @@ function validarTodo(e) {
   comprobarMail();
   comprobarAs();
   comprobarMsg();
+  comprobarlongiMensa();
   comprobarCat();
 
-  if (sumaValidacion === 6) {
+  if (sumaValidacion === 7) {
     alert("Formulario validado correctamente");
     e.target.submit();
   } else {
@@ -231,15 +231,36 @@ function comprobarMsg() {
   if (!textoMensaje) {
     numero5 = 1;
     msg = 'El mensaje es obligatorio.';
-  } else if (textoMensaje.length > maxMsg) {
-    numero5 = 1;
-    msg = 'Maximo ' + maxMsg + ' caracteres.';
   }
 
   if (numero5 === 1) {
     mensaje1.style.borderColor = '#cc0000';
     mensaje1.style.background = '#fff5f5';
     spanError.textContent = msg;
+    spanError.style.display = 'block';
+  } else {
+    mensaje1.style.borderColor = '#2d7a2d';
+    mensaje1.style.background = '#f5fff5';
+    spanError.style.display = 'none';
+    sumaValidacion++;
+  }
+}
+
+//comprobacion longitud mensaje
+function comprobarlongiMensa() {
+  let mensaje1 = document.getElementById('mensaje');
+  let spanError = document.getElementById('err-mensaje');
+  let textoMensaje = mensaje1.value.trim();
+
+  if (!textoMensaje) {
+    sumaValidacion++;
+    return;
+  }
+
+  if (textoMensaje.length > maxMsg) {
+    mensaje1.style.borderColor = '#cc0000';
+    mensaje1.style.background = '#fff5f5';
+    spanError.textContent = 'Maximo ' + maxMsg + ' caracteres.';
     spanError.style.display = 'block';
   } else {
     mensaje1.style.borderColor = '#2d7a2d';

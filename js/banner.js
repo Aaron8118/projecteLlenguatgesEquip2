@@ -18,7 +18,7 @@ function mover() {
     info2.style.transform = `translateX(${pos}%)`;
 }
 
-//para pasar al de despues
+//para pasar al de despues (cabe destacar que la info la tenemos en el html porque seria una mala practica meterlo todo mediante appendChild)
 function siguiente() {
     actual = (actual + 1) % total;
     mover();
