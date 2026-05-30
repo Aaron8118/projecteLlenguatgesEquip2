@@ -139,15 +139,15 @@
                                         <span class="val-error" id="err-asunto"></span>
                                     </div>
                                     <div class="grupo-input">
-                                        <label for="categoria">Categoría</label>
-                                        <select id="categoria" name="categoria">
-                                            <option style="background-color:black;" value="">-- Selecciona --</option>
-                                            <option style="background-color:black;" value="bug">🐛 Reporte de error</option>
-                                            <option style="background-color:black;" value="sugerencia">💡 Sugerencia</option>
-                                            <option style="background-color:black;" value="soporte">🔧 Soporte técnico</option>
-                                            <option style="background-color:black;" value="otro">❓ Otro</option>
-                                        </select>
-                                        <span class="val-error" id="err-categoria"></span>
+                                        <label>Categoría</label>
+                                        <div class="opciones-radio" id="valoracion-radios">
+                                            <label class="radio"><input type="radio" name="valoracion" value="5"> ★★★★★</label>
+                                            <label class="radio"><input type="radio" name="valoracion" value="4"> ★★★★☆</label>
+                                            <label class="radio"><input type="radio" name="valoracion" value="3"> ★★★☆☆</label>
+                                            <label class="radio"><input type="radio" name="valoracion" value="2"> ★★☆☆☆</label>
+                                            <label class="radio"><input type="radio" name="valoracion" value="1"> ★☆☆☆☆</label>
+                                        </div>
+                                        <span class="val-error" id="err-valoracion"></span>
                                     </div>
                                 </div>
                             </div>
@@ -245,7 +245,7 @@
 
             <div class="grupo-input">
                 <label for="com-texto">Comentario</label>
-                <textarea id="com-texto" rows="3" maxlength="200"  required placeholder="Cuéntanos tu experiencia... (Mínimo 5 carácteres)"></textarea>
+                <textarea id="com-texto" rows="3" required placeholder="Cuéntanos tu experiencia... (Mínimo 5 carácteres)"></textarea>
                 <span class="val-error" id="err-com-texto"></span>
                 <span id="com-comptador" class="val-comptador">
                     0 / 200 caracteres
@@ -287,29 +287,6 @@
                                     <a href="https://www.minecraft.net/es-es/eula">Términos</a>
                                     <a href="https://www.microsoft.com/es-es/privacy/privacystatement">Privacidad</a>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Info Box: Valoración -->
-                        <div class="info-caja">
-                            <div class="info-titulo">💎 Califica la página</div>
-                            <div class="info-contenido">
-                                <p style="color:black;">¿Cómo valorarías la experiencia?</p>
-                                <form class="valoracion" action="#" method="post" aria-label="Valorar página">
-                                    <div class="estrellas" role="radiogroup" aria-label="Valoración">
-                                        <input type="radio" id="r5" name="valoracion" value="5">
-                                        <label for="r5" title="5 estrellas">★</label>
-                                        <input type="radio" id="r4" name="valoracion" value="4">
-                                        <label for="r4" title="4 estrellas">★</label>
-                                        <input type="radio" id="r3" name="valoracion" value="3">
-                                        <label for="r3" title="3 estrellas">★</label>
-                                        <input type="radio" id="r2" name="valoracion" value="2">
-                                        <label for="r2" title="2 estrellas">★</label>
-                                        <input type="radio" id="r1" name="valoracion" value="1">
-                                        <label for="r1" title="1 estrella">★</label>
-                                    </div>
-                                </form>
-                                <p class="valor-texto" aria-hidden="true">Tu valoración ayuda a mejorar.</p>
                             </div>
                         </div>
 
@@ -401,6 +378,7 @@
     <script src="../js/reloj_solar.js"></script>
     <script src="../js/mensaje_paginas.js"></script>
     <script src="../js/comentarios_slide.js"></script>
+    <script src="../js/validacion_comentarios.js"></script>
     <script src="../js/combinacion_tecla.js"></script>
 
 </body>

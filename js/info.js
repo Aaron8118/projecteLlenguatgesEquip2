@@ -1,4 +1,3 @@
-//dos avisos que saldran por la pantalla
 let avisos = [
     {
         titulo: "⌨️ Abrir Terminal",
@@ -19,13 +18,13 @@ let avisos = [
     }
 ];
 
+let avisoscontador = 0;
 let activo1 = null;
 let x = 0;
 let y = 0;
 let mov1 = false;
 let cajaActual = null;
 
-//random el sitio donde saldra
 function ponerPos(el) {
     let w1 = innerWidth - el.offsetWidth - 20;
     let h1 = innerHeight - el.offsetHeight - 20;
@@ -36,7 +35,6 @@ function ponerPos(el) {
 
 function mover(el) {
     cajaActual = el;
-    // addEventListener en vez de onmousemove/onmouseup para no machacar otros listeners de la página
     el.addEventListener("mousedown", empezarMover);
     document.addEventListener("mousemove", moverPorLaPantalla);
     document.addEventListener("mouseup", soltarCaja);
@@ -44,7 +42,6 @@ function mover(el) {
     el.style.cursor = "grab";
 }
 
-// no mover si se pulsa la X o un linkDentro
 function empezarMover(evnt) {
     mov1 = true;
     x = evnt.clientX - cajaActual.offsetLeft;
@@ -53,7 +50,6 @@ function empezarMover(evnt) {
     cajaActual.style.cursor = "grabbing";
 }
 
-//para mover la caja arrastrandola
 function moverPorLaPantalla(e) {
     if (!mov1) {
         return;
@@ -70,13 +66,7 @@ function soltarCaja() {
     }
 }
 
-function cerrarAviso() {
-    if (activo1) {
-        activo1.remove();
-        activo1 = null;
-    }
-}
-
+//borrar automático
 function borrarAutomatico() {
     if (activo1 && activo1.parentNode) {
         activo1.remove();
@@ -84,31 +74,27 @@ function borrarAutomatico() {
     }
 }
 
-//para cerrar el aviso y parar la propagacion (se nos ponia en blanco la imagen por el propagation)
+//cerrar aviso y parar propagacion
 function tancarAviso(vt) {
     vt.stopPropagation();
     vt.preventDefault();
-
-    cerrarAviso();
+        activo1.remove();
+        activo1 = null;
+    
 }
 
-//para mostrar el aviso
-function mostraravisos(avt) {
-    let datos;
-
-    if (avt) {
-        datos = avt;
-    } else {
-        datos = avisos[Math.floor(Math.random() * avisos.length)];
-    }
-    if (!avt && activo1) {
+//mostrar avisos en orden usando avisoscontador
+function mostraravisos() {
+    if (activo1) {
         setTimeout(mostraravisos, 5000);
         return;
     }
 
+    let datos = avisos[avisoscontador % avisos.length];
+    avisoscontador++;
+
     let caja = document.createElement("div");
 
-    //estilos para la caja
     caja.style.position = "fixed";
     caja.style.width = "320px";
     caja.style.minHeight = "100px";
@@ -138,7 +124,6 @@ function mostraravisos(avt) {
     let msg = document.createElement("p");
     msg.textContent = datos.msg;
 
-    //crear link de dentrok
     let linkDentro = document.createElement("a");
 
     if (datos.link) {
@@ -161,26 +146,11 @@ function mostraravisos(avt) {
 
     activo1 = caja;
     setTimeout(borrarAutomatico, 15000);
-
-    if (!avt) {
-        setTimeout(mostraravisos, 5000);
-    }
-}
-
-//esto es para iniciar Avisos
-function inicio() {
-    setTimeout(mostrarPrimero, 2000);
-}
-
-//para mostrar el primer aviso cuando entras avt los 5 segundos (asi raul lo ve el primero)
-function mostrarPrimero() {
-    mostraravisos({
-        titulo: "⌨️ Abrir Terminal",
-        msg: "Pulsa ALT + T para abrir la terminal",
-        txt: "Entendido →"
-    });
-
     setTimeout(mostraravisos, 5000);
+}
+
+function inicio() {
+    setTimeout(mostraravisos, 2000);
 }
 
 addEventListener("load", inicio);

@@ -11,6 +11,11 @@ let maxMsg = 500;
 
 // suma validaciones
 let sumaValidacion = 0;
+let segundosPantalla = 3;
+let fondoenviado = null;
+let contadorEnviado = null;
+let formularioEnviado = null;
+let cuentaAtrasEnviado = null;
 
 function inicio() {
     let campoNom = document.getElementById('nombre');
@@ -18,7 +23,7 @@ function inicio() {
     let mail = document.getElementById('correo');
     let asun = document.getElementById('asunto');
     let mensj = document.getElementById('mensaje');
-    let cate = document.getElementById('categoria');
+    let estrellas = document.getElementById('valoracion-radios');
     let btnBorrar = document.getElementsByClassName('boton-secundario');
     btnBorrar1 = btnBorrar[0];
 
@@ -27,17 +32,19 @@ function inicio() {
     mail.addEventListener('input', comprobarMail);
     asun.addEventListener('input', comprobarAs);
     mensj.addEventListener('input', comprobarMsg);
+    mensj.addEventListener('input', comprobarlongiMensa);
     mensj.addEventListener('input', contadorMsg);
-    cate.addEventListener('change', comprobarCat);
+    estrellas.addEventListener('change', comprobarEstr);
     btnBorrar1.addEventListener('click', borrartodo1);
-  document.querySelector('form').addEventListener('submit', validarTodo);
-
+  let formulariosVarioss = document.getElementsByTagName('form');
+  let formulariobueno = formulariosVarioss[0];
+  formulariobueno.addEventListener('submit', validarTodo);
   contadorMsg();
 }
 
 function borrartodo1() {
-  let campos = ['nombre', 'edad', 'correo', 'asunto', 'mensaje', 'categoria'];
-  let errores = ['err-nombre', 'err-edad', 'err-correo', 'err-asunto', 'err-mensaje', 'err-categoria'];
+  let campos = ['nombre', 'edad', 'correo', 'asunto', 'mensaje'];
+  let errores = ['err-nombre', 'err-edad', 'err-correo', 'err-asunto', 'err-mensaje', 'err-valoracion'];
 
   for (let i = 0; i < campos.length; i++) {
     let campo = document.getElementById(campos[i]);
@@ -68,13 +75,11 @@ function contadorMsg() {
     if (actualValorlongit > maxMsg) {
       contador.style.color = "red";
     } else {
+      
       contador.style.color = "green";
     }
   }
 
-  if (actualValorlongit > maxMsg) {
-    mensaje1.value = mensaje1.value.substring(0, maxMsg);
-  }
 }
 
 // validación global formulario
@@ -88,14 +93,82 @@ function validarTodo(e) {
   comprobarMail();
   comprobarAs();
   comprobarMsg();
-  comprobarCat();
+  comprobarlongiMensa();
+  comprobarEstr();
 
-  if (sumaValidacion === 6) {
-    alert("Formulario validado correctamente");
-    e.target.submit();
+  if (sumaValidacion === 7) {
+    enviadoMensaje();
   } else {
     alert("Hay errores en el formulario");
   }
+}
+//pantalla cuan tot esta ben validat
+function enviadoMensaje() {
+  formularioEnviado = document.getElementsByTagName('form')[0];
+  segundosPantalla = 3;
+
+  fondoenviado = document.createElement('div');
+  fondoenviado.style.position = 'fixed';
+  fondoenviado.style.top = '0';
+  fondoenviado.style.left = '0';
+  fondoenviado.style.width = '100%';
+  fondoenviado.style.height = '100%';
+  fondoenviado.style.background = 'rgba(0,0,0,0.7)';
+  fondoenviado.style.display = 'flex';
+  fondoenviado.style.justifyContent = 'center';
+  fondoenviado.style.alignItems = 'center';
+  fondoenviado.style.zIndex = '10000';
+
+  let caja = document.createElement('div');
+  caja.style.background = '#1e1e2e';
+  caja.style.border = '3px solid #55aa55';
+  caja.style.borderRadius = '12px';
+  caja.style.padding = '40px';
+  caja.style.textAlign = 'center';
+  caja.style.color = 'white';
+  caja.style.fontFamily = 'monospace';
+  caja.style.boxShadow = '0 0 20px black';
+
+  let icono = document.createElement('div');
+  icono.textContent = '📬';
+  icono.style.fontSize = '48px';
+
+  let titulo = document.createElement('h2');
+  titulo.textContent = 'Mensaje enviado';
+  titulo.style.margin = '10px 0';
+
+  contadorEnviado = document.createElement('p');
+  contadorEnviado.style.fontSize = '20px';
+  contadorEnviado.style.margin = '10px 0';
+  contadorEnviado.textContent = 'Reiniciando en ' + segundosPantalla + 's';
+
+  caja.appendChild(icono);
+  caja.appendChild(titulo);
+  caja.appendChild(contadorEnviado);
+  fondoenviado.appendChild(caja);
+  document.body.appendChild(fondoenviado);
+
+  cuentaAtrasEnviado = setInterval(actualizarContador, 1000);
+}
+
+function actualizarContador() {
+  segundosPantalla--;
+
+  if (segundosPantalla <= 0) {
+    clearInterval(cuentaAtrasEnviado);
+    document.body.removeChild(fondoenviado);
+    formularioEnviado.submit();
+    borrartodo1();
+    fondoenviado = null;
+    contadorEnviado = null;
+    formularioEnviado = null;
+    cuentaAtrasEnviado = null;
+  } else {
+    contadorEnviado.textContent = 'Reiniciando en ' + segundosPantalla + 's';
+  }
+
+ 
+
 }
 
 //aqui van todas las validaciones de aqui para abajo
@@ -231,9 +304,6 @@ function comprobarMsg() {
   if (!textoMensaje) {
     numero5 = 1;
     msg = 'El mensaje es obligatorio.';
-  } else if (textoMensaje.length > maxMsg) {
-    numero5 = 1;
-    msg = 'Maximo ' + maxMsg + ' caracteres.';
   }
 
   if (numero5 === 1) {
@@ -249,26 +319,46 @@ function comprobarMsg() {
   }
 }
 
-//comprobar categoria
-function comprobarCat() {
-  let categoria1 = document.getElementById('categoria');
-  let spanError = document.getElementById('err-categoria');
+//comprobacion longitud mensaje
+function comprobarlongiMensa() {
+  let mensaje1 = document.getElementById('mensaje');
+  let spanError = document.getElementById('err-mensaje');
+  let textoMensaje = mensaje1.value.trim();
+
+  if (!textoMensaje) {
+    sumaValidacion++;
+    return;
+  }
+
+  if (textoMensaje.length > maxMsg) {
+    mensaje1.style.borderColor = '#cc0000';
+    mensaje1.style.background = '#fff5f5';
+    spanError.textContent = 'Maximo ' + maxMsg + ' caracteres.';
+    spanError.style.display = 'block';
+  } else {
+    mensaje1.style.borderColor = '#2d7a2d';
+    mensaje1.style.background = '#f5fff5';
+    spanError.style.display = 'none';
+    sumaValidacion++;
+  }
+}
+
+//comprobar valoracion
+function comprobarEstr() {
+  let spanError = document.getElementById('err-valoracion');
+  let seleccionado = document.querySelector('input[name="valoracion"]:checked');
   let numero6 = 0;
   let msg = '';
 
-  if (!categoria1.value) {
+  if (!seleccionado) {
     numero6 = 1;
-    msg = 'Selecciona una categoria.';
+    msg = 'Selecciona una valoracion.';
   }
 
   if (numero6 === 1) {
-    categoria1.style.borderColor = '#cc0000';
-    categoria1.style.background = '#fff5f5';
     spanError.textContent = msg;
     spanError.style.display = 'block';
   } else {
-    categoria1.style.borderColor = '#2d7a2d';
-    categoria1.style.background = '#f5fff5';
     spanError.style.display = 'none';
     sumaValidacion++;
   }
