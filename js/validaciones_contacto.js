@@ -182,10 +182,14 @@ function comprobarN() {
   if (!textoNom) {
     numero1 = 1;
     msg = 'El nombre es obligatorio.';
+
   } else if (textoNom.length > maxNom) {
+    
     numero1 = 1;
+    
     msg = 'Maximo ' + maxNom + ' caracteres.';
   } else if (!rxNom.test(textoNom)) {
+    
     numero1 = 1;
     msg = 'Solo letras y espacios. Minimo 2 caracteres.';
   }
@@ -224,6 +228,7 @@ function comprobarEdad() {
     edad1.style.background = '#fff5f5';
     spanError.textContent = msg;
     spanError.style.display = 'block';
+
   } else {
     edad1.style.borderColor = '#2d7a2d';
     edad1.style.background = '#f5fff5';
@@ -257,6 +262,7 @@ function comprobarMail() {
     spanError.textContent = msg;
     spanError.style.display = 'block';
   } else {
+
     mail1.style.borderColor = '#2d7a2d';
     mail1.style.background = '#f5fff5';
     spanError.style.display = 'none';
@@ -351,6 +357,7 @@ function comprobarEstr() {
   let msg = '';
 
   if (!seleccionado) {
+    
     numero6 = 1;
     msg = 'Selecciona una valoracion.';
   }
