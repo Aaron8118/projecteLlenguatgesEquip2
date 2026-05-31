@@ -2,6 +2,7 @@
 let tiempo = 4000;
 let slide1 = 0;
 let timerTiempo;
+let emojisavatares = ['⚔️', '🏹', '💎', '🔥', '🏰'];
 
 // renderiza los slides del slider
 function renderSild() {
@@ -44,8 +45,7 @@ function siguienteSlide() {
 
 // mueve el track al slide indicado
 function moverSlide(num) {
-  document.getElementById('slider-track').style.transform =
-    'translateX(-' + (num * 100) + '%)';
+  document.getElementById('slider-track').style.transform = 'translateX(-' + (num * 100) + '%)';
 }
 
 // anima la barra de progreso
