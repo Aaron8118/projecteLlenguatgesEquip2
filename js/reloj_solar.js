@@ -166,8 +166,9 @@ function chat1() {
 // comando de la terminal que escribirña el usuario
 function procesarComando(textoEntrada) {
 
-    let partes = textoEntrada.trim().toLowerCase().split(" ");
-
+    let junto = textoEntrada.trim();
+    let bajaletra = junto.toLowerCase();
+    let partes = bajaletra.split(" ");
     let cmd1 = partes[0];
     let cmd2 = partes[1];
     let valor1 = partes[2];
@@ -180,13 +181,11 @@ function procesarComando(textoEntrada) {
     mensajechat.scrollTop = mensajechat.scrollHeight;
 
     if (cmd1 === "/help") {
-
         let csystem5 = document.createElement("div");
         csystem5.className = "chat-message system";
         csystem5.textContent = "=== COMANDOS DISPONIBLES ===";
         mensajechat.appendChild(csystem5);
         mensajechat.scrollTop = mensajechat.scrollHeight;
-
         for (let i = 0; i < comandos.length; i++) {
             let linea = comandos[i].cmd + " - " + comandos[i].desc;
             let cinfo3 = document.createElement("div");
@@ -204,10 +203,10 @@ function procesarComando(textoEntrada) {
         csucces4.textContent = "Chat limpiado";
         mensajechat.appendChild(csucces4);
         mensajechat.scrollTop = mensajechat.scrollHeight;
-
     } else if (cmd1 === "/time" && cmd2 === "set") {
 
         if (valor1 === "real") {
+
             modoDebug = false;
             actualizarRelojSolar();
             let csucces4 = document.createElement("div");
@@ -215,7 +214,6 @@ function procesarComando(textoEntrada) {
             csucces4.textContent = "⏰ Hora española activada";
             mensajechat.appendChild(csucces4);
             mensajechat.scrollTop = mensajechat.scrollHeight;
-
         } else if (valor1 === "day" && valor2 === "0") {
             modoDebug = true;
             horaDebugH = 9;
@@ -227,8 +225,8 @@ function procesarComando(textoEntrada) {
             csucces4.textContent = "☀️ 09:00 mañana";
             mensajechat.appendChild(csucces4);
             mensajechat.scrollTop = mensajechat.scrollHeight;
-
         } else if (valor1 === "day" && valor2 === "1") {
+            
             modoDebug = true;
             horaDebugH = 0;
             horaDebugM = 0;
@@ -241,6 +239,7 @@ function procesarComando(textoEntrada) {
             mensajechat.scrollTop = mensajechat.scrollHeight;
 
         } else if (valor1 === "noon") {
+            
             modoDebug = true;
             horaDebugH = 12;
             horaDebugM = 0;

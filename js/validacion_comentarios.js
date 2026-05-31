@@ -182,6 +182,7 @@ function enviarFormulario(vnt) {
   if (!textoNomCom) {
     errorNom = true;
   } else if (textoNomCom.length > maxNombre) {
+
     errorNom = true;
   } else if (!rxNomCom.test(textoNomCom)) {
     errorNom = true;
@@ -195,14 +196,14 @@ function enviarFormulario(vnt) {
       bloqueError1.textContent = 'El nombre es obligatorio.';
     } else if (textoNomCom.length > maxNombre) {
       bloqueError1.textContent = 'Maximo ' + maxNombre + ' caracteres.';
-    } else {
-      bloqueError1.textContent = 'Solo letras y espacios. Minimo 2 caracteres.';
+     } else {
+        bloqueError1.textContent = 'Solo letras y espacios. Minimo 2 caracteres.';
     }
     bloqueError1.style.display = 'block';
     valido = false;
   } else {
     camNom.style.borderColor = '#2d7a2d';
-    camNom.style.background = '#f5fff5';
+     camNom.style.background = '#f5fff5';
     bloqueError1.style.display = 'none';
   }
 
@@ -211,7 +212,9 @@ function enviarFormulario(vnt) {
   let falloEdad = false;
 
   if (!edadVal) {
+
     falloEdad = true;
+  
   } else if (!rxEdadCom.test(edadVal)) {
     falloEdad = true;
   }
@@ -221,16 +224,21 @@ function enviarFormulario(vnt) {
     años.style.borderColor = '#cc0000';
     años.style.background = '#fff5f5';
     if (!edadVal) {
+
       bloqueError2.textContent = 'La edad es obligatoria.';
     } else {
+      
       bloqueError2.textContent = 'La edad debe estar entre 18 y 100.';
     }
+    
+    
     bloqueError2.style.display = 'block';
     valido = false;
   } else {
     años.style.borderColor = '#2d7a2d';
     años.style.background = '#f5fff5';
     bloqueError2.style.display = 'none';
+
   }
 
   // validacion correo
@@ -328,6 +336,7 @@ function enviarFormulario(vnt) {
   let bloqueError6 = document.getElementById('err-com-estrellas');
   if (sinEstrellas == true) {
     if (bloqueError6) {
+
       bloqueError6.textContent = 'Selecciona una valoracion.';
       bloqueError6.style.display = 'block';
     }
@@ -339,6 +348,7 @@ function enviarFormulario(vnt) {
   }
 
   if (!valido) {
+    
     return;
   }
 
