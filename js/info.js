@@ -78,9 +78,10 @@ function borrarAutomatico() {
 function tancarAviso(vt) {
     vt.stopPropagation();
     vt.preventDefault();
+    if (activo1) {
         activo1.remove();
         activo1 = null;
-    
+    }
 }
 
 //mostrar avisos en orden usando avisoscontador
