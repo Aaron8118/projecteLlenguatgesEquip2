@@ -332,7 +332,6 @@ function comprobarlongiMensa() {
   let textoMensaje = mensaje1.value.trim();
 
   if (!textoMensaje) {
-    sumaValidacion++;
     return;
   }
 

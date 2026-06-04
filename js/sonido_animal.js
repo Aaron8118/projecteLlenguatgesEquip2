@@ -2,7 +2,7 @@ let suma = 0;
 let audioActual = null;
 
 function inicio() {
-    let audios = document.querySelectorAll('so[id$="_sonido"]');
+    let audios = document.querySelectorAll('audio[id$="_sonido"]');
     for (let i = 0; i < audios.length; i++) {
         audios[i].addEventListener('ended', finalizarAudio);
     }
