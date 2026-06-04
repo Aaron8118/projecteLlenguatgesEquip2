@@ -106,31 +106,6 @@ function cargar() {
   }
 
   renderSild();
-  mostrarMensajes();
-}
-
-// muestra los mensajes bajo el formulario
-function mostrarMensajes() {
-  let contenedor = document.getElementById('lista-mensajes');
-  if (!contenedor) {
-    return;
-  }
-
-  contenedor.innerHTML = '';
-
-  for (let i = 0; i < mensajes.length; i++) {
-    let m1 = mensajes[i];
-
-    contenedor.innerHTML +=
-      '<div class="mensaje-card">' +
-      '<h3>' + m1.nombre + '</h3>' +
-      '<p><strong>Edad:</strong> ' + m1.edad + '</p>' +
-      '<p><strong>Email:</strong> ' + m1.correo + '</p>' +
-      '<p><strong>Asunto:</strong> ' + m1.asunto + '</p>' +
-      '<p>' + m1.mensaje + '</p>' +
-      '<button onclick="eliminarMensaje(' + i + ')">❌ Eliminar</button>' +
-      '</div>';
-  }
 }
 
 
@@ -144,7 +119,6 @@ function eliminarMensaje(index) {
   }
 
   renderSild();
-  mostrarMensajes();
   moverSlide(slide1);
 }
 
@@ -357,7 +331,6 @@ function enviarFormulario(vnt) {
   mensajes.push(nuevo);
 
   renderSild();
-  mostrarMensajes();
   clearInterval(timerTiempo);
   timerTiempo = setInterval(siguienteSlide, tiempo);
   moverBarra();
