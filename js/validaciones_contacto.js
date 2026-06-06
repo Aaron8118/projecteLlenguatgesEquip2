@@ -48,6 +48,7 @@ function borrartodo1() {
 
   for (let i = 0; i < campos.length; i++) {
     let campo = document.getElementById(campos[i]);
+    campo.value = '';
     campo.style.borderColor = '';
     campo.style.background = '';
   }
