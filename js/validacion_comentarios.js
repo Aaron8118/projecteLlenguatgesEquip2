@@ -108,8 +108,6 @@ function cargar() {
   renderSild();
 }
 
-
-
 // elimina un mensaje del array
 function eliminarMensaje(index) {
   mensajes.splice(index, 1);
