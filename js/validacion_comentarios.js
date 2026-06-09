@@ -69,6 +69,11 @@ class Missatge {
 function inicio() {
   cargar();
 
+  // evitar que el modal se salga de la pantalla cuando hay errores
+  let cajaComentario = document.querySelector('#modal-comentario .modal-contenido');
+  cajaComentario.style.maxHeight = '85vh';
+  cajaComentario.style.overflowY = 'auto';
+
   let btnAbrir = document.getElementById('abrir-comentario');
   let btnCerrar = document.getElementById('cerrar-comentario');
   let formCom = document.getElementById('form-comentario');
